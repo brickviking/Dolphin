@@ -43,7 +43,7 @@ namespace ST
 	public:
 		uint32_t m_digits[];		// Variable length array of 32-bit digits
 
-		int32_t	signDigit(LargeIntegerOTE* oteLI)	const { return static_cast<int32_t>(m_digits[oteLI->getWordSize() - 1]); }
+		int32_t	signDigit(const LargeIntegerOTE* oteLI)	const { return static_cast<int32_t>(m_digits[oteLI->getWordSize() - 1]); }
 
 		static LargeIntegerOTE* NewWithLimbs(MWORD limbs);
 
