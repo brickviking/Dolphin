@@ -564,16 +564,18 @@ Oop* __fastcall Interpreter::primitiveLargeIntegerAdd(Oop* const sp, unsigned)
 			uint32_t* sum = oteSum->m_location->m_digits;
 			const MWORD last = limbs - 1;
 
+			// addend is signed! If we perform unsigned arithmetic with it, the result will be incorrect if negative
 			int32_t addend = operand;
 			for (MWORD i = 0; i < last; i++)
 			{
-				// Must cast at least one operand to 64-bits so that 64-bit addition performed
+				// Must cast at least one operand to 64-bits so that 64-bit addition performed. Note that directly
+				// casting a 32-bit digit with the high-bit set to 64-bits will still result in a positive number.
 				int64_t accum = static_cast<int64_t>(digits[i]) + addend;
 				sum[i] = LowLimb(accum);
 				addend = HighSLimb(accum);
 			}
 
-			// Last digit unrolled because we need to use signed arithmetic here
+			// Last digit unrolled because we need cast the high digit of the LI to 32-bit signed to get a signed 64-bit int
 			int64_t accum = static_cast<int64_t>(static_cast<int32_t>(digits[last])) + addend;
 			sum[last] = LowLimb(accum);
 
@@ -636,13 +638,16 @@ Oop* __fastcall Interpreter::primitiveLargeIntegerAdd(Oop* const sp, unsigned)
 
 			int32_t carry = 0;
 
-			MWORD i = 0;
+			MWORD i;
 			// add up the least significant limbs up to, but not including, the most-significant limb of the addend (the receiver is at least as large)
-			for (; i < size2 - 1; i++)
+			// We do all of this using unsigned 32-bit arithmetic - only the high digits need to be treated as signed
+			for (i = 0; i < size2 - 1; i++)
 			{
-				int64_t accum = static_cast<int64_t>(digits1[i]) + digits2[i] + carry;
-				sum[i] = LowLimb(accum);
-				carry = HighSLimb(accum);
+				// Using the adc intrinsic to avoid 64-bit arithmetic is significantly faster 
+				carry = _addcarry_u32(carry, digits1[i], digits2[i], sum + i);
+				//int64_t accum = static_cast<int64_t>(digits1[i]) + digits2[i] + carry;
+				//sum[i] = LowLimb(accum);
+				//carry = HighSLimb(accum);
 			}
 
 			if (size1 > size2)
@@ -1991,7 +1996,7 @@ Oop* __fastcall Interpreter::primitiveLargeIntegerBitAnd(Oop* const sp, unsigned
 {
 	struct liBitAnd
 	{
-		Oop operator()(const LargeIntegerOTE* oteA, const LargeIntegerOTE* oteB) const
+		Oop __forceinline operator()(const LargeIntegerOTE* oteA, const LargeIntegerOTE* oteB) const
 		{
 			MWORD aSize = oteA->getWordSize();
 			MWORD bSize = oteB->getWordSize();
@@ -2059,7 +2064,7 @@ Oop* __fastcall Interpreter::primitiveLargeIntegerBitAnd(Oop* const sp, unsigned
 	// Optimized version for common case of multi-precision receiver and single-precision mask.
 	struct liBitAndSingle
 	{
-		Oop operator()(const LargeIntegerOTE* oteA, SMALLINTEGER mask) const
+		Oop __forceinline operator()(const LargeIntegerOTE* oteA, SMALLINTEGER mask) const
 		{
 			const uint32_t* digitsA = oteA->m_location->m_digits;
 			const MWORD aSize = oteA->getWordSize();
