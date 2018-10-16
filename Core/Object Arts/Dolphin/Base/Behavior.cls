@@ -1047,25 +1047,6 @@ whichMethodsContainSource: aString
 
 	^self selectMethods: [:method | method containsSource: aString]!
 
-whichMethodsOnlySelfSend: aSymbol
-	"Answer a Set of methods which consist purely of a send-to-self of the specified zero-arg selector."
-
-	^self selectMethods: ((VMLibrary default indexOfSpecialSelector: aSymbol ifAbsent: [])
-				ifNil: [[:method | method isSimpleSelfSend: aSymbol]]
-				ifNotNil: 
-					[:index |
-					| specialSend send sendRet |
-					specialSend := index + OpcodePool.ShortSpecialSend - 1.
-					sendRet := CompiledCode
-								packByteCodes: {OpcodePool.PushSelf. specialSend. OpcodePool.ReturnFromMessage} asByteArray.
-					send := CompiledCode
-								packByteCodes: {OpcodePool.PushSelf. specialSend. OpcodePool.ReturnSelf} asByteArray.
-					
-					[:method |
-					| packed |
-					packed := method basicByteCodes.
-					packed == send or: [packed == sendRet]]])!
-
 whichMethodsRead: aString
 	"Answer a <collection> of <CompiledMethod>s that read the instance variable
 	named by the <readableString> argument."
@@ -1258,7 +1239,6 @@ withAllSuperclassesDo: aMonadicValuable
 !Behavior categoriesFor: #whichMethodsAssign:!development!methods-testing!public! !
 !Behavior categoriesFor: #whichMethodsAssign:at:!development!methods-testing!private! !
 !Behavior categoriesFor: #whichMethodsContainSource:!development!methods-testing!public! !
-!Behavior categoriesFor: #whichMethodsOnlySelfSend:!development!methods-testing!public! !
 !Behavior categoriesFor: #whichMethodsRead:!development!methods-testing!public! !
 !Behavior categoriesFor: #whichMethodsRead:at:!development!methods-testing!private! !
 !Behavior categoriesFor: #whichMethodsReferTo:!methods-testing!public! !
