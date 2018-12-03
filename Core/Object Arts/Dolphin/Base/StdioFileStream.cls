@@ -501,7 +501,6 @@ fromHandle: anExternalHandle
 initialize
 	self addClassConstant: 'ReadOnlyMask' value: 16r01.
 	self addClassConstant: 'DeviceMask' value: 16r40.
-	self addClassConstant: 'EncodingMask' value: 16r78.
 	self addClassConstant: 'ClassForEncoding'
 		value: (IdentityDictionary new
 				at: #binary put: StdioBinaryFileStream;
