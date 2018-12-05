@@ -130,6 +130,9 @@ peekFor: aCharacter
 					[self position: pos.
 					false]]!
 
+translationMode
+	^CRTConstants._O_TEXT!
+
 upToEnd
 	"Answer a collection consisting of the future sequence values of the receiver (i.e. from 
 	the current position to the end)."
@@ -152,6 +155,7 @@ upToEnd
 !StdioTextFileStream categoriesFor: #nextPut:!accessing!public! !
 !StdioTextFileStream categoriesFor: #peek!accessing!public! !
 !StdioTextFileStream categoriesFor: #peekFor:!accessing!public! !
+!StdioTextFileStream categoriesFor: #translationMode!constants!private! !
 !StdioTextFileStream categoriesFor: #upToEnd!accessing!public! !
 
 StdioTextFileStream methodProtocol: #puttableStream attributes: #(#ansi #readOnly) selectors: #(#cr #flush #nextPut: #nextPutAll: #space #tab)!
@@ -160,6 +164,10 @@ StdioTextFileStream methodProtocol: #writeFileStream attributes: #(#ansi #readOn
 !StdioTextFileStream class methodsFor!
 
 encodingMode
-	^$t! !
+	^$t!
+
+encodingType
+	^#text! !
 !StdioTextFileStream class categoriesFor: #encodingMode!constants!private! !
+!StdioTextFileStream class categoriesFor: #encodingType!constants!public! !
 

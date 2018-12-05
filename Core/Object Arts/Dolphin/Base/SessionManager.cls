@@ -741,7 +741,7 @@ openConsoleStreams
 								type: #utf16le]
 						ifFalse: 
 							["stdio file descriptor already initialized, e.g. because of pipe or redirection to a file"
-							StdioFileStream fromHandle: (crt _fdopen: fd mode: (fd == 0 ifTrue: ['rt'] ifFalse: ['wt']))]]!
+							StdioUtf8FileStream fromHandle: (crt _fdopen: fd mode: (fd == 0 ifTrue: ['rt'] ifFalse: ['wt']), 'ccs=UTF-8')]]!
 
 openEventLog
 	"Private - Open the NT event log for writing, and answer a handle onto it that can be passed to the

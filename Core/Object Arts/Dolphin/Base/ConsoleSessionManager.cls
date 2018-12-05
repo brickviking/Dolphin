@@ -76,7 +76,7 @@ openConsoleStreams
 	stdioStreams isNil ifFalse: [^self].
 	"Note that all the stdio streams should be in text/translating mode"
 	vm := VMLibrary default.
-	stdioStreams := {vm stdin. vm stdout. vm stderr} collect: [:each | StdioFileStream fromHandle: each]!
+	stdioStreams := {vm stdin. vm stdout. vm stderr} collect: [:each | StdioUtf8FileStream fromHandle: each]!
 
 quit: anInteger
 	"Private - Force a close down of the session with the specified exit code."

@@ -365,7 +365,8 @@ setStream: anExternalAddress name: aString mode: modeString
 	(crtlib _isatty: fd)
 		ifTrue: 
 			[crtlib := CRTLibrary nonblocking.
-			flags := flags bitOr: DeviceMask]!
+			flags := flags bitOr: DeviceMask].
+	crtlib _setmode: fd mode: self translationMode!
 
 setToEnd
 	"Set the file pointer to the end of the file."
@@ -402,6 +403,9 @@ tab: anInteger
 	"Append the specified number of tabs to the receiver."
 
 	anInteger timesRepeat: [self tab]!
+
+translationMode
+	^CRTConstants._O_BINARY!
 
 upTo: anObject
 	"Answer a collection of elements starting with the next element accessed by the receiver,
@@ -459,6 +463,7 @@ upTo: anObject
 !StdioFileStream categoriesFor: #space!constants!public! !
 !StdioFileStream categoriesFor: #tab!accessing!public! !
 !StdioFileStream categoriesFor: #tab:!accessing!public! !
+!StdioFileStream categoriesFor: #translationMode!constants!private! !
 !StdioFileStream categoriesFor: #upTo:!accessing!public! !
 
 StdioFileStream methodProtocol: #collectionStream attributes: #(#ansi #readOnly) selectors: #(#close #contents #isEmpty #position #position: #reset #setToEnd)!
@@ -487,15 +492,17 @@ classForEncoding: typeSymbol
 encodingMode
 	^$b!
 
+encodingType
+	^#binary!
+
 fromHandle: anExternalHandle
 	"Answer a new instance of the receiver on the specified stdio FILE pointer,
 	assumed to be in text mode."
 
-	#todo "Can we determine the encoding?".
 	^self
 		newStream: anExternalHandle
 		name: nil
-		type: #text
+		type: self encodingType
 		mode: 'w+'!
 
 initialize
@@ -701,6 +708,7 @@ write: aString type: aSymbol
 !StdioFileStream class categoriesFor: #attachMode:!helpers!private! !
 !StdioFileStream class categoriesFor: #classForEncoding:!helpers!private! !
 !StdioFileStream class categoriesFor: #encodingMode!constants!private! !
+!StdioFileStream class categoriesFor: #encodingType!constants!public! !
 !StdioFileStream class categoriesFor: #fromHandle:!instance creation!public! !
 !StdioFileStream class categoriesFor: #initialize!development!initializing!public! !
 !StdioFileStream class categoriesFor: #newStream:name:type:mode:!instance creation!private! !
