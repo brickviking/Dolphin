@@ -14,6 +14,6 @@
         </td>
       </tr>
     </table></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">Learning to browse the image successfully is a very important skill for getting the most out of Smalltalk. If you want to learn how a piece of code works use the </text><text styleclass="Menu Command" translate="true">Method/References to </text><text styleclass="Normal" translate="true">(Shift+F12)</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Menu Command" translate="true">Method/Definitions of</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Normal" translate="true">(F12) commands to find out where other methods are used and defined.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Learning to browse the image successfully is a very important skill for getting the most out of Smalltalk. If you want to learn how a piece of code works use the </text><text styleclass="Menu Command" translate="true">Method/References to</text><text styleclass="Normal" translate="true"> (Shift+F12) and </text><text styleclass="Menu Command" translate="true">Method/Definitions of</text><text styleclass="Normal" translate="true"> (F12) commands to find out where other methods are used and defined.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
   </body>
 </topic>
