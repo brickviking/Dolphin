@@ -10,7 +10,7 @@
           <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
         </td>
         <td style="width:328px;">
-          <para styleclass="Normal"><text styleclass="Normal" translate="true">The</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</text><text styleclass="Normal" translate="true"> is a tool available in Dolphin Professional and provides a wizard style interface that allows you to configure the various settings for an image stripper prior to deployment of a Dolphin application to an executable or DLL.</text></para>
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</text><text styleclass="Normal" translate="true"> lets you modify image stripper settings prior to export of the Dolphin application as an executable or DLL.</text></para>
         </td>
       </tr>
     </table></para>
