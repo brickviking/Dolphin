@@ -22,6 +22,6 @@
     </table></para>
     <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to start Dolphin with a particular image file it is simply necessary to double click the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">.IMG7</text><text styleclass="Normal" translate="true"> file. Alternatively, you may drag the image and drop it over the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Dolphin7.exe</text><text styleclass="Normal" translate="true"> executable.</text></para>
     <para styleclass="Notes"><text styleclass="Notes" translate="true">Obviously, if you wish, you can also create a shortcut icon to your image file on the desktop.</text></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">After starting Dolphin, you will initially be confronted with a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Normal" translate="true">System Folder</link><text styleclass="Normal" translate="true"> window, which we will discuss in the next section.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">After starting Dolphin, you will initially see the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Normal" translate="true">System Folder</link><text styleclass="Normal" translate="true"> window, which we will discuss in the next section.</text></para>
   </body>
 </topic>
