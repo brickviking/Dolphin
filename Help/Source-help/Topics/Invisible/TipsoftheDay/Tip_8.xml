@@ -10,7 +10,7 @@
           <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
         </td>
         <td style="width:328px;">
-          <para styleclass="Normal"><text styleclass="Normal" translate="true">Want to get an overall view of the entire Dolphin class library? The </text><text styleclass="Program Feature" translate="true">Class Diagram</text><text styleclass="Normal" translate="true"> tab in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Program Feature" translate="true">&#32;</text><text styleclass="Normal" translate="true">and </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> shows a graphical representation of the class hierarchy around the selected class.</text></para>
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Want to get an overall view of the entire Dolphin class library? The </text><text styleclass="Program Feature" translate="true">Class Diagram</text><text styleclass="Normal" translate="true"> tab in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> shows a graphical representation of the class hierarchy around the selected class.</text></para>
         </td>
       </tr>
     </table></para>
