@@ -14,6 +14,6 @@
         </td>
       </tr>
     </table></para>
-    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The browser acts as a simple container in which ActiveX controls can be hosted. It allows you to interactively experience the effect of setting various properties and methods of the control be hosted. It also presents a list of the ActiveX events fired by the control.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The browser acts as a simple container in which ActiveX controls can be hosted. It allows you to interactively experience the effect of setting various properties and methods of the control being hosted. It also presents a list of the ActiveX events fired by the control.</text></para>
   </body>
 </topic>
