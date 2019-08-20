@@ -6,6 +6,6 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sample Applications Icons</text></para>
     </header>
-    <para styleclass="Normal"><snippet src="Avatar_Chat_Sample"/><snippet src="Bouncing_Balls_Sample"/><snippet src="Hello_World_Sample"/><snippet src="EtchASketch_Sample"/><snippet src="Notepad_Sample"/><snippet src="Registry_Editor_Sample"/><snippet src="Scribble_Pad_Sample"/><snippet src="Simple_Web_Browser_Sample"/><snippet src="Smalltalk_Calculator_Sample"/><snippet src="Sockets_Chat_Sample"/><snippet src="Video_Library_Sample"/><snippet src="WordPad_Sample"/><snippet src="XMLPad_Sample"/></para>
+    <para styleclass="Normal"><snippet src="Bouncing_Balls_Sample"/><snippet src="Hello_World_Sample"/><snippet src="EtchASketch_Sample"/><snippet src="Notepad_Sample"/><snippet src="Registry_Editor_Sample"/><snippet src="Scribble_Pad_Sample"/><snippet src="Simple_Web_Browser_Sample"/><snippet src="Smalltalk_Calculator_Sample"/><snippet src="Sockets_Chat_Sample"/><snippet src="Video_Library_Sample"/><snippet src="WordPad_Sample"/><snippet src="XMLPad_Sample"/></para>
   </body>
 </topic>
