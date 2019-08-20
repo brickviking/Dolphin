@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Running Applets without a Web Browser</title>
+  <keywords>
+    <keyword translate="true">Running Applets without a Web Browser</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Running Applets without a Web Browser</text></para>
+    </header>
+    <para style="margin-top:14px;"><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Dolphin Professional or Higher</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">So far, we have been concerned with deploying applets to binary packages which can then be loaded and run in a web browser by the Dolphin </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.glosswebappletplug.in" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Web Applet Plug-in</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">. However, this is by no means the only way to run these applets. It is quite possible to write a Dolphin application that is capable of instantiating classes loaded dynamically from binary packages.</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">In order to do this, your application must have the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.glosswebdeploymentkit" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Web Deployment Kit</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> package installed since the loading mechanism makes use of some of the classes supplied with it. The best way to illustrate procedure is probably by example. We will assume that you have already deployed the Hello World Applet package to a binary .PAK file.</text></para>
+  </body>
+</topic>

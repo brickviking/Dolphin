@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Protocol Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Protocol Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Protocol_Browser_Summary"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">&#32;</text><image src="ProtocolBrowserShell.png" scale="77.86%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">Protocol Browser</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Menu Command" translate="true">Tools/Class Browser</text><text styleclass="Normal" translate="true"> menu command in any tool. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Protocol Browser</text><text styleclass="Normal" translate="true"> consists of the following panes:</text></para>
+  </body>
+</topic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Binary Filing Objects</title>
+  <keywords>
+    <keyword translate="true">Binary Filing Objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Binary Filing Objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, whenever you save your image, your entire world is saved to an image file so that when it is reloaded, everything is miraculously, and conveniently, still there. However, it very useful to be able to save objects to disk independently of the &apos;all or nothing&apos; image file. For instance, you may want to copy objects to another image, perhaps to that of a customer, or maybe you need to &apos;clone&apos; an object a number of times when the original is not present in the image.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you encounter these or similar situations, consider making use of Dolphin&apos;s </text><text styleclass="Program Feature" translate="true">Smalltalk Binary</text><text styleclass="Normal" translate="true"> (STB) Filing classes. These classes provide a mechanism for serializing objects into a compact binary data structure that can reside either in a </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true"> or on a disk file. Dolphin uses STB itself in the Packaging system and a modified version (STL) is used as the storage format for its View Resources.</text></para>
+  </body>
+</topic>

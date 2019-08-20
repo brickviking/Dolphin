@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class Editions Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class Editions Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Class_Editions_Pane_Summary"/><text styleclass="Normal" translate="true">After selecting an edition and clicking on the right mouse button a context menu will open with the following options:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update list</text><text styleclass="Normal" translate="true"> - use this option to update the list of all class editions. This is useful when multiple developers are working with the same repository. If another developer just added a class edition to the repository you can update the list without having to reopen the browser window. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - use this option to load the selected class edition. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Compare Editions</text><text styleclass="Normal" translate="true"> - use this option to compare two selected class editions with each other. This option enabled only when two class editions are selected in the list.</text></li>
+    </list>
+  </body>
+</topic>

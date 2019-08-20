@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">SUnit Browser Tool</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">SUnit Browser Tool</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="SUnit Browser.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:214px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Opens the </text><text styleclass="Program Feature" translate="true">SUnit Browser</text><text styleclass="Popup Box" translate="true"> onto the entire set of unit test classes available in the image.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">SUnit Browser</text><text styleclass="Popup Box" translate="true"> allows you to run all of the available tests or to choose selected tests and run those individually. You may also choose to run test under the control of the debugger.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The SUnit Browser is a community project written by Jeff Odell. It provides a more advanced user interface over that supplied with the standard SUnit Camp Smalltalk test framework.</text></para>
+  </body>
+</topic>

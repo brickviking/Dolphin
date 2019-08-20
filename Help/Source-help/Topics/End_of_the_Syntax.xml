@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">End of the Syntax</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">End of the Syntax</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At this point, we&apos;ve covered all of the syntax of Smalltalk. Everything else is part of the class library. Have you noticed anything missing? How about </text><text styleclass="Normal" style="font-style:italic;" translate="true">if-then-else</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Normal" style="font-style:italic;" translate="true">while</text><text styleclass="Normal" translate="true"> loops? Smalltalk just uses blocks and ordinary message sends. </text></para>
+  </body>
+</topic>

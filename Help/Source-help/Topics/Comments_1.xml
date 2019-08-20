@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Comments</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Comments</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Comments can be inserted into your Smalltalk code to provide additional information to help the program reader. A comment is simply text that is enclosed within double quotes.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;This is a comment&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Generally, Smalltalk requires fewer comments than often appear in other languages because the program text is very readable. You should only add comments where they significantly enhance the understandability of the code.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Comments can appear anywhere but they must not breakup the fundamental items of the language such as message selectors or numbers. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">365 &quot;Days per year&quot; * 24 &quot;Hours per day&quot; </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">is legal, whereas:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">36&quot;Days per year&quot;5 * 2&quot;Hours per day&quot;4</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">is not. The latter will generate an error from the Dolphin Smalltalk compiler.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: users of other languages will be used to using double quote marks to denote text strings. It is obviously important that you take special note of this difference with Smalltalk: double quotes delimit comments and single quotes delimit literal text strings.</text></para>
+  </body>
+</topic>

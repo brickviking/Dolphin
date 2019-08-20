@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">More Complicated Boolean Expressions</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">More Complicated Boolean Expressions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far we have only used boolean expressions containing a single condition. Sometimes it is necessary to use a combination of conditions that make up a more complex expression. Try displaying the results of the following to see if you&apos;re working too hard:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Time now hours&gt;22 or: [Time now hours&lt;6].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If the current time is between 10 p.m. and 6 a.m., this expression will answer </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true">. By now you should be able to see what&apos;s going on here. The #</text><text styleclass="Class Name" translate="true">or</text><text styleclass="Normal" translate="true">: message is being received by a boolean value (the result of </text><text styleclass="Class Name" translate="true">Time now hours&gt;22</text><text styleclass="Normal" translate="true">) and being passed another condition in a block of code which needs to be evaluated if the receiver is </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true">. The result of the #</text><text styleclass="Class Name" translate="true">or</text><text styleclass="Normal" translate="true">: message is that of the combined condition.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An #</text><text styleclass="Class Name" translate="true">and</text><text styleclass="Normal" translate="true">: message is also available:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie radius: 40.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[simon radius &gt; charlie radius and: [simon radius &gt; teresa radius]]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">whileTrue: [ simon shrinkBy: 10 ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This shrinks </text><text styleclass="Class Name" translate="true">simon</text><text styleclass="Normal" translate="true"> to be the same size as the larger of the other two shapes. Notice that, in this situation, the #and: expression has being enclosed in another block so that it can be repeatedly evaluated by #</text><text styleclass="Class Name" translate="true">whileTrue</text><text styleclass="Normal" translate="true">: until the required size is reached.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Inspecting a Result Set</title>
+  <keywords>
+    <keyword translate="true">Inspecting a Result Set</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Inspecting a Result Set</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> displays in a workspace (via #</text><text styleclass="Class Name" translate="true">printOn</text><text styleclass="Normal" translate="true">:) by listing the columns that it contains. However, a better way of viewing it is to use an &#160;</text><text styleclass="Program Feature" translate="true">Inspector</text><text styleclass="Normal" translate="true"> since this will also allow you to access the individual rows. Try inspecting the existing result set, </text><text styleclass="Code Example" translate="true">rs</text><text styleclass="Normal" translate="true">, to open a </text><text styleclass="Program Feature" translate="true">Flipper Inspector</text><text styleclass="Normal" translate="true"> on to the results.</text></para>
+    <para styleclass="Normal"><image src="DBResultSet Inspector.png" scale="69.84%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that the </text><text styleclass="Program Feature" translate="true">Published Aspect Inspector</text><text styleclass="Normal" translate="true"> for a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> is capable of pulling the rows from the database in batches of 10 as you ask for them. Simply click on the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Next 10 items</text><text styleclass="Normal" translate="true"> entry in the left-hand pane to access each subsequent batch in the result table. The advantage of this behaviour is that it is not necessary for the inspector to pull a (potentially very large) result set into memory all in one go.</text></para>
+  </body>
+</topic>

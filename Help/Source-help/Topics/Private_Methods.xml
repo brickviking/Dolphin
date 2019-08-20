@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Private Methods</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Private Methods</text></para>
+    </header>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">Now select #x:y: in class </text><text styleclass="Class Name" translate="true">Point (Point&gt;&gt;x:y:)</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Set the x and y coordinates of the receiver.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Primarily intended for instance creation. Answer the receiver.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">x := xCoord.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">y := yCoord</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This shows the definition of a method with two parameters. Note also, that there is no explicit statement returning a value so this means that the method will answer the receiving point when it completes. Also interesting is the fact that, in the comment, the method is marked as being &quot;Private&quot;. Some methods are written to be of use only by the original programmer of the class itself and are not expected to be used generally by others. These methods are said to be private to the class and are indicated as such in their method comments.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: unlike many other programming languages, Smalltalk does not enforce this idea of method privacy. It is perfectly possible for you to call any private method at any time. What the method author has indicated is that this may not be a good idea, either because the method might have unusual side-effects, or because the method is not guaranteed to be present in future implementations of the class.</text></para>
+  </body>
+</topic>

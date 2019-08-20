@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Property</title>
+  <keywords>
+    <keyword translate="true">Property</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Property</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You are creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> and choosing </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instancevariablerole" styleclass="Normal" translate="true">Instance Variable Roles</link><text styleclass="Normal" translate="true">. Sometimes you may come across occasions when some state instance variables are not applicable to all instances of a class or are rarely used. Using an instance variable to hold the attribute then this will waste space in all the instances for which the attribute has no relevance.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">What can be done to reduce this overhead in situations where it may not be appropriate or convenient to refactor the class hierarchy?</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Smalltalk provides a </text><text styleclass="Program Feature" translate="true">Property</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">mechanism for such eventualities. This allows you to associate data with an object on a per-instance basis.</text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Property</text><text styleclass="Normal" translate="true"> accessing is provided for all objects by a number of methods in class </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true">. Look in the </text><text styleclass="Normal" translate="true">properties</text><text styleclass="Normal" translate="true"> category to see the available methods. In particular, the following methods are most important:</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">propertyAt: aSymbol</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">propertyAt: aSymbol put: anObject</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">removePropertyAt aSymbol:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Before using a property, however, check that there isn&apos;t a better way to structure your classes to avoid the issue. Refactoring so that there is a new subclass containing an instance variable for the additional attribute is often a more appropriate solution. Use the property mechanism only once you are satisfied that there is a genuine case that requires it.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Example</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consider an architectural application. It contains a hierarchy of classes (eg. </text><text styleclass="Class Name" translate="true">Shape</text><text styleclass="Normal" translate="true">) representing the various elements in a drawing. Some attributes are common to all of the subclasses, eg. </text><text styleclass="Normal" translate="true">size</text><text styleclass="Normal" translate="true">, </text><text styleclass="Normal" translate="true">position</text><text styleclass="Normal" translate="true">, and these are instance variables. There may also be a </text><text styleclass="Normal" translate="true">label </text><text styleclass="Normal" translate="true">attribute which is common, but optional. This could be implemented as a property.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Shape&gt;&gt;label</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Answer the label belonging to the receiver,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;or nil if the receiver has no label associated with it.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self propertyAt: #label ifAbsent: []</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Shape&gt;&gt;label: aString</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Set the label belonging to the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self propertyAt: #label put: aString</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Using a property to hold attribute information for an object can save space in situations where the majority of instances of a class do not actually make use of the attribute. However, the standard property accessing mechanism is much slower than accessing an instance variable and the amount of memory required to store a property is greater.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When using the property mechanism instead of holding data in an instance variable remember that this is an implementation detail and should be hidden from clients of the class, and even other methods in the class itself. You should always provide accessor methods to get and set an attribute which has been implemented as a property.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link><text styleclass="Normal" translate="true">, </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instancevariablerole" styleclass="Normal" translate="true">Instance Variable Role</link></para>
+  </body>
+</topic>

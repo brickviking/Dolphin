@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Accessing a Row</title>
+  <keywords>
+    <keyword translate="true">Accessing a Row</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Accessing a Row</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you ask a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> for a particular row of information you are returned an instance of </text><text styleclass="Class Name" translate="true">DBRow</text><text styleclass="Normal" translate="true">. From this you can access the individual fields using either their symbolic names or their index positions within the row.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs := c query: &apos;select * from Orders where ShipCountry=&apos;&apos;France&apos;&apos;&apos;. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">row := rs first. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">row columns. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">row at: #ShipCountry. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">row at: #ShipCity. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">row atIndex: 2. &quot;Display it&quot;</text></para>
+  </body>
+</topic>

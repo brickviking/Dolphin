@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Changes Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Changes Browser</text><text styleclass="Normal" translate="true"> is a powerful tool provided by the </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> which can be used for the following tasks:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Comparing source code of different packages. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Merging source code changes when two developers are working on the same package. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Porting Smalltalk source code from Dolphin Smalltalk to other dialects and back.</text></li>
+    </list>
+  </body>
+</topic>

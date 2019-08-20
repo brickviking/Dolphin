@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Lagoon Deployment Kit</title>
+  <keywords>
+    <keyword translate="true">Lagoon Deployment Kit</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Lagoon Deployment Kit</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Lagoon Application Deployment Kit </text><text styleclass="Normal" translate="true">provides the ability to deploy an application you have created with Dolphin Smalltalk to an executable file which may then be distributed to others as required. The kit itself is contained in the</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Program Feature" translate="true">Application Deployment Kit</text><text styleclass="Normal" translate="true"> package which is available in the</text><text styleclass="Program Feature" translate="true">&#32;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Professional_Edition" styleclass="Program Feature" translate="true">Dolphin Professional</link><text styleclass="Normal" translate="true"> product.</text></para>
+  </body>
+</topic>

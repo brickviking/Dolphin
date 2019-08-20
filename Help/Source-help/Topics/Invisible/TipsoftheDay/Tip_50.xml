@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #50</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are using Dolphin on a system with limited screen real estate you can configure it to use the </text><text styleclass="Normal" style="font-style:italic;" translate="true">&apos;Basic class browser&apos;</text><text styleclass="Normal" translate="true"> view, which takes up much less space. Do &#160;this by changing the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Class Name" translate="true">#defaultView</text><text styleclass="Normal" translate="true"> option &#160;(choose </text><text styleclass="Menu Command" translate="true">Tools/Options</text><text styleclass="Normal" translate="true"> with the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> open). However, be aware that this view has much less functionality.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An alternative to re-configuring the default view is to unpin the filters pane in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> and watch it slide away. With the </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> you can unpin both the filters and the packages panes which will give you much less clutter and plenty more screen space.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

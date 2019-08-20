@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Nil</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Nil</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Okay, look back to that test that we just did. Immediately after we had created the fresh instance we queried its </text><text styleclass="Class Name" translate="true">name</text><text styleclass="Normal" translate="true"> and got back a (perhaps) surprising result; </text><text styleclass="Class Name" translate="true">nil</text><text styleclass="Normal" translate="true">. This is a special value that Smalltalk uses to indicate that a variable slot has not yet been initialized. </text><text styleclass="Class Name" translate="true">Nil</text><text styleclass="Normal" translate="true"> is actually an object in its own right (if you ask it its class it will answer that it is an instance of </text><text styleclass="Class Name" translate="true">UndefinedObject</text><text styleclass="Normal" translate="true">). In Smalltalk everything is an object - right down to the concept of nothingness! </text></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">Nil</text><text styleclass="Normal" translate="true"> can be used for more than just testing whether something is uninitialized. You&apos;ll also find it useful in your own programs when you want to represent the concept of something being in an undefined state. </text></para>
+  </body>
+</topic>

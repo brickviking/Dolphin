@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pluggable Views</title>
+  <keywords>
+    <keyword translate="true">Pluggable Views</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pluggable Views</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">With </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true">, all of the elements are pluggable. If you wish to change the visible representation of a component then you merely plug a different sort of view onto the presenter. For example, you might choose to plug a &quot;Multiline text&quot; view onto a </text><text styleclass="Class Name" translate="true">TextPresenter</text><text styleclass="Normal" translate="true"> to replace in the single line &quot;Default view&quot;.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Try the following examples:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">TextPresenter show.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This will create a </text><text styleclass="Class Name" translate="true">TextPresenter</text><text styleclass="Normal" translate="true"> component connect it to a </text><text styleclass="Class Name" translate="true">TextEdit</text><text styleclass="Normal" translate="true"> view (the default). By evaluating the above example, the view is automatically cradled by a top-level shell window for convenience but we can ignore this detail here and just focus on the text editing. As you type, you&apos;ll notice that you can&apos;t enter any newline characters in the edit field since a </text><text styleclass="Class Name" translate="true">TextEdit</text><text styleclass="Normal" translate="true"> turns out to be a Windows control that only supports single line text.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">However, it is also possible to open other views onto a </text><text styleclass="Normal" style="font-style:italic;" translate="true">TextPresenter</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">TextPresenter show: &apos;Multiline text&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you might imagine, you are now able to enter text into this presenter over multiple lines. The important point here is that the same class, </text><text styleclass="Class Name" translate="true">TextPresenter</text><text styleclass="Normal" translate="true"> is handling the input to the model in both cases. However, the way the information is displayed, on one or over multiple lines, is determined by the type of view plugged onto it.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Another experiment, this time using a </text><text styleclass="Class Name" translate="true">BooleanPresenter,</text><text styleclass="Normal" translate="true"> might be:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">BooleanPresenter show.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">BooleanPresenter show: &apos;Push to toggle&apos;.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Reinstatement on Image Re-load</title>
+  <keywords>
+    <keyword translate="true">Reinstatement on Image Re-load</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Reinstatement on Image Re-load</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you quit (and save) your Dolphin image with active </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> objects, you will find that these will be correctly reinstated when the image is re-loaded. In general, you&apos;ll find this to be a very convenient situation since it matches the way in which you expect most Smalltalk objects to behave. However, you should bear in mind that these active objects will require the ODBC data source to still be available when the image is restarted. If it is not, you will get a number of walkbacks during the restart process and these may potentially prevent the image from re-loading correctly. To avoid losing valuable work, you should bear this in mind when using the </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> interface.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Comparing Source and Binary Packages</title>
+  <keywords>
+    <keyword translate="true">Comparing Source and Binary Packages</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Comparing Source and Binary Packages</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Here is a comparison of the contents held by each type of package:</text></para>
+    <para style="margin-top:14px; margin-left:1px;"><table rowcount="6" colcount="3" style="width:479px; cell-padding:1px; cell-spacing:2px; border-width:1px; cell-border-width:1px; border-color:#aca899; border-style:raised-color;">
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><text style="font-family:Verdana; font-size:10pt; font-weight:bold; color:#000000;" translate="true">Package Content</text></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; font-weight:bold; color:#000000;" translate="true">Source packages</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; font-weight:bold; color:#000000;" translate="true">Binary packages</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Classes</text></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Full source code</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Compiled bytecode</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.glossloosemethods" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Loose Methods</link></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Source code for individual methods</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Compiled bytecode for individual methods</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><link displaytype="text" defaultstyle="true" type="topiclink" href="glossresources" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Resources</link></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Binary resources</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Binary resources</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Globals</text></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Binary </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossglobal" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">global</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> objects</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">X</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:30%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Installation scripts</text></para>
+        </td>
+        <td style="width:39%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Smalltalk installation scripts</text></para>
+        </td>
+        <td style="width:31%;">
+          <para><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">X</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="background-color:#ffffff;"></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:7px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Binary Packages have a number of advantages when considering their potential use for distributing applets:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" style="text-indent:-13px; margin-left:39px; font-family:Verdana; font-size:10pt; color:#000000;">
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">They are faster to load than source packages because the classes they contain are held in a pre-compiled format.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">They are significantly smaller than source packages which makes them eminently more suitable for downloading over a slow connection.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Because they contain no source, they will often be preferred by developers when distributing proprietary code.</text></li>
+    </list>
+  </body>
+</topic>

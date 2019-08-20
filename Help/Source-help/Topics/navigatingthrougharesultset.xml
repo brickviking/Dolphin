@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Navigating through a Result Set</title>
+  <keywords>
+    <keyword translate="true">Navigating through a Result Set</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Navigating through a Result Set</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The result set we have just obtained from the previous query should contain a number of rows of data. The </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> class gives us a number of methods for navigating through the rows. Try the following examples to see how you can access the available data.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs first. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs next. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs next. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs last. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs prev. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although not particularly efficient, you can also treat a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> as any other in memory collection (it is a subclass of </text><text styleclass="Class Name" translate="true">ArrayedCollection</text><text styleclass="Normal" translate="true">). For example, you can collect all of the shipping names from the </text><text styleclass="Normal" translate="true">Orders</text><text styleclass="Normal" translate="true"> table using:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs collect: [:x | x ShipName]. &quot;Inspect it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The rows in the set can also be addressed by their index location:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs at: 1. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs at: 100. &quot;Display it&quot;</text></para>
+  </body>
+</topic>

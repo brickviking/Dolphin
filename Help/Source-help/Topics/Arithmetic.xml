@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Arithmetic</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Arithmetic</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s have a look at the messages for performing simple arithmetic on numbers.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">300 + 400 &quot;Addition&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">3.141926 - 3 &quot;Subtraction&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">365.25 * 24 &quot;Multiplication&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">8766 // 24 &quot;Integer division with truncation&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">8766 / 24 &quot;Standard division&quot;</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The interesting thing to note with Smalltalk arithmetic is that it is not necessary to match the types of numbers involved or to predict the type of the result. For example, it is perfectly reasonable to subtract an integer from a floating point number and arrive at an appropriate floating point result. You should also be familiar with the difference between the integer division and standard division messages. The former (//) will always truncate the result to the nearest whole integer below it. The latter (/) will maintain precision in the result by answering a fractional or floating point result as best it can.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The fact that Smalltalk arithmetic is capable of switching between different number representations in order to maintain precision wherever possible is a valuable concept. Wherever possible it will try to avoid using a floating point object to hold a value since many floating point calculations are inherently inaccurate in the lower decimal places. Using objects (of class </text><text styleclass="Class Name" translate="true">Fraction</text><text styleclass="Normal" translate="true">) to represent fractional values can mean that ultimate precision can be maintained where it would otherwise be lost. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">6 / 18</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If this irrational result had been coerced to a floating point value (0.333333) then any subsequent calculations on this value might lose precision. However, the fractional value (1/3) remains entirely accurate. The only problem might be that you don&apos;t wish to display a fraction as the end result of your calculation since most people find floating point print outs more acceptable. The answer is simple, just forcibly convert to the appropriate representation when you want to display the result. You can try this with:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(6 / 18) asFloat</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

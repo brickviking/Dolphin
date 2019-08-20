@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Presenter</title>
+  <keywords>
+    <keyword translate="true">Presenter</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Presenter</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">While a view is responsible for the display of model information to the user, a presenter&apos;s responsibility is to handle user input and use this to manipulate the model data. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The user gestures (list selections, mouse movements, keyboard hits) are first received by the view and then passed</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to the presenter for interpretation. Often, a presenter will maintain a selection that identifies a range of data in the model that is current, and the gestures received from the view will be used to act on this. Note that, sometimes a view will adapt low-level gestures into higher-level commands before informing the presenter. An example of this occurs when using drag-and-drop or commands generated from pull down menus.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The presenter is allowed to know about both its view and its model.</text></para>
+  </body>
+</topic>

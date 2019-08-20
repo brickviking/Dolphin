@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Client Limitation</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Client Limitation</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An important limitation to be aware of is that Dolphin itself cannot be used as a test client for </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Debugging_In-Process" styleclass="Normal" translate="true">debugging in-process</link><text styleclass="Normal" translate="true">. This is because the VM is limited to running only one image at a time. If you attempt to do this then the system will crash. This applies to deployed Dolphin executable clients, as well as using the development environment as a client. Components deployed as &quot;To Go&quot; DLLs can, however, be hosted in Dolphin, so this limitation only applies at development time. &#160;In order to debug with Dolphin as both client and server one should make use of the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Debugging_In-image" styleclass="Normal" translate="true">in-image</link><text styleclass="Program Feature" translate="true">&#32;</text><text styleclass="Normal" translate="true">mode (see below), although it is also possible to use two independent images to debug out-of-process.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #71</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">When deploying an executable, a third party resource editor (such as </text><text styleclass="Normal" style="font-weight:bold;" translate="true">ResHacker</text><text styleclass="Normal" translate="true">) can be used to include any icons, bitmaps, etc, that one needs in a custom stub copied from one of the standard stubs. This is particularly useful for </text><text styleclass="Program Feature" translate="true">ToGo</text><text styleclass="Normal" translate="true"> executables where you don&apos;t want to distribute additional DLL files containing icon resources. .</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Don&apos;t forget to override </text><text styleclass="Class Name" translate="true">SessionManager&gt;&gt;defaultResLibPath</text><text styleclass="Normal" translate="true"> to answer the executable name, e.g. using </text><text styleclass="Class Name" translate="true">#applicationName</text><text styleclass="Normal" style="font-style:italic;" translate="true">.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

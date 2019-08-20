@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Testing the User Interface for PersonalAccount</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Testing the User Interface for PersonalAccount</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You now have a complete MVP triad for a </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">. At this stage we can test the user interface to verify how it interacts with the PersonalAccount model. In a workspace window evaluate: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">PersonalAccountShell show. </text></para>
+    <para styleclass="Code Example"></para>
+    <para style="tabstops:61px left,122px left,183px left,244px left,305px left,366px left,427px left,489px left,550px left,611px left,672px left,733px left,794px left,855px left,916px left,977px left ;"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should see the view you&apos;ve designed appear. It should look a bit like the example below, although without the existing account details (because you haven&apos;t entered any yet).</text></para>
+    <para style="tabstops:61px left,122px left,183px left,244px left,305px left,366px left,427px left,489px left,550px left,611px left,672px left,733px left,794px left,855px left,916px left,977px left ;"><image src="PersonalAccountShell.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The window will be displaying the contents of a newly created </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> object. In this case the </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true"> presenter that you&apos;ve created also creates and owns its </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> model (it was specified by the </text><text styleclass="Class Name" translate="true">defaultModel</text><text styleclass="Normal" translate="true"> class method, remember). However, it&apos;s also possible to bring up a </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true"> on a model that is already in existence. If you still have the workspace variables that we created earlier, then b will be be holding a suitable personal account. Evaluate: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">PersonalAccountShell showOn: b. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should be able to see and edit the original details you entered into this account. At the moment you will not be able to add any transactions to the account since we have not completed the command handling methods that do this. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once you&apos;ve closed the shell, either by pressing </text><text styleclass="Menu Command" translate="true">Exit</text><text styleclass="Normal" translate="true"> or with the system menu close box, inspect the contents of b and you should see the changes you have made to the account object. </text></para>
+  </body>
+</topic>

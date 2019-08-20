@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Opening a new Workspace</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Opening a new Workspace</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you have not already done so, close the example workspace window that you&apos;ve been using up to now. You should then be left just with the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true"> open.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As we&apos;ve seen, a workspace is a general text window where snippets of Smalltalk code can be edited and executed (in Smalltalk parlance, evaluated). It is one of a number of development tools that Dolphin provides. For the next few chapters we will be using workspaces, almost exclusively, to interact with the system and perform our experiments. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At the start of each chapter you&apos;ll be asked to open a new workspace in which the work for that chapter will be performed. You can do this by choosing the </text><text styleclass="Menu Command" translate="true">File/New Workspace</text><text styleclass="Normal" translate="true"> menu command from any other workspace or Dolphin development tool window. You may also use the </text><text styleclass="Menu Command" translate="true">New Workspace</text><text styleclass="Normal" translate="true"> toolbar button or the </text><text styleclass="Menu Command" translate="true">Ctrl+N</text><text styleclass="Normal" translate="true"> shortcut if you prefer. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At the end of each chapter you should probably tidy up by closing the workspace (and any other example windows) that you have been using. This will free up any memory space and leave the system ready for continuing with the subsequent chapters.</text></para>
+  </body>
+</topic>

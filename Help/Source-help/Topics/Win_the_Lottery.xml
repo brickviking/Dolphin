@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Win the Lottery</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Win the Lottery</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;Generate a winning lottery ticket.&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">(Random</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> new next:</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 6</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">)</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> collect:</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true"> [:n | (n</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> *</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 49</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">)</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> rounded + 1</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">].</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Use Ctrl+D to display an array of numbers for your UK lottery ticket. We haven&apos;t actually won the lottery as yet but &quot;Your Mileage May Vary&quot;.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:9pt;" translate="true">Although the above expression may seem complex it is actually quite easy to see what it&apos;s doing if you break it down into sub-expressions and you know how the </text><text styleclass="Normal" style="font-size:9pt; font-style:italic;" translate="true">Random</text><text styleclass="Normal" style="font-size:9pt;" translate="true"> class and the </text><text styleclass="Normal" style="font-size:9pt; font-style:italic;" translate="true">#collect</text><text styleclass="Normal" style="font-size:9pt;" translate="true">: message work. The first sub-expression in brackets creates a new </text><text styleclass="Normal" style="font-size:9pt; font-style:italic;" translate="true">Random</text><text styleclass="Normal" style="font-size:9pt;" translate="true"> object and asks it for the next six random numbers between 0 and 1. The </text><text styleclass="Normal" style="font-size:9pt; font-style:italic;" translate="true">#collect</text><text styleclass="Normal" style="font-size:9pt;" translate="true">: message is sent to this array of small numbers and runs each one through the following block which converts it into a number between 1 and 50. The end result is an array of numbers between 1 and 50.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

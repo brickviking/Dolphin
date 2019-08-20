@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Idea Space Summary</title>
+  <body>
+    <para styleclass="Popup Box"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Popup Box" translate="true"> offers a way of grouping together various Dolphin windows to make them more manageable and to alleviate screen clutter. If you are following a particular train of thought it is often useful to be able to hold all of the Dolphin windows you are working with inside an</text><text styleclass="Program Feature" translate="true">&#32;</text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Popup Box" translate="true">. </text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Each of the contained windows occupies its own tabbed &quot;card&quot; within the </text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Popup Box" style="font-style:italic;" translate="true">. </text><text styleclass="Popup Box" translate="true">This means you can easily manipulate the windows, and close them, as a single unit. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The Idea Space is implemented by the </text><text styleclass="Notes" translate="true">IdeaSpaceShell</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

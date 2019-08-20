@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Initialization</title>
+  <keywords>
+    <keyword translate="true">Initialization</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Initialization</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When classes are installed from a source package each class object is sent the message #</text><text styleclass="Normal" translate="true">initialize</text><text styleclass="Normal" translate="true"> once all of the methods have been compiled. A common use of the #</text><text styleclass="Normal" translate="true">initialize</text><text styleclass="Normal" translate="true"> method is to set up class variables etc. It seems fairly likely that, when loading classes from a binary package, these may also need to be initialized in some situations. However, since a binary class comes with its state (i.e. class variables and so on) fully set up, it is not appropriate at this stage for it to receive another #</text><text styleclass="Normal" translate="true">initialize</text><text styleclass="Normal" translate="true"> message. Instead, the </text><text styleclass="Normal" style="font-style:italic;" translate="true">BinaryPackage</text><text styleclass="Normal" translate="true"> loader sends </text><text styleclass="Normal" style="font-style:italic;" translate="true">#initializeAfterBinaryLoad</text><text styleclass="Normal" translate="true"> to each of the class objects that it installs.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note that, if you browse the image for definitions of </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">#initializeAfterBinaryLoad</text><text styleclass="Normal" style="font-size:8pt;" translate="true">, you&apos;ll find that it is very rare for a binary class to require initialization in this way.</text></para>
+  </body>
+</topic>

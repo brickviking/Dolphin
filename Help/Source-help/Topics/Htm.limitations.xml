@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Limitations</title>
+  <keywords>
+    <keyword translate="true">Limitations</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Limitations</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="glossliveupdate" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Live Update</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> is only capable of receiving relatively minor patches from the Dolphin update site. Dolphin Smalltalk upgrades that involve larger modifications will usually require that the entire product be re-downloaded and re-installed. If there is a newer version of Dolphin ready for download, Live Update will alert you to this fact when it connects to the update site.</text></para>
+  </body>
+</topic>

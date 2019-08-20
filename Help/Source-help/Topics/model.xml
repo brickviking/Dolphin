@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Model</title>
+  <keywords>
+    <keyword translate="true">Model</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Model</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A model is typically a domain level object, perhaps sometimes known as a business object. A model </text><text styleclass="Normal" style="font-style:italic;" translate="true">holds application data</text><text styleclass="Normal" translate="true"> and provides methods to consistently access it. Typical model classes might be </text><text styleclass="Class Name" translate="true">InsurancePolicy</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">. It is not necessary for a model class to support a predefined protocol of messages so it is not therefore necessary to subclass a model from a particular superclass. However, the Dolphin class hierarchy provides class </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Normal" translate="true"> as a suitable parent (mainly for ease of recognition) if you choose to use it.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">As an example, take a look at </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">SmalltalkSystem</text><text styleclass="Normal" style="font-size:8pt;" translate="true"> which is a model class used by Dolphin to represent the development system itself. It contains methods to perform many of the operations that the development tools require and most of the tools use the singleton instance of this class as their model.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A model should have no association with user interface issues. This allows it to be reused in new situations which may have completely different UI requirements from those first envisaged. Consequently, a model has no direct knowledge of the existence of either the view or the presenter in the triad.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Effectively what this means to the programmer is that you should never have an instance variable in a model that holds a reference to a presenter or view.</text></para>
+  </body>
+</topic>

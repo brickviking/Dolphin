@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Registering the Component</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Registering the Component</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The first step is to create the necessary registry entries so that the COM subsystem can find implementations of the component, with those implementations being the development system launcher stubs. &#160;This can be achieved by evaluating an expression similar to the following:</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">COMRandomStream register</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">COMInterfaceImp class&gt;&gt;register</text><text styleclass="Normal" translate="true"> method can create the correct registry entries to allow debugging of any component subclass that correctly defines </text><text styleclass="Class Name" translate="true">#progId</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">#clsid</text><text styleclass="Normal" translate="true"> methods. In the case of </text><text styleclass="Class Name" translate="true">COMRandomStream</text><text styleclass="Normal" translate="true"> the following registry entries are created:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">HKEY_CLASSES_ROOT</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Dolphin.RandomStream=&quot;COMRandomStream object&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">CLSID=&quot;{A1D42F35-E6C0-11D2-833B-0020AFAB8EFE}&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">CurVer=&quot;Dolphin.RandomStream.1&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Dolphin.RandomStream.1=&quot;COMRandomStream object&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">CLSID=&quot;{A1D42F35-E6C0-11D2-833B-0020AFAB8EFE}&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">CLSID</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">{A1D42F35-E6C0-11D2-833B-0020AFAB8EFE}=&quot;COMRandomStream object&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">Image=&quot;&lt;My Documents path&gt;\Dolphin Smalltalk 5.1\Professional.img&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">InProcServer32=&quot;C:\Program Files\Object Arts\Dolphin Smalltalk 5.1\IPDolphin.dll&quot;</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">LocalServer32=&quot;C:\Program Files\Object Arts\Dolphin Smalltalk 5.1\Dolphin.exe “&quot;&lt;My Documents path&gt;\Dolphin Smalltalk 5.1\Professional.img”””</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">ProgID=&quot;Dolphin.RandomStream.1&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The first of these are present to map the “friendly” component name to the unique </text><text styleclass="Class Name" translate="true">CLSID</text><text styleclass="Normal" translate="true">, and we will ignore them from now on. The </text><text styleclass="Class Name" translate="true">InProcServer32</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">LocalServer32</text><text styleclass="Normal" translate="true"> are standard entries that specify the location of the component implementations for in-process and out-of-process instantiations respectively. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">InProcServer32</text><text styleclass="Normal" translate="true"> entry specifies the generic, development system, in-process launcher stub DLL. This is augmented by the Dolphin specific Image key, which specifies the path to the image that implements the component (see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="The_Image_Key" styleclass="Normal" translate="true">The Image Key</link><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">LocalServer32</text><text styleclass="Normal" translate="true"> entry specifies a command line to start the standard Dolphin development launcher stub, passing it the path to the image that implements the component.</text></para>
+  </body>
+</topic>

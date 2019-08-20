@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The CA Root Certificate</title>
+  <keywords>
+    <keyword translate="true">The CA Root Certificate</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The CA Root Certificate</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each certificate that is issued is also digitally signed with the Object Arts CA (Root) certificate to ensure that it can&apos;t be forged. This is what the root certificate looks like:</text></para>
+    <para styleclass="Normal"><image src="cacertificate.jpg" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> package does not include the ability to create root, or any other certificates. In order to obtain a certificate please see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="applyingforadolphinsurecertificate" styleclass="Normal" translate="true">Applying for a DolphinSure Certificate</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

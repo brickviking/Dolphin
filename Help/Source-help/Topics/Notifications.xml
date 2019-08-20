@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Notifications</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Notifications</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">Notifications</text><text styleclass="Normal" translate="true"> represent resumable exceptional conditions that are non-fatal, and for information purposes only.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By default </text><text styleclass="Class Name" translate="true">Notifications</text><text styleclass="Normal" translate="true"> are sent to the trace device if not handled, though once again this is up to the </text><text styleclass="Class Name" translate="true">SessionManager</text><text styleclass="Normal" translate="true">, which can override </text><text styleclass="Class Name" translate="true">#onUnhandledNotification</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> as appropriate.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">On a development system, the trace device is the </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true">. The default run-time trace device is the kernel provided one (i.e. that to which output is written by </text><text styleclass="Class Name" translate="true">OutputDebugString</text><text styleclass="Normal" translate="true">()</text><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The class </text><text styleclass="Class Name" translate="true">Notification</text><text styleclass="Normal" translate="true">, which like </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">contains a displayable description, represents the most general form of notification. Again it is not normally necessary to subclass </text><text styleclass="Class Name" translate="true">Notification</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

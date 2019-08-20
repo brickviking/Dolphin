@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Storing globals</title>
+  <keywords>
+    <keyword translate="true">Storing globals</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Storing globals</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Do you need to make a filed-out object into a Smalltalk global variable automatically when it is filed back? If so, then you can use </text><text styleclass="Class Name" translate="true">STBOutFiler&gt;&gt;#register:asGlobal:</text><text styleclass="Normal" translate="true"> before filing out the object (or any references to it) to achieve this. The first parameter is the object which is to be made global and the second is its global symbol. </text><text styleclass="Class Name" translate="true">#register:asGlobal:</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">does no output itself but when the object is subsequently </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> it marks the object such that when it is subsequently loaded it will be installed as a global with the given symbol.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may register a global whose value is </text><text styleclass="Class Name" translate="true">nil</text><text styleclass="Normal" translate="true"> provided that nil is subsequently </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">. Similarly, it is also OK to register the same object with several different global names provided the object is subsequently </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> the corresponding number of times.</text></para>
+  </body>
+</topic>

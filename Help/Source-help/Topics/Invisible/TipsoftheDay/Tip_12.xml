@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #12</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">You should always safeguard your work by saving your packages to disk regularly. &#160;If your working image becomes unusable you can then load these into a fresh image and continue from there. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Also, if you install a new version of Dolphin you can easily transfer your work to this by loading your packages into the new image. </text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

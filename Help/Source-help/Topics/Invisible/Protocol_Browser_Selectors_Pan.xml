@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Protocol Browser Selectors Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Selectors Pane </text><text styleclass="Normal" translate="true">shows the list of message selectors that are present in the currently selected protocol. Selecting one of these selectors will display the classes that implement this protocol in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Conforming_Classes_Pane" styleclass="Program Feature" translate="true">Conforming Classes Pane</link><text styleclass="Normal" translate="true"> of the browser.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The context menu for this pane allows you to add and remove selectors from the protocol. If you choose to add a new selector to a protocol then all conforming classes that do not yet implement or inherit this message will have a stub method created for them. &#160;</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that you cannot add or remove selectors from a protocol that is locked.</text></para>
+  </body>
+</topic>

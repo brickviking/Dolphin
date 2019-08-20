@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">View Composer Toolbox_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View Toolbox Pane </text><text styleclass="Normal" translate="true">provides a means whereby existing views can be added as sub-views into a view being created in the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true">. You simply find the view that you want to insert and then drag it with the left mouse button from the toolbox pane into the </text><text styleclass="Program Feature" translate="true">Arena</text><text styleclass="Normal" translate="true"> or into the appropriate level in the </text><text styleclass="Program Feature" translate="true">View Hierarchy</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that the </text><text styleclass="Notes" style="font-weight:bold;" translate="true">View Toolbox</text><text styleclass="Notes" translate="true"> is simply an embedded version of the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Browser" styleclass="Notes" style="font-weight:bold;" translate="true">View Browser</link><text styleclass="Notes" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you use a normal drag operation from the toolbox, you will create a copy of the dropped view. Often it is useful to use an </text><text styleclass="Menu Command" translate="true">Alt-drag</text><text styleclass="Normal" translate="true"> operation, which will drop a reference to the view being dragged into the view being composed. Reference views are reloaded from their original templates each time they are opened.</text></para>
+  </body>
+</topic>

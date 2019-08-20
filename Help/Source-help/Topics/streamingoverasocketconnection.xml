@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Streaming over a Socket Connection</title>
+  <keywords>
+    <keyword translate="true">Streaming over a Socket Connection</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Streaming over a Socket Connection</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A generally more convenient method for transferring data across a Socket connection is to use streams. The Socket package includes two stream subclasses </text><text styleclass="Class Name" translate="true">SocketReadStream</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">SocketWriteStream</text><text styleclass="Normal" translate="true"> for this purpose. These classes also provide a buffering mechanism that, under most circumstances, dramatically increases performance.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> supports both a read stream and a write stream and these can be accessed using the #</text><text styleclass="Class Name" translate="true">readStream</text><text styleclass="Normal" translate="true"> and #</text><text styleclass="Class Name" translate="true">writeStream</text><text styleclass="Normal" translate="true"> methods respectively. Once you have an appropriate stream object you can use the standard </text><text styleclass="Class Name" translate="true">Stream</text><text styleclass="Normal" translate="true"> protocol for sending and receiving data. The only additional methods are #</text><text styleclass="Class Name" translate="true">flush</text><text styleclass="Normal" translate="true">, for flushing out the buffers of a </text><text styleclass="Class Name" translate="true">SocketWriteStream</text><text styleclass="Normal" translate="true">, and #</text><text styleclass="Class Name" translate="true">hasInput</text><text styleclass="Normal" translate="true">, for checking the presence of data on a </text><text styleclass="Class Name" translate="true">SocketReadStream</text><text styleclass="Normal" translate="true"> without the need for blocking.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s perform our previous experiments again, but this time using the Socket streams. In the Client workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB writeStream nextPut: 255.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB writeStream nextPutAll: #[1 2 3 4].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB writeStream nextPutAll: &apos;hello&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB writeStream flush.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note the need to finally flush the buffer of the </text><text styleclass="Class Name" translate="true">SocketWriteStream</text><text styleclass="Normal" translate="true"> to ensure all data is actually sent. Now, in the Server workspace, let&apos;s receive the data using the </text><text styleclass="Class Name" translate="true">SocketReadStream</text><text styleclass="Normal" translate="true"> associated with </text><text styleclass="Class Name" translate="true">socketA</text><text styleclass="Normal" translate="true">. Display the results of evaluating the following:</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA readStream hasInput.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA readStream next.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA readStream next: 4.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(socketA readStream next: 5) asString.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA readStream hasInput.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You&apos;ll probably find yourself using the stream interface for the majority of your work. As you can see from the above examples, it is useful for sending both binary and textual data, which makes it ideal for use when one end of the connection perhaps isn&apos;t even written in Smalltalk. You might find yourself wanting to write a connection between a Dolphin server and a Java client or, maybe, a C++ server and a Dolphin client. The stream interface will adequately support such scenarios.</text></para>
+  </body>
+</topic>

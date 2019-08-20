@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Scribble</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Scribble</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;Open a Scribble pad for mouse doodling. This is one of the sample applications discussed in the tutorial sessions. Evaluate the following with Ctrl+E&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">scribble := Scribble</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> show</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" style="font-style:italic;" translate="true">Scribble</text><text styleclass="Normal" translate="true"> class is one of our samples that shows how easy it is to create a window that can capture mouse movements and draw them as &quot;ink&quot; inside the window. Evaluate the above and do some doodling with the mouse inside the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Scribble</text><text styleclass="Normal" translate="true"> window that comes up.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice that we have assigned the window object to a variable called </text><text styleclass="Normal" style="font-style:italic;" translate="true">scribble</text><text styleclass="Normal" translate="true">. We&apos;ll make use of this in the next experiment.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

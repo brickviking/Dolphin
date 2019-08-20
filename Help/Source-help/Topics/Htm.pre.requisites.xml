@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pre-requisites</title>
+  <keywords>
+    <keyword translate="true">Pre-requisites</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pre-requisites</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">When an object in a source package refers to another object in a different package a dependency exists between the two packages. Every package may, therefore, have a number of prerequisite packages that must be loaded first before it can be successfully imported into an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">. Binary packages also have similar prerequisites for other binary packages.</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">There is a slight difference in the way prerequisites work when compared with the source package equivalent. Whereas a source package cannot be loaded until all the prerequisite packages are present, a binary package only requires that a prerequisite is loaded &quot;on demand&quot; when it is required at runtime. This is an important distinction, since it enables large applets to achieve faster start-up times by careful partitioning of the constituent packages.</text></para>
+  </body>
+</topic>

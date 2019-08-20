@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Drawing a View for PersonalAccountTransactionDialog</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Drawing a View for PersonalAccountTransactionDialog</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Following basically the same procedure as before, use the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> to create a view for the </text><text styleclass="Class Name" translate="true">PersonalAccountTransactionDialog</text><text styleclass="Normal" translate="true"> presenter. This time, however, you are creating a dialog, so you should choose the </text><text styleclass="Program Feature" translate="true">Dialogs</text><text styleclass="Normal" translate="true"> category in the view toolbox and drag a </text><text styleclass="Program Feature" translate="true">Dialog.Default view</text><text styleclass="Normal" translate="true"> across to the arena.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: Alternatively, you can use the </text><text styleclass="Notes" style="font-style:italic;" translate="true">File/New Dialog View</text><text styleclass="Notes" translate="true"> command to create a blank dialog for painting on. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You&apos;ll want to end up with something like this:</text></para>
+    <para styleclass="Normal"><image src="PersonalAccountTransactionDialog.png" scale="100.00%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">Before you start, confirm the connection points to the presenter. In </text><text styleclass="Class Name" translate="true">PersonalAccountTransactionDialog</text><text styleclass="Normal" translate="true"> we have: </text></para>
+    <para><table rowcount="5" colcount="3" style="width:75%; cell-padding:2px; cell-spacing:2px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Sub-presenter type</text></para>
+        </td>
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Connection name</text></para>
+        </td>
+        <td style="width:34%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Model aspect</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">DatePresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;date&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#date</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">NumberPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;amount&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#amount</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">TextPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;description&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">BooleanPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;isDebit&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#isDebit</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">You&apos;ll find that the </text><text styleclass="Notes" style="font-style:italic;" translate="true">DatePresenter</text><text styleclass="Notes" translate="true"> class has several possible views that can be used to display dates. In the above we have chosen the </text><text styleclass="Notes" style="font-weight:bold;" translate="true">Picker view</text><text styleclass="Notes" translate="true"> so that the date will be displayed and edited in a dropdown calendar-style entry field. You might also like to try using a </text><text styleclass="Notes" style="font-weight:bold;" translate="true">Month view</text><text styleclass="Notes" translate="true"> which is the Windows control specifically designed for the graphical display of calendar pages. The interesting thing here, is that you can choose either view (or maybe go back later and choose a different one) without having to change any of your Smalltalk (presenter) code. This again demonstates the real flexibility of MVP.</text></para>
+  </body>
+</topic>

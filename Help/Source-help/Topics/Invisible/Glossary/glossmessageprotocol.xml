@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossmessageprotocol</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Message Protocol</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A contract indicating that an object is intended to understand a particular set of messages. As such, a protocol effectively determines the &quot;type&quot; (or &quot;types&quot;) of an object. In Smalltalk, the compiler does not attempt to perform static type-checking as it compiles. This is a deliberate stance and is a fundamental part of the flexibility of the language. In Dolphin Smalltalk, you do have however, the ability to define advisory protocols and to indicate which classes conform to them. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is the job of the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Protocol_Browser" styleclass="Normal" translate="true">Protocol Browser</link><text styleclass="Normal" translate="true"> to manage this capability.</text></para>
+  </body>
+</topic>

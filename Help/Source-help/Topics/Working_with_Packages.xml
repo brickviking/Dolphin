@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Working with Packages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Working with Packages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Methods that failed to compile are in fact instances of </text><text styleclass="Normal" style="font-style:italic;" translate="true">CompileFailedMethod</text><text styleclass="Normal" translate="true">. Not all compilation failures create such methods. In general, they are only created when a method is filed in as part of a batch process such as package installation. A compilation failure in the Class or System Browsers will not create a </text><text styleclass="Normal" style="font-style:italic;" translate="true">CompileFailedMethod </text><text styleclass="Normal" style="font-style:normal;" translate="true">but will. rather, warn the programmer directly</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

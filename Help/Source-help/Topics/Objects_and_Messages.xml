@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Objects and Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Objects and Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk is what is known as an </text><text styleclass="Program Feature" translate="true">Object Oriented Programming Language</text><text styleclass="Normal" translate="true">. When you start your Dolphin image you bring into your computer&apos;s memory a sea of interconnecting and communicating objects. This chapter introduces the ideas behind what objects actually are and how you can use messages to communicate with them.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Please open a new workspace window using </text><text styleclass="Menu Command" translate="true">File/New</text><text styleclass="Normal" translate="true"> so that you can try out the examples presented below.</text></para>
+  </body>
+</topic>

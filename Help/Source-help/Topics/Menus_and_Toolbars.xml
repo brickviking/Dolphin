@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Menus and Toolbars</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Menus and Toolbars</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">More often, commands are initiated from menus and toolbars. The </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> includes a </text><text styleclass="Program Feature" translate="true">Menu Composer</text><text styleclass="Normal" translate="true"> to help with the creation of menu bars and context menus. This is accessible from within the </text><text styleclass="Menu Command" translate="true">Modify/Menu Bar</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Menu Command" translate="true">Modify/Context Menu</text><text styleclass="Normal" translate="true"> pulldowns but it is beyond the scope of this tutorial to go into the details of menu building. You should find the </text><text styleclass="Program Feature" translate="true">Menu Composer</text><text styleclass="Normal" translate="true"> fairly intuitive to use if you want to add, say, a </text><text styleclass="Menu Command" translate="true">Transaction</text><text styleclass="Normal" translate="true"> menu to the menu bar of the shell. Such a menu could be used to send the same commands as the push buttons thus giving the user a choice of how to use the interface.</text></para>
+  </body>
+</topic>

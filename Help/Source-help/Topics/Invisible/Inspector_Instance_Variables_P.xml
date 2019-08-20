@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Inspector Instance Variables Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Instance Variables Pane </text><text styleclass="Normal" translate="true">allows you to view an object via the contents of its instance variables. These may give you a more complete picture of the internal state of an object rather than that which you get from the published aspects.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The left-hand area shows a tree of the instance variables available for the object being inspected. It is a tree because each instance variable will in turn contain an object which may have instance variables of its own. When you select a variable in this tree, the contained object will be displayed in the workspace pane at the right. You may modify the contents of this pane with a Smalltalk expression and assign this back to the instance variable in question using</text><text styleclass="Menu Command" translate="true"> Workspace/Accept (Ctrl+S)</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

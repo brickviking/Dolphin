@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">#printString and #printOn:</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">#printString and #printOn:</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">These messages are used in a similar way to the </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">#displayOn</text><text styleclass="Normal" translate="true">: methods except that they are intended to create a textual representation of an object as a developer (a rather than an end-user) would wish to see it. The default implementation of these methods in </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> will merely tell the developer what the class of the object is (e.g. </text><text styleclass="Class Name" translate="true">an Animal</text><text styleclass="Normal" translate="true">). Now let us override </text><text styleclass="Class Name" translate="true">#printOn</text><text styleclass="Normal" translate="true">: to also display the animal&apos;s name along with its class.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">printOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the name of the receiver as a developer would wish to see it.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super printOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $(.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To test this in the workspace, display the result of evaluating the following.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Print this&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">tiger printString.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If everything has gone according to plan this should print as &quot;an Animal(a Tiger)&quot;. Whenever you add a new class to your image you should probably consider overriding one or more of the </text><text styleclass="Class Name" translate="true">#displayOn</text><text styleclass="Normal" translate="true">: and </text><text styleclass="Class Name" translate="true">#printOn</text><text styleclass="Normal" translate="true">: methods. You might want to do this even if you don&apos;t need to represent your object as text in your initial design; it&apos;s very likely that this could become a requirement at sometime in the future.</text></para>
+  </body>
+</topic>

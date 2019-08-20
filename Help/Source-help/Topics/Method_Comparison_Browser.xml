@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Method Comparison Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Method Comparison Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Method_Comparison_Browser_Summ"/></para>
+    <para styleclass="Normal"><image src="MethodComparisonBrowser.png" scale="73.41%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By clicking on the button </text><text styleclass="Menu Command" translate="true">Next difference</text><text styleclass="Normal" translate="true"> which is located in the middle of both source panes, you can see each difference between the method sources.</text></para>
+  </body>
+</topic>

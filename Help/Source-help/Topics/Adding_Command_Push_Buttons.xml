@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding Command Push Buttons</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding Command Push Buttons</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to send commands to the presenter we can add some push buttons to our view. Look for </text><text styleclass="Program Feature" translate="true">PushButton.Push button</text><text styleclass="Normal" translate="true"> in the toolbox in the </text><text styleclass="Program Feature" translate="true">Buttons</text><text styleclass="Normal" translate="true"> category and drag four buttons across. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Change the properties of these buttons as tabulated below. </text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Be aware when editing the </text><text styleclass="Class Name" translate="true">command</text><text styleclass="Normal" translate="true"> property that you&apos;ll first need to expand the </text><text styleclass="Class Name" translate="true">commandDescription</text><text styleclass="Normal" translate="true"> property to get to it. Then, in the lower pane, you&apos;ll be editing in a workspace. This means that you need to commit the changes using </text><text styleclass="Menu Command" translate="true">Workspace/Accept or Ctrl+S</text><text styleclass="Normal" translate="true">. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">text</text><text styleclass="Normal" translate="true"> property is easier; you just type, and the text appears immediately in the button.</text></li>
+    </list>
+    <para><table rowcount="5" colcount="2" style="cell-padding:2px; cell-spacing:2px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:188px; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">&quot;command&quot;property</text></para>
+        </td>
+        <td style="width:221px; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">&quot;text&quot; aspect</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:188px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#newTransaction</text></para>
+        </td>
+        <td style="vertical-align:middle; width:221px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;New</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:188px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#editTransaction</text></para>
+        </td>
+        <td style="vertical-align:middle; width:221px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;Edit</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:188px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#removeTransaction</text></para>
+        </td>
+        <td style="vertical-align:middle; width:221px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;Delete</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:188px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#exit</text></para>
+        </td>
+        <td style="vertical-align:middle; width:221px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">E&amp;xit</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

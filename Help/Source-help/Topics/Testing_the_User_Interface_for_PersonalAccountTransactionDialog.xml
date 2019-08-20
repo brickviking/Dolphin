@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Testing the User Interface for PersonalAccountTransactionDialog</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Testing the User Interface for PersonalAccountTransactionDialog</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We can now test the combination of a </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true"> and a </text><text styleclass="Class Name" translate="true">PersonalAccountTransactionDialog</text><text styleclass="Normal" translate="true"> working in tandem. In a workspace evaluate: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">PersonalAccountShell show. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Enter some details for an account and then press the </text><text styleclass="Menu Command" translate="true">New</text><text styleclass="Normal" translate="true"> button to create a new transaction on it. You should see the dialog that you&apos;ve just created appear, editing a default instance of </text><text styleclass="Class Name" translate="true">PersonalAccountTransaction</text><text styleclass="Normal" translate="true">. Fill in the details for the transaction and press </text><text styleclass="Menu Command" translate="true">OK</text><text styleclass="Normal" translate="true"> to confirm the changes. An entry for the transaction will appear in the transaction list in the account details view. You can continue to add more transactions and watch the account balance diminish as each is entered.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The System Folder</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The System Folder</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> window has been lurking in the background during all of this and we haven&apos;t paid much attention to it. In many ways it is launching point for all the tools in the development system. </text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><image src="SystemFolder.png" scale="70.28%" styleclass="Image Caption"></image></para>
+  </body>
+</topic>

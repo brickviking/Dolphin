@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Package Editions Browser Tool</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">Package Editions Browser Tool</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="Package Editions Browser.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:214px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Opens the </text><text styleclass="Program Feature" translate="true">Package Editions Browser</text><text styleclass="Popup Box" translate="true"> &#160;which you can use to browse packages in the STS repository in the same way as you would browse a package which is installed in the image</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Editions Browser</text><text styleclass="Popup Box" translate="true"> &#160;window is similar to the standard </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Popup Box" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Popup Box" translate="true">with the exception of an additional pane where package versions present in the repository are listed. Using this tool you can choose to load any particular package version into your image.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">System Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">System Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><snippet src="System_Browser_Summary"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are working with </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Professional_Edition" styleclass="Normal" translate="true">Dolphin Professional</link><text styleclass="Normal" translate="true"> the </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> is where you will develop most of your Smalltalk code. However, as its name suggests, it is not just a means of creating new code but also a means of browsing the existing source code in your image. Combined with it&apos;s close integration with the other tools, in particular the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Method_Explorer" styleclass="Program Feature" translate="true">Method Explorer</link><text styleclass="Normal" translate="true">, it is a great learning aid.</text></para>
+    <para styleclass="Normal"><image src="SystemBrowserShell.png" scale="60.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A new </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Menu Command" translate="true">Tools/System Browser</text><text styleclass="Normal" translate="true"> menu command in any tool.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> consists of the following panes:</text></para>
+  </body>
+</topic>

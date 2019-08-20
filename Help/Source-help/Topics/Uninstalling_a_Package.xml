@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Uninstalling a Package</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Uninstalling a Package</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An installed package can be removed using Package/Uninstall. If you attempt to uninstall a package that is a Prerequisite of some other packages then you will be asked if you wish to remove these dependents first.</text></para>
+  </body>
+</topic>

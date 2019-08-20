@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Add the accessor methods</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Add the accessor methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">First of all add the following methods to be able to get the values of the three instance variables.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">yes</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the branch in the knowledge tree to take as the result of a &apos;yes&apos; answer</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">to the receiver&apos;s question.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^yes</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">no</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the branch in the knowledge tree to take as the result of a &apos;no&apos; answer</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">to the receiver&apos;s question.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^no</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">text</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the receiver&apos;s question as a text String&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^text</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It will certainly be useful to be able to access the values of these variables separately. However, once an instance of </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> has been created we should never need to set the values of these variables again. Therefore, it makes sense that we should be able to use a private method to set all of these variables at once during instance creation. We&apos;ll use the following method to do this:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">text: aString yes: yesPath no: noPath</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Set the text of the receiver to aString and the yes and no branches to</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">yesPath and noPath respectively. This is a bit tricky. At the end of this operation</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">we want the receiver to have completely swapped its identity with the original</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">noPath. This is a bit of a kludge (since there are better ways to insert the receiver</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">in the knowledge tree at the right point) but it is the simplest solution for this</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">example program.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">text := aString.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">yes := yesPath.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">no := self.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self become: noPath</text></para>
+    <para styleclass="Code Example"></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">Okay, so you&apos;ve spotted the final line and want to know what that is all about. Well, to be honest, the use of the </text><text styleclass="Class Name" translate="true">#become</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">:</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true"> message is beyond the real scope of this chapter and its use in this example program is only due to the fact that I wanted to shorten the program to make it easier to understand. However, for those who are interested, the tip below explains why it is here.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: Imagine an existing knowledge tree for the game (I suggest you refer back to the original diagram) and we have got to the situation where the computer does not know the animal in question. Let us assume for the sake of this description that the computer believes you are probably thinking about an &quot;eagle&quot; but, in fact, you are thinking about a &quot;sparrow&quot;. What we need to do is to create a new Animal object representing the &quot;sparrow&quot; and also to create a new Question that is capable of distinguishing the two animals. When we have completed linking these two new objects into our knowledge base the original Question that led to the &quot;eagle&quot; node will now have to point to the new distinguishing Question node. The easiest way to do this is to ask the two objects (the &quot;eagle&quot; and the new question) to swap identities. This is what #become: does.</text></para>
+  </body>
+</topic>

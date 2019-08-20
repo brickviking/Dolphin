@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #11</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">If you get into a mess with hundreds of windows, you can clear them all away at one fell swoop with the </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Normal" translate="true"> icon (Munch&apos;s Scream) in the &#160;main </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true"> window.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In future, you may wish to avoid creating loads of top-level tool windows. Take a look at the </text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Normal" translate="true">, which you can use to group together several tools while you follow a train of thought.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

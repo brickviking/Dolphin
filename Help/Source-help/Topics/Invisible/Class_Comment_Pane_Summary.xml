@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class Comment Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Class Comment Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> d</text><text styleclass="Popup Box" translate="true">isplays the class comment (if available) for the currently selected class. If you make changes to a comment you can commit them using </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Popup Box" translate="true"> or Ctrl+S.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Note that although the comment pane is normally used for entering or browsing comments, it is also a workspace so the various </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace_Operations_Summary" styleclass="Popup Box" translate="true">workspace operations</link><text styleclass="Popup Box" translate="true"> can be used here too. This is useful if you wish to provide examples within the comment then readers will be able to execute any lines of Smalltalk in-situ.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Class Comment Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the </text><text styleclass="Notes" translate="true">ClassCommentPlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

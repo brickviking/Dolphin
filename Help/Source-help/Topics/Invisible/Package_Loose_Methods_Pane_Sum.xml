@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Loose Methods Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Loose Methods Pane</text><text styleclass="Normal" translate="true"> displays a list of any </text><text styleclass="Program Feature" translate="true">loose methods</text><text styleclass="Normal" translate="true"> that are owned by the currently selected package.</text><snippet src="Loose_Methods_Summary"/><text styleclass="Notes" translate="true">Please note that the Loose Methods Pane shows only the loose methods held by a package (as its name suggests). It does not show the methods that belong to the package&apos;s classes since, typically, there would be far too many to display them all sensibly in the pane.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dragging a method object from one of the other browsers and dropping it over this pane will add that method to the currently selected package. If the method&apos;s class is not already a member of the package then it will be added as a loose method and will appear in this pane. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Double-clicking a loose method in this pane will open it into a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Setting_the_Default_Browser" styleclass="Normal" translate="true">default browser</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

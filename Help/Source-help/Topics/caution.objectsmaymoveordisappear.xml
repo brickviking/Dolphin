@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Caution: Objects may Move or Disappear</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Caution: Objects may Move or Disappear</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If one passes a Smalltalk object to an external library function by reference (i.e. as an </text><text styleclass="Normal" translate="true">lpvoid </text><text styleclass="Normal" translate="true">or </text><text styleclass="Normal" translate="true">lpstr </text><text styleclass="Normal" translate="true">parameter) and the function is likely to capture that parameter (i.e. save it down and write back into it after the call has returned), then one must ensure that the object is allocated from fixed memory (</text><link displaytype="text" defaultstyle="true" type="topiclink" href="externalstructures" styleclass="Normal" translate="true">ExternalStructures</link><text styleclass="Normal" translate="true"> are automatically allocated in this way using the fixed allocation primitive). If one does not do this, the object may move in memory during garbage collection, and unpredictable behaviour will be the result!</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One must also ensure that externally captured objects continue to be referenced from Smalltalk in order that they are not garbage collected, or the result will be the same. This is particularly likely to be an issue when pointers to objects are stored into the fields of </text><text styleclass="Class Name" translate="true">ExternalStructures</text><text styleclass="Normal" translate="true">. The idiom to use in this case is to add an instance variable that can be set to point to the object at the same time as its address is stored down. In this way a reference that the garbage collector can see is maintained for the life of the structure, and so the referenced object will not disappear while the structure is still in use.</text></para>
+  </body>
+</topic>

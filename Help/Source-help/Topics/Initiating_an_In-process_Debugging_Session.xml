@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Initiating an In-process Debugging Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Initiating an In-process Debugging Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When started as an in-process debug server the development image will open up as last saved, restoring one</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s previous session state. Thus one can wait until the server has started before setting breakpoints in the server object</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s methods. If one needs to debug through server object creation, then it is necessary to set a breakpoint in an appropriate place before saving the image. This breakpoint will then cause a walkback dialog to be popped up when the client is next started. For example we could set a breakpoint in the </text><text styleclass="Class Name" translate="true">COMRandomStream&gt;&gt;initialize</text><text styleclass="Normal" translate="true"> method as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Initialize the reciever&apos;s instance variables (suitably for the lottery).&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self halt.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">lowerBound := 1.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">upperBound := 49.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">stream := Random new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If we now start </text><text styleclass="Program Feature" translate="true">randomvbclient.exe</text><text styleclass="Normal" translate="true"> a walkback like the following should pop-up:</text></para>
+    <para styleclass="Normal"><image src="_img1.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that you should respond to this walkback fairly quickly, as otherwise the client will timeout and report an error. Just press the </text><text styleclass="Menu Command" translate="true">Debug</text><text styleclass="Normal" translate="true"> button to go into the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> in the normal way.</text></para>
+  </body>
+</topic>

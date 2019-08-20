@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Software Patterns</title>
+  <keywords>
+    <keyword translate="true">Software Patterns</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Software Patterns</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Software developers have been attempting to make it easier to write software for many years. Much of the effort has gone into increasing the potential for re-use. The idea of reusing one software component, designed for a particular application, within another separate application seems appealing. The introduction of Object Oriented programming languages (such as Smalltalk) went a long way towards improving the potential for code reuse but still the goal remains largely unfulfilled.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Other engineering professions have been successfully reusing design solutions by collecting them in &quot;handbooks&quot; available to all members of the profession. These have been particularly successful in the mechanical engineering and architectural fields. In some sense, the flexibility of software has been to its own detriment. It&apos;s very easy to copy a piece of software, modify the copy and produce a new product. One can&apos;t do that quite so easily with a suspension bridge. This supposed ease with which new software can be created has steered its development away from a more traditional engineering discipline. We&apos;re finally realizing, however, that it is </text><text styleclass="Normal" translate="true">design</text><text styleclass="Normal" translate="true"> reuse that&apos;s even more important than </text><text styleclass="Normal" translate="true">code</text><text styleclass="Normal" translate="true"> reuse if the software industry is to achieve its goals.</text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Software Design Patterns</text><text styleclass="Normal" translate="true"> are a candidate for a Software Engineer&apos;s Handbook. For Dolphin Smalltalk we have put together a book of Pattern Sheets that document how and why certain design decisions should be undertaken. Some of these pages are tailored specifically to solving problems with Dolphin but many can be applied to other Smalltalk dialects with little modification.</text></para>
+  </body>
+</topic>

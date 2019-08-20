@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Exception Handling</title>
+  <keywords>
+    <keyword translate="true">Exception Handling</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Exception Handling</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Early versions of Smalltalk did not have exceptions, and provided no particular support for error handling. Exception handling schemes that by-pass the normal flow of control, and which use objects to represent error conditions, have a number of advantages over other error handling techniques, such as testing return values:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Error handling code can be separated from normal code. In particular the frequent and repetitive testing of return values, and propagation of error return values, is not required. Since exceptional conditions can normally be ignored, code can be less complex, less likely to contain bugs, and easier to read.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Error return values can be ignored, exceptions cannot. In practice lazy or pressurised programmers frequently do not test for failure codes.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The range of return values may not include any space for error values, hence the rather confusing technique (used in OLE) of returning values through &quot;out&quot; parameters and using the return value for success and error codes only. Exceptions by-pass the stack, so there is no possibility of conflict.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The point at which an error occurs is rarely a suitable place to handle it, particularly in library code, but by the time the error has been propagated to a place where it can be handled, too much contextual information has been lost. Exceptions bridge this gap - they allow specific error information to be carried from the point where it available to a point where it can be utilised.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Resumable exception models can be used to construct resilient systems that carry out repairs when exceptions occur, with subsequent resumption of execution as if nothing had happened. For example, this technique is useful for on-demand resource allocation.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Using exceptions </text><text styleclass="Normal" translate="true">may </text><text styleclass="Normal" translate="true">be more efficient because the normal execution path does not need to test for error conditions.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The end result of all these advantages is, hopefully, faster development of more robust and easier to maintain systems. Consequently exception-handling schemes have found there way into more recent versions of Smalltalk, and Dolphin is no exception.</text></para>
+  </body>
+</topic>

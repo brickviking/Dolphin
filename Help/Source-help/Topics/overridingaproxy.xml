@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Overriding a proxy</title>
+  <keywords>
+    <keyword translate="true">Overriding a proxy</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Overriding a proxy</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is sometimes desirable to override the whole proxy mechanism for particular instances on a per output session basis. For instance, You may have a hierarchy of objects and you want to output from a certain point down, i.e. treating the crucial parent reference as nil. You can, of course, change the object before the filing process commences and then change it back again afterwards, or perhaps get </text><text styleclass="Class Name" translate="true">#stbSaveOn</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> to file out different instances of the same class in different ways, but these techniques may prove inconvenient.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can achieve a temporary proxy override using </text><text styleclass="Class Name" translate="true">STBOutFiler&gt;&gt;#override:with:</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true"> Before filing out the object that needs special attention (or any references to it) you:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">...</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFiler #override: theObject with: thisProxy.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">...</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">where </text><text styleclass="Class Name" translate="true">thisProxy</text><text styleclass="Normal" translate="true"> is similar in concept to the </text><text styleclass="Normal" translate="true">as:</text><text styleclass="Normal" translate="true"> parameter of </text><text styleclass="Class Name" translate="true">STBOutFiler&gt;&gt;#saveObject:as</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">,</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">i.e.</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">0 means output the object with no proxy</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">nil means output nil instead of the object</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">some instance of an </text><text styleclass="Class Name" translate="true">STBProxy</text><text styleclass="Normal" translate="true"> means output that instead of the object.</text></li>
+    </list>
+  </body>
+</topic>

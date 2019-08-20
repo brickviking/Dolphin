@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Community Edition Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For the first time since Dolphin 2.1 we are re-introducing a completely free version back into our product range. We originally withdrew the 2.1 edition because its user interface had fallen behind the commercial versions and, overall, we felt that it was a poor advertisement for the product. Now, however, with </text><text styleclass="Program Feature" translate="true">Dolphin Community Edition X6</text><text styleclass="Normal" translate="true">, we have a completely up-to-date version of Dolphin that we are placing into the hands of the community to widen the acceptance of Smalltalk.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Community Edition has the cool new look of X6 and features an expanded class library compared with the previous free editions. For example, you now get Sockets and Database connectivity available as standard. Basically, we have withdrawn our old Standard Edition product and rolled most of its features into the Community Edition.</text></para>
+  </body>
+</topic>

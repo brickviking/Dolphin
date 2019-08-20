@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">DolphinSure</title>
+  <keywords>
+    <keyword translate="true">DolphinSure</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">DolphinSure</text></para>
+    </header>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> is a framework of classes to allow any arbitrary data or object to be digitally signed in such a way that it can transmitted across an insecure medium and then later verified to confirm that has not be modified in transit. The trusted data is signed with the &quot;certificate&quot; of the originator and an additional benefit of the system is, therefore, that it is possible for the consumer to be aware of the data&apos;s origins. The digital signature that is associated with a piece of signed (or &quot;trusted&quot;) data is virtually impossible to forge and the </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> mechanism uses the international standards recommended by the US government (SHA-1 and DSA).</text></para>
+    <para styleclass="Normal"><conditional-text type="IF" value="EBOOK"/><text styleclass="Normal" translate="true">The ability to sign Smalltalk objects is a key security component of the Dolphin Web Applet Plug-in and allows Dolphin applets to be distributed across the Internet without fear that they may be modified or impersonated by unscrupulous third parties. When an applet is signed by its publisher using DolphinSure, the plug-in running in the client&apos;s browser is able to verify the signature and display the publisher information to ask the user if the applet should be trusted to execute locally.</text><conditional-text type="END"/></para>
+  </body>
+</topic>

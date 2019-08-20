@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Prompting for a new Question</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Prompting for a new Question</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">And, almost finally, we need a method to prompt for a new Question object.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Question class&gt;&gt;promptToDistinguish: anOldAnimal from: aNewAnimal</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answers an instance of the receiver (a Question) that will distinguish between</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">anOldAnimal and aNewAnimal. The question should be phrased such that the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">answer is &apos;yes&apos; for aNewAnimal&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| questionText |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">[questionText isNil or: [questionText isEmpty]] whileTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">questionText := Prompter prompt: (&apos;Now, please enter a question that will answer Yes for &apos;, </text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">aNewAnimal displayString,</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">&apos; and No for &apos;,</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">anOldAnimal displayString)</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">caption: &apos;Now, so I can learn about &apos;, aNewAnimal displayString ].</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^self text: questionText yes: aNewAnimal no: anOldAnimal</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once again we have to use a </text><text styleclass="Class Name" translate="true">Prompter</text><text styleclass="Normal" translate="true"> and check to see that a valid response is received from the player before creating the new instance.</text></para>
+  </body>
+</topic>

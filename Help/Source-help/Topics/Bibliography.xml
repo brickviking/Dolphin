@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Bibliography</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Bibliography</text></para>
+    </header>
+    <para styleclass="Normal Head"><anchor id="Rogerson" styleclass="Normal Head"></anchor><text styleclass="Normal Head" translate="true">“Inside COM”, Dale E Rogerson, Microsoft Press, ISBN 1572313498</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This good introductory book is easy to follow. It covers most of what one needs to know about the basics of COM, though somewhat lacking in depth. It does not cover OLE or Active-X controls (OCXs), although it is a good grounding for further reading on those topics. Requires a reasonable understanding of C++.</text></para>
+    <para styleclass="Normal Head"><anchor id="Eddon" styleclass="Normal Head"></anchor><text styleclass="Normal Head" translate="true">“Inside DCOM”, Guy &amp; Henry Eddon, Microsoft Press, ISBN 157231849X</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An introductory book with wider coverage and greater depth than Rogerson. Mainly C++ focus, but with sections on using VB and Java as clients, which gives a wider perspective and helps one to put COM integration in Dolphin into perspective. </text></para>
+    <para styleclass="Normal Head"><anchor id="Box" styleclass="Normal Head"></anchor><text styleclass="Normal Head" translate="true">“Essential COM”, Don Box, Addison Wesley, ISBN 0201634465</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An excellent book on intermediate/advanced COM programming from one of the masters. Does also cover the basics.</text></para>
+    <para styleclass="Normal Head"><anchor id="Major" styleclass="Normal Head"></anchor><text styleclass="Normal Head" translate="true">“COM IDL &amp; Interface Design”, Dr Al Major, Wrox Press, ISBN 1861002254</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Essential for more advanced uses of IDL if you can</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">t fathom Microsoft</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s reference documentation or find an example to copy.</text></para>
+    <para style="margin-top:8px; margin-left:192px; page-break-inside:avoid;"></para>
+  </body>
+</topic>

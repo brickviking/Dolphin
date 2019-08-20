@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Debugger Source Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Source Pane </text><text styleclass="Normal" translate="true">shows the source code of the method associated with the current stack frame. The expression </text><text styleclass="Normal" translate="true">currently</text><text styleclass="Normal" translate="true"> being executed is highlighted, unless the top stack frame is selected, in which case the highlight marks text of the expression which is </text><text styleclass="Normal" translate="true">about </text><text styleclass="Normal" translate="true">to be executed. Although this may seem confusing at first glance, it seems natural when using the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> to step through code</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may choose to modify the source of the currently executing method and then recompile it using </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Normal" translate="true">. If you do this, the method will be set to restart from the first statement when execution is resumed.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Referring to Pool Dictionary Constants</title>
+  <keywords>
+    <keyword translate="true">Pool Dictionaries</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Referring to Pool Dictionary Constants</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes, you may wish to write expressions in a </text><text styleclass="Program Feature" translate="true">Workspace </text><text styleclass="Normal" translate="true">that makes reference to constants or other variables in Pool Dictionaries. In order to do this you must first associate the pool dictionaries with the workspace. You can do this using the </text><text styleclass="Normal" translate="true">Workspace/Pools </text><text styleclass="Normal" translate="true">command. This will prompt with a multi-selection list containing all of the pools available in the system. From here you should choose those pools that you wish to make use of.</text></para>
+  </body>
+</topic>

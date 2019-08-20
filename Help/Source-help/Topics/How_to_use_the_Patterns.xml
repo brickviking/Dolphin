@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Using Patterns</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Using Patterns</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Dolphin documentation comes with a set of </text><link displaytype="text" defaultstyle="true" type="topiclink" href="softwarepatterns" styleclass="Normal" translate="true">Patterns</link><text styleclass="Normal" translate="true"> that will help you with many common programming issues. The patterns have been designed in a hierarchy such that you can choose a suitable entry pattern and this will take you through the steps, and possibly sub-patterns, that are necessary to accomplish a task. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order that you become used to using the patterns, as well as learning how the Dolphin environment hangs together, this tutorial provides links to the various pattern pages at appropriate points. If you follow one of these links, then once you have become familiar with the pattern description you should use your browser&apos;s </text><text styleclass="Menu Command" translate="true">Back</text><text styleclass="Normal" translate="true"> button to resume the tutorial at the point you left off.</text></para>
+  </body>
+</topic>

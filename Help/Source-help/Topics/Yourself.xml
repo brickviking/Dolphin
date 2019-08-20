@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Yourself</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Yourself</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes it is useful for a series of cascaded messages to answer, not the result of the last message, but the receiver of the messages itself. You can use the message, yourself, to do this. Compare the following two examples:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">sequence := OrderedCollection new</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 1;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 4;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 9;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 16. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here, the displayed result is 16, which is answered by the final </text><text styleclass="Class Name" translate="true">add</text><text styleclass="Normal" translate="true">: message (it is convention that any </text><text styleclass="Class Name" translate="true">add</text><text styleclass="Normal" translate="true">: message will always answer its parameter). This is probably not what we want since the actual sequence of numbers has now been lost. More likely, the following is what is expected:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">sequence := OrderedCollection new</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 1;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 4;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 9;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">add: 16;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">yourself. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The message </text><text styleclass="Class Name" translate="true">yourself</text><text styleclass="Normal" translate="true"> always answers the receiver that it is sent to. In this case the receiver is the </text><text styleclass="Class Name" translate="true">OrderedCollection</text><text styleclass="Normal" translate="true"> object and so, since </text><text styleclass="Class Name" translate="true">yourself</text><text styleclass="Normal" translate="true"> is the last message sent in the cascaded sequence, this is what is returned as the result.</text></para>
+  </body>
+</topic>

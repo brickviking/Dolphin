@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Importing from other Smalltalks</title>
+  <keywords>
+    <keyword translate="true">Importing from other Smalltalks</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Importing from other Smalltalks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin can load files in the original Smalltalk-80 chunk format and will also attempt to file in formats from the other commercial Smalltalk implementations while keeping their specific category information.</text></para>
+  </body>
+</topic>

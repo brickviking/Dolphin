@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Loops</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Loops</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk uses blocks to do looping. Since blocks are just objects, we can send messages to them.</text></para>
+    <para styleclass="Normal"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">int tries = 0;</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">while (tries &lt;= 5) {</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">tryAgain();</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">tries++;</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">}</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">| tries |</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">tries := 0.</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">[tries &lt;= 5] whileTrue: [</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">self tryAgain.</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">tries := tries + 1]</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">&#32;</text></para>
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">alternatively:</text></para>
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">5 timesRepeat: [self tryAgain]</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice that </text><text styleclass="Normal" style="font-style:italic;" translate="true">timesRepeat</text><text styleclass="Normal" translate="true">: is a message understood by </text><text styleclass="Normal" style="font-style:italic;" translate="true">Integers</text><text styleclass="Normal" translate="true">. It simply evaluates the block the proper number of times.</text></para>
+  </body>
+</topic>

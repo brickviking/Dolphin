@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Errors</title>
+  <keywords>
+    <keyword translate="true">Errors</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Errors</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">Errors</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">represent exceptional conditions that are normally considered &apos;fatal&apos;.</text></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">Errors</text><text styleclass="Normal" translate="true"> are not normally resumable, though specific subclasses can be resumable if desired, an example being </text><text styleclass="Class Name" translate="true">MessageNotUnderstood</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The default action for an unhandled error is to send an </text><text styleclass="Class Name" translate="true">#onUnhandledError</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message to the </text><text styleclass="Class Name" translate="true">SessionManager</text><text styleclass="Normal" translate="true">. The development system session manager (</text><text styleclass="Class Name" translate="true">DevelopmentSessionManager</text><text styleclass="Normal" translate="true">) implements this by popping up a walkback. The standard </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> displays a message box, and then proceeds as specified by the user (there will be no OK/Cancel choice if the </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is not resumable).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Applications, which typically implement their own session manager to meet their own specific requirements, can provide alternative behaviour by overriding the </text><text styleclass="Class Name" translate="true">#onUnhandledError</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message appropriately.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The class </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true"> represents the most general form of error exception. Instances of </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">represent non-resumable exceptional conditions with an associated description. </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is an appropriate exception to raise where the condition is the result of an error which cannot be recovered (e.g. a violation of a basic invariant), but it is not specific enough for situations where recovery is desirable.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The majority of more specific exception classes will be found under </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">, and this is where one is most likely to want to introduce one&apos;s own exception classes.</text></para>
+  </body>
+</topic>

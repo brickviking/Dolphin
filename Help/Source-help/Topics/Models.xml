@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Models</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Models</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The model data is usually described by a particular class in the image. Most often these are created beneath the </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Normal" translate="true"> hierarchy although, this is not essential. All that is necessary is that the model must trigger appropriate events for the view to intercept so that any changes made to it can be read displayed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here are some examples:</text></para>
+    <para styleclass="Normal"><table rowcount="5" colcount="4" style="cell-padding:0px; cell-spacing:0px; border-width:1px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:83px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Domain Data</text></para>
+        </td>
+        <td style="width:144px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Model class </text></para>
+        </td>
+        <td style="width:150px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Events triggered</text></para>
+        </td>
+        <td style="width:197px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Notes</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:83px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Text </text></para>
+        </td>
+        <td style="width:144px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">ValueModel</text><text styleclass="Normal" translate="true"> or subclass</text></para>
+        </td>
+        <td style="width:150px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#valueChanged</text></para>
+        </td>
+        <td style="width:197px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The value model&apos;s value will be a </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true">. An appropriate view must be chosen capable of displaying string values.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:83px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Numbers</text></para>
+        </td>
+        <td style="width:144px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">ValueModel</text><text styleclass="Normal" translate="true"> or subclass</text></para>
+        </td>
+        <td style="width:150px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#valueChanged</text></para>
+        </td>
+        <td style="width:197px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The value model&apos;s value will be a </text><text styleclass="Class Name" translate="true">Number</text><text styleclass="Normal" translate="true">. An appropriate view &#160;must be chosen capable of displaying numeric values.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:83px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Lists of things</text></para>
+        </td>
+        <td style="width:144px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ListModel</text></para>
+        </td>
+        <td style="width:150px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#listChanged</text><br/><text styleclass="Class Name" translate="true">#item:addedAtIndex:</text><br/><text styleclass="Class Name" translate="true">#item:removedAtIndex:</text><br/><text styleclass="Class Name" translate="true">#itemUpdatedAtIndex:</text></para>
+        </td>
+        <td style="width:197px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The list model can typically hold any sort of object. It is up to the view to decide how this is displayed.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:83px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Bank Account data (sample)</text></para>
+        </td>
+        <td style="width:144px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">PersonalAccount</text></para>
+        </td>
+        <td style="width:150px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#currentBalanceChanged</text></para>
+        </td>
+        <td style="width:197px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Taken from the Personal Money tutorial. This is a composite model (built of other models) that will require a composite view to display it (see later).</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

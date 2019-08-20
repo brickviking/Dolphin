@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Warnings</title>
+  <keywords>
+    <keyword translate="true">Warnings</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Warnings</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">Warnings</text><text styleclass="Normal" translate="true"> represent resumable exceptional conditions that are non-fatal.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Resuming after an unhandled warning is usually successful, though the user normally has the option of cancelling the operation (though this will depend on the session manager, which once again is notified of unhandled warnings via the </text><text styleclass="Class Name" translate="true">#onUnhandledWarning</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the development system (when the </text><text styleclass="Class Name" translate="true">DevelopmentSessionManager</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is installed) the user also has the option of &quot;retrying&quot; after a warning, which brings up a walkback allowing one to enter the debugger.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The most general form of warning is represented by the class </text><text styleclass="Class Name" translate="true">Warning</text><text styleclass="Normal" translate="true">, which like </text><text styleclass="Class Name" translate="true">Error</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">contains a displayable description. One does not normally need to subclass </text><text styleclass="Class Name" translate="true">Warning</text><text styleclass="Normal" translate="true">, although it is permissible to do so.</text></para>
+    <para style="margin-top:19px;"></para>
+  </body>
+</topic>

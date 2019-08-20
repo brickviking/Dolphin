@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Glossary of Terms</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Glossary of Terms</text></para>
+    </header>
+    <para style="margin-top:9px;"><snippet src="glossansistandard"/><snippet src="glosschunkformat"/><snippet src="glossclasshierarchybrowser"/><snippet src="glossclasshierarchydiagram"/><snippet src="glossdebugger"/><snippet src="glossdefaultpackage"/><snippet src="glossdolphinpackage"/><snippet src="glossdolphinsmalltalk.freshinstall.icon"/><snippet src="glossdolphinsure"/><snippet src="glosseventprotocol"/><snippet src="glossfinalization"/><snippet src="glossglobal"/><snippet src="glossimage"/><snippet src="glossimagestripper"/><snippet src="glossinspector"/><snippet src="glosslagoondeploymentwizard"/><snippet src="glossliveupdate"/><snippet src="glossmvp"/><snippet src="glosspac"/><snippet src="glosspackagebrowser"/><snippet src="glosspak"/><snippet src="glosspatchlevels"/><snippet src="glosspax"/><snippet src="glossprotocolbrowser"/><snippet src="glossresources"/><snippet src="glosssmalltalkdictionary"/><snippet src="glosssourcecodecontrolsystem"/><snippet src="glossstb"/><snippet src="glosssts"/><snippet src="glosssystemfolder"/><snippet src="glossuncommittedclasses"/><snippet src="glossuncommittedglobals"/><snippet src="glossuserprefs"/><snippet src="glossviewcomposer"/><snippet src="glosswalkback"/><snippet src="glossworkspace"/><snippet src="glossworkspacevariables"/><snippet src="glosszombies"/></para>
+  </body>
+</topic>

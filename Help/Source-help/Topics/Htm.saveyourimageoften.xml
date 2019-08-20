@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Save your Image often</title>
+  <keywords>
+    <keyword translate="true">Save your Image often</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Save your Image often</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">You should aim to save your </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> fairly often while you&apos;re working. Usually it is appropriate to do a save after you have achieved some minor unit of progress within your work. As a minimum, you should aim to save your image at least once an hour. Remember, it is certainly possible to break an image such that it stops working and has to be restarted from the last save. The more often you save, the less likely you are to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.caption.28" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">lose work</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">.</text></para>
+  </body>
+</topic>

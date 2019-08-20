@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Persistency of Sockets</title>
+  <keywords>
+    <keyword translate="true">Persistency of Sockets</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Persistency of Sockets</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should be aware that the validity of a Socket descriptor is not maintained when a Dolphin image is shut down and re-started. You&apos;ll find that, after re-starting an image, all Sockets will appear to have been closed and will have nil descriptors. You should bear this in mind when executing the examples since, if you work through them over several sessions, you will have to re-open previously opened Sockets before continuing.</text></para>
+  </body>
+</topic>

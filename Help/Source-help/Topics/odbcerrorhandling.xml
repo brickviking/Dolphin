@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">ODBC Error handling</title>
+  <keywords>
+    <keyword translate="true">ODBC Error handling</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">ODBC Error handling</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All of the </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> operations that result in calls to the underlying ODBC driver are checked for errors when they return. If an error occurs during an a ODBC call then a Smalltalk </text><text styleclass="Class Name" translate="true">DBError</text><text styleclass="Normal" translate="true"> exception is raised. The default outcome of a </text><text styleclass="Class Name" translate="true">DBError</text><text styleclass="Normal" translate="true"> signal is a walkback that indicates that the exception has not been handled. The walkback includes a textual description of the error as part of its caption. However, since the ODBC error messages tend to be quite verbose, it is not always possible to read the entire message from the walkback window. In these situations just enter the debugger by pressing </text><text styleclass="Menu Command" translate="true">Debug</text><text styleclass="Normal" translate="true">. </text><text styleclass="Normal" translate="true">This will allow you to read the message more easily.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Often, you will want to intercept </text><text styleclass="Class Name" translate="true">DBError</text><text styleclass="Normal" translate="true"> exceptions to handle them in more application specific way. You can do this by a enclosing the original </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> calls in a block and using </text><text styleclass="Class Name" translate="true">#on:do</text><text styleclass="Normal" translate="true">: to trap the error. Here&apos;s an example that traps an open connection error and reports the message to the </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true"> rather than bringing up a walkback.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[ (DBConnection new) dsn: &apos;NonExistent&apos;; connect. ] on: DBError do: [:e |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;Transcript show: e details errors first msg; cr ].</text></para>
+  </body>
+</topic>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Testing the Domain Models</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Testing the Domain Models</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now we have completed the first pass at designing our domain model classes, it is a suitable time to test the functionality. Evaluate the following a line at a time in a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace" styleclass="Program Feature" translate="true">Workspace</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a := PersonalMoney new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a owner: &apos;My Name&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b := PersonalAccount new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b name: &apos;My Current Account&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b accountNumber: &apos;ABC345&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b initialBalance: 500.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can inspect either of these two instances to ensure they are correct, then add the account to the money application:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a addAccount: b</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Next create one or more transactions and add these to the account:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c := PersonalAccountTransaction new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c description: &apos;Brown Shoes&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c amount: 50.65.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b addTransaction: c.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When done, you can ask for the current balance of the account as follows (remember to display the answer):</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">b currentBalance</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see it is easy to exercise all of the functionality in your domain classes from a Smalltalk workspace before progressing to the user interface programming. It is good practice to clean up any variables that you create during testing (such as a, b, c here) to avoid them holding on to unwanted instances of your test objects. The easiest way to do this is simply to close the workspace in which they were declared. However, in this case these temporary values may be useful for trying out your user interface later. Keep them around now, but remember to close the workspace later on when you&apos;ve finished.</text></para>
+  </body>
+</topic>

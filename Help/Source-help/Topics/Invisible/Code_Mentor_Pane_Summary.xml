@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Code Mentor Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Code Mentor Pane</text><text styleclass="Normal" translate="true"> performs a background &quot;quality&quot; analysis of your code as you type it. It is based on a series of SmallLint rules, provided as a part of the refactoring engine, that can be extended if required.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The analysis is split into several categories of differing severities:</text></para>
+    <para styleclass="Program Feature"><table rowcount="6" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintErrorIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Bugs</text><text styleclass="Normal" translate="true"> - </text><text styleclass="Normal" translate="true">A series of checks for probable bugs in your code.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintErrorIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Possible Bugs</text><text styleclass="Normal" translate="true"> - </text><text styleclass="Normal" translate="true">A series of checks that look for possible bugs in your code.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintWarningIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Unnecessary Code</text><text styleclass="Normal" translate="true"> - </text><text styleclass="Normal" translate="true">A series of checks that look for redundant code. Failures do not necessarily indicate situations that need to be addressed however you may wish to verify that you code is not larger or slower that it needs to be.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintWarningIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Intention Revealing</text><text styleclass="Normal" translate="true"> - </text><text styleclass="Normal" translate="true">A series of checks checks that look for code which can probably be rewritten so that is easier to read and better represents the intended operation.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintInfoIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Miscellaneous</text><text styleclass="Normal" translate="true"> - </text><text styleclass="Normal" translate="true">A miscellaneous series of checks highlighting patterns that may indicate situations where the code could be improved. Code failing these rules will usually work but may not be optimally efficient or readable.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:43px;">
+          <para styleclass="Program Feature"><image src="LintPassIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:382px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Pass</text><text styleclass="Normal" translate="true"> - Everything is ok!</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may choose to address each issue or to simply mark it to be ignored. If automatic background analysis is turned on, each of the above smiley is is visible in the </text><text styleclass="Program Feature" translate="true">Code Mentor</text><text styleclass="Normal" translate="true"> tab in the main browser view. If you get the instantly recognisable &quot;happy face&quot; then you know your coding is on the right track!</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Code Mentor Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the </text><text styleclass="Notes" translate="true">CodeMentorPlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

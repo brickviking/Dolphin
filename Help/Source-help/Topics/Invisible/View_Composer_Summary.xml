@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">View Composer Summary</title>
+  <body>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Popup Box" translate="true"> provides a graphical means of laying out views. Views are the visible UI elements of </text><var styleclass="Popup Box">&lt;%APP%&gt;</var><text styleclass="Popup Box" translate="true">, so the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Popup Box" translate="true"> can be thought of &#160;as its GUI builder. </text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Once created, views are saved down as class-side methods of the classes to which they belong. Generally, these methods are not human-readable and are only intended to be edited using the</text><text styleclass="Program Feature" translate="true"> View Composer</text><text styleclass="Popup Box" translate="true">.</text></para>
+    <para styleclass="Popup Box"><var styleclass="Popup Box">&lt;%APP%&gt;</var><text styleclass="Popup Box" translate="true"> uses a user interface framework known as </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Popup Box" translate="true"> which allows a each UI component to have multiple views associated with it, if required.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">View Composer</text><text styleclass="Notes" translate="true"> is implemented by the </text><text styleclass="Notes" style="font-style:italic;" translate="true">ViewComposer</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

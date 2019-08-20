@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Internet Addresses</title>
+  <keywords>
+    <keyword translate="true">Internet Addresses</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Internet Addresses</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If we want to connect one machine to another across a network, it is essential to be able to identify machines easily. The TCP/IP Internet Protocol identifies machines by means of their IP addresses. An IP address usually looks something like 192.169.0.1. Each machine on a LAN or connected to the Internet will have a unique IP address. However, these IP addresses are difficult to remember (and sometimes may change) so it is useful to have an alternative naming scheme. TCP/IP has the concept of host names where each computer may be given a textual name. There must therefore be a mapping mechanism of host names to IP addresses and vice versa. How this works is beyond the scope of this text but, if you intend to test </text><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> across a network, you should find out the hostname and IP address of the computers you&apos;ll be using. You may have to contact your network administrator to find out this information.</text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> uses the </text><text styleclass="Normal" translate="true">InternetAddress</text><text styleclass="Normal" translate="true"> class to represent an Internet address, either by hostname or IP address. You can also use this class for mapping between IP addresses and hostnames as and when required.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;The local machine can always be identified by the hostname -- localhost&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ia := InternetAddress host: &apos;localhost&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Display the IP address for this host&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ia ipAddress.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In fact, the &apos;localhost&apos; name and #[127 0 0 1] address are aliases present on all machines. You cannot use them for talking from one machine to another. You will have to substitute your own IP addresses and host names, where appropriate, in the example below.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Display the real IP address of your machine&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(InternetAddress host: &apos;moll&apos;) ipAddress.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Display a reverse lookup of host name from IP address&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(InternetAddress ipAddress: #[192 169 0 1]) host.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This latter operation can often be quite time-consuming.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the examples that follow, we will assume that the server machine has an IP address of 192.169.0.1 and a host name of &apos;moll&apos;.</text></para>
+  </body>
+</topic>

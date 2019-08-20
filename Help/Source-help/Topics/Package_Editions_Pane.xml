@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Package Editions Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Package Editions Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Package_Editions_Pane_Summary"/><text styleclass="Normal" translate="true">The context menu in the </text><text styleclass="Program Feature" translate="true">Package Editions Pane</text><text styleclass="Normal" translate="true"> &#160;contains the following commands:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update list</text><text styleclass="Normal" translate="true"> - use this option when another developer is working on the same repository. When another developer versions a package use this option to refresh the list with the latest package editions.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - use this option to load/install the selected package edition in the image.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Compare Editions</text><text styleclass="Normal" translate="true"> - use this option to compare differences between two selected package editions. This option is enabled only when two package editions are selected.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Compare with...</text><text styleclass="Normal" translate="true"> - use this option to compare the selected package edition with another edition which can be either from the same package or another package with a different name. After clicking on this option you can select another package edition with which to compare. After selecting it a changes browser window will be opened with a list of differences between package editions.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Show Package History</text><text styleclass="Normal" translate="true"> - use this option to display a version tree which </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Editions_History_Viewe" styleclass="Normal" translate="true">shows the package history</link><text styleclass="Normal" translate="true">. From the version tree you can see which version derived from another version. &#160;</text></li>
+    </list>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Export Edition</text><text styleclass="Normal" translate="true"> - use this option to export a package edition into a file without loading it first. The package edition is exported together with its versioning information (developer and timestamp for every method, class and package).</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">File Out As ...</text><text styleclass="Normal" translate="true"> - use this option to file out package edition source directly from the repository without loading the package. With this option you can file out sources into other Smalltalk dialects.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Rename version</text><text styleclass="Normal" translate="true"> - use this option to rename version given to an already versioned package version.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Purge</text><text styleclass="Normal" translate="true"> - use this option to remove a package version from the repository.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Salvage</text><text styleclass="Normal" translate="true"> - use this option to salvage previously removed package version. This option only works for the last two previously removed package versions.</text></li>
+    </list>
+  </body>
+</topic>

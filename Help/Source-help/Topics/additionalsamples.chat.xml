@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Additional Samples - Chat</title>
+  <keywords>
+    <keyword translate="true">Additional Samples - Chat</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Additional Samples - Chat</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A sample application illustrating the use of the </text><text styleclass="Program Feature" translate="true">Socket Connection</text><text styleclass="Normal" translate="true"> to implement a simple text based </text><text styleclass="Program Feature" translate="true">Chat</text><text styleclass="Normal" translate="true"> window is provided in the </text><text styleclass="Program Feature" translate="true">Chat.pac</text><text styleclass="Normal" translate="true"> package. Please follow the instructions in the Package comment.</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="Chat.png" scale="100.00%" styleclass="Image Caption"></image></para>
+  </body>
+</topic>

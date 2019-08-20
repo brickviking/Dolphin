@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #33</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The .CHG file in your image folder contains all the source changes made since your image was created or last compressed. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are not using the </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> (available in Dolphin Professional only) it is still possible to recover older versions of methods from this file. Some third party tools are available to make this easier (Google: &quot;Ian Bartholomew&apos;s Chunk Browser&quot;). </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you choose to view the .CHG file with a text editor, it is advisable to work on a copy as it must </text><text styleclass="Normal" style="font-weight:bold;" translate="true">never</text><text styleclass="Normal" translate="true"> be edited and re-saved.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

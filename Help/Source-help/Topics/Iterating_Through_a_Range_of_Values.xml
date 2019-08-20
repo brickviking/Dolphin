@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Iterating Through a Range of Values</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Iterating Through a Range of Values</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes you&apos;ll want to loop a number of times and know where you are in the sequence as you do so. For example, let&apos;s say that we want to print a list of the square numbers from 1 to 12. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">1 to: 12 do: [:n | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Transcript show: n squared displayString; cr ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">After evaluating this code in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Transcript" styleclass="Program Feature" translate="true">System Transcript</link><text styleclass="Normal" translate="true"> window to see the results. You can send text strings to this window using a #</text><text styleclass="Class Name" translate="true">show</text><text styleclass="Normal" translate="true">: message sent to the global variable, </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true">. More importantly, take a look at the </text><text styleclass="Class Name" translate="true">#to:do:</text><text styleclass="Normal" translate="true"> message and the format of the block it takes as its second parameter. The receiver is an integer which represents the starting value and the first parameter is taking to be the ending value. The block is then executed for this range with each value in turn being passed as a parameter (n) to the block. Yes, that&apos;s right; blocks can have parameters too.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If a block is to expect one or more parameters then they must be declared immediately after the opening bracket. Each parameter is preceded by a colon and separated by a space. The parameter list is terminated by a vertical bar character.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">#to:do:</text><text styleclass="Normal" translate="true"> message in the previous example loops through a range of integer values stepping one at a time. If you wish to increase the size of the step then the message </text><text styleclass="Class Name" translate="true">#to:by:do:</text><text styleclass="Normal" translate="true"> exists for this purpose:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">10 to: 120 by: 10 do: [:eachRadius | simon radius: eachRadius ].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">40 to: 220 by: 20 do: [:eachAngle | simon rotation: eachAngle ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In a later chapter you will see how you can iterate over more complicated collections of objects, not just integer ranges.</text></para>
+  </body>
+</topic>

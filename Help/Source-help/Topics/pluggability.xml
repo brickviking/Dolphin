@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pluggability</title>
+  <keywords>
+    <keyword translate="true">Pluggability</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pluggability</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since a view and presenter may register an interest in particular events that they expect a model to generate, you cannot plug any view or presenter onto any model and expect them to work.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Normally, we classify the &quot;type&quot; of an object effectively by the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossmessageprotocol" styleclass="Normal" translate="true">message protocol</link><text styleclass="Normal" translate="true"> that it responds to. For the sake of </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> we should, perhaps, extend our notion of &quot;type&quot; to include not only the message protocol but also the &quot;protocol of events&quot; that can be triggered by an object. It is important in </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> to only plug a particular view or presenter onto a certain type of model. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For example, the </text><text styleclass="Class Name" translate="true">ListBox</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">ListPresenter</text><text styleclass="Normal" translate="true"> classes expect a model with a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossmessageprotocol" styleclass="Normal" translate="true">message protocol</link><text styleclass="Normal" translate="true"> and an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosseventprotocol" styleclass="Normal" translate="true">event protocol</link><text styleclass="Normal" translate="true"> exemplified by the </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class.</text></para>
+  </body>
+</topic>

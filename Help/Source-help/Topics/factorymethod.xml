@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Factory Method</title>
+  <keywords>
+    <keyword translate="true">Factory Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Factory Method</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is often necessary, in a method, to create a new instance of some class. If the class whose instance is to be created is hard-coded, then programmers of subclasses will not be able to substitute a different class if required.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement a factory instance method whose sole purpose is to instantiate and answer the new object. Subclasses can then override this method and create an object of their own choice.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The selector for a factory method should be of the form </text><text styleclass="Class Name" translate="true">#newXXX</text><text styleclass="Normal" translate="true">,</text><text styleclass="Normal" translate="true"> where </text><text styleclass="Normal" translate="true">XXX</text><text styleclass="Normal" translate="true"> is a description (not the class) of the resultant object.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For greater flexibility, make the factory instance method call a factory class method of the same name. This allows the programmer of a subclass to override the method on an instance basis </text><text styleclass="Normal" translate="true">or</text><text styleclass="Normal" translate="true"> a class basis. Better still, the factory class method should not hard-code the class name at all but, instead, should request the class name from a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="constantaccessmethod" styleclass="Normal" translate="true">Constant Access Method</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consider an imaginary class </text><text styleclass="Class Name" translate="true">LotterySyndicate</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">with two instance variables </text><text styleclass="Normal" translate="true">participants</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(a collection of people who are members of the syndicate) and </text><text styleclass="Class Name" translate="true">winningsSoFar</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(the total value of winnings so far).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Instead of hard-coding the class of </text><text styleclass="Normal" translate="true">participants </text><text styleclass="Normal" translate="true">as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;participants := Set new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Using a factory method we would write:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;participants := self newParticipants.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;newParticipants</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answer a new participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^Set new</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">or:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; participants := self newParticipants.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;newParticipants</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answer a new participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self class newParticipants</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate class&gt;&gt;newParticipants</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answer a new participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^Set new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Or better still:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;participants := self newParticipants.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;newParticipants</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answers a new participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self class newParticipants</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate class&gt;&gt;newParticipants</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answers a new participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self participantClass new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate class&gt;&gt;participantClass</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answers the class to use for the participants collection.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^Set</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The class </text><text styleclass="Class Name" translate="true">CommandQuery</text><text styleclass="Normal" translate="true"> implements a method, </text><text styleclass="Class Name" translate="true">#newCommandQuery</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> which is a factory method that allows the creation of query objects. Note that this also uses a</text><text styleclass="Program Feature" translate="true">&#32;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="constantaccessmethod" styleclass="Program Feature" translate="true">Constant Access Method</link><link displaytype="text" defaultstyle="true" type="topiclink" href="constantaccessmethod" styleclass="Normal" translate="true"> </link><text styleclass="Normal" translate="true">to obtain the actual class to use for the instantiation.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">CommandQuery&gt;&gt;newCommandQuery: action</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer a new &lt;CommandQuery&gt; for the &lt;commandDescription&gt;, action,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;originating in the receiver&apos;s source &lt;View&gt;.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self commandQueryClass</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;commandDescription: action</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;source: self source</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">CommandQuery&gt;&gt;commandQueryClass</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the class of &lt;CommandQuery&gt; to use for querying the status of commands.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^CommandQuery</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="abstractfactory" styleclass="Normal" translate="true">Abstract Factory</link></para>
+  </body>
+</topic>

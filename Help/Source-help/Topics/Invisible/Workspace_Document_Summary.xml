@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Workspace_Document_Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Workspace_Summary"/><text styleclass="Normal" translate="true">You&apos;ll often use this feature to &quot;converse&quot; with your application objects while you are developing and you&apos;ll find that this sort of dialogue can drastically cut down on development time. So, if you want to ask your application a question and get an immediate response, just use a workspace window.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Unwinding Callbacks</title>
+  <keywords>
+    <keyword translate="true">Unwinding Callbacks</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Unwinding Callbacks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One can use ^-returns in callback blocks passed to synchronous callback functions. Normal block far return semantics will be obeyed, so that the value will not be returned to the external invoker of the callback, but to the block&apos;s home&apos;s sender. As with other captured blocks, this means that ^-returns are not valid in blocks passed to asynchronous callback functions.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Performing a ^-return from a callback block will cause the callback and the function which invoked it to be unwound. Raising Smalltalk exceptions that are handled at a frame on the stack below a call to the said function will have the same effect (exceptions are implemented using the same far return mechanism).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The VM unwinds any callback entry points it finds on the stack while performing a far return using Win32&apos;s structured exception mechanisms. Therefore if the invoked function is exception aware it should clean up correctly. Unfortunately quite a of C code is not exception aware, or is poorly coded in this respect, and so it can be dangerous to assume that it will always be safe to unwind callbacks in this manner.</text></para>
+  </body>
+</topic>

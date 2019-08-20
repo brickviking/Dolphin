@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging In-Process</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging In-Process</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you will eventually be deploying an in-process component, it is suggested that you perform debugging in-process within a suitable client. When running in-process the Dolphin IDE actually runs within the client process. As mentioned above, running in-process places no particular limitations on the Dolphin development environment. One thing to bear in mind, however, is that when running in another process the Dolphin IDE is no longer in control of its own lifetime, and so if the host executable decides to shutdown then the image may be rudely terminated without giving one an opportunity to save any pending changes. On normal shutdown, however, you should be prompted to save the image, and if not any lost changes should be recoverable from the change log in the normal way.</text></para>
+  </body>
+</topic>

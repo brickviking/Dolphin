@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Project Editions Pane Summary</title>
+  <body>
+    <para styleclass="Normal" style="margin-left:0px;"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Project Editions Pane </text><text styleclass="Normal" translate="true">displays the available project editions for the currently selected project.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A project edition can be marked either as a version or as an opened edition. The differences between these two states are as follows:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-weight:bold;" translate="true">An open project edition can be changed</text><text styleclass="Normal" translate="true">; this means that you can add, remove or change package editions assigned to the selected project edtion. Once a project edition is versioned it can not be changed anymore. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-weight:bold;" translate="true">A versioned project edition can be exported</text><text styleclass="Normal" translate="true"> into a .PEX or compressed .PEZ file. This means that you can export all contained package editions into a single file without having to manually save each package separately. Exporting a project edition into XML file is the easiest way to exchange your code with other developers who are also using STS. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-weight:bold;" translate="true">A versioned project edition</text><text styleclass="Normal" translate="true"> can be used as a starting point for development of a new version. By selecting a project edition and clicking on </text><text styleclass="Menu Command" translate="true">Create New Edition</text><text styleclass="Normal" translate="true"> you can create an open edition of the project which is a copy of the selected project version.</text></li>
+    </list>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Once an open project edition is versioned it can not be changed again. Instead of changing a project version you must use </text><text styleclass="Notes" style="font-style:italic;" translate="true">Create New Edition</text><text styleclass="Notes" translate="true"> to copy project version into an opened edition for further development.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package_Browser Resources Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Views Pane </text><text styleclass="Normal" translate="true">displays a list of any </text><link displaytype="text" defaultstyle="true" type="topiclink" href="ViewResources" styleclass="Normal" translate="true">view resources</link><text styleclass="Normal" translate="true"> that are owned by the currently selected package.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Views are stored in specially named class methods, so really this pane displays a list of these methods in the package. For example, the Default view resource of the </text><text styleclass="Class Name" translate="true">ClassBrowserShell</text><text styleclass="Normal" translate="true"> is held in the </text><text styleclass="Class Name" translate="true">ClassBrowserShell class&gt;&gt;resource_Default_ view</text><text styleclass="Normal" translate="true"> method.</text></para>
+  </body>
+</topic>

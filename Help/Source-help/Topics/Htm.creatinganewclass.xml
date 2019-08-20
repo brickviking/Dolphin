@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a new Class</title>
+  <keywords>
+    <keyword translate="true">Creating a new Class</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a new Class</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">In order to create a new class, first select an appropriate superclass in the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Classes</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> pane. Then choose </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Class/New </text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">and enter a suitable class name into the prompter that appears. Note that, since classes are added to the Smalltalk </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossglobal" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">global</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> dictionary, they must comply with the rules for a Global name (i.e. they must begin with a capital letter and contain no special symbols) and they must not already exist as a global in that dictionary. If all is well, a new class will be created and selected in the browser.</text></para>
+  </body>
+</topic>

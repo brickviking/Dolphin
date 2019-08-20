@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">View Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">View Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="View_Browser_Summary"/></para>
+    <para styleclass="Normal"><image src="ResourceBrowser.png" scale="59.27%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">View Browser</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Tools/Class Browser</text><text styleclass="Normal" translate="true"> menu command in any tool. &#160;It is also present as a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Toolbox_Pane" styleclass="Normal" translate="true">sliding toolbox pane</link><text styleclass="Normal" translate="true"> within the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><br/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View Browser </text><text styleclass="Normal" translate="true">consists of the following panes:</text></para>
+  </body>
+</topic>

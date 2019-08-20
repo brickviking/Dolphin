@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Designing the User Interface</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Designing the User Interface</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next task is to add the user interface (GUI) components to our application. This involves adding Presenter-View pairs to the domain models that we have so far created in order to complete a series of MVP triads. It is from this plugging together of different objects that Smalltalk achieves its great flexibility.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far we have created the domain models for our application. What we require from our user interface is a method of editing the various aspects of each of these models. For each model we&apos;ll need to build a composite MVP triad in which each part of the composite is responsible for editing a single aspect of the overall model. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s start by creating a presenter-view pair for a </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

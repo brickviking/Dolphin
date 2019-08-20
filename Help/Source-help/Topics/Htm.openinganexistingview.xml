@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Opening an Existing View</title>
+  <keywords>
+    <keyword translate="true">Opening an Existing View</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Opening an Existing View</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">To open an existing view resource, find it in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.glossresourcebrowser" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Resource Browser</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> and open it from there. An alternative is to find the class associated with the resource in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossclasshierarchybrowser" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Class Hierarchy Browser</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> and use the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Views/Edit</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> context menu to choose from a list of the currently available views.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Initialize the Animal class</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Initialize the Animal class</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next job is to initialize the </text><text styleclass="Class Name" translate="true">KnowledgeBase</text><text styleclass="Normal" translate="true"> so that it has a suitable root object for the game to start with. If we add this initialization as part of a class method then we can re-use it when we want to clear down the game and start afresh (i.e. forget all the game has learnt). So, add the following class method to </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> and place it in the </text><text styleclass="Class Name" translate="true">initializing</text><text styleclass="Normal" translate="true"> category. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Initialize the Animal game knowledge base.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">To start with we only know about Dogs&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">KnowledgeBase := self name: &apos;Dog&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As the method suggests, we&apos;ll start off with the game only knowing about dogs.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now, in a workspace, evaluate the following to actually perform the initialization.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal initialize.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: The inclusion of an </text><text styleclass="Notes" style="font-style:italic;" translate="true">#initialize</text><text styleclass="Notes" translate="true"> class method has a special additional significance for when you choose to save out your work so it can be imported into someone else&apos;s Dolphin image. As a class is loaded into a new image the system checks to see if an </text><text styleclass="Notes" style="font-style:italic;" translate="true">#initialize</text><text styleclass="Notes" translate="true"> class method exists and, if it does, this is executed automatically. Consequently, this is a great way to ensure that class variables (and suchlike) are properly set up.</text></para>
+  </body>
+</topic>

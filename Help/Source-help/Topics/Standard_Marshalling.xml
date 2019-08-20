@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Standard Marshalling</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Standard Marshalling</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">On the whole we recommend sticking with automation compatible interfaces and type-library marshalling where at all possible since this is easiest and results in components with the widest possible range of clients. Where standard marshalling is necessary/desired a separate marshalling DLL must be compiled from the proxy/stub .C files emitted by the MIDL compiler. This DLL will then have to be shipped and registered as a separate component.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In summary one nearly always requires marshalling support for COM components implemented in Dolphin. The easiest way to provide this is to define dual or automation compatible interfaces in IDL, and use the MIDL compiler to build a type library from the IDL. At deployment time the type library can be bound into an in-process server&apos;s DLL, creating a standalone binary component. Otherwise one needs to use a C compiler and linker to build a separate custom marshalling DLL.</text></para>
+  </body>
+</topic>

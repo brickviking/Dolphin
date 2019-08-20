@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Why are Views Observers?</title>
+  <keywords>
+    <keyword translate="true">Why are Views Observers?</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Why are Views Observers?</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far, we have dealt with situations where there is only ever one view onto any model. It might, therefore, be reasonable to ask why we make views observers onto their models since this adds the overhead of using the triggering mechanism to pass change notifications around. It is obviously more complicated than a direct coupling but there are distinct advantages:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">We might want to have more than one view onto any model.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Since a model never sends messages directly to a view, and it is the view&apos;s responsibility to register with the notifications from the model, it allows the view a certain flexibility in choosing which notifications it wants to handle. This helps when you consider that you might want to connect a wide range of views to any particular model.</text></li>
+    </list>
+  </body>
+</topic>

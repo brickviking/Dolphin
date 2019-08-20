@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossuncommittedclasses</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Uncommitted Classes</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Classes that have not yet been assigned to any Package. By default, new classes created in the Class and System Browsers are initially uncommitted. It is possible, however, to set a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Setting_a_Default_Package" styleclass="Normal" translate="true">Default Package</link><text styleclass="Normal" translate="true"> where new classes will be created.</text></para>
+  </body>
+</topic>

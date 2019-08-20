@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Setting up a Sample Data Source</title>
+  <keywords>
+    <keyword translate="true">Setting up a Sample Data Source</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Setting up a Sample Data Source</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The documentation that follows is in a tutorial style that takes you through the various stages of connecting to a database and executing SQL queries etc. In order to do this we use a number of examples that are based on a particular sample database. We have chosen to use the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">NorthWind</text><text styleclass="Normal" translate="true"> traders sample database that comes as a part of the Microsoft Access and Visual Basic product lines (amongst others). This comes as the file </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Nwind.mdb</text><text styleclass="Normal" translate="true"> and requires the Access (or Jet) database engine to be installed. If are able to make use of this sample then the first stage is to set up an ODBC Data Source to access it.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you can&apos;t use the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">NorthWind</text><text styleclass="Normal" translate="true"> database then you should set up another appropriate sample Data Source by following the instructions provided by your chosen database supplier. You will obviously then have to tailor the examples in this tutorial appropriately.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To set up a data source you use the ODBC applet available from your Windows Control panel. The exact appearance of this depends on which version of Windows you are using. The figures below show the ODBC applet for Windows XP.</text><br/><br/><image src="ODBCAdmin.png" scale="79.69%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Click on the </text><text styleclass="Normal" translate="true">Add</text><text styleclass="Normal" translate="true"> button and select an appropriate driver. In this case we are assuming use of the Microsoft Access Driver (*.mdb ). </text></para>
+    <para styleclass="Normal"><image src="ODBCAccess.png" scale="76.18%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You will be prompted fill in additional details about the data source as follows.</text><br/><text styleclass="Normal" translate="true">Note that you should click on Select.. to locate the actual </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Nwind.mdb</text><text styleclass="Normal" translate="true"> data file. You may also use the Advanced.. button to allocate a default username and password for accessing the database but for the time being this is not actually necessary. The end result will be an entry for your new </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Nwind</text><text styleclass="Normal" translate="true"> data source in the ODBC administrator.</text></para>
+  </body>
+</topic>

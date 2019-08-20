@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossmvp</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">MVP</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An acronym for Model View Presenter.</text></para>
+  </body>
+</topic>

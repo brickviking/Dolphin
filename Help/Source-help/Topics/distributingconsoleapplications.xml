@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Distributing Console Applications</title>
+  <keywords>
+    <keyword translate="true">Distributing Console Applications</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Distributing Console Applications</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A Dolphin console application has the same runtime support requirements as a Dolphin GUI application, minimally the VM (DolphinVMYYR.DLL), and C runtime libraries. You are unlikely to need the development resources library (DolphinDRYYR.DLL), but the compiler (DolphinCRYYR.DLL) can be used if desired. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As with a GUI application, redistribution of any of the Development System Components in any form is not permitted by the terms of the license agreement, so you must ensure that the development classes are stripped, and you must not ship the </text><text styleclass="Class Name" translate="true">ConsoleStub</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">independently. Refer to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="distributingyourapplication" styleclass="Normal" translate="true">Distributing Your Application</link><text styleclass="Normal" translate="true"> for further details.</text></para>
+  </body>
+</topic>

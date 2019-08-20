@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Scripts Pane_Summary</title>
+  <body>
+    <para styleclass="IndentList2 Noafter" style="margin-left:6px;"><text styleclass="IndentList2 Noafter" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Scripts Pane </text><text styleclass="IndentList2 Noafter" translate="true">provides tabbed access to the four scripts that are held by the currently selected package. Most packages don&apos;t need to use scripts at all so, where a script is not present, the tab is marked with a red cross. Where a script is supplied the tab is marked with a green tick. The available script, and their functions are as follows:</text></para>
+    <para styleclass="IndentList2 Noafter"></para>
+    <para styleclass="IndentList2 Noafter"><table rowcount="4" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:146px;">
+          <para styleclass="Program Feature" style="margin-left:0px;"><text styleclass="Program Feature" translate="true">Pre-Install Script</text></para>
+        </td>
+        <td style="width:460px;">
+          <para styleclass="Normal" style="margin-left:0px;"><text styleclass="Normal" translate="true">This script is evaluated prior to the installation of the package.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:146px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Post-Install Script</text></para>
+        </td>
+        <td style="width:460px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">This is evaluated following the installation of the package.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:146px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Pre-Uninstall Script</text></para>
+        </td>
+        <td style="width:460px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">This script is evaluated immediately prior to the removal of any of the package contents from the image when an uninstall has been requested.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:146px;">
+          <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">Post-Uninstall Script</text></para>
+        </td>
+        <td style="width:460px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">This is evaluated after the entire package contents have been removed.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Notice that the script are in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Chunk_Files" styleclass="Notes" translate="true">Chunk File Format</link><text styleclass="Notes" translate="true"> so that each separate evaluation is terminated by an exclamation mark.</text></para>
+  </body>
+</topic>

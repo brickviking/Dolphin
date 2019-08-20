@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Terminating an Out-of-Process Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Terminating an Out-of-Process Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Shutting down the client terminates an out-of-process session. If the image has been pre-started, this should simply release the COM objects being used by the client, but otherwise leave the image unaffected. If the image is being started on-demand, then the server will shut down. Note that there may be some delay (up to about 10 seconds) between the client being closed and the server process actually shutting down. If you wish to preserve any changes made in an image during started on-demand, then you should ensure that the image has been saved (or packages written out) before closing the client.</text></para>
+  </body>
+</topic>

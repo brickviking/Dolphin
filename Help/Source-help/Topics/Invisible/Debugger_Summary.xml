@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Debugger Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> is the development tool which allows you to debug through your own code and that of the system. After an error occurs, you can use it to determine the cause by examining the message stack and looking at the values of temporary and other variables. It can also be used to step through, or continue, the execution of a process after a resumable exception occurs. Typically, this might occur when a hard coded breakpoint (#</text><text styleclass="Class Name" translate="true">halt</text><text styleclass="Normal" translate="true">) is encountered or when </text><text styleclass="Menu Command" translate="true">Ctrl+Break</text><text styleclass="Normal" translate="true"> has been pressed.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The Debugger is implemented by the </text><text styleclass="Notes" style="font-style:italic;" translate="true">Debugger</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

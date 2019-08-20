@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip Of The Day Footer</title>
+  <body>
+    <para styleclass="Normal" style="text-align:left;"><conditional-text type="IFNOT" value="PRINT"/><text styleclass="Normal" style="font-size:8pt;" translate="true">Use </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">Help/Tip of the Day</text><text styleclass="Normal" style="font-size:8pt;" translate="true"> to toggle tips at startup. </text><text styleclass="Normal" style="font-size:8pt; text-decoration:underline;" translate="true">Click to dismiss</text><conditional-text type="END"/></para>
+  </body>
+</topic>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalMoneyShell: a Presenter for PersonalMoney</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalMoneyShell: a Presenter for PersonalMoney</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The final Presenter-View pair that we need to create will be the user interface for an instance of </text><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true"> which, in fact, is the entry point to the entire application. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you recall, it is the responsibility of a </text><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true"> instance to hold a list of all the accounts for a particular user. Each account, in turn, holds all the transactions on it. Therefore the </text><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true"> object contains a network of all the data related to a user&apos;s accounts. It would be convenient if this information could be saved to, and restored from, disk easily. Luckily, the Dolphin MVP framework provides an abstract class, </text><text styleclass="Class Name" translate="true">DocumentShell</text><text styleclass="Normal" translate="true">, which implements much of the grunt work necessary for saving a model to disk and allowing it to be reloaded later. So, we&apos;ll create our presenter class </text><text styleclass="Class Name" translate="true">PersonalMoneyShell</text><text styleclass="Normal" translate="true"> as a subclass of </text><text styleclass="Class Name" translate="true">DocumentShell</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">DocumentShell subclass: #PersonalMoneyShell</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;ownerPresenter accountsPresenter&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">createComponents</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">model</text><text styleclass="Normal" translate="true">: methods are pretty straightforward, as before:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">createComponents</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Create the presenters contained by the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super createComponents.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ownerPresenter := self add: TextPresenter new name: &apos;owner&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accountsPresenter := self add: ListPresenter new name: &apos;accounts&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">model: aPersonalMoney</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the model associated with the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super model: aPersonalMoney.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ownerPresenter model: (aPersonalMoney aspectValue: #owner).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accountsPresenter model: (aPersonalMoney accounts).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Remember to specify the </text><text styleclass="Class Name" translate="true">defaultModel</text><text styleclass="Normal" translate="true"> class method:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defaultModel</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer a default model to be assigned to the receiver when it</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">is initialized.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^PersonalMoney new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Add the accessors:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">selectedAccountOrNil</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the currently selected account or nil if there is none&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^accountsPresenter selectionOrNil</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">selectedAccountOrNil: aPersonalAccountOrNil</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Sets the currently selected account to aPersonalAccountOrNil.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">If nil if there will be no selection&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^accountsPresenter selectionOrNil: aPersonalAccountOrNil</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">hasSelectedAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer true if there is a currently selected account in the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^accountsPresenter hasSelection</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">And now the command handlers, once again to be placed in the </text><text styleclass="Class Name" translate="true">commands</text><text styleclass="Normal" translate="true"> category:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">newAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Prompt for a new account and add it to the receiver&apos;s model&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| newAccount |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">newAccount := self model addAccount: PersonalAccount new.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self selectedAccountOrNil: newAccount.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self editAccount</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">removeAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Removes the current account from the receiver&apos;s model&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self hasSelectedAccount ifTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">self model removeAccount: self selectedAccountOrNil ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">editAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Edit the selected account&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| account index shell |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self hasSelectedAccount ifTrue: [</text><tab /></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">account := self selectedAccountOrNil.</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">shell := PersonalAccountShell showOn: account.</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">shell when: #viewClosed send: #updateAccount: to: self with: account ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We tack on to the notification of </text><text styleclass="Class Name" translate="true">#viewClosed</text><text styleclass="Normal" translate="true"> here as an indication that the editing of a particular account has been completed. We can use this point to update the representation of the account in our accounts list. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: this is only necessary be because we chose to edit our accounts using a modeless shell window rather than a dialog. In the latter case we would implicitly know when the editing operation was complete (following the </text><text styleclass="Notes" style="font-style:italic;" translate="true">#showModal</text><text styleclass="Notes" translate="true"> call) and the update could be done at this time. However, using a shell is sometimes more user friendly than using a dialog, the price being some extra coding complexity. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">updateAccount: aPersonalAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Update aPersonalAccount in the accounts list&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| index |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">index := self model accounts indexOf: aPersonalAccount.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self model accounts updateAtIndex: index</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">There are two additional class methods that can be overridden by subclasses of DocumentShell. These indicate what file extensions to use for the disk file representations of the model.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defaultFileExtension</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer a default extension that will be used for files saved from</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^&apos;pm&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">fileTypes</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer an Array of file types that can be associated with this</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">class of document.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^#((&apos;Personal Money files (*.pm)&apos; &apos;*.pm&apos;) </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">(&apos;All Files (*.*)&apos; &apos;*.*&apos;))</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: remember these are class methods.</text></para>
+  </body>
+</topic>

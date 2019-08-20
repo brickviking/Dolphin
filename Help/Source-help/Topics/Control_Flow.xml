@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Control Flow</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Control Flow</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far we have seen how to use individual expressions or sequences of expressions to send messages to objects and cause things to happen in our Smalltalk world. However, we are not going to be able to progress much further without the ability to perform tests and make decisions based on the results of these tests. We are also going to want to perform some repetitive tasks (well that&apos;s what computers are good at after all) so we&apos;ll want to see how Smalltalk handles looping repeatedly around blocks of code.</text></para>
+  </body>
+</topic>

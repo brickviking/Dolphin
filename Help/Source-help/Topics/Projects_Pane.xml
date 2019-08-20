@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Projects Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Projects Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Projects_Pane_Summary"/><text styleclass="Normal" translate="true">In the </text><text styleclass="Program Feature" translate="true">Projects Pane</text><text styleclass="Normal" translate="true"> the following context menu commands are available:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update list </text><text styleclass="Normal" translate="true">- use this option to refresh the list of projects based on the data in repository. Use this if you are working in repository with other people who might have changed repository since the list was loaded the last time. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">New Project...</text><text styleclass="Normal" translate="true"> - use this option to create new project. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Rename</text><text styleclass="Normal" translate="true"> - use this option to rename a project. If you are renaming a project to the same name as an already existing project you will be asked if you want to merge projects together. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Purge</text><text styleclass="Normal" translate="true"> - removes a project and all of its project editions. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Salvage</text><text styleclass="Normal" translate="true"> - use this option to salvage previously removed project.</text></li>
+    </list>
+  </body>
+</topic>

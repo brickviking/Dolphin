@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging with Command Line Parameters</title>
+  <keywords>
+    <keyword translate="true">Debugging with Command Line Parameters</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging with Command Line Parameters</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you attempt to access the command line arguments in a console application that you are testing/debugging, then you will get the command line arguments used to start Dolphin. Normally this will include the image name argument, which is probably not want you want. To facilitate testing and debugging it is therefore worth splitting off your main routine into a separate method which accepts the argument array as a parameter, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">cat: fileNames</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Dump the contents of all the files listed as arguments to stdout&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| args |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;args := self argv.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;args from: 2 to: self argc do: [:f | | in |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;in := FileStream read: f.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;[in atEnd] whileFalse: [</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;self stdout nextPutAll: (in nextAvailable: 1024)]].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self stdout flush</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">main</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self cat: self argv</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This can then be tested as follows:</text></para>
+    <para styleclass="Normal"><text styleclass="Code Example" translate="true">&quot;Ensure there is a console (first time only)&quot;</text><br/><text styleclass="Code Example" translate="true">SessionManager current openConsole. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Catenate new cat: #(&apos;a.txt&apos; &apos;b.txt&apos;)</text></para>
+  </body>
+</topic>

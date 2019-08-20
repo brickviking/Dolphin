@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Unloading a package from your image</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Unloading a package from your image</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Should you wish to remove the </text><text styleclass="Program Feature" translate="true">Animal</text><text styleclass="Normal" translate="true"> game from the Dolphin image you can do this by using </text><text styleclass="Menu Command" translate="true">Package/Uninstall</text><text styleclass="Normal" translate="true"> (but you should know this already). </text></para>
+  </body>
+</topic>

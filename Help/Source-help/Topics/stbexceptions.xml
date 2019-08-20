@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">STB Exceptions</title>
+  <keywords>
+    <keyword translate="true">STB Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">STB Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Both the underlying stream object and the STB filers themselves may signal exceptions during the saving or loading of objects. The </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> raise non-resumable exceptions of class </text><text styleclass="Class Name" translate="true">STBError</text><text styleclass="Normal" translate="true">. Where the filers are used with a </text><text styleclass="Class Name" translate="true">FileStream</text><text styleclass="Normal" translate="true"> the user code should trap any such exceptions to ensure that the stream is properly closed.</text></para>
+  </body>
+</topic>

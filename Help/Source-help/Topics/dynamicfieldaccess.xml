@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Dynamic Field Access</title>
+  <keywords>
+    <keyword translate="true">Dynamic Field Access</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dynamic Field Access</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Having defined an external structure class in this way, we&apos;d have an uncompiled structure with dynamic field access. Uncompiled structures dynamically access their fields by overriding the </text><text styleclass="Class Name" translate="true">#doesNotUnderstand</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message that the VM sends to an object when it determines that the object does not implement a method for the message being sent. For example, if we send one of our </text><text styleclass="Class Name" translate="true">POINTLs</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">the message </text><text styleclass="Normal" translate="true">#x</text><text styleclass="Normal" translate="true"> then the VM will create a </text><text styleclass="Class Name" translate="true">Message</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">containing the selector and arguments (in this case there are none), and pass that </text><text styleclass="Class Name" translate="true">Message</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to the </text><text styleclass="Class Name" translate="true">#doesNotUnderstand</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> method of </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">, which will attempt to access the field named by the selector. In this case it will be successful (the template contains an entry for </text><text styleclass="Normal" translate="true">#x</text><text styleclass="Normal" translate="true">), but otherwise the usual run-time error walkback will result.</text></para>
+  </body>
+</topic>

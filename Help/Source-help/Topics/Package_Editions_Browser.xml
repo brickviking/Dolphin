@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Package Editions Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Package Editions Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Package_Editions_Browser_Summa"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Editions Browser</text><text styleclass="Normal" translate="true"> window is similar to the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true"> with the exception of an additional pane where package versions are listed.</text></para>
+    <para styleclass="Normal"><image src="PackageEditionsBrowser.png" scale="71.34%" styleclass="Image Caption"></image></para>
+  </body>
+</topic>

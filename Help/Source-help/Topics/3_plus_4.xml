@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">3+4</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">3+4</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;First evaluated by Smalltalk in October 1972, and by Dolphin in February 1995.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">With a bit of luck the answer will be 7.&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true">3</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> +</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 4</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Everything above is valid Smalltalk. The green text in quotes is a Smalltalk comment so you don&apos;t really need to type this into your </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace. </text><text styleclass="Normal" translate="true">If you do, though, you will see how Dolphin&apos;s dynamic syntax highlighting automatically colours it as you type.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once you have copied &quot;3+4&quot; to your </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true">, place the cursor on the line and type </text><text styleclass="Normal" style="font-style:normal;" translate="true">Ctrl+D</text><text styleclass="Normal" translate="true"> or choose </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace/Display It</text><text styleclass="Normal" translate="true">. You should see the answer 7 displayed at the end of the line. Bravo! You&apos;ve just compiled and executed your first piece of Smalltalk. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Hit the DEL key to clear the highlighted text before moving onto the next example.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">As the comment says, this expression was the first evaluated by Dolphin Smalltalk on 3rd February 1995. The decision to go ahead and create a Windows Smalltalk was taken in January 1995 and development was started on the 30th of that month. Four days later, we had a Smalltalk compiler and virtual machine built in C++ that could compile and evaluate simple expressions. Unfortunately, at that point it was around 500 times slower than the virtual machine you see today!</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

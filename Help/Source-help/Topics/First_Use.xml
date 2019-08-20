@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">First Use</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">First Use</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you start Dolphin for the first time, you will be presented with two windows: a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> window and a &#160;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace" styleclass="Program Feature" translate="true">Workspace</link><text styleclass="Normal" translate="true"> window. The workspace contains a welcome message and some interesting experiments that you can try immediately to get an insight into the interactive nature of the Smalltalk development environment. These experiments consist of executing small pieces of Smalltalk code and displaying the results.</text></para>
+  </body>
+</topic>

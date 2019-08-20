@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" style="font-weight:bold; font-style:normal;" translate="true">Package Browser</text><text styleclass="Normal" style="font-style:normal;" translate="true">&#32;</text><text styleclass="Normal" translate="true">presents a view of all the installed packages in the image. Packages are used as a means of modularizing your Smalltalk code and are a way of exporting sources from the image for distribution to others or for checking into some external </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosssourcecodecontrolsystem" styleclass="Normal" translate="true">Source Code Control System</link><text styleclass="Normal" translate="true"> (SCCS).</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">You can use the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Popup Box" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Popup Box" style="font-style:normal;" translate="true">to install additional packages or remove ones that are currently loaded. You can also launch further browsers onto the package contents (classes, loose methods and view resources etc) by double-clicking them.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Package Browser</text><text styleclass="Notes" translate="true"> is implemented by the </text><text styleclass="Notes" style="font-style:italic;" translate="true">PackageBrowserShell</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding instance variables</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding instance variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now let&apos;s go back to consider the data that each instance of our </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> class must hold. We mentioned before that we need to be able to hold the name of the animal as a </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> and we will therefore need an instance variable to do this. So, let&apos;s add an instance variable called </text><text styleclass="Class Name" translate="true">name</text><text styleclass="Normal" translate="true">. Using the mouse, place the text insertion cursor in the text string that immediately follows </text><text styleclass="Class Name" translate="true">instanceVariableNames</text><text styleclass="Normal" translate="true">: and type the variable </text><text styleclass="Class Name" translate="true">name</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Animal</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;name&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to commit this change into the image simply type </text><text styleclass="Menu Command" translate="true">Ctrl+S</text><text styleclass="Normal" translate="true"> or choose </text><text styleclass="Menu Command" translate="true">Accept</text><text styleclass="Normal" translate="true"> from the </text><text styleclass="Menu Command" translate="true">Workspace</text><text styleclass="Normal" translate="true"> menu.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Congratulations, you have just added your first class to your Dolphin image. You can change the class definition at any time simply by modifying it in the </text><text styleclass="Program Feature" translate="true">Class Definition</text><text styleclass="Normal" translate="true"> pane and accepting the change. Now might be a suitable time to save your image.</text></para>
+  </body>
+</topic>

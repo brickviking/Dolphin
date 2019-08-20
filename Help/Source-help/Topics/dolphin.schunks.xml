@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Dolphin&apos;s Chunks</title>
+  <keywords>
+    <keyword translate="true">Dolphin&apos;s Chunks</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dolphin&apos;s Chunks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The original chunk file format</text><text styleclass="Normal" style="font-family:Arial; font-size:6pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:super; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">*</text><text styleclass="Normal" translate="true"> was created for Smalltalk-80. Since this was published a number of Smalltalk implementations have deviated from it, principally with differing support for class and method categorization. Dolphin also joins this merry band through virtue of supporting multiple class and methods categories whereas the Smalltalk-80 standard format is restricted to one.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">*Glenn Krasner, &quot;The Smalltalk-80 Code File Format&quot; in Smalltalk-80: Bits of history, words of advice, Addison-Wesley, 1983.</text></para>
+  </body>
+</topic>

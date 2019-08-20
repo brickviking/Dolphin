@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">COM/.Active-X Array Types</title>
+  <keywords>
+    <keyword translate="true">COM/.Active-X Array Types</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">COM/.Active-X Array Types</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The standard image includes a few special </text><text styleclass="Class Name" translate="true">ExternalArray</text><text styleclass="Normal" translate="true"> types associated with the OLE COM and Active-X Automation support. These are the counted arrays and </text><text styleclass="Class Name" translate="true">SAFEARRAYs</text><text styleclass="Normal" translate="true">, respectively.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Counted Arrays</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">OLECountedArrays are really just a structure containing a size and an an indirection to the actual location at which the array is stored. They are used in OLE in order to encapsulate an array and its size to simplify parameter passing and memory management, especially for ease of marshalling. They are not much used, but some examples can be found in the </text><text styleclass="Program Feature" translate="true">Active-X Control Hosting</text><text styleclass="Normal" translate="true"> package where they are used as parameters to certain methods in the </text><text styleclass="Class Name" translate="true">IPerPropertyBrowsing</text><text styleclass="Normal" translate="true"> interfac.e.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">SAFEARRAY</text></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">SAFEARRAY</text><text styleclass="Normal" translate="true"> is the Basic/Automation array type. It can be used to hold the same types of values as can be stored in </text><text styleclass="Class Name" translate="true">VARIANTs</text><text styleclass="Normal" translate="true">, including arrays of </text><text styleclass="Class Name" translate="true">VARIANTs</text><text styleclass="Normal" translate="true">. It should only ever be used in conjunction with Automation interfaces (subclasses of </text><text styleclass="Class Name" translate="true">IDispatch</text><text styleclass="Normal" translate="true">).</text></para>
+  </body>
+</topic>

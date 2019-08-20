@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Initialising an Array</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Initialising an Array</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;An array initialized with a range of numbers&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">#(</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true">1</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true">&#32;</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true">2 3 4 5 6 7 8 9)</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">(</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true">1</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> to:</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 100</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">)</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> asArray</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text styleclass="Normal" translate="true">Use Display It (Ctrl+D) to display the result of each of the above expressions. Here are two different ways of creating an </text><text styleclass="Normal" style="font-style:italic;" translate="true">Array</text><text styleclass="Normal" translate="true"> object and initialising it with some values.</text></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ; font-family:Arial; font-size:9pt; color:#000000;">
+      <li style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text styleclass="Normal" translate="true">The first is what is called a &quot;literal array&quot;. The </text><text styleclass="Normal" style="font-style:italic;" translate="true">Array</text><text styleclass="Normal" translate="true"> object is built directly by the Smalltalk compiler and filled with the integers 1 through 9.</text></li>
+      <li style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text styleclass="Normal" translate="true">Obviously, if you want to create a larger array and initialise it then typing all of the numbers into a literal array will be rather clumsy and time-consuming. The second example shows how to create a range of numbers (an </text><text styleclass="Normal" style="font-style:italic;" translate="true">Interval</text><text styleclass="Normal" translate="true"> object) and then ask this to convert this into an </text><text styleclass="Normal" style="font-style:italic;" translate="true">Array</text><text styleclass="Normal" translate="true"> object using the </text><text styleclass="Normal" style="font-style:italic;" translate="true">#asArray</text><text styleclass="Normal" translate="true"> converting message.</text></li>
+    </list>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

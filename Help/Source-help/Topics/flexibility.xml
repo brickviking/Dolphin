@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Flexibility</title>
+  <keywords>
+    <keyword translate="true">Flexibility</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Flexibility</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The effect of this is that you can only plug together model, view and presenter objects if they have been designed to work together. The bandwidth of communication between each of model, presenter and view (i.e. the size of their message and event protocols) is important and is in direct opposition to the flexibility of the elements. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In other words, the simpler you keep the protocols the more flexible and interchangeable the elements will be. Hence the use of the very simple </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Value Model</text><text styleclass="Normal" translate="true"> protocol for many common components.</text></para>
+  </body>
+</topic>

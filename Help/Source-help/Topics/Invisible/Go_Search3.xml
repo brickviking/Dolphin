@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Go Search</title>
+  <body>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Type text in the </text><text styleclass="Program Feature" translate="true">Go Search</text><text styleclass="Popup Box" translate="true"> field for an object that you wish to search for and browse in the image. As you type, the possible matches are shown in an auto-completion popup below the </text><text styleclass="Program Feature" translate="true">Go Search</text><text styleclass="Popup Box" translate="true"> box. Hit ENTER and </text><text styleclass="Popup Box" style="font-style:italic;" translate="true">Go Search</text><text styleclass="Popup Box" translate="true"> will either move your existing browser to the search object or open another more appropriate tool on that object.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Shortcut Ctrl+Shift+F.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Currently you can search for the following objects:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Popup Box" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Packages, e.g. &quot;Development System&quot;</text></li>
+      <li styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Classes, e.g. &quot;Object&quot;</text></li>
+      <li styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Methods, e.g. &quot;Presenter&gt;&gt;createComponents&quot;</text></li>
+      <li styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Symbol definitions, e.g. &quot;displayOn:&quot;</text></li>
+    </list>
+    <para styleclass="Popup Box"></para>
+  </body>
+</topic>

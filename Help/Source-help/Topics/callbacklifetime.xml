@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Callback Lifetime</title>
+  <keywords>
+    <keyword translate="true">Callback Lifetime</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Callback Lifetime</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Callbacks can be either synchronous, in which case the callback will only be invoked during the lifetime of the relevant external library call, </text><text styleclass="Class Name" translate="true">EnumFonts</text><text styleclass="Normal" translate="true">() being an example</text><text styleclass="Normal" translate="true">, or asynchronous, in which case the callback is captured and registered for use whenever it is required, until the registration is revoked.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Synchronous callbacks are the more common and easier case since the lifetime of the callback object is known. Synchronous callbacks can be explicitly freed once the external call has returned.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Asynchronous callbacks capture the callback object, and hence it is necessary to maintain a reference (generally in an instance variable) to the </text><text styleclass="Class Name" translate="true">ExternalCallback</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">for the lifetime of the registration in order that it not be garbage collected. Asynchronous callbacks are normally implicitly freed by &#160;finalizationwhen no longer required.</text></para>
+  </body>
+</topic>

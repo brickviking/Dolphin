@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Redistributable Components</title>
+  <keywords>
+    <keyword translate="true">Redistributable Components</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Redistributable Components</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order for a deployed application to run correctly you must also distribute with it the Dolphin Smalltalk Runtime System. You may need to ship one or more of the following files:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinVMYYR.DLL</text><text styleclass="Normal" translate="true"> -- The Dolphin Smalltalk Virtual Machine. This is only required if you chose not to use </text><text styleclass="Program Feature" translate="true">To Go</text><text styleclass="Normal" translate="true"> deployment mode in the Lagoon Wizard. If you have created a </text><text styleclass="Program Feature" translate="true">To Go</text><text styleclass="Normal" translate="true"> executable then the virtual machine is bound into the EXE file.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinCRYYR.DLL</text><text styleclass="Normal" translate="true"> -- The Dolphin Smalltalk compiler which will be required by any applications that attempt to compile Smalltalk code at runtime. </text><text styleclass="Normal" translate="true">Here YY is a two digit number signifying the year of release and R is a numeric release identifier. For example, the VM for </text><var styleclass="Normal">&lt;%APPLONG%&gt;</var><text styleclass="Normal" translate="true"> is the file </text><text styleclass="Program Feature" translate="true">DolphinVM006.DLL</text><text styleclass="Normal" translate="true">.</text></li>
+    </list>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinDRYYR.DLL</text><text styleclass="Normal" translate="true"> -- The Dolphin Smalltalk Development System resources. This DLL contains various resources such as icons, bitmaps etc. which are normally only used by the development environment. However, if you wish to make use of these as part of your application then you may do so. In which case, you must install this DLL into the same directory as your application executable.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinSureCrypto.DLL</text><text styleclass="Normal" translate="true"> -- contains some cryptographic functions for the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="dolphinsure" styleclass="Program Feature" translate="true">DolphinSure</link><text styleclass="Normal" translate="true"> system. If you don&apos;t use the </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> in your application then you won&apos;t need to distribute this DLL.</text></li>
+    </list>
+  </body>
+</topic>

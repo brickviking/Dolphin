@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Listening for a Connection with a ServerSocket</title>
+  <keywords>
+    <keyword translate="true">Listening for a Connection with a ServerSocket</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Listening for a Connection with a ServerSocket</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to set up a Socket connection, one end of the proposed conversation must request a connection with another. We call the requesting end the client and the other end the server. This nomenclature is only really relevant while the conversation is being set up. Subsequently, both ends of the connection have equal status and can send unsolicited data to each other as they see fit.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For a server to listen for a connection request from a client we use a </text><text styleclass="Class Name" translate="true">ServerSocket</text><text styleclass="Normal" translate="true"> set up on a particular TCP/IP port on the server machine.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Ports are represented by integers in the range 0-65,535 but normally those below 1024 are reserved for common services such as a web or FTP servers. Therefore, you should usually choose a port number above 1024 for your applications</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Server workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Create a ServerSocket on port 2048&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">serverSocket := ServerSocket port: 2048.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Accept a connection on this port - this call will </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">block until a client connects. The socket that is</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">returned can then be used to talk to the client&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA := serverSocket accept.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At this stage, if you display the value of </text><text styleclass="Class Name" translate="true">socketA</text><text styleclass="Normal" translate="true">,</text><text styleclass="Normal" translate="true"> it will be </text><text styleclass="Class Name" translate="true">nil</text><text styleclass="Normal" translate="true"> since no connection has yet been established.</text></para>
+  </body>
+</topic>

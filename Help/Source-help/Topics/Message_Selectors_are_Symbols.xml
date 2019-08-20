@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Message Selectors are Symbols</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Message Selectors are Symbols</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We mentioned previously that, in Smalltalk, everything is an object. This also goes for message selectors; they are objects too. In fact, they are examples of a certain class of object called </text><text styleclass="Program Feature" translate="true">Symbols</text><text styleclass="Normal" translate="true">. Symbols are similar to text string objects except that they are prepended with a # sign rather than being enclosed in single quotes. The following are all examples of literal Symbols.</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#show</text><br/><text styleclass="Class Name" translate="true">#at:put:</text><br/><text styleclass="Class Name" translate="true">#add:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Symbols cannot contain spaces.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The important thing about Symbols is that they are unique. The important thing to remember is that message selectors are, in fact, Symbols. For this reason, they are usually written as being prepended by a #. This will be the convention used from this point on in this guide.</text></para>
+  </body>
+</topic>

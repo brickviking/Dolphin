@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Returning Structures</title>
+  <keywords>
+    <keyword translate="true">Returning Structures</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Returning Structures</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin&apos;s external call primitives allow structures to be returned by reference or by value. Normally such structures will be subclasses of </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(or if not, they must have the same form). For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">makeRect: left top: top right: right bottom: bottom</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot; &#160; &#160;RECT MakeRect(LONG left, LONG top, LONG right, LONG bottom)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;{</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;return RECT(left, top, right, bottom);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;}</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Calling this function and having the external function call primitive instantiate and</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;return a RECT is also considerably faster than building it in Smalltalk!&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&lt;stdcall: RECT AnswerDQWORD sdword sdword sdword sdword&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self invalidCall</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This method of </text><text styleclass="Class Name" translate="true">VMLibrary</text><text styleclass="Normal" translate="true"> makes a sneaky use of the external call primitive argument/return value conversion in order to rapidly instantiate a Win32™ </text><text styleclass="Class Name" translate="true">RECT</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">structure from four-byte integers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The VM&apos;s ability to instantiate external structures is very useful (particularly for implementing COM interfaces where structures are quite frequently passed in as arguments), and often means that no further manual conversion of the return value (or call-in argument) is needed; however because the structure is directly instantiated by the VM, it may not be properly initialized.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Where one&apos;s class includes any specific initialization (e.g. an </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method), or has a custom implementation of </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">, then one may need to send some appropriate messages to the VM instantiated object. This is not normally an issue because </text><text styleclass="Class Name" translate="true">ExternalStructures</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">mostly just represent external structures without adding significant extra state and behaviour. In some unusual cases, however, one may prefer to instantiate the correct object oneself, and this can be done by simply specifying the return value as an untyped pointer (</text><text styleclass="Class Name" translate="true">lpvoid</text><text styleclass="Normal" translate="true">) </text><text styleclass="Normal" translate="true">or untyped structure (</text><text styleclass="Normal" translate="true">&lt;N&gt;</text><text styleclass="Normal" translate="true">, where N is the byte size of the structure). The resulting </text><text styleclass="Class Name" translate="true">ExternalAddress</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">or </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true"> can be used to construct the appropriate Smalltalk object. In either case, it is desirable to write a wrapper method to perform the necessary custom operations.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The above also applies to structure parameters to callback (i.e. call-in) methods or blocks.</text></para>
+  </body>
+</topic>

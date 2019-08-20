@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalAccountShell: a Presenter for PersonalAccount</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalAccountShell: a Presenter for PersonalAccount</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We want to create a presenter that displays a </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> as its model and allows for its various aspects to be edited. This should be a top level shell window so a suitable superclass for our new class will be </text><text styleclass="Class Name" translate="true">Shell</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Shell subclass: #PersonalAccountShell</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;namePresenter accountNumberPresenter</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">initialBalancePresenter transactionsPresenter</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalancePresenter &apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The definition includes instance variables to hold separate presenters which will handle the editing of each of the relevant aspects of the model. These sub-presenters are initialized in the </text><text styleclass="Class Name" translate="true">createComponents</text><text styleclass="Normal" translate="true"> method.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">createComponents</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Create the presenters contained by the receiver&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super createComponents.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">namePresenter := self add: TextPresenter new name: &apos;name&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accountNumberPresenter := self add: TextPresenter new name: &apos;accountNumber&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">initialBalancePresenter := self add: NumberPresenter new name: &apos;initialBalance&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transactionsPresenter := self add: ListPresenter new name: &apos;transactions&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalancePresenter := self add: NumberPresenter new name: &apos;currentBalance&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For each model aspect a suitable presenter is created and added to the shell composite. The sub-presenters are given names to identify them when the view is connected; each sub-view will be given an identical name so that presenter-view pairs can be matched and connected together. The choice of presenter to use for each aspect depends on the effective type of the aspect&apos;s value. Each of the aspects will be accessed using a </text><text styleclass="Class Name" translate="true">ValueAspectAdaptor</text><text styleclass="Normal" translate="true"> so that #</text><text styleclass="Class Name" translate="true">value</text><text styleclass="Normal" translate="true"> and #</text><text styleclass="Class Name" translate="true">value</text><text styleclass="Normal" translate="true">: can be used to get and set its value. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next task is to specify how the model is connected to the presenter.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">model: aPersonalAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the model associated with the receiver.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super model: aPersonalAccount.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">namePresenter model: (aPersonalAccount aspectValue: #name).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accountNumberPresenter model: (aPersonalAccount aspectValue: #accountNumber).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">initialBalancePresenter model: (aPersonalAccount aspectValue: #initialBalance).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transactionsPresenter model: (aPersonalAccount transactions).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalancePresenter model: (aPersonalAccount aspectValue: #currentBalance).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Sometimes a model may trigger its own events when some aspects of it are changed. For these</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aspects we must explicitly inform the ValueAspectAdaptor that this is the case. This allows</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">the adaptor to update its observers if an aspect is changed other than by going through the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">adaptor itself. In the case of a PersonalAccount, the only aspect that triggers a change in</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">this way is #currentBalance. We inform our newly created aspect adaptor that its model</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">triggers #currentBalanceChanged whenever the currentBalance is updated. See</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">PersonalAccount&gt;&gt;currentBalance:.&quot;</text></para>
+    <para styleclass="Code Example"><tab /></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalancePresenter model aspectTriggers: #currentBalanceChanged.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">First of all the </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> is assigned as the actual model of our composite using the super message send. Then the models of all the sub-presenters are set to be </text><text styleclass="Class Name" translate="true">ValueAspectAdaptors</text><text styleclass="Normal" translate="true"> on the appropriate aspects of the account. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: a shortcut to creating a ValueAspectAdaptor is to send #aspectValue: to the account object specifying the name of the aspect you want.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Take a look at the one special case here; creating the </text><text styleclass="Class Name" translate="true">ValueAspectAdapator</text><text styleclass="Normal" translate="true"> for </text><text styleclass="Class Name" translate="true">#currentBalance</text><text styleclass="Normal" translate="true">. Once created the adaptor is sent </text><text styleclass="Class Name" translate="true">#aspectTriggers:</text><text styleclass="Normal" translate="true">. This is important since it informs the adaptor that the aspect it&apos;s connected to will trigger its own update notifications whenever it is changed. Do you remember the </text><text styleclass="Class Name" translate="true">#currentBalance</text><text styleclass="Normal" translate="true"> method we wrote for </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">?</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">PersonalAccount&gt;&gt;currentBalance: aNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the current balance of the receiver to aNumber.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalance := aNumber.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self trigger: #currentBalanceChanged</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">See that , it triggers a </text><text styleclass="Class Name" translate="true">#currentBalanceChanged</text><text styleclass="Normal" translate="true"> event when the balance is assigned to using </text><text styleclass="Menu Command" translate="true">#currentBalance</text><text styleclass="Normal" translate="true">: directly. If we didn&apos;t send </text><text styleclass="Class Name" translate="true">#aspectTriggers:</text><text styleclass="Normal" translate="true"> to the </text><text styleclass="Class Name" translate="true">ValueAspectAdaptor</text><text styleclass="Normal" translate="true"> we create for this aspect (see above) &#160;then it wouldn&apos;t be able to inform its observers when the </text><text styleclass="Menu Command" translate="true">#currentBalance</text><text styleclass="Normal" translate="true">: method is called by some other object. This would result in some notifications being missed and the current balance not being updated correctly. .</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next step is to wire together the sub-presenters using the standard Smalltalk event notification mechanism. This wiring is implemented by overriding the </text><text styleclass="Class Name" translate="true">createSchematicWiring</text><text styleclass="Normal" translate="true"> method. It is only necessary to override this method if you wish to respond to events triggered by your sub-presenters. In this case we want to send an #</text><text styleclass="Class Name" translate="true">editTransaction</text><text styleclass="Normal" translate="true"> message to the </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true"> when a transaction in the transactions list is double-clicked.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">createSchematicWiring</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Create the trigger wiring for the receiver&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super createSchematicWiring.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transactionsPresenter when: #actionPerformed send: #editTransaction to: self.</text></para>
+    <para styleclass="Code Example"><tab /></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The last essential task that must be considered when creating any presenter is to define class methods, </text><text styleclass="Class Name" translate="true">defaultModel</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">defaultView</text><text styleclass="Normal" translate="true">. The former should answer an object which the presenter will use as its model in cases where this is not specified explicitly (which is the most likely situation). In this case we answer a default instance of </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">. The </text><text styleclass="Class Name" translate="true">defaultView</text><text styleclass="Normal" translate="true"> method must answer a resource name to use to load a default view. The </text><text styleclass="Class Name" translate="true">defaultView</text><text styleclass="Normal" translate="true"> method inherited from </text><text styleclass="Class Name" translate="true">Presenter class</text><text styleclass="Normal" translate="true"> specifies a view name, not surprisingly, of &apos;Default view&apos;. This is suitable for most purposes so we just have to make sure that this matches the name under which the actual view is saved by the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Composer" styleclass="Program Feature" translate="true">View Composer</link><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defaultModel</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer a default model to be assigned to the receiver when it</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">is initialized.&quot;</text></para>
+    <para styleclass="Code Example"><tab /></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^PersonalAccount new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: remember these are class methods.</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text styleclass="Normal" translate="true">Now add the remainder of the accessing methods for </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">selectedTransactionOrNil</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the currently selected transaction or nil if there is none&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^transactionsPresenter selectionOrNil</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">selectedTransactionOrNil: aPersonalAccountTransactionOrNil</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Sets the currently selected transaction to</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aPersonalAccountTransactionOrNil. If nil if there</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">will be no selection&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^transactionsPresenter selectionOrNil: aPersonalAccountTransactionOrNil</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">hasSelectedTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer true it there is a currently selected transaction in the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^transactionsPresenter hasSelection</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One of the fundamental ways in which a user can interact with a model is by issuing commands from a menu or toolbar. It is the presenter&apos;s role to intercept these commands and translate them into modifications to the model. Commands are parameter-less messages and we need to provide the appropriate methods for handling them.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">editTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Edit the selected transaction&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">#todo &quot;Write this later&quot;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">newTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Prompt for a new transaction and add it to the receiver&apos;s model&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">#todo &quot;Write this later&quot;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">removeTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Removes the current transaction from the receiver&apos;s model&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| transaction |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transaction := self selectedTransactionOrNil.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transaction notNil ifTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">self model removeTransaction: transaction ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">These methods should go in the commands category. We will implement the #todos after we have created a suitable dialog for editing transactions. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: you can use a </text><text styleclass="Notes" style="font-style:italic;" translate="true">#todo</text><text styleclass="Notes" translate="true"> symbol to mark methods where something needs to be modified or implemented in future. You can then browse for references to the </text><text styleclass="Notes" style="font-style:italic;" translate="true">#todo</text><text styleclass="Notes" translate="true"> symbols to find all the outstanding tasks. Remember the period following the comment, otherwise the statement will not be valid Smalltalk syntax. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By default any command that is implemented by a presenter will be enabled when the menu is pulled down. To change this default behavior and enable or disable commands directly, you must implement a </text><text styleclass="Class Name" translate="true">queryCommand</text><text styleclass="Normal" translate="true">: method.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">queryCommand: aCommandQuery</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Enters details about a potential command for the receiver into</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aCommandQuery&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super queryCommand: aCommandQuery.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">(#(editTransaction removeTransaction) includes: aCommandQuery command)</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">ifTrue: [ aCommandQuery isEnabled: self hasSelectedTransaction ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para></para>
+  </body>
+</topic>

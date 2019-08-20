@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Using Notifications to log to the Transcript</title>
+  <keywords>
+    <keyword translate="true">Using Notifications to log to the Transcript</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Using Notifications to log to the Transcript</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Another way of sending messages to the Transcript is to rely on the fact that the default handler for a </text><text style="font-family:Verdana; font-size:10pt; font-weight:bold; color:#000000;" translate="true">Notification</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> in the development system will write the notification&apos;s message text to the Transcript. Hence, another way to send messages to the Transcript is to signal appropriate Notifications:</text></para>
+    <para style="margin-top:14px; margin-left:48px; white-space:nowrap;"><text style="font-family:&apos;Courier New&apos;; font-size:10pt; color:#000000;" translate="true">Notification signal: (&apos;This message timed at: %1, %2&apos;</text></para>
+    <para style="margin-left:48px; white-space:nowrap;"><text style="font-family:&apos;Courier New&apos;; font-size:10pt; color:#000000;" translate="true"> &#160; &#160;formatWith: Date today displayString</text></para>
+    <para style="margin-left:48px; white-space:nowrap;"><text style="font-family:&apos;Courier New&apos;; font-size:10pt; color:#000000;" translate="true"> &#160; &#160;with: Time now displayString).</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:7px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">One advantage of using this scheme compared with writing directly to the Transcript stream is that such notifications can usually be left in place at runtime without causing problems. The default handler for notifications in a run-time session simply outputs the message to the application&apos;s standard debug output stream. Unless the stream is latched onto by a monitor program such as Microsoft&apos;s DBMON, these messages will simply be ignored. However, accessing the Transcript is not normally advisable since it is generally not available in a run-time application.</text></para>
+  </body>
+</topic>

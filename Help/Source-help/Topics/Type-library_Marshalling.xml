@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Type-library Marshalling</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Type-library Marshalling</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The OLE Automation subsystem (</text><text styleclass="Program Feature" translate="true">OLEAUT32.DLL</text><text styleclass="Normal" translate="true">) can provide type-library marshalling for all &quot;automation&quot; compatible interfaces for which a type-library is registered. An automation compatible interface supports a limited set of types for its arguments such as </text><text styleclass="Class Name" translate="true">VARIANT</text><text styleclass="Normal" translate="true">s, </text><text styleclass="Class Name" translate="true">BSTR</text><text styleclass="Normal" translate="true">s, </text><text styleclass="Class Name" translate="true">LONG</text><text styleclass="Normal" translate="true">s, etc, but in most cases this set is adequate. </text><text styleclass="Class Name" translate="true">IDispatch</text><text styleclass="Normal" translate="true"> and &quot;dual&quot; (interfaces derived from IDispatch with late and early bound implementations) are limited to these types anyway, as are many potential clients such as scripting languages and (in practice) Visual Basic. Automation compatible interfaces can be derived directly from </text><text styleclass="Class Name" translate="true">IUnknown</text><text styleclass="Normal" translate="true"> (i.e. they need not be subclasses of </text><text styleclass="Class Name" translate="true">IDispatch</text><text styleclass="Normal" translate="true">). </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The MIDL compiler is supplied with the </text><text styleclass="Program Feature" translate="true">Microsoft Platform SDK</text><text styleclass="Normal" translate="true"> (available for free download from Microsoft). To build a type library from IDL one typically uses a simple command line such as:</text></para>
+    <para styleclass="Code Example" style="margin-left:0px;"><text styleclass="Code Example" translate="true">MIDL /Oicf &lt;idl file&gt;</text></para>
+  </body>
+</topic>

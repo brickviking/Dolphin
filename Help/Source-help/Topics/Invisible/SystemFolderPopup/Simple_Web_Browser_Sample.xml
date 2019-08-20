@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Simple Web Browser Sample</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">Simple Web Browser Sample</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="Simple Web Browser.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:214px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">This is a very simple Web browser sample intended to illustrate the use of the Microsoft Internet Explorer ActiveX control.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The sample code for this example is contained in the </text><text styleclass="Class Name" translate="true">WebBrowserShell</text><text styleclass="Popup Box" translate="true"> class.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Special Words</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Special Words</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, </text><text styleclass="Normal" style="font-weight:bold;" translate="true">nil</text><text styleclass="Normal" translate="true"> refers to a real object. It&apos;s an instance of the class </text><text styleclass="Normal" style="font-style:italic;" translate="true">UndefinedObject</text><text styleclass="Normal" translate="true">. The word </text><text styleclass="Normal" style="font-weight:bold;" translate="true">true</text><text styleclass="Normal" translate="true"> refers to an instance of the class </text><text styleclass="Normal" style="font-style:italic;" translate="true">True</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Normal" style="font-weight:bold;" translate="true">false</text><text styleclass="Normal" translate="true"> refers to an instance of the class </text><text styleclass="Normal" style="font-style:italic;" translate="true">False</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><table rowcount="6" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">this</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">self</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">null</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">nil</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">true</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">true</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">false</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">false</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">super</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">base (C#)</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">super</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

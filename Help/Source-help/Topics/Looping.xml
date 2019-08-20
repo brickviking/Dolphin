@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Looping</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Looping</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you might expect by now, Smalltalk uses messages to perform looping operations too.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">10 timesRepeat: [ teresa moveRight: 10 ].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">5 timesRepeat: [ simon growBy: 5 ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The #</text><text styleclass="Class Name" translate="true">timesRepeat</text><text styleclass="Normal" translate="true">: message sent to an integer will cause its parameter block of code to be executed that number of times. You can have quite a bit of fun with loops and limited animation in the Playground:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[ charlie position x &gt; 0 ] whileTrue: [ charlie moveLeft: 10 ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is interesting; here we have two blocks at work. The #</text><text styleclass="Class Name" translate="true">whileTrue</text><text styleclass="Normal" translate="true">: message is sent to a block of code that is expected to answer a boolean result. If this is </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true"> then the parameter block is executed. This process is repeated until the receiver block answers false. You&apos;ve probably guessed already that there is also a similar #</text><text styleclass="Class Name" translate="true">whileFalse</text><text styleclass="Normal" translate="true">: message:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[ teresa rotation &gt;= 90 ] whileFalse: [ teresa rotateBy: 10 ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: you are probably noticing that the Playground window &quot;flashes&quot; while we are performing these bits of animation. This is because the Playground was not designed for smooth animation which really needs to be implemented using a process known as &quot;double buffering&quot;. You can certainly implement smooth animation using Dolphin, it&apos;s just that the Playground has been kept as simple as possible to aid understanding. Note, also, that the speed of each animation step has been deliberately slowed down so you can see it happening. Dolphin is capable of drawing &quot;frames&quot; much faster than you see here.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">That are two shortcut versions of #</text><text styleclass="Class Name" translate="true">whileTrue</text><text styleclass="Normal" translate="true"> and #</text><text styleclass="Class Name" translate="true">whileFalse</text><text styleclass="Normal" translate="true"> that can just be sent to a block of code to cause it to execute repeatedly while it answers </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true"> respectively. These messages do not require any parameters:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[ teresa moveLeft: 5.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa position x &gt; simon position x ] whileTrue.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here we see that the value answered from a code block when it is executed is that of the last expression in the block. The above example moves </text><text styleclass="Class Name" translate="true">teresa</text><text styleclass="Normal" translate="true"> left and then compares its new horizontal position with that of </text><text styleclass="Class Name" translate="true">simon</text><text styleclass="Normal" translate="true">. The result of this comparison is returned as the final result from the block and the </text><text styleclass="Class Name" translate="true">#whileTrue</text><text styleclass="Normal" translate="true"> message is designed to repeat until this eventually yields </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

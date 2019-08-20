@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Richard" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a Setup Program</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a Setup Program</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are using a setup program builder then you should arrange for the following files to be copied to the given locations in addition to your own application files:</text></para>
+    <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">\Program Files\MyApp</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">DolphinVMYYR.DLL-- Shared self-registered DLL</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">DolphinCRYYR.DLL -- Shared self-registered DLL (if required)</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">DolphinDRYYR.DLL -- (if required)</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">MSVCRT.DLL- Shared DLL</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">MSVCIRT.DLL- Shared DLL</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We would recommend, if you are creating a setup program in this way, that you do not attempt to install the Dolphin run-time files into their standard location (</text><text styleclass="Program Feature" translate="true">\Program Files\Common Files\Object Arts\Dolphin Smalltalk n.n</text><text styleclass="Normal" translate="true">). If you do so, you risk interfering with any installation of the Dolphin development environment that may be present on the target machine.</text></para>
+  </body>
+</topic>

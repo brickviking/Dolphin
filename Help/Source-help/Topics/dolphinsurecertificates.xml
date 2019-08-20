@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">DolphinSure Certificates</title>
+  <keywords>
+    <keyword translate="true">DolphinSure Certificates</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">DolphinSure Certificates</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Before any piece of data can be digitally signed it is necessary to have a certificate that identifies the person or organisation that created the data. These certificates must be issued by a </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> Certification Authority (CA). Currently, Object Arts Ltd is the only Certification Authority capable of issuing </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> certificates.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note: DolphinSure certificates are in a proprietary format. However, the mechanisms used by DolphinSure to sign and verify messages are already accepted standards (notably SHA-1 and DSA) but the format of the certificate data is not.</text></para>
+  </body>
+</topic>

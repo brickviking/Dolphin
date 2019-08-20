@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Named Instance Variables</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Named Instance Variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">I&apos;ve already mentioned that objects use instance variables to store their data and that it is an object&apos;s class that has knowledge of these instance variables. If you go back to the class definition for </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true"> (click on the </text><text styleclass="Program Feature" translate="true">Class Definition</text><text styleclass="Normal" translate="true"> tab in the browser) you&apos;ll see, amongst other things, that it defines the instance variable names for its instances. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ArithmeticValue subclass: #Point</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;x y &apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;ll look at other aspects of this definition in the next chapter but, for the moment, let&apos;s just concentrate on how the instance variable names are specified. You can see that this is done using a string containing a list of the variable names separated with spaces. As we saw in a previous example points have two instance variables called </text><text styleclass="Class Name" translate="true">x</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">y</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><image src="NamedIVs.gif" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Like all Smalltalk variables, named instance variables are just slots where other objects can be stored. They are not &quot;typed&quot; and therefore not constrained to holding particular classes of object. They are also only directly accessible from methods within the class itself (or its subclasses, which we&apos;ll talk about later). </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: this is a very important precept in Object Oriented Programming; that the internal format of the data of an object must remain hidden at all costs from the users of that object. When you want to know something about an object you send it messages. This allows the implementer of the object the flexibility to change its internal representation at some point in the future and, providing that the set of messages it responds to remains the same, nothing will be broken by such a change.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">System Folder Icons</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">System Folder Icons</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following descriptions are also available using </text><text styleclass="Menu Command" translate="true">Help/What&apos;s This?</text></para>
+    <para styleclass="Normal"><snippet src="Additional_Tools_Folder"/><snippet src="Class_Browser_Tool"/><snippet src="Class_Diagram_Tool"/><snippet src="Dolphin_Live_Update_Tool"/><snippet src="Executable_Browser_Tool"/><snippet src="Flipper_Inspector_Tool"/><snippet src="Idea_Space_Tool"/><snippet src="Package_Browser_Tool"/><snippet src="Panic_Tool"/><snippet src="Pool_Dictionaries_Tool"/><snippet src="Process_Monitor_Tool"/><snippet src="Protocol_Browser_Tool"/><snippet src="Sample_Applications_Folder"/><snippet src="Source_Tracking_Tools_Folder"/><snippet src="System_Browser_Tool"/><snippet src="User_Preferences_Tool"/><snippet src="View_Browser_Tool"/><snippet src="View_Composer_Tool"/><snippet src="Workspace_Tool"/></para>
+  </body>
+</topic>

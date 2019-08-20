@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pre-started Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pre-started Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Initially the preferred approach is to pre-start the development image that contains the server implementation. The running image will register its class objects so that these are used to service any subsequent requests for the related components. This is similar to in-image mode, but with an external client. Since COM does not need to use the registry to instantiate the components, correct registry entries are not required. Marshalling code </text><text styleclass="Normal" style="font-weight:bold; font-style:normal;" translate="true">must</text><text styleclass="Normal" translate="true"> be available, however, or the server will start up correctly and appear to return an interface, but the client will get an error.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding Shapes to a Playground</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding Shapes to a Playground</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A number of additional classes, representing a variety of shapes, were also added as part of the Playground package. The ones we&apos;re interested in at the moment are </text><text styleclass="Class Name" translate="true">Triangle</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">Square</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">Circle</text><text styleclass="Normal" translate="true">. Let&apos;s add one of each of these types of object to our current </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa := playground add: Triangle new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon := playground add: Square new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie := playground add: Circle new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once again, we create an object of a class (</text><text styleclass="Class Name" translate="true">Triangle</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">Square</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">Circle</text><text styleclass="Normal" translate="true"> etc.) by sending #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> to the class. As each new shape object is created, we add it to the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> by passing it as a parameter to an #</text><text styleclass="Class Name" translate="true">add</text><text styleclass="Normal" translate="true">: message. We assign the shapes to some friendly variables so that we can &quot;talk&quot; to them later.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: you may remember from the previous chapter that it is a convention that an </text><text styleclass="Notes" style="font-style:italic;" translate="true">#add</text><text styleclass="Notes" translate="true">: message will always return the object that is added as its answer.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So now we have workspace variables identifying:</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">&quot;Teresa the Triangle&quot;</text><br/><text styleclass="Class Name" translate="true">&quot;Simon the Square&quot; </text><text styleclass="Normal" translate="true">and</text><br/><text styleclass="Class Name" translate="true">&quot;Charlie the Circle&quot;</text></para>
+  </body>
+</topic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Chunk Files</title>
+  <keywords>
+    <keyword translate="true">Chunk Files</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Chunk Files</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The chunk file format defines a means of storing class definitions and other Smalltalk expressions to a text file. Such files can later be filed back into an image by choosing the </text><text styleclass="Normal" translate="true">File/File In</text><text styleclass="Normal" translate="true"> menu command available in most of the development tools.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As well as archiving the definition of a class, chunk files are also a useful medium for distributing code, especially to developers with other Smalltalk implementations. The PAC and PAX files associated with Dolphin&apos;s packaging system are also in chunk format.</text></para>
+  </body>
+</topic>

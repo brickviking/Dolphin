@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Code Layout</title>
+  <keywords>
+    <keyword translate="true">Code Layout</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Code Layout</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When writing Smaltalk code a well formatted method will be easier to read and understand. The use of a consistent style also relieves a developer of the &quot;burden of thought&quot; associated with subconscious code formatting.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Adopt a consistent style when laying out methods. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Ideally you should use an automatic code formatter. Dolphin supplies such a formatter that can be invoked each time you compile a method in a </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Class or System Browser</text><text styleclass="Normal" translate="true">. Simply type </text><text styleclass="Menu Command" translate="true">Ctrl+Shift+S</text><text styleclass="Normal" translate="true"> each time you accept new method source and the code will automatically be formatted for you. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">However, if you wish to format code manually, follow the following guidelines to achieve a consistent readable code layout.</text></para>
+    <list id="6" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Keep your methods short</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Short methods are easier to write and easier to read. Perhaps more importantly, since they aggregate less function they are easier to override in new subclasses.</text></para>
+    <list id="7" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="2" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Method Header</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Choose a selector and its parameter names according to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="methodname" styleclass="Normal" translate="true">Method Name</link><text styleclass="Normal" translate="true">. Keep the method header on one line unless it is too long to fit within a &apos;reasonable&apos; width, in which case wrap it on keywords and indent the subsequent lines.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">indexOfSubCollection:aSequenceableCollection startingAt: anInteger</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;text: textString line: lineNumber range: anInterval</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;selector: selector in: codeString for: aClass</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="8" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="3" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Comments</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Comment a method according to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="methodcomment" styleclass="Normal" translate="true">Method Comment</link><text styleclass="Normal" translate="true">. The method comment should start on the line immediately after the method header and it should be indented by one tab. If the comment is long, wrap it on word boundaries so that it will fit into a &apos;reasonable&apos; width. Each line should be indented by one tab. There should be one blank line between the end of the comment and beginning of the code.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">isEmpty</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer whether the receiver contains no elements.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self size == 0</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer a new instance of the receiver with the specified</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;x and y coordinates&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self basicNew x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="9" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="4" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Message Send</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Keep a message send on one line if it will fit. Split long keyword message sends over several lines with one parameter per line, indenting each subsequent line by one tab.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">receiver shortSelector.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;long: ...</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;keyword: ...</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;message: ...</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;message1;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;cascadedMessage2;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;cascadedMessage3.</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="10" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="5" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Blocks</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Blocks are often passed as parameters. If the block is short, keep it on one line. Keep the block on the same line as the selector if it will fit. If the block can&apos;t fit on the same line, then start it on the next line and indent it by one tab. If the block is too long for one line, then format it as normal method source, keeping the square brackets on the same lines as the start and end of the block.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">shortReceiver message: [shortBlock]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">shortReceiver message: [</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;long.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;block ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">long expression resulting in receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;message: [shortBlock]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">long expression resulting in receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;message: [</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;long.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;block]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;ifTrue: [shortBlock1]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;ifFalse: [shortBlock2]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">receiver</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; ifTrue: [</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;long.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;block]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;ifFalse: [shortBlock]</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="11" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="6" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Guard Clause</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In languages with long functions it is considered good practice to avoid multiple function exits. However, in Smalltalk the methods are generally short and the multiple exit restriction can be lifted in favour of reducing excessive nested testing.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">actualClass</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the actual class selected in the receiver after taking account</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;of instance or class mode. Answer nil if there is no class selected&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| selectedClass |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;selectedClass := self basicClass.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;selectedClass isNil ifTrue: [^nil].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self isInstanceMode</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;ifTrue: [ selectedClass ]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;ifFalse: [ selectedClass class ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="methodname" styleclass="Normal" translate="true">Method Name</link></para>
+  </body>
+</topic>

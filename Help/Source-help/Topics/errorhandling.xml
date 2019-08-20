@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Error Handling</title>
+  <keywords>
+    <keyword translate="true">Error Handling</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Error Handling</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Unhandled exceptions that occur in a console application are handle slightly differently to those in a GUI application because the latter is event driven and the former is not. This is reflected by a different implementation of </text><text styleclass="Class Name" translate="true">#unhandledException</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> in </text><text styleclass="Class Name" translate="true">ConsoleSessionManager</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Untrapped errors are passed to </text><text styleclass="Class Name" translate="true">ConsoleSessionManager&gt;&gt;logError:</text><text styleclass="Normal" translate="true">, which writes a description of the error to the stderr stream, and then, if non-resumable, the application is terminated.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Untrapped warnings are also passed to </text><text styleclass="Class Name" translate="true">#logError</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">, but they are always resumable and so the application continues executing.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Untrapped notifications are printed to the trace device, which is the Win32 debug output device (i.e. </text><text styleclass="Class Name" translate="true">OutputDebugString</text><text styleclass="Normal" translate="true">()</text><text styleclass="Normal" translate="true">)</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If the standard error handling does not meet your needs then you can override any of </text><text styleclass="Class Name" translate="true">#onUnhandledError</text><text styleclass="Normal" translate="true">:, </text><text styleclass="Class Name" translate="true">#onUnhandledWarning</text><text styleclass="Normal" translate="true">:, </text><text styleclass="Class Name" translate="true">#onUnhandledNotification</text><text styleclass="Normal" translate="true">:, </text><text styleclass="Class Name" translate="true">#logError</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> or (most likely) </text><text styleclass="Class Name" translate="true">#unhandledException</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Debugger Inspector Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Inspector Pane</text><text styleclass="Normal" translate="true"> presents a workspace for the currently selected variable in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Temporaries_Pane" styleclass="Program Feature" translate="true">Temporaries Pane</link><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this workspace </text><text styleclass="Class Name" translate="true">self</text><text styleclass="Normal" translate="true"> is mapped to the current temporary object and you can also assign a new value to the temporary by typing a Smalltalk expression and accepting this with </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk has three kinds of messages.</text></para>
+    <para styleclass="Normal"><table rowcount="4" colcount="4" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:60px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Type</text></para>
+        </td>
+        <td style="vertical-align:middle; width:285px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Form</text></para>
+        </td>
+        <td style="vertical-align:middle; width:86px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Parameters</text></para>
+        </td>
+        <td style="vertical-align:middle; width:193px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Examples</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:60px; height:27px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">unary</text></para>
+        </td>
+        <td style="vertical-align:middle; width:285px; height:27px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">alphanumeric starting with a lowercase letter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:86px; height:27px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">0</text></para>
+        </td>
+        <td style="vertical-align:middle; width:193px; height:27px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">squared</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:60px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">binary</text></para>
+        </td>
+        <td style="vertical-align:middle; width:285px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">punctuation marks</text></para>
+        </td>
+        <td style="vertical-align:middle; width:86px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">1</text></para>
+        </td>
+        <td style="vertical-align:middle; width:193px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">+</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:60px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">keyword</text></para>
+        </td>
+        <td style="vertical-align:middle; width:285px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">multiple colon terminated alphanumeric words</text></para>
+        </td>
+        <td style="vertical-align:middle; width:86px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">1 or more</text></para>
+        </td>
+        <td style="vertical-align:middle; width:193px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">do:</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">&#32;</text></para>
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">between: and:</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To pass one or more parameters, you would usually use a keyword message. Each parameter is preceded by a keyword. Smalltalk doesn&apos;t use brackets and commas to separate the parameters.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><table rowcount="5" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount.getBalance();</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount getBalance</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount.setBalance (10);</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount setBalance: 10</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount.transfer (20, anotherAccount)</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount transfer: 20 to: anotherAccount</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount.equals (anotherAccount);</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">myAccount = anotherAccount</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Order of operations is:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Unary (evaluate first)</text><br/><text styleclass="Normal" translate="true">Binary (evaluate second)</text><br/><text styleclass="Normal" translate="true">Keyword (evaluate last)</text><br/><br/><text styleclass="Normal" translate="true">Within each priority level, evaluate left to right.</text></para>
+    <para styleclass="Normal"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">3 + 5 * 6 // answer: 33</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">3 + 5 * 6 &quot;answer: 48&quot;</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice that in the Smalltalk version, this expression is actually two messages:</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text styleclass="Normal" style="text-decoration:underline;" translate="true">Message 1</text><br/><text styleclass="Normal" translate="true">receiver: 3</text><br/><text styleclass="Normal" translate="true">message: +</text><br/><text styleclass="Normal" translate="true">parameter: 5</text><br/><br/><text styleclass="Normal" translate="true">result: 8</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text styleclass="Normal" style="text-decoration:underline;" translate="true">Message 2</text><br/><text styleclass="Normal" translate="true">receiver: 8</text><br/><text styleclass="Normal" translate="true">message: *</text><br/><text styleclass="Normal" translate="true">parameter: 6</text><br/><br/><text styleclass="Normal" translate="true">result: 48</text></para>
+  </body>
+</topic>

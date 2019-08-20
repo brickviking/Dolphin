@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Resumable vs Non-resumable Exceptions</title>
+  <keywords>
+    <keyword translate="true">Resumable vs Non-resumable Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Resumable vs Non-resumable Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An important feature of the Smalltalk exception-handling model is that it supports resumption, i.e. the exception handling code can specify that execution is to continue from the point at which the exceptional condition was detected. This is in contrast to the Java and C++ exception handling models in which execution can only be continued in the immediately enclosing scope of the handler.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The ability to resume after an exception is a very powerful concept: For example it can be used to implement a deferred resource allocation scheme. Resumable exceptions reduce the need explicitly check for recoverable failures, since the recovery can be performed in the handler, before continuing execution from the point it left off. Such a powerful capability must be applied with care if it is not to result in spectacular failure. The danger inherent in resumption is one of the reasons put forward for the non-resumable model used in C++, but another reason is that it is difficult to implement efficiently in a non-reflective programming system.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A further advantage of the resumable exception system in Smalltalk is improved debuggability. This is because when an exception handler is executed the stack has not yet been unwound, and consequently the full exception context is still visible and open to manipulation. In Dolphin one can even modify the behaviour or state which caused an exception and then restart execution under the control of the debugger to allow the computation to complete.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although the Smalltalk exception model supports resumption, not all Exceptions are resumable in practice. Resumability is an attribute of the particular class of </text><text styleclass="Class Name" translate="true">Exception</text><text styleclass="Normal" translate="true"> controlled by the </text><text styleclass="Class Name" translate="true">#isResumable</text><text styleclass="Normal" translate="true"> test method.</text></para>
+  </body>
+</topic>

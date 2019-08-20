@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Using Workspace Files</title>
+  <keywords>
+    <keyword translate="true">Using Workspace Files</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Using Workspace Files</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The contents of a </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true"> can be saved to a file using the </text><text styleclass="Menu Command" translate="true">File/Save</text><text styleclass="Normal" translate="true"> menu command so your actions can be reloaded and possibly replayed later at a later date. You can open a workspace on a text &#160;file by choosing </text><text styleclass="Menu Command" translate="true">File/Open</text><text styleclass="Normal" translate="true"> in any tool.</text></para>
+  </body>
+</topic>

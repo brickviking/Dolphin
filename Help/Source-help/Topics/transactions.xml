@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Transactions</title>
+  <keywords>
+    <keyword translate="true">Transactions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Transactions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> class provides a number of methods that allow database operations to be grouped together as transactions. All operations that occur following the start of the transaction are not actually written to the database until the transaction is committed. Indeed, it is also possible to cancel all of the operations in the transaction by asking it to be rolled back instead of being committed.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Prerequisites Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Prerequisites Pane </text><text styleclass="Normal" translate="true">allows you to trace the prerequisites for the currently selected package. The prerequisites are the list of other packages that need to be installed first, before this package will successfully load and compile.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the top half of this pane is a tree view that shows the current package at the root and the prerequisite packages at levels below this. Selecting the prerequisite packages in this list will display the actual dependencies in the list in the lower half of the pane. By looking in this list you can see exactly why one package depends on another.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is important to realize that the Dolphin package system will not allow you to save out a package which has an implied circularity in the prerequisites. If you are warned that a particular package cannot be saved then you will need to trace through the prerequisites/dependencies to find where the circularity occurs and rectify it. See </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Tracing_Circularities_in_Packa" styleclass="Normal" translate="true">Tracing Circularities in Package Dependencies</link><text styleclass="Normal" translate="true"> for more details.</text></para>
+  </body>
+</topic>

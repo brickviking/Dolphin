@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Inbound Argument Conversion</title>
+  <keywords>
+    <keyword translate="true">Inbound Argument Conversion</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Inbound Argument Conversion</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The conversion of arguments supplied by callbacks into the Smalltalk objects passed to the callback methods is performed by a primitive (</text><text styleclass="Class Name" translate="true">BlockClosure&gt;&gt;valueWithArgumentsAt:descriptor:</text><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A primitive is used to instantiate appropriate objects for callback arguments to ensure reasonable performance, and for consistent behaviour with the rest of the external interfacing support in Dolphin. The conversions applied to inbound arguments are the same as those used to create return values for external calls. However, because the callbacks are initially routed via the image, no flexibility is lost and alternative argument coercion strategies can be employed if desired.</text></para>
+  </body>
+</topic>

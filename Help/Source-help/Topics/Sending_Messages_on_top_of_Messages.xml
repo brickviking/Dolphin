@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Sending Messages on top of Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sending Messages on top of Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you send a message to a receiver, you always receive another object back as the answer. It seems perfectly reasonable that you should be able to send further messages to this answer. Try:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">20 factorial displayString</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here, the message </text><text styleclass="Class Name" translate="true">displayString</text><text styleclass="Normal" translate="true">, is sent to the result of </text><text styleclass="Class Name" translate="true">20 factorial</text><text styleclass="Normal" translate="true">. Look carefully, and you&apos;ll see that what is displayed is surrounded by single quote marks, thus indicating that the integer result has been converted to a text string representation. Perhaps we might additionally want to know how many characters are in the display string for </text><text styleclass="Class Name" translate="true">20 factorial</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">20 factorial displayString size</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So you can see that you can use sequences of messages to create more complex expressions.</text></para>
+  </body>
+</topic>

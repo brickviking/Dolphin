@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Filler Fields</title>
+  <keywords>
+    <keyword translate="true">Filler Fields</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Filler Fields</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When one is not interested in the content of a particular field, one can employ a </text><text styleclass="Class Name" translate="true">FillerField</text><text styleclass="Normal" translate="true">. This acts as a placehold that reserves space for the field, but the field is inaccessible. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the Win32 LOGPEN Structure&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #style type: DWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #width type: SDWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #unusedWidthY type: (FillerField byteSize: 4);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lopnColor type: SDWORDField new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">FillerFields</text><text styleclass="Normal" translate="true"> can also be used for one off </text><link displaytype="text" defaultstyle="true" type="topiclink" href="structurepacking" styleclass="Normal" translate="true">Structure Packing</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An alternative to filler fields, which is preferable when another suitable field type is available, is to send the </text><text styleclass="Class Name" translate="true">#beFiller</text><text styleclass="Normal" translate="true"> message to an </text><text styleclass="Class Name" translate="true">ExternalField</text><text styleclass="Normal" translate="true"> instance of the correct type; such fields will also be inaccessible.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Temporary Variables</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Temporary variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some methods, but certainly not all, may require the definition of some temporary variable slots in which working results can be held during execution of the method. If these are needed then they are defined immediately after the method header and are enclosed between vertical bar (|) characters. This method defines one temporary variable called </text><text styleclass="Class Name" translate="true">aPoint</text><text styleclass="Normal" translate="true">. Temporaries only exist while the method is executing and any objects that are installed in temporary slots are released when the method completes.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: it is convention that all pseudo-and temporary variable names should begin with a lower case letter.</text></para>
+  </body>
+</topic>

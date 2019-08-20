@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Cascading Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Cascading Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s try creating a new window and manipulating it. Evaluate the following lines individually to see the incremental effect:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window := ShellView new show.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At this point you will have to switch back to the workspace since your new window will be brought to the front. Let&apos;s continue:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window position: 80@80.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window extent: 320@90.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window backcolor: Color red.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window caption: &apos;My Red Test Window&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We are sending a sequence of messages to the same receiver. It&apos;s quite convenient that Smalltalk offers a shorthand way of doing this, by cascading the messages to a common receiver. The following code performs a similar sequence but must be evaluated in one go since all the lines are effectively part of a single expression.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window := ShellView new show.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">window</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">position: 80@80;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">extent: 320@90;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">backcolor: Color blue;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">caption: &apos;My Blue Test Window&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here, each of the cascading messages is separated by a semicolon. Each is sent in turn to the object held in the window variable. The lines are intended by one tab position merely as a matter of Smalltalk style to make the code more readable.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Remember to close your red and blue windows now you&apos;ve finished with them. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So what is the result of a series of cascading messages? Well, it&apos;s the answer from the last message in sequence. Try this:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rect := Rectangle origin: 0@0 extent: 10@10.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rect area</text><text style="font-family:&apos;Courier New&apos;; font-size:10pt; color:#000000;" translate="true">&#32;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;ve created a </text><text styleclass="Class Name" translate="true">Rectangle</text><text styleclass="Normal" translate="true"> object with an area of 100 square units. Now let&apos;s modify the rectangle to be eight units square and re-compute the area. Once again you&apos;ll have to evaluate this as a single expression:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rect</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">top: 1;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">left: 1;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">bottom: 9;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">right: 9;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">area</text></para>
+    <para styleclass="Code Example"></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">The result displayed is that answered by the last message in sequence, </text><text styleclass="Class Name" translate="true">area</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">.</text></para>
+  </body>
+</topic>

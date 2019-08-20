@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Method List Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Method List Pane</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Normal" translate="true">displays different types of methods with different icons:</text></para>
+    <para styleclass="Normal"><table rowcount="4" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:middle">
+        <td style="vertical-align:middle; width:42px;">
+          <para styleclass="Normal"><image src="CompiledMethod_PublicIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:381px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Public method. These methods are intended to be part of the public interface to the class.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Normal"><image src="CompiledMethod_PrivateIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:381px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Private method. Although Smalltalk does not enforced method privacy, placing a method in the private category indicates that the method is not intended to be part of the class&apos; public interface.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Normal"><image src="CompiledMethod_DeprecatedIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:381px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Deprecated method. From time to time we decide to remove, or rename some methods. When we do this, if the method being changed is part of the public interface, we will usually leave it in the system for one release cycle but, at the same time, we&apos;ll mark it as being deprecated. You should change your code to not make use of these methods as soon as possible.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Normal"><image src="CompileFailedMethodIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:381px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Compilation failed. This icon indicates that the method failed to compile.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note: if you click in the column header header above the icons you can sort the methods based on the above types.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Method List</text><text styleclass="Normal" translate="true"> is multi-selection. This means you can select several methods at once to be the subject of certain operations (e.g. dragging and several refactorings). You may choose to drag methods to several locations in the various Dolphin tools... see the help for the different tool panes for details.</text></para>
+  </body>
+</topic>

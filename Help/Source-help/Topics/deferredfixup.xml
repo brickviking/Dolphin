@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Deferred fixup</title>
+  <keywords>
+    <keyword translate="true">Deferred fixup</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Deferred fixup</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is not always possible to complete the fixup operation until the </text><text styleclass="Class Name" translate="true">STBInFiler&gt;&gt;#next </text><text styleclass="Normal" translate="true">has completed. For example, a hierarchy of windows must be created parent before child. The </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> offers a </text><text styleclass="Class Name" translate="true">#deferredAction</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> method which will perform the given niladic valuable (a </text><text styleclass="Class Name" translate="true">MessageSend</text><text styleclass="Normal" translate="true"> perhaps) on completion of the </text><text styleclass="Class Name" translate="true">STBInFiler&gt;&gt;#next.</text><text styleclass="Normal" translate="true"> So, in our hypothetical window hierarchy, the proxy representing the top parent window can defer the creation the real windows until all proxies have been loaded. If there is more than one deferred action then they are performed in the order in which they were issued.</text></para>
+  </body>
+</topic>

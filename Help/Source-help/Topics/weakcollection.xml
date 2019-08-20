@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Weak Collection</title>
+  <keywords>
+    <keyword translate="true">Weak Collection</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Weak Collection</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Objects are garbage collected if there are no references to them. Holding an object in a collection will increase its reference count and stop it from being garbage collected, even if there are no other references to that object. This is normally the desired behaviour, but on the occasions when you want to hold a collection of objects without increasing their reference counts, how can this be achieved.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Use </text><text styleclass="Program Feature" translate="true">Weak Collections</text><text styleclass="Normal" translate="true"> to hold elements without increasing their reference counts. The following weak collection classes are available.</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Class Name" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">WeakArray</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">MourningWeakArray</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">WeakLookupTable</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">WeakIdentityDictionary</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">WeakIdentitySet</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">WeakSet</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Try the following:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Smalltalk at: #S put: &apos;aStringWithAReference&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Smalltalk at: #WeakSetTest put: WeakSet new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">WeakSetTest add: S.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">WeakSetTest add: &apos;aStringWithNoReferences&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">WeakSetTest size. &quot;This should evaluate to 2.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Wait a few seconds for the next garbage collection to occur.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">WeakSetTest size. &quot;This should evaluate to 1.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The weak set, </text><text styleclass="Class Name" translate="true">S</text><text styleclass="Normal" translate="true">, now only contains &apos;aStringWithAReference&apos;</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Objects will disappear from a weak collection when there are no other references.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The dependency mechanism uses a </text><text styleclass="Class Name" translate="true">WeakIdentityDictionary</text><text styleclass="Normal" translate="true"> to hold references to the dependents without affecting the way that they are garbage collected.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="finalization" styleclass="Normal" translate="true">Finalization</link></para>
+  </body>
+</topic>

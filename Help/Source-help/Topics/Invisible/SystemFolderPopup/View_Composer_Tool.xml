@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">View Composer Tool</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">View Composer Tool</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="View Composer.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:214px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Opens the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Popup Box" translate="true">, which allows the creation and editing of view resources.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><snippet src="View_Composer_Summary"/></para>
+  </body>
+</topic>

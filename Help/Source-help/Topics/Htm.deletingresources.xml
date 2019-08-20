@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Deleting Resources</title>
+  <keywords>
+    <keyword translate="true">Deleting Resources</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Deleting Resources</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">You can delete a resource by selecting it in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossresources" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Resources</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> pane and choosing the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Resource/Delete</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> menu command. Alternatively, you can press the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Delete</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> button on the toolbar. You will be prompted to confirm the deletion.</text></para>
+  </body>
+</topic>

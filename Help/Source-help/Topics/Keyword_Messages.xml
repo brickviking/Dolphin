@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Keyword Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Keyword Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We have seen above that binary messages take a single parameter. Binary messages are special characters such as: + * - /etc. It is also possible to supply parameters to the more alphabetical style of message selectors.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">#(100 600 800 1000) at: 2.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">#(100 200 #( 1 2 3) 800 1000) at: 3</text><text style="font-family:&apos;Courier New&apos;; font-size:10pt; color:#000000;" translate="true">&#32;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As shown above, the </text><text styleclass="Class Name" translate="true">at:</text><text styleclass="Normal" translate="true"> message can be used to access an object at a particular index within an array, or other indexable collection. In the second example, you see that you can have quite complex arrays which even include other arrays as their elements. This makes sense since an array can easily hold any type of object. Here are some more examples of keyword messages that take a single parameter:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">#(100 200 #( 1 2 3) 900 1000) includes: 30 squared</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Hello World&apos; occurrencesOf: $o</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">1 to: 10</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The latter is another example of a constructor message similar to @. In this case </text><text styleclass="Class Name" translate="true">to</text><text styleclass="Normal" translate="true">: sent to an integer will answer a special sort of collection known as an </text><text styleclass="Class Name" translate="true">Interval</text><text styleclass="Normal" translate="true">. Intervals can be used where any other collection can be used and this one represents the range of integer numbers between one and ten. To see this better, ask it to convert itself to an array:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(1 to: 10) asArray</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far, we have seen how single parameters can be passed to messages ending in a :. Messages can also be created that take any number of parameters:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(1 to: 3) asArray at: 2 put: &apos;Hello&apos;; yourself </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;ll come back to the use of the semicolon and </text><text styleclass="Class Name" translate="true">yourself</text><text styleclass="Normal" translate="true"> message in the section on Cascading Messages below. For the time being concentrate on the </text><text styleclass="Class Name" translate="true">at</text><text styleclass="Normal" translate="true">: and </text><text styleclass="Class Name" translate="true">put</text><text styleclass="Normal" translate="true">:. These are not two separate message sends but one single one that takes two parameters. We refer to the selector for this keyword message as </text><text styleclass="Class Name" translate="true">at:put</text><text styleclass="Normal" translate="true">:. As you can see, this </text><text styleclass="Class Name" translate="true">at:put: </text><text styleclass="Normal" translate="true">message can be used to store objects into indexable collections such as arrays or strings. Try these:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Thomas,Henry,Edward&apos; copyFrom: 8 to: 12</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Thomas,Henry,Edward&apos; midString: 5 from: 8</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;The brown quick fox&apos; replaceFrom: 5 to: 15 with: &apos;a quick brown&apos; startingAt: 3</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Can you say what the message selector in the last example is? Yes, it&apos;s a single message that takes four parameters and has the selector, </text><text styleclass="Class Name" translate="true">replaceFrom:to:with:startingAt:</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: I hope you can see that this way that Smalltalk has, of interspersing parameters within the body of the message selector, can lead to much more readable program code than with most other languages. If you are used to languages such as C++ or Java you may find this odd at first but I&apos;d wager that, pretty soon, you&apos;ll come to like it!</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Hello World&apos; at: 6 put: $-; yourself</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Try the above. Here you get an error, &quot;</text><text styleclass="Menu Command" translate="true">Attempt to update read-only object</text><text styleclass="Normal" translate="true">&quot;. This is because you are trying to directly modify the contents of a literal string object created by the compiler. Since the compiler likes to be able to share strings if they are identical, it is not usually safe to allow them to be modified. &#160;The following, however, will work just fine:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Hello World&apos; copy at: 6 put: $-; yourself</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

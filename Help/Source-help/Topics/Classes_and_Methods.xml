@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Classes and Methods</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Classes and Methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you know by now, Smalltalk is an Object Oriented programming language. In this chapter I will introduce you to two concepts that lie at the heart of this; </text><text styleclass="Program Feature" translate="true">classes</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">methods</text><text styleclass="Normal" translate="true">. We have already mentioned that all of Smalltalk&apos;s objects know what class they are and that it is this class that governs how they should behave. This behaviour is recorded in the class by a number of </text><text styleclass="Program Feature" translate="true">methods</text><text styleclass="Normal" translate="true">. A method contains the Smalltalk code that determines how a particular message should be executed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This chapter introduces you to classes and methods and the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Class_Browser" styleclass="Program Feature" translate="true">Class Browser</link><text styleclass="Normal" translate="true">, which is the development tool that you use to manipulate them. To an extent, this chapter is largely theoretical, but hang in there since this is important stuff and you only need to wait a short while until the next chapter to get on with some practical </text><text styleclass="Program Feature" translate="true">Programming in Smalltalk</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

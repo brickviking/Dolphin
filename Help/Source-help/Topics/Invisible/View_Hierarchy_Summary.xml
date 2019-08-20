@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">View Composer Hierarchy_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View Hierarchy Pane </text><text styleclass="Normal" translate="true">displays the hierarchy of sub-views in the view being composed.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal" translate="true">It is sometimes much easier to select a particular view in this pane rather than by clicking in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Arena_Pane" styleclass="Program Feature" translate="true">Arena</link><text styleclass="Normal" translate="true">. In a deeply nested view hierarchy you may have to click several times to drill down into the view in the arena where a single click in the </text><text styleclass="Program Feature" translate="true">View Hierarchy Pane</text><text styleclass="Normal" translate="true"> would be sufficient.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can drag the view objects inside the hierarchy pane and drop them either at another location in the hierarchy within the same pane or drag them over to the arena. You can also drop objects from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Toolbox_Pane" styleclass="Program Feature" translate="true">Toolbox Pane</link><text styleclass="Normal" translate="true"> over container objects in the hierarchy (but obviously you can&apos;t drop something into a non-container).</text></para>
+  </body>
+</topic>

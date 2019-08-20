@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging with Dolphins COM Framework</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging with Dolphins COM Framework</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s COM support framework is almost entirely implemented in Smalltalk, in the image. The vast majority of the framework can be debugged through. The in-process stub, I</text><text styleclass="Program Feature" translate="true">PDolphin.DLL</text><text styleclass="Normal" translate="true">, acts as little more than a launcher and forwarder. Similarly the VM contains no COM framework code apart from a generic virtual function table </text><text styleclass="Normal" translate="true">–</text><text styleclass="Normal" translate="true"> everything else is visible in the image. It is safe to set breakpoints in almost all of the COM infrastructure, apart from the early start-up code. Thus you can debug right through from the creation of your COM object in </text><text styleclass="Class Name" translate="true">COMClassFactory&gt;&gt; CreateInstance:riid:ppvObject:</text><text styleclass="Normal" translate="true"> to its final demise. You can also safely debug through the </text><text styleclass="Class Name" translate="true">COMObjectStub&gt;&gt;QueryInterface:ppvObject:</text><text styleclass="Normal" translate="true"> implementation in order to track down common interface related issues.</text></para>
+  </body>
+</topic>

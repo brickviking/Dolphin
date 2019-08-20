@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Terminating an In-Process Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Terminating an In-Process Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Shutting down the client terminates an in-process session. If you wish to preserve any changes made in an in-process image, then you should ensure that it has been saved (or packages written out) before closing the client, as the normal prompt to save the image may not occur.</text></para>
+  </body>
+</topic>

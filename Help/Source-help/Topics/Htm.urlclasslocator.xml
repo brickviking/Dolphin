@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">URLClassLocator</title>
+  <keywords>
+    <keyword translate="true">URLClassLocator</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">URLClassLocator</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">This class allows the location of an external class via a URL. See </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.importingaclassfromthewebusingaurlclasslocator" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Importing a class from the web using a URLClassLocator.</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> You can also use URL locators to download files other classes from the web. Each applet has a locator associated with it (accessible via </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">NPAppletSite&gt;&gt;fileLocator</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">) that can be used to gain access to files relative to the same directory as the applet&apos;s source file. See </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.accessingotherfilesusingurls" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Accessing other files using URLs</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> for more details.</text></para>
+  </body>
+</topic>

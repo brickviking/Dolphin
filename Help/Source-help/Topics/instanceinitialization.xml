@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Initialization</title>
+  <keywords>
+    <keyword translate="true">Instance Initialization</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Initialization</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> bear in mind that the instance variables in a newly instantiated object will be </text><text styleclass="Class Name" translate="true">nil</text><text styleclass="Normal" translate="true"> by default. This may leave the new object in an invalid state if further initialization is not performed. If there are sensible default values for the instance variables then the new object should be born with them.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Often this can be achieved using an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instancecreationmethod" styleclass="Normal" translate="true">Instance Creation Method</link><text styleclass="Normal" translate="true"> however, in many cases, there are instance variables that can&apos;t be explicity provided for in this way. Ideally, we need a scheme whereby an object can, itself, initialize some of its own variable slots to sensible default values.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Also Known As</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Explicit Initialization</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement an </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method to set the initial values of the instance variables. Note that class </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> does not inherently arrange for this method to be called during object creation, so you must cause this to happen. This is usually done by overriding an appropriate #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> method, causing it to send #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to the new instance before it is returned. This scheme therefore avoids relying on clients of the class to perform their own explicit initialization of new instances.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are writing a class that is descended from one that already performs such initialization then it is not necessary to override #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> again. You will normally want to pass </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true"> on to </text><text styleclass="Normal" translate="true">super</text><text styleclass="Normal" translate="true"> in the #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> method however.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consider a class </text><text styleclass="Class Name" translate="true">LotterySyndicate</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">with two instance variables </text><text styleclass="Normal" translate="true">participants </text><text styleclass="Normal" translate="true">(a collection of people who are members of the syndicate) and </text><text styleclass="Class Name" translate="true">winningsSoFar</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(the total value of winnings so far).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate class&gt;&gt;new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer an initialised instance of LotterySyndicate.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^super new initialize</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">LotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;participants := Set new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;winningsSoFar := 0</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">With an additional subclass, </text><text styleclass="Class Name" translate="true">TaxableLotterySyndicate</text><text styleclass="Normal" translate="true">, which introduces an instance variable holding a tax rate, it is not necessary to override </text><text styleclass="Normal" translate="true">new</text><text styleclass="Normal" translate="true"> again but #</text><text styleclass="Normal" translate="true">initialize</text><text styleclass="Normal" translate="true"> must be forwarded to </text><text styleclass="Normal" translate="true">super</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">TaxableLotterySyndicate&gt;&gt;initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Initialize the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;super initialize.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;taxRate := 0.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Delay</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class contains an instance method </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">which initializes instances of the </text><text styleclass="Class Name" translate="true">Delay</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class. The class method </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">runs the inherited </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method and then sends </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to the resultant </text><text styleclass="Normal" translate="true">Delay</text><text styleclass="Normal" translate="true">. The initialized </text><text styleclass="Class Name" translate="true">Delay</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is then returned as the answer of </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Initialize the receiver to be a valid Delay, but one which will fire immediately.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;Answer the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;duration := 0.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;waitSemaphore := Semaphore new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer a new, valid, Delay, but one which will fire immediately it receives #wait.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;See #forMilliseconds:, #forSeconds:, and #untilMilliseconds:&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^super new initialize</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The sample </text><text styleclass="Class Name" translate="true">VideoRecording</text><text styleclass="Normal" translate="true"> class contains an #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> method to set up the default attributes of a recorded programme:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Initialize the receiver to contain default values.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;title: self defaultTitle;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;date: Date today;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;time: Time now;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;length: self defaultLength</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer a new, initialised, instance of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^super new initialise</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes the initialization of instance variables may be time consuming and, if they are unlikely to be accessed, it may be more appropriate to leave them uninitialized and employ </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true"> instead. This, in turn, yields a small time penalty each time the variable is accessed, however.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link><text styleclass="Normal" translate="true">, </text><link displaytype="text" defaultstyle="true" type="topiclink" href="abstractclass" styleclass="Normal" translate="true">Class Initialization</link></para>
+  </body>
+</topic>

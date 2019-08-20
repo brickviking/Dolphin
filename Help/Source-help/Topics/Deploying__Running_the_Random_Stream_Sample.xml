@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Deploying &amp; Running the Random Stream Sample</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Deploying &amp; Running the Random Stream Sample</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This section gives step-by-step instructions for deploying and running the COM Random Stream sample as an in-process COM component implemented by Dolphin and hosted by a VB client executable. </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Professional_Edition" styleclass="Program Feature" translate="true">Dolphin Professional</link><text styleclass="Program Feature" translate="true">&#32;</text><text styleclass="Normal" translate="true">is required to deploy Active-X DLLs - this functionality is not available in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Community_Edition" styleclass="Program Feature" translate="true">Community Edition</link><text styleclass="Normal" translate="true">. </text></para>
+  </body>
+</topic>

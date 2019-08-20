@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Workspace Operations</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:9pt;" translate="true">The following common workspace operations are available. </text><br/><text styleclass="Normal" style="font-size:9pt;" translate="true">Either place the text cursor on a single line Smalltalk expression or select the expression and then:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-size:9pt;" translate="true">Use Ctrl+E to evaluate it.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-size:9pt;" translate="true">Use Ctrl+D to evaluate it and display the result.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-size:9pt;" translate="true">Use Ctrl+I to evaluate it and bring up an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Flipper_Inspector" styleclass="Program Feature" translate="true">Inspector</link><text styleclass="Normal" style="font-size:9pt;" translate="true"> window on the result.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" style="font-size:9pt;" translate="true">Use F11 to bring up the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="debugger" styleclass="Program Feature" translate="true">Debugger</link><text styleclass="Normal" style="font-size:9pt;" translate="true"> and step through the expression.</text></li>
+    </list>
+  </body>
+</topic>

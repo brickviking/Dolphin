@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Lagoon Deployment Tutorial</title>
+  <keywords>
+    <keyword translate="true">Lagoon Deployment Tutorial</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Lagoon Deployment Tutorial</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is a simple tutorial based on a &quot;Hello World&quot; application that can be used to demonstrate how to use Dolphin&apos;s application deployment features. It uses the package </text><text styleclass="Program Feature" translate="true">Hello World.pac</text><text styleclass="Normal" translate="true"> that should be installed in your base development image. Please read the package comment and, if you have not already done so, you should first read the overview about the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="deploymentstrategies" styleclass="Normal" translate="true">Deployment Strategy</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

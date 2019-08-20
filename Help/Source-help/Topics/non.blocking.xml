@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Non-Blocking</title>
+  <keywords>
+    <keyword translate="true">Non-Blocking</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Non-Blocking</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although the blocking calls described above are probably the most common way of using Sockets in your application, they do demand that you execute multiple processes to handle them. For simple applications this can be an overly complex solution so we also provide a number of non-blocking calls as alternatives. For each of these, the call returns immediately and the actual completion of the operation is signalled by an event triggered off the Socket. Interested parties can register an interest in these events using </text><text styleclass="Class Name" translate="true">#when:send:to:</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

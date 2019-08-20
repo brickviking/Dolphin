@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 4 Test (Registered)</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 4 Test (Registered)</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Run the test VB client again, which should work this time. If it comes up at all, then the COM component implemented by Dolphin has been successfully created (which means the Dolphin DLL will be loaded into the VB process). Bash away at the </text><text styleclass="Menu Command" translate="true">Next</text><text styleclass="Normal" translate="true"> button a few times to get a few lotto ticket numbers.</text></para>
+  </body>
+</topic>

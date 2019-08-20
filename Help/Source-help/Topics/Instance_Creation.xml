@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Creation</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Creation</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, classes are real objects. To create an instance, just send new to the class. Methods for a class are called class methods (similar to Java static methods).</text></para>
+    <para styleclass="Normal"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">new Reservation();</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">Reservation new</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

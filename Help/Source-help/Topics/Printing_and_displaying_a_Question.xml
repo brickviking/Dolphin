@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Printing and displaying a Question</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Printing and displaying a Question</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following methods allow for a </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> to be represented as text from the point of view of an end-user and developer respectively. You can use the category suggestion feature of the browser to place these methods into their correct categories. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Important: Place the browser back into Instance mode before adding these methods.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">displayOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the name of the receiver as a user should see it. For this</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">we append a question mark.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPutAll: self text; nextPutAll: &apos; ?&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">printOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the name of the receiver as a developer would wish</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">super printOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $(.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $).</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

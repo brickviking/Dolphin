@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating Console Applications</title>
+  <keywords>
+    <keyword translate="true">Creating Console Applications</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating Console Applications</text></para>
+    </header>
+    <para style="margin-top:14px;"><snippet src="Only_Available_in_Dolphin_Prof"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Professional introduces the ability to construct true Win32 Console Applications. These can be deployed with the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lagoondeploymentwizard" styleclass="Normal" translate="true">Lagoon Deployment Wizard</link><text styleclass="Normal" translate="true"> to create an executable. These executables might be simple utilities to be run directly from the command line, CGI programs to be run by a Web server, or headless NT services.</text></para>
+  </body>
+</topic>

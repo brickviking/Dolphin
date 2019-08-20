@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Getting Started</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Getting Started</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This chapter will get you started with Smalltalk and teach you how to interact (safely) with the system. If you have used Smalltalk before, much of this will be familiar to you so you may just need to skim through this section quickly.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The subsequent chapters are a general introduction to the Smalltalk language and, in spirit, are as applicable to any other implementation of Smalltalk as they are to Dolphin. In practice, we&apos;ll use a sample application called </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> to illustrate the various topics and currently this is only available in Dolphin Smalltalk. </text></para>
+  </body>
+</topic>

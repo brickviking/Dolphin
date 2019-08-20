@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Write or Acquire IDL</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Write or Acquire IDL</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When writing a new component from scratch, one should start by defining components COM interfaces in IDL. This is a “language independent” description of the interfaces to the component that is essential for binary interoperability. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When implementing a pre-defined COM interface one does not have to design the interface, but the starting point is the same, but:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If a type-library is available, move straight on to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Generate_Interfaces" styleclass="Normal" translate="true">Interface Generation</link><text styleclass="Normal" translate="true">, you can reverse engineer the IDL from the type library should you need it.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If IDL is available then go to the next stage and build a type library from it.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If IDL is not available, then the next best thing is a C header file that has clearly been generated from IDL (this will be obvious from the initial comment which will mention MIDL and the name of the source IDL file). Microsoft are sometimes guilty of supplying a header file generated from IDL without the source IDL. From this it should be relatively easy to construct the equivalent IDL, since all of the necessary information will be available in the header file, even if some of it is in comments. Alternatively you could go back to the supplier of the header file and ask for a copy of the source IDL.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If a hand coded C header file is available, then you may be able to edit it into acceptable IDL by using a combination of search/replace, edit macros, and some hand editing. IDL is relatively close to C, but requires additional attributes that you will have to add.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Writing IDL (or engineering it from another source) is a tedious and rather detailed task. The detail is needed because binary interoperability requires that one provide even more detail up front than a statically typed language such as C++ might require in its class definitions. The IDL has to include sufficient detail for efficient remote marshalling, such as the direction in which parameters are passed. For certain parameter types, such as variable sized arrays, it is necessary to know how to determine the size of the array at run-time. A good book to help with the more complex issues of IDL, perhaps containing more detail than you will ever need, is </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Bibliography" anchor="Major" styleclass="Normal" translate="true">Major</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may have a tool such as VC++ that includes wizards that help with the generation of IDL, even so we would recommend starting with a minimal definition, perhaps just a single method or property. Once a COM component has been released its interface becomes frozen (at least without generating a new GUID and giving some thought to supporting clients programmed against the old interface), but during development you can revise the IDL, rebuild the type-library, and regenerate the interfaces as often as you like. By starting small and revising incrementally you can avoid getting into “analysis paralysis” attempting to design the perfect interface.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We recommend that you stick to the use of Automation compatible types in your IDL to take advantage of </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Type-library_Marshalling" styleclass="Normal" translate="true">type-library marshalling</link><text styleclass="Normal" translate="true"> and to support the maximum range of clients. This does restrict the types of parameters quite a lot, for example it excludes C-style array parameters and structures, but much of the time is it is preferable to define an additional object rather than to use complex types, so this can be good discipline.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to be complete your IDL should include, as a minimum, a definition of the component interface, a library statement, within the library statement a definition of the coclass listing the interface as its default interface. See Microsoft</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s documentation (or a book) for details of the syntax of IDL.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here is the IDL for our Random Stream sample, which we</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">ll save down as </text><text styleclass="Program Feature" translate="true">Random.idl</text><text styleclass="Normal" translate="true">. We borrowed this IDL from elsewhere and modified it to make </text><text styleclass="Class Name" translate="true">IRandomStream</text><text styleclass="Normal" translate="true"> a dual interface, so it is completely defined already, but we could have started with just the Next method. The rest of the IDL we</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">d need anyway:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">import &quot;oaidl.idl&quot;;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">import &quot;ocidl.idl&quot;;</text></para>
+    <para styleclass="Code Example"><tab /></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">[</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">object,</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">uuid(0E2CEA3B-E6C4-11D2-833B-0020AFAB8EFE),</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">dual,</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">helpstring(&quot;IRandomStream Interface&quot;),</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">pointer_default(unique),</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">nonextensible</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">interface IRandomStream : IDispatch</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">{</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[id(1), helpstring(&quot;Answer the next random number in the stream&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT Next([out,retval]long* plNext);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propget, id(2), helpstring(&quot;Current random seed&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT Seed([out, retval] long *pVal);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propput, id(2), helpstring(&quot;Current random seed&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT Seed([in] long newVal);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propget, id(3), </text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true"> helpstring(&quot;Lower bound of range of random numbers generated&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT LowerBound([out, retval] long *pVal);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propput, id(3), </text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true"> helpstring(&quot;Lower bound of range of random numbers generated&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT LowerBound([in] long newVal);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propget, id(4), </text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true"> helpstring(&quot;Upper bound of range of random numbers generated&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT UpperBound([out, retval] long *pVal);</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[propput, id(4), </text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true"> helpstring(&quot;Upper bound of range of random numbers generated&quot;)]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><tab /><text styleclass="Code Example" translate="true">HRESULT UpperBound([in] long newVal);</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">};</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">[</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">uuid(0E2CEA2F-E6C4-11D2-833B-0020AFAB8EFE),</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">version(1.0),</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">helpstring(&quot;Random 1.0 Type Library&quot;)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">library RANDOMLib</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">{</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">importlib(&quot;stdole32.tlb&quot;);</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">importlib(&quot;stdole2.tlb&quot;);</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">interface IRandomStream;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">[</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">uuid(A1D42F35-E6C0-11D2-833B-0020AFAB8EFE)</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">coclass RandomStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">{</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">[default] interface IRandomStream;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">};</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">};</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The GUIDs allocated for the interface, coclass, and library must all be unique. They can be allocated in Dolphin by evaluating:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">GUID newUnique idlString</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you modify an interface after publication, you must allocate a new IID for the new interface definition. Similarly for the coclass </text><text styleclass="Normal" translate="true">–</text><text styleclass="Normal" translate="true"> any change in its semantics may break old clients, so it must have a new CLSID. The library is unusual in that one does not normally allocate a new LIBID, but instead one increments the version number.</text></para>
+  </body>
+</topic>

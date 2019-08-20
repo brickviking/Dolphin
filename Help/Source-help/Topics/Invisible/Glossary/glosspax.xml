@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosspax</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">PAX</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A Dolphin Smalltalk source package file. PAX files contain the master definition of a package but not its contents. These are saved separately in a number of source files that are suitable for checking into an external Source Code Control System. The PAX files are in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Chunk_Files" styleclass="Normal" translate="true">Chunk Format</link><text styleclass="Normal" translate="true">. </text></para>
+  </body>
+</topic>

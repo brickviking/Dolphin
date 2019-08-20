@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class Editions Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Class Editions Browser</text><text styleclass="Normal" translate="true"> is a new browser which comes with the </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true">. With this you can browse class editions which are not loaded in the image, but, instead, stored in the repository. Even though this code is not loaded you can still browse it in same the way you are used to in the regular Dolphin browsers (e.g. </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true">).</text></para>
+  </body>
+</topic>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Inspector</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Inspector</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Inspector_Summary"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Typically an </text><text styleclass="Program Feature" translate="true">Inspector</text><text styleclass="Normal" translate="true"> is opened by sending an </text><text styleclass="Class Name" translate="true">#inspect</text><text styleclass="Normal" translate="true"> message to an object or by evaluating an expression with the </text><text styleclass="Menu Command" translate="true">Workspace/Inspect It</text><text styleclass="Normal" translate="true"> command. Some other tools, such as the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true">, also have commands for opening an inspector. </text></para>
+    <para styleclass="Normal"><image src="FlipperInspector.png" scale="71.43%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">An alternative method of opening an Inspector is to use the </text><text styleclass="Program Feature" translate="true">Visual Object Finder</text><text styleclass="Normal" translate="true">. This allows you to inspect any Dolphin object that is visible on your monitor. You can either use the </text><text styleclass="Menu Command" translate="true">Visual Object Finder</text><text styleclass="Normal" translate="true"> toolbar button or the pane of the same name within a </text><text styleclass="Program Feature" translate="true">Flipper Inspector</text><text styleclass="Normal" translate="true"> that has been opened from its icon in the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

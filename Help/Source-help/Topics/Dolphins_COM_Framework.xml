@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Dolphins COM Framework</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dolphins COM Framework</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin provides a COM framework that takes care of many of the low-level implementation details of COM such as object lifetime (reference counting), and class factories. With the exception of a generic virtual function table, Dolphin</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s entire COM framework is implemented in the image, and is supplied with full source. The framework is adequate for the majority of requirements, but can easily be extended where necessary.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s COM framework can be broadly divided into four areas:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Interfaces, represented by the </text><text styleclass="Class Name" translate="true">COMInterface</text><text styleclass="Normal" translate="true"> class hierarchy.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Implementation classes, normally, but not necessarily, represented by the </text><text styleclass="Class Name" translate="true">COMInterfaceImp</text><text styleclass="Normal" translate="true"> class hierarchy.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">COMObjectStub</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Class Factories</text></li>
+    </list>
+  </body>
+</topic>

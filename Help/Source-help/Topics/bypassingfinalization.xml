@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Bypassing finalization</title>
+  <keywords>
+    <keyword translate="true">Bypassing finalization</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Bypassing finalization</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes, you might find that relying on the automatic finalization mechanism is not sufficient for your application. If you need to be sure exactly when the external resources are released then you can explicitly ask for this to happen by sending the appropriate object a #</text><text styleclass="Class Name" translate="true">close</text><text styleclass="Normal" translate="true"> message. Try the previous test again to see what happens when you explicitly close the results set.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs := c query: &apos;select * from Orders&apos;. &quot;Evaluate it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs close.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following #</text><text styleclass="Class Name" translate="true">close</text><text styleclass="Normal" translate="true"> methods are available:</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">DBConnection&gt;&gt;close</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">DBStatement&gt;&gt;close</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" translate="true">DBResultSet&gt;&gt;close</text></para>
+  </body>
+</topic>

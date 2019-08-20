@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Method Format</title>
+  <keywords>
+    <keyword translate="true">External Method Format</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Method Format</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The format of an external call method is similar to a primitive method. External call methods have the usual method header – a keyword selector with interspersed argument names. In order to standardise the names of external library selectors (and thus make them both easier to find and less likely to be duplicated), we follow the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="externalmethodselector" styleclass="Normal" translate="true">External Method Selector</link><text styleclass="Normal" translate="true"> pattern. This pattern is based on the CORBA Smalltalk mapping name generation scheme.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Following the method header is the external call descriptor:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt; &lt;call type&gt; &lt;return type&gt; &lt;descriptor&gt; &lt;parm list&gt; &gt;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">where:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;call type&gt; = [virtual] &lt;call convention&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;call convention&gt; = stdcall: | cdecl:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;descriptor&gt; = &lt;virtual function number&gt; | &lt;proc name&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;vfn number&gt; = 1..n</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;proc name&gt; = &lt;ordinal no.&gt; | &lt;literal symbol or quoted string&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;parm list&gt; = &lt;parm type&gt; | &lt;parm type&gt; &lt;parm list&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;parm type&gt; = &lt;struct type&gt;[*] | dword | sdword | word | sword | lpvoid | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">lppvoid | char | byte | sbyte | bool | handle | float | double | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">lpstr | lpwstr | hresult | qword | sqword | varbool | variant | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">bstr | guid</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;return type&gt; = void | &lt;parm type&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;struct type&gt; = ExternalStructure subclass name</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The virtual prefix and virtual function number are only for use when constructing </text><link displaytype="text" defaultstyle="true" type="topiclink" href="virtualcalls.c...olecominterface." styleclass="Normal" translate="true">virtual calls</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The parameter list must contain as many parameters as are passed to the method, plus one for the return type from the external function (the return of which will form the return from the primitive invocation method).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the case of a call to the Win32 </text><text styleclass="Class Name" translate="true">GetComputerName</text><text styleclass="Normal" translate="true">()</text><text styleclass="Normal" translate="true"> function a suitable method (of </text><text styleclass="Class Name" translate="true">KernelLibrary</text><text styleclass="Normal" translate="true">) might be:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">getComputerName: buffer nSize: pBufSize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot; &#160; &#160;BOOL GetComputerName(</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPTSTR lpBuffer, &#160; &#160;// address of name buffer</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPDWORD nSize &#160; &#160; &#160; &#160; // address of size of lpBuffer</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;);&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&lt;stdcall: bool GetComputerNameA lpstr DWORD* &gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self invalidCall</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This function is wrapped by </text><text styleclass="Class Name" translate="true">SessionManager&gt;&gt;computerName</text><text styleclass="Normal" translate="true">, as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">computerName</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the name of the computer hosting the current session.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Signals a HostSystemError if the request fails.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| name nameSize |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;name := String new: MAX_COMPUTERNAME_LENGTH.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;nameSize := DWORD fromInteger: name size+1.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;(KernelLibrary default getComputerName: name nSize: nameSize asParameter)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;ifFalse: [HostSystemError signal].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^name leftString: nameSize asInteger</text></para>
+  </body>
+</topic>

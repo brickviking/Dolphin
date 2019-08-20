@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Testing the PersonalMoney application</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Testing the PersonalMoney application</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To start the application, evaluate:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">PersonalMoneyShell show</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Enter your name in the owner field and then press the </text><text styleclass="Menu Command" translate="true">New</text><text styleclass="Normal" translate="true"> button to add an account. You can enter transactions on this account as before. If you wish to save your account information choose </text><text styleclass="Menu Command" translate="true">File/Save</text><text styleclass="Normal" translate="true"> and enter an appropriate name for the file (it will be given a .PM extension by default). Later you can reload this file using </text><text styleclass="Menu Command" translate="true">File/Open</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossdolphinsure</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">DolphinSure</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">DolphinSure is digital signature mechanism for Dolphin objects. Used by </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Smalltalk</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" style="font-weight:bold;" translate="true">WebStart</text><text styleclass="Normal" translate="true"> to validate applets after they have been transferred across an insecure medium such as the Internet. </text><conditional-text type="IFNOT" value="PRINT"/><text styleclass="Normal" translate="true">Click </text><link displaytype="text" defaultstyle="true" type="topiclink" href="dolphinsure" styleclass="Normal" translate="true">here</link><text styleclass="Normal" translate="true"> for more details.</text><conditional-text type="END"/></para>
+  </body>
+</topic>

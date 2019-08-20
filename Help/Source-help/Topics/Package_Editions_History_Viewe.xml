@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Package Editions History Viewer</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Package Editions History Viewer</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Package_Editions_History_View2"/></para>
+    <para styleclass="Normal" style="margin-left:0px;"><image src="VersionTree.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal" style="margin-left:0px;"><text styleclass="Normal" translate="true">From the example shown in the figure above you can see that trial versions 3.2.2 and 3.2.1 were dead branches in the development and that the 3.2.4 &#160;version was developed out of the 3.2.3 &#160;version and not from the trial versions.</text></para>
+  </body>
+</topic>

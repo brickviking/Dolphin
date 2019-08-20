@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Using the Property Inspector</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Using the Property Inspector</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In general, you should use the Value tab (if it is present) to edit an aspect since this displays the data in the most appropriate format making it easier to modify.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In most cases, you cannot simply modify the original displayed value and accept this; you must make sure first that it is a valid Smalltalk expression that can actually be compiled and evaluated.</text></para>
+  </body>
+</topic>

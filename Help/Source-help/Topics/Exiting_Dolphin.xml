@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Exiting Dolphin</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Exiting Dolphin</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can leave Dolphin at any time by choosing </text><text styleclass="Menu Command" translate="true">File/Exit Dolphin</text><text styleclass="Normal" translate="true"> in any of the development tools. Alternatively, you can also ask to quit by closing the System Folder window. As you do so, you will be prompted and asked if you wish to save the image. Under normal circumstances you will opt to do so, since this will save the state of your environment such that it will be fully restored next time you start Dolphin up.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Try exiting and re-starting Dolphin now, saving the image in the process. </text></para>
+  </body>
+</topic>

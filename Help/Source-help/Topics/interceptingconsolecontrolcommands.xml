@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Intercepting Console Control Commands</title>
+  <keywords>
+    <keyword translate="true">Intercepting Console Control Commands</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Intercepting Console Control Commands</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Should the user attempt to close the console window in which an application is running, or if they press </text><text styleclass="Menu Command" translate="true">Ctrl+C</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Menu Command" translate="true">Ctrl+Break</text><text styleclass="Normal" translate="true">, then the session manager will receive an </text><text styleclass="Class Name" translate="true">#onConsoleCtrl</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message. The default implementation of this in </text><text styleclass="Class Name" translate="true">SessionManager</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">treats forwards </text><text styleclass="Menu Command" translate="true">Ctrl+C </text><text styleclass="Normal" translate="true">and </text><text styleclass="Menu Command" translate="true">Ctrl+Break</text><text styleclass="Normal" translate="true"> actions as </text><text styleclass="Class Name" translate="true">#onUserBreak</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">messages, and close actions as </text><text styleclass="Class Name" translate="true">#onCloseConsole</text><text styleclass="Normal" translate="true"> messages.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The default implementation of </text><text styleclass="Class Name" translate="true">#onCloseConsole</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">in </text><text styleclass="Class Name" translate="true">ConsoleSessionManager</text><text styleclass="Normal" translate="true"> responds to an attempt to close the console window by terminating the application.</text></para>
+  </body>
+</topic>

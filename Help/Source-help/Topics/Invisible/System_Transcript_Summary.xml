@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">System Transcript Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">System Transcript </text><text styleclass="Normal" translate="true">window acts as a log for notification messages from the development system. Many of the standard development tools use this facility but it is also available as a useful debugging aid when developing your own code.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Even when it is not visible, the </text><text styleclass="Program Feature" translate="true">Transcript</text><text styleclass="Normal" translate="true"> remains in existence. You can display it at any time by opening the </text><text styleclass="Program Feature" translate="true">System Transcript</text><text styleclass="Normal" translate="true"> icon in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or by choosing the </text><text styleclass="Menu Command" translate="true">Tools/System Transcript</text><text styleclass="Normal" translate="true"> menu command in any of the development tools.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that, should you inadvertently destroy the Transcript programmatically, another will be automatically created for you.</text></para>
+  </body>
+</topic>

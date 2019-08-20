@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Image Structure</title>
+  <keywords>
+    <keyword translate="true">Image Structure</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Image Structure</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All of the objects in your image are held within the .IMG file. However, there are two other files that are intimately tried to this. The first is the Sources file (.SML) which contains the source for all of the original methods present in the image. The second is the Changes file (.CHG) which contains the source for all of the modifications that have been made since the image was created.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you compile new methods or perform workspace evaluations, these are logged to the Changes file. If you replace any methods that were in the original image then the source for them is not modified in the Sources file but a new copy is appended to the end of the change log. As you repeatedly change methods, you you will end up with multiple histories of their sources in the changes file. Only the most recent entry (that nearest the end of the file) is relevant.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note that, because all of the changes you make your image are logged to the Changes file, you are unlikely to lose work even if your image crashes. Normally you can recover most of your work from this record.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should be aware that both the Changes and the Sources files hold the source in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosschunkformat" styleclass="Normal" translate="true">Chunk format</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

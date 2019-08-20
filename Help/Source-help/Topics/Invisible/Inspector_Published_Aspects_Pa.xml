@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Inspector Published Aspects Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Published Aspects Pane </text><text styleclass="Normal" translate="true">allows you to view an object via the aspects that the object&apos;s class has chosen to publish. This is often preferable to viewing the state of an object solely by the contents of its instance variables since the published aspects can better portray the &quot;public face&quot; of the object rather than its private internal state.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The left-hand area shows a tree of the published aspects available for the object being inspected. It is a tree because each aspect will in turn yield an object which may have published aspects of its own. When you select an aspect in this tree, the value of the aspect will be displayed in the workspace pane at the right. You may modify the contents of this pane with a Smalltalk expression and assign this back to the aspect in question using</text><text styleclass="Menu Command" translate="true"> Workspace/Accept (Ctrl+S)</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

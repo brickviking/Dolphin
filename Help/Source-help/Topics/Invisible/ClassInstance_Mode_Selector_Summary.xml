@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class/Instance Mode Selector_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal; font-style:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Class/Instance Mode Selector</text><text styleclass="Normal Head" style="font-weight:normal; font-style:italic;" translate="true"> a</text><text styleclass="Normal" translate="true">llows you to choose whether the browser is viewing class-side or instance-side methods.</text></para>
+  </body>
+</topic>

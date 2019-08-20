@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Interfacing</title>
+  <keywords>
+    <keyword translate="true">External Interfacing</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Interfacing</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An historical problem with very early Smalltalk environments was interfacing with the outside world. In Dolphin we have addressed this problem by including external interfacing capabilities that are powerful, complete, and simple to use.</text></para>
+  </body>
+</topic>

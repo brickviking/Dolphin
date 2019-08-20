@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging Out-of-Process</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging Out-of-Process</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Setting up for debugging out-of-process is marginally more involved that for the in-process case since it may be necessary to omit the in-process registration in order to persuade COM to use the out-of-process server (see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Creating_an_Instance" styleclass="Normal" translate="true">Creating an Instance</link><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One must also make sure that Dolphin will register a class factory object with COM for the component class when the image starts. This is achieved by evaluating the </text><text styleclass="Class Name" translate="true">COMInterfaceImp class&gt;&gt;registerClassFactory</text><text styleclass="Normal" translate="true"> method, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">COMRandomStream registerClassFactory.</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

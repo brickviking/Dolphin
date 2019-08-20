@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class Definition Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Class Definition Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> d</text><text styleclass="Popup Box" translate="true">isplays the Smalltalk definition of the current class selected in the browser.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The definition is in fact just the Smalltalk message:</text></para>
+    <para styleclass="Popup Box"><tab /><text styleclass="Code Example" translate="true">#subclass:</text><br/><tab /><text styleclass="Code Example" translate="true">instanceVariableNames:</text><br/><tab /><text styleclass="Code Example" translate="true">classVariableNames:</text><br/><tab /><text styleclass="Code Example" translate="true">poolDictionaries:</text><br/><tab /><text styleclass="Code Example" translate="true">classInstanceVariableNames:</text><text styleclass="Popup Box" translate="true">&#32;</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">being sent to the superclass object. If you make changes here you can commit them by choosing </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Popup Box" translate="true"> or Ctrl+S.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Note that although the definitions pane is normally just used for browsing and changing class definitions, it is at the same time a workspace and the various </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace_Operations_Summary" styleclass="Popup Box" translate="true">workspace operations</link><text styleclass="Popup Box" translate="true"> can also be used here.</text></para>
+  </body>
+</topic>

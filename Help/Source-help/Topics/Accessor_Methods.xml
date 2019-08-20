@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Accessor Methods</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Accessor Methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since instance variables are not available to clients (users) of an object we needed to provide some means by which their data can be accessed when it is appropriate. We do this by adding methods to the class that are used to get and set the values of the instance variables. Such methods are generally known as </text><text styleclass="Program Feature" translate="true">accessor methods</text><text styleclass="Normal" translate="true">. Take a look at the following methods in the </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true"> class:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the receiver&apos;s x coordinate&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^x</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x: aNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the receiver&apos;s x coordinate&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">x := aNumber</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">These two methods are used to get and set the value of the receiver&apos;s x instance variable. You can also use accessor methods that set multiple instance variables at once or possibly calculate the value of an aspect of the object based on its instance variable contents. For example, take the following two methods:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Set the x and y coordinates of the receiver.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Primarily intended for instance creation. Answer the receiver.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">x := xCoord.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">y := yCoord</text></para>
+    <para styleclass="Code Example"></para>
+    <para style="tabstops:61px left,122px left,183px left,244px left,305px left,366px left,427px left,489px left,550px left,611px left,672px left,733px left,794px left,855px left,916px left,977px left ;"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">r</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the receiver&apos;s radius (magnitude) in a polar coordinate </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">system.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^(self dotProduct: self) sqrt</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

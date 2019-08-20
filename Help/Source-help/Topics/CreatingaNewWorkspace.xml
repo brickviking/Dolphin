@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a New Workspace</title>
+  <keywords>
+    <keyword translate="true">Creating a New Workspace</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a New Workspace</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A new empty </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true"> can be opened using the Workspace icon in the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true"> or by using the </text><text styleclass="Menu Command" translate="true">Tools/Workspace</text><text styleclass="Normal" translate="true"> command in any tool window.</text></para>
+  </body>
+</topic>

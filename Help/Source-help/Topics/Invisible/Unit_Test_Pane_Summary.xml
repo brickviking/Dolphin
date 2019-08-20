@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Unit Test Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test</text><text styleclass="Program Feature" style="font-weight:bold;" translate="true"> Pane</text><text styleclass="Normal" translate="true"> allows you to easily run any unit tests that are associated with the current class in the browser. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When designing application classes in Smalltalk it is often recommended that you follow a &quot;test-first&quot; approach. &#160;This methodology demands that, before you write any code in your application classes, you first sit down and write a unit test class that contains a number of test methods defining how the eventual application class should behave. Dolphin contains a number of unit testing tools (based on the popular SUnit framework) that can run these test cases quickly and easily for you. &#160;One of these tools is the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test Pane</text><text styleclass="Normal" translate="true"> available in the Class and System browsers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When a class is selected in a browser, the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test Pane</text><text styleclass="Normal" translate="true"> determines whether there is an obvious </text><text styleclass="Normal" style="font-style:italic;" translate="true">TestCase</text><text styleclass="Normal" translate="true"> subclass that can be associated with it. &#160;By default, this is done by simply appending the word &quot;Test&quot; to the name of the class. &#160;Obviously, if there is no such test class, then the test pane can be of little help. However, when a test class exists, the following operations become available:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Use </text><text styleclass="Normal" style="font-style:italic;" translate="true">Class/Run Tests</text><text styleclass="Normal" translate="true"> (Ctrl+Alt+R) to run all of the tests in the test class. &#160;If you happen to have a test class rather than an application class selected in the browser then the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test Pane</text><text styleclass="Normal" translate="true"> will run these tests instead.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Use </text><text styleclass="Normal" style="font-style:italic;" translate="true">Class/Goto SomeClassTest </text><text styleclass="Normal" translate="true">(Ctrl+Alt+T) to take the browser directly to the associated test class. &#160;This is a toggle so, if you are already on the test class it will take you back to the original class under test.</text></li>
+    </list>
+    <para styleclass="Notes"><table rowcount="6" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal" style="margin-left:0px;"><text styleclass="Normal" translate="true">You don&apos;t have to switch to the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test Pane</text><text styleclass="Normal" translate="true"> to run tests and see the results since the status can be determined from the pane&apos;s icon. The following status icons may be displayed</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestPluginNoTest.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">No Tests</text><text styleclass="Normal" translate="true">. Indicates the there is no test class associated with the current class in the browser and therefore no tests can be run.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestPluginNotRun.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Tests Not Yet Run</text><text styleclass="Normal" translate="true">. There is an associated test class but the tests have not yet been run.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestPluginDefect.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Tests Running.</text><text styleclass="Normal" translate="true"> Displayed when the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Unit Test Pane</text><text styleclass="Normal" translate="true"> is actively running tests. &#160;If the tests take more than a predetermined amount of time to execute (by default 2s) then the test pane will automatically bring itself to the foreground.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestPluginFail.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Test(s) Failed</text><text styleclass="Normal" translate="true">. Indicates that a test run has completed and one or more tests failed. &#160;The test pane will be brought into the foreground to allow for the failing tests to be run again under the debugger.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:66px;">
+          <para styleclass="Normal"><image src="UnitTestPluginPass.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:752px;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">All Tests Passed</text><text styleclass="Normal" translate="true">.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The Unit Test</text><text styleclass="Notes" translate="true"> Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the UnitTest</text><text styleclass="Notes" translate="true">PlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

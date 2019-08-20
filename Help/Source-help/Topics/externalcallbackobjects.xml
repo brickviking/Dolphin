@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">ExternalCallback Objects</title>
+  <keywords>
+    <keyword translate="true">ExternalCallback Objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">ExternalCallback Objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The fundamental requirement is to be able to provide the address of a function that can be directly called by some external library using one of the standard calling conventions (</text><text styleclass="Normal" translate="true">stdcall</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Normal" translate="true">cdecl</text><text styleclass="Normal" translate="true">). We cannot directly provide the address of a Smalltalk </text><text styleclass="Class Name" translate="true">CompiledMethod</text><text styleclass="Normal" translate="true"> because:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Dolphin&apos;s </text><text styleclass="Class Name" translate="true">CompiledMethods</text><text styleclass="Normal" translate="true"> do not contain raw machine code.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Smalltalk does not have the concept of &apos;static&apos; methods (there must always be a receiver).</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The memory address of a </text><text styleclass="Class Name" translate="true">CompiledMethod</text><text styleclass="Normal" translate="true"> is not fixed and may change during a garbage collect.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Synchronisation with the activities of the VM is required.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Conversion of arguments from raw data on the machine stack to Smalltalk objects on a </text><text styleclass="Class Name" translate="true">Process</text><text styleclass="Normal" translate="true"> stack is required.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consequently we need to wrap each callback in an object that includes:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">A receiver for the callback (and, optionally, any other context we might want to use in the callback)</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">An evaluable action to perform when the callback is received.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">A description of the types of the arguments to the callback so that they may be converted to Smalltalk objects. For consistency this argument conversion is essentially the same as that performed by the external call interface primitives for converting return values from external functions to Smalltalk objects.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">A machine code thunk (at a fixed, immovable, address) that calls a generic entry point in the VM passing it the address of the arguments in the stack and the id of the callback object. The VM can then perform one of its callbacks to pass these details into Smalltalk so that the external callback can be handled.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This class of objects is called, not surprisingly, </text><text styleclass="Class Name" translate="true">ExternalCallback</text><text styleclass="Normal" translate="true">. One typically creates an </text><text styleclass="Class Name" translate="true">ExternalCallback</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">by supplying a block to be evaluated, and the types of the arguments expected. For example here is a method from </text><text styleclass="Class Name" translate="true">Font</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">fonts: aString do: operation</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Enumerate the fonts in a specified font family that are available</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; on the receiver&apos;s device. The triadic valuable argument, operation,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;is passed the LOGFONT, TEXTMETRIC and font type as its</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;three arguments, and should answer true to continue the enueration,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;false to terminate it (it must not contain a ^-return).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;int CALLBACK EnumFontsProc(</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;lplf lplf, // pointer to logical-font data</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;lptm lptm, &#160; &#160;// pointer to physical-font data</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;DWORD dwType, // font type</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPARAM lpData // pointer to application-defined data</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;);&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| callback answer |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;callback := ExternalCallback</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;block: [ :lplf :lptm :dwType :lpData | operation value: lplf value: lptm value: dwType ]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;argumentTypes: &apos;LOGFONT* lpvoid dword dword&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;answer := GDILibrary default</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;enumFonts: self asParameter</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;lpFaceName: aString</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;lpFontFunc: callback asParameter</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;lParam: 0.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;callback free.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^answer</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This callback can be tested by evaluating the expression:</text></para>
+    <para styleclass="Code Example" style="margin-left:0px;"><text styleclass="Code Example" translate="true">View desktop canvas fonts: nil do: [:lf :tm :type | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Transcript print: lf faceName; cr. true]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The expression will print the names of all available screen fonts to the </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

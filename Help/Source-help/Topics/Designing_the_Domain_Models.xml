@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Designing the Domain Models</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Designing the Domain Models</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next stage in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="New_Application" styleclass="Normal" translate="true">New Application</link><text styleclass="Normal" translate="true"> is to design the domain level classes. This stage is perhaps somewhat different from other visual programming systems which encourage you to build an application starting with the user interface. Although it is possible to build an application this way in Dolphin, we would recommend against it since it can obfuscate the design process. It is much cleaner to design and build the core of the system, the domain model, first and then to add the user interface classes subsequently. Indeed, this is just as easy as the standard &quot;visual method&quot; because the Smalltalk development environment provides tools to directly test the domain classes as you go; you do not need to build a user interface to do this.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;re going to add 3 domain level classes for our application.</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true">. This class will maintain and owner&apos;s name and a list of accounts. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">. This class will maintain account details and a list of transactions on that account held in date order. It will also provide a facility to calculate the current balance of the account. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">PersonalAccountTransaction</text><text styleclass="Normal" translate="true">. Instances of this class represent transactions on </text><text styleclass="Class Name" translate="true">PersonalAccounts</text><text styleclass="Normal" translate="true">. Each one holds details such as the amount, the description, and the date of the transaction. </text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For each of these classes we&apos;ll follow the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> pattern.</text></para>
+    <para></para>
+  </body>
+</topic>

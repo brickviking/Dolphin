@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Catching Multiple Exceptions</title>
+  <keywords>
+    <keyword translate="true">Catching Multiple Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Catching Multiple Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When one establishes an exception environment with </text><text styleclass="Class Name" translate="true">#on:do:</text><text styleclass="Normal" translate="true"> and one specifies s a class of exception to catch, then the handler will be evaluated when any exceptions are raised which are sub-instances of that class. Sometimes one may want to catch a group of exceptions that are not necessarily related by hierarchy, and this is where </text><text styleclass="Class Name" translate="true">ExceptionSets</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">can be used.</text></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">ExceptionsSets</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">are normally constructed by specifying a comma-separated list of </text><text styleclass="Class Name" translate="true">Exception</text><text styleclass="Normal" translate="true"> classes, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ExternalStructure&gt;&gt;safeAt: index</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the byte at the specified index in the receiver.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;If the index is outside the bounds of the buffer owned by the receiver,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;or not accessible in a referenced buffer, then answer 0.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^[contents at: index] on: BoundsError, GPFault do: [:ex | 0]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An </text><text styleclass="Class Name" translate="true">ExceptionSet</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">can contain as many classes of </text><text styleclass="Class Name" translate="true">Exception</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">as one wishes, and if any are the class, or a superclass, of an exception raised in the protected block, then the handler will be evaluated.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">On other occasions, particularly on subsystem boundaries, we may need to handle a number of different possible exceptions separately. This is achieved with </text><text styleclass="Class Name" translate="true">ExceptionHandlerSets</text><text styleclass="Normal" translate="true">, </text><text styleclass="Normal" translate="true">usually by using on of the </text><text styleclass="Class Name" translate="true">#on:do:[on:do:]+</text><text styleclass="Normal" translate="true"> messages to </text><text styleclass="Class Name" translate="true">BlockClosure</text><text styleclass="Normal" translate="true">. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ExternalStructure&gt;&gt;safeAt: index</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the byte at the specified index in the receiver.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;If the index is outside the bounds of the buffer owned by the receiver,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;or not accessible in a referenced buffer, then answer 0.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^[contents at: index]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;on: BoundsError, GPFault do: [:ex | 0]</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;on: Error do: [:ex | Notification signal: &apos;Unexpected error &apos;, ex description. 0]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The more general classes of exception should be specified last, as any more specific classes/sets appearing later will otherwise not get an opportunity to handle any exceptions.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The base system includes messages for 1 to 4 separate exceptions and handlers, though more can be accommodated by adding more messages, or by manually constructing an </text><text styleclass="Class Name" translate="true">ExceptionHandlerSet</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and passing it to </text><text styleclass="Class Name" translate="true">BlockClosure&gt;&gt;onDo:. </text><text styleclass="Normal" translate="true">Browse </text><text styleclass="Class Name" translate="true">BlockClosure&gt;&gt;on:do:on:do</text><text styleclass="Normal" translate="true">: </text><text styleclass="Normal" translate="true">to see how to build an </text><text styleclass="Class Name" translate="true">ExceptionHandlerSet</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

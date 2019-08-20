@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Points to Note</title>
+  <keywords>
+    <keyword translate="true">Points to Note</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Points to Note</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">If the development </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> that you specify (using the IMAGE attribute) contains a normal source package that corresponds to the binary package that you&apos;re attempting to load, then the classes in the source package will be used in preference. This means that the binary package will never actually be imported into the image since the applet classes will already be present. Often, this behaviour can be useful during debugging since binary packages do not contain any source code. If you try to debug through methods in a binary package you will not be able to see their source. Should you wish to force any binary packages to be loaded, then you must uninstall the corresponding source packages before saving the development image.</text></para>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">If you choose to make changes to the image while you are debugging then be sure to save them when the development session shuts down. You&apos;ll find that, if you move off the current page in the web browser, then the session will be forcibly closed. You will be given an opportunity to save the image but, unlike the normal development session, you will not have any chance to refute the close.</text></para>
+  </body>
+</topic>

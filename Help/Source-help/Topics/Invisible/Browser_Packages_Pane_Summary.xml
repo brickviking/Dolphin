@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Browser Packages Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Packages Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true">&#32;</text><text styleclass="Normal" translate="true">allows you to select one or more packages to be browsed. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The top area shows a tree of the folders where the packages that are loaded into the image reside on disk. When you select a folder, the lower area refreshes to show a list of the packages contained within it (and within the sub-folders it contains). Selecting the folder marked $ will display all the packages in the system. Hence you can use the folder pane to filter the list of packages displayed.</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:43px;">
+          <para styleclass="Normal"><image src="ChangedIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:298px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Packages are marked with this icon when their contents have been changed and the package has not yet been saved to disk or updated in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Source_Tracking_System" styleclass="Normal" translate="true">Source Tracking System</link><text styleclass="Normal" translate="true"> repository.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In addition to selecting the package(s) to be viewed by the browser, you can also use the context menu to perform various package-based operations such as: installing, uninstalling or creating new packages.</text></para>
+  </body>
+</topic>

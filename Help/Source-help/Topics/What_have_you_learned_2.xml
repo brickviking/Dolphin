@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">What have you learned?</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">What have you learned?</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This chapter should have firmed up some of the ideas about objects and messages that were introduced in the previous chapter. Now you have learned about:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> sample application </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Creating new objects using a </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true"> message </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Creating a </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> window </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Adding shapes to a </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true">&#32;</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Manipulating and querying </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> shapes </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Normal" translate="true">Package Browser</link><text styleclass="Normal" translate="true"> to install a new package into your Dolphin image </text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In subsequent chapters we will reuse the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> application to illustrate some more features of the Smalltalk language. For now, tidy up by closing your existing </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">workspace</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

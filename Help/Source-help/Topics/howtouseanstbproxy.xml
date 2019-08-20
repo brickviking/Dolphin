@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">How to use an STB Proxy</title>
+  <keywords>
+    <keyword translate="true">How to use an STB Proxy</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">How to use an STB Proxy</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You indicate that you wish to change the way an objects is filed by adding an </text><text styleclass="Class Name" translate="true">#stbSaveOn</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> instance method to your class. This controls the </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> passed as a parameter while filing the instance. Your #</text><text styleclass="Class Name" translate="true">stbSaveOn</text><text styleclass="Normal" translate="true">: method must perform one of the following operations:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">To let the filer output the receiver in the normal way (this is the default inherited from Object):</text></li>
+    </list>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true">STBOutFiler&gt;&gt;#saveObject: self.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">or</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true">STBOutFiler&gt;&gt;#saveObject: self as: 0.</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">To output nil instead of the receiver:</text></li>
+    </list>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true">STBOutFiler&gt;&gt;#saveObject: self as: nil.</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">To output a proxy in place of the receiver:</text></li>
+    </list>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true">STBOutFiler&gt;&gt;#saveObject: self as: anSTBProxy.</text></para>
+  </body>
+</topic>

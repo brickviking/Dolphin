@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Sketching and Scribbling at the Same Time</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sketching and Scribbling at the Same Time</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;Keeping the above window open, create an Etch-a-Sketch</text><text style="font-family:Symbol; font-size:10pt; font-style:italic; color:#008000;" translate="true">Ô</text><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true"> window that draws in parallel with the Scribble pad. Use the sliders as drawing controls. This is another tutorial example&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">EtchASketch</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> showOn:</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true"> scribble</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> model</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now this is cool. Evaluate the above and you will get an </text><text styleclass="Normal" style="font-style:italic;" translate="true">EtchASketch</text><text styleclass="Normal" translate="true"> window that displays the same ink as your original </text><text styleclass="Normal" style="font-style:italic;" translate="true">Scribble</text><text styleclass="Normal" translate="true"> pad (</text><text styleclass="Normal" style="font-style:italic;" translate="true">EtchASketch</text><text styleclass="Normal" translate="true"> is another Dolphin sample application). What&apos;s even better is that, if you draw in either of the two windows, the other updates. This is because both windows are sharing the same underlying ink data. This data is known as the </text><text styleclass="Normal" style="font-style:italic;" translate="true">model</text><text styleclass="Normal" translate="true"> data. </text><text styleclass="Normal" style="font-style:italic;" translate="true">Hint: in the Etch-a-Sketch window use the sliders at the sides to do the drawing; it&apos;s meant to be a bit like the child&apos;s toy.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once, you&apos;ve done enough doodling just close the Scribble and Etch-a-Sketch windows.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt; font-style:normal;" translate="true">Both the Scribble and EtchASketch classes are examples that demonstrate Dolphin&apos;s user interface framework, which is called Model, View, Presenter (or MVP). Now is not the time to go into full details, but the key point is that the model data (the ink objects in this case) are held separately from the window that views them. Not only does this make it easier to program the model because you don&apos;t have to worry about how it is going to be displayed but it also allows you to connect several views onto the same data and have each view update automatically as the model changes.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

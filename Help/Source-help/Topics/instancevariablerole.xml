@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Variable Role</title>
+  <keywords>
+    <keyword translate="true">Instance Variable Role</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Variable Role</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You are creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> and have to choose the variables that each instance will possess. The state of an object is defined by the values of its instance variables. It is important to know what role a particular instance variable performs in a class, as this will affect when and how it is initialized and used. How do we determine an instance variable&apos;s role?</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Instance variables can be divided into one of three main roles as follows:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-top:0px; margin-bottom:0px; margin-left:0px; line-height:1.50; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-top:0px; margin-bottom:0px; margin-left:0px; line-height:1.50;"><text styleclass="Normal" translate="true">Identity</text><br/><text styleclass="Normal" translate="true">Identity instance variables hold information which uniquely identifies the object. Identity variables are set very early in the lifetime of the object, generally by using an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instancecreationmethod" styleclass="Normal" translate="true">Instance Creation Method</link><text styleclass="Normal" translate="true">. Once they are set they do not change during the lifetime of an object.</text></li>
+      <li styleclass="Normal" style="margin-top:0px; margin-bottom:0px; margin-left:0px; line-height:1.50;"><text styleclass="Normal" translate="true">State</text><br/><text styleclass="Normal" translate="true">State instance variables represent the attributes (or properties) of an object. Together, they define the status of an object. They can be set by any combination of </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instanceinitialization" styleclass="Normal" translate="true">Instance Initialization</link><text styleclass="Normal" translate="true">, </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true"> or </text><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Methods</link><text styleclass="Normal" translate="true">.</text></li>
+      <li styleclass="Normal" style="margin-top:0px; margin-bottom:0px; margin-left:0px; line-height:1.50;"><text styleclass="Normal" translate="true">Caching</text><br/><text styleclass="Normal" translate="true">Caching instance variables hold the result of a (usually time consuming) calculation involving Identity or State instance variables. If the Identity or State variables are subsequently changed, then the cache variable must be recalculated. Cache variables are usually calculated on demand using </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true">. The cache variables should have &quot;calculate&quot; and &quot;clear&quot; methods as described in the example below.</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Imagine a class </text><text styleclass="Normal" translate="true">Cylinder </text><text styleclass="Normal" translate="true">which represents a 3D cylinder. It has two State</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">variables </text><text styleclass="Normal" translate="true">radius </text><text styleclass="Normal" translate="true">and </text><text styleclass="Normal" translate="true">height</text><text styleclass="Normal" translate="true">, and a Cache variable </text><text styleclass="Normal" translate="true">volume </text><text styleclass="Normal" translate="true">which is calculated from </text><text styleclass="Normal" translate="true">radius </text><text styleclass="Normal" translate="true">and </text><text styleclass="Normal" translate="true">height</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Cylinder</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;instanceVariableNames: &apos;radius height volume&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;classInstanceVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">volume</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is accessed using </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">volume</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;volume isNil ifTrue: [</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;volume := Float pi * radius squared * height ].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^volume</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Whenever </text><text styleclass="Class Name" translate="true">radius</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">or </text><text styleclass="Class Name" translate="true">height</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">are changed, </text><text styleclass="Class Name" translate="true">volume</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is set to nil so that it will be re-calculated when it is next required.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">radius: aNumber</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;radius := aNumber.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self clearVolume.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">height: aNumber</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;height := aNumber.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self clearVolume.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">clearVolume</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;volume := nil.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The initialization method </text><text styleclass="Class Name" translate="true">#name</text><text styleclass="Normal" translate="true">:</text><text styleclass="Class Name" translate="true">length</text><text styleclass="Normal" translate="true"> in the sample </text><text styleclass="Class Name" translate="true">VideoTape</text><text styleclass="Normal" translate="true"> class illustrates the difference between State</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and Identity</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">instance variable roles.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">name: tapeName length: tapeLength</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Initialize the receiver with the &lt;readableString&gt; tapeName and</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;the &lt;Integer&gt; length in minutes.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Illustrated Patterns:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Instance Initialization</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Instance Variable Role</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Private Method</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;name := &#160;tapeName.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;length := tapeLength.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;recordings := OrderedCollection new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The method is marked as private because it is not intended that it be called outside of the initialization phase of the receiver. This in turn implies that the </text><text styleclass="Normal" translate="true">name</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Normal" translate="true">length</text><text styleclass="Normal" translate="true"> instance variables cannot be altered once an instance has been born. Hence these can be considered to be Identity</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">instance variables since they uniquely identify the video tape object compared to all other instances of </text><text styleclass="Class Name" translate="true">VideoTape</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" translate="true">recordings</text><text styleclass="Normal" translate="true"> variable can be altered throughout the lifetime of the tape and so is considered to be a State</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">instance variable.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="temporaryvariablerole" styleclass="Normal" translate="true">Temporary Variable Role</link></para>
+  </body>
+</topic>

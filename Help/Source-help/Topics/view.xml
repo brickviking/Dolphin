@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">View</title>
+  <keywords>
+    <keyword translate="true">View</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">View</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A view is a window that is responsible for </text><text styleclass="Normal" style="font-style:italic;" translate="true">displaying</text><text styleclass="Normal" translate="true"> a model&apos;s data to the user. It is typically, but not definitively, a Windows control. In the triad diagram above, the red link indicates an indirect binding between model and view such that the view is really an Observer onto the model.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The model does not hold a direct reference to the view but, in order to inform its observers when it has changed, it triggers a notification event (using #</text><text styleclass="Class Name" translate="true">trigger</text><text styleclass="Normal" translate="true">:). The view will previously have registered an interest in these events (using </text><text styleclass="Class Name" translate="true">#when:send:to:</text><text styleclass="Normal" translate="true">) and, when the event is triggered, the view&apos;s handler method will fetch the new model data and display it to the user appropriately.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">It is a fundamental stance in MVP that views know about their models but not vice versa. Hence, a view has direct access via instance variables to both its model and its presenter.</text></para>
+    <para styleclass="Notes"><text styleclass="Normal Head" translate="true">Example: </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Take a look at </text><text styleclass="Class Name" translate="true">ListControlView&gt;&gt;connectModel: </text><text styleclass="Class Name" style="font-style:normal;" translate="true">in your image</text><text styleclass="Normal" translate="true">. You&apos;ll see that, when a model is being connected to it, the list view registers an interest in several events triggered by the model. The event handler for </text><text styleclass="Class Name" translate="true">#listChanged</text><text styleclass="Normal" translate="true"> is registered to call </text><text styleclass="Class Name" translate="true">#onListChanged</text><text styleclass="Normal" translate="true"> and, if you now look at this latter method, you&apos;ll see that is implemented to refresh the view&apos;s entire contents.</text></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

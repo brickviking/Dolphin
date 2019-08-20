@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Starting Dolphin</title>
+  <keywords>
+    <keyword translate="true">Starting Dolphin</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Starting Dolphin</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The installation process will have created an image file for you and it is this that you must open to start Dolphin. Depending on whether you installed Dolphin from the binary installer or from the GitHub sources, you may find the default image file in one of two places. In the case of the binary installer, you&apos;ll find a </text><text styleclass="Normal" style="font-weight:bold;" translate="true">DPRO.img7</text><text styleclass="Normal" translate="true"> file inside your </text><text styleclass="Normal" style="font-weight:bold;" translate="true">\My Documents\Dolphin Smalltalk 7</text><text styleclass="Normal" translate="true"> directory. For the GitHub sources you&apos;ll find the same file in the directory where you cloned or &#160;forked the Dolphin repository.</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:top; width:58px;">
+          <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="BeachBall.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:585px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The image files should have an &quot;objects inside&quot; icon associated with them, which should make it easy to locate them within your working folder.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to start Dolphin with a particular image file it is simply necessary to double click the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">.IMG7</text><text styleclass="Normal" translate="true"> file. Alternatively, you may drag the image and drop it over the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Dolphin7.exe</text><text styleclass="Normal" translate="true"> executable.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Obviously, if you wish, you can also create a shortcut icon to your image file on the desktop.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">After starting Dolphin, you will initially be confronted with a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Normal" translate="true">System Folder</link><text styleclass="Normal" translate="true"> window, which we will discuss in the next section.</text></para>
+  </body>
+</topic>

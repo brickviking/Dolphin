@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Package Editions Package Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Package Editions Package Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Package_Editions_Package_Pane_"/><text styleclass="Normal" translate="true">The pane has the following context menu commands:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update list</text><text styleclass="Normal" translate="true"> - use this option when another developer is working on the same repository. When another developer versions a package use this option to refresh the list with the latest package editions.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Rename</text><text styleclass="Normal" translate="true"> - use this option to rename a package in the repository. If there is another package with the same name, then both version trees will be merged into the same version history. After renaming a package all package versions will have name name.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Import</text><text styleclass="Normal" translate="true"> - use this option to import a package from a file directly into repository without installing the package into image. This command is a big time saver if you have a package that would otherwise conflict with the loaded code. STS supports many import formats so that you can also import source code packages from other Smalltalk dialects.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Purge</text><text styleclass="Normal" translate="true"> - use this option to remove a package from the repository. All package versions will be removed.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Salvage</text><text styleclass="Normal" translate="true"> - use this option to salvage a previously removed package. Only the last two previously purged packages can be salvaged. All package editions in the salvaged package will be salvaged.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Purge unused class editions</text><text styleclass="Normal" translate="true"> - use this option to removed all class editions which are not referenced by any of the existing package editions.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you select a package in the </text><text styleclass="Program Feature" translate="true">Packages Pane</text><text styleclass="Normal" translate="true">, the </text><text styleclass="Program Feature" translate="true">Editions Pane</text><text styleclass="Normal" translate="true"> will be updated with a list of all package editions in the repository for that particular package. </text></para>
+  </body>
+</topic>

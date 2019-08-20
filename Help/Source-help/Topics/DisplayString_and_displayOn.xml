@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">#displayString and #displayOn:</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">#displayString and #displayOn:</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is generally assumed that these messages can be used to display any object as an end-user would expect to see them. The first, </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true">, will answer a </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> representation of the object. The second takes a </text><text styleclass="Class Name" translate="true">Stream</text><text styleclass="Normal" translate="true"> as its only parameter and outputs the textual representation of the object to this stream. Streams are a more advanced subject so we won&apos;t go into too much detail about them here. The thing to note, however, is that </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true"> is usually implemented in terms of </text><text styleclass="Class Name" translate="true">#displayOn</text><text styleclass="Normal" translate="true">:. This means that if we need to change the way an object is represented as end-user text we normally only need to implement a </text><text styleclass="Class Name" translate="true">#displayOn</text><text styleclass="Normal" translate="true">: method. First of all, let us see how an </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> responds to </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true"> by default. Try executing the following example in a workspace.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">tiger := Animal name: &apos;Tiger&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Display this&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">tiger displayString. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now, displaying this just as a &quot;an Animal&quot; is surely a little lackluster. Let&apos;s override the default implementation of </text><text styleclass="Class Name" translate="true">#displayOn</text><text styleclass="Normal" translate="true">: (found in </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> and which provides the grunt work for </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true">) to at least report the name of the animal involved. Add the following method to </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Important: Since this is to be an instance side method, make sure you click the </text><text styleclass="Program Feature" style="font-weight:bold;" translate="true">Instance</text><text styleclass="Normal" style="font-weight:bold;" translate="true"> button in the browser first.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">displayOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the name of the receiver prepended by &apos;a&apos; or &apos;an&apos; as appropriate&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| aOrAn |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aOrAn := name first isVowel ifTrue: [&apos;an &apos;] ifFalse: [&apos;a &apos;].</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPutAll: aOrAn; nextPutAll: self name. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now try testing </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true"> again and you should see a more user-friendly representation of the tiger:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Display this&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">tiger displayString. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Writing a method like this in a derived class, which has the same name as a method in a superclass, is known as </text><text styleclass="Program Feature" translate="true">overriding</text><text styleclass="Normal" translate="true"> the original method. This is another important aspect that forms part of object-oriented programming.</text></para>
+  </body>
+</topic>

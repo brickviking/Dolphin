@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Global Variables</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Global Variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Global variables are similar to workspace variables except that they are owned by the system rather than a particular workspace. Once you create a global it remains in existence, holding onto any contents that you may assign to it, until you explicitly remove it. A global variable name must begin with an upper case letter.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you execute the following code, you will be prompted as to whether you wish to create the global, </text><text styleclass="Class Name" translate="true">MyName</text><text styleclass="Normal" translate="true">. Click Yes to do so.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">MyName := &apos;Arthur J. Rank&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">MyName , &apos; was here&apos;. </text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is important to cleanup any globals that you may create after you have finished using them. To do this for </text><text styleclass="Class Name" translate="true">MyName</text><text styleclass="Normal" translate="true">, evaluate the following (note the # sign immediately preceeding the name):</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Smalltalk removeKey: #MyName.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should find that you don&apos;t end up explicitly creating global variables very often. However, there is one sort of global that you will create regularly. Globals are used to hold the class objects that will form the basis of much of your Smalltalk programming. These are also introduced in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Classes_and_Methods" styleclass="Normal" translate="true">Classes and Methods</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk maintains quite a number of global variables of which most are classes. Another, which you&apos;ll often find useful, is </text><text styleclass="Program Feature" translate="true">Transcript</text><text styleclass="Normal" translate="true">. This can be used to reference the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Transcript" styleclass="Normal" translate="true">System Transcript</link><text styleclass="Normal" translate="true"> window in order to send useful text reports to it:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">10 timesRepeat: [Transcript show: &apos;A useful message?&apos;; cr].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Check the Transcript window to see the message logged to it 10 times.</text></para>
+  </body>
+</topic>

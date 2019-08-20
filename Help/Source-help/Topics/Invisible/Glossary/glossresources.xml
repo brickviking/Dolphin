@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossviewresources</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">View Resources</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">User interface objects that are handled by the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Browser" styleclass="Normal" translate="true">View Browser</link><text styleclass="Normal" translate="true">. In the current system the only type of resource available is a view resource. A view resource is created using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Composer" styleclass="Normal" translate="true">View Composer</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

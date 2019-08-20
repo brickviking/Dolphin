@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Browsing Changes</title>
+  <keywords>
+    <keyword translate="true">Browsing Changes</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Browsing Changes</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Double-clicking on an item in the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Source Files List </text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">will open an appropriate browser on it. Note that it is not possible to isolate individual changes within a source file, i.e. if the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.glosssourcebrowser" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Source Browser</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> indicates that a class has been changed then it is not possible to determine which methods within it have been modified.</text></para>
+  </body>
+</topic>

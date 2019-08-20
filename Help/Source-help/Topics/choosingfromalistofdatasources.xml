@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Choosing from a list of Data Sources</title>
+  <keywords>
+    <keyword translate="true">Choosing from a list of Data Sources</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Choosing from a list of Data Sources</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It&apos;s possible to allow a user to browse a list of available data sources when opening a new </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true">. To see this, evaluate the following:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">DBConnection new open.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You will be prompted with a </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Select Data Source</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">dialog from which you can choose the appropriate source for the connection.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Of course, you would normally assign the resultant </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> to an appropriate variable. We have chosen not to do this here since we already have a connection to use for the rest of this tutorial. For our purposes in this tutorial you can </text><text styleclass="Menu Command" translate="true">Cancel</text><text styleclass="Normal" translate="true"> this dialog.</text></para>
+  </body>
+</topic>

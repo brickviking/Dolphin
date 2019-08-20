@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Method Editions Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Method Editions Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Method_Editions_Browser_Method"/><text styleclass="Normal" translate="true">The following menu options are available from the </text><text styleclass="Program Feature" translate="true">Method Editions Pane</text><text styleclass="Normal" translate="true"> context menu:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update List</text><text styleclass="Normal" translate="true"> - use this option to update the list of method editions when another developer is working on the same repository.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - use this option to load the selected edition into the image.</text></li>
+      <li styleclass="Normal"><text styleclass="Menu Command" translate="true">Inspect Editions Using</text><text styleclass="Normal" translate="true"> - use this option to get the list of all class editions which are using this method version. The list of class editions will open in an inspector window. Note: this function may take quite a time to search for all class editions which are referencing a particular method version.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Compare Editions</text><text styleclass="Normal" translate="true"> - use this option to compare two selected editions with each other. A separate </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Method_Comparison_Browser" styleclass="Program Feature" translate="true">Method Comparison Browser</link><text styleclass="Normal" translate="true"> will open where you can see changes between the selected editions.</text></li>
+    </list>
+  </body>
+</topic>

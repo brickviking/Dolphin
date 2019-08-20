@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Method Editions Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Method Editions Browser </text><text styleclass="Normal" translate="true">is a new browser added by the </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true">. With this you can browse versions of a method in the repository, compare versions with each other and load specific method versions from the repository into the image.</text></para>
+  </body>
+</topic>

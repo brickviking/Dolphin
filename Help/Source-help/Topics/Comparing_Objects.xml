@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Comparing Objects</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Comparing Objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk compares two objects using boolean expressions. A boolean expression is one that yields a truth value, i.e. true or false. We can use a number of binary messages to perform comparisons. First of all make </text><text styleclass="Class Name" translate="true">simon</text><text styleclass="Normal" translate="true"> bigger than </text><text styleclass="Class Name" translate="true">teresa</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">charlie</text><text styleclass="Normal" translate="true"> and then let&apos;s try some comparisons expressions. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon growBy: 10.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Display the results of the following comparisons:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon radius &gt; teresa radius.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon radius &lt; 100.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie radius = teresa radius.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie position ~= teresa position.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The final expression is comparing the two positions to see if they are </text><text styleclass="Normal" style="font-weight:bold; font-style:normal;" translate="true">unequal</text><text styleclass="Normal" translate="true">. It&apos;s interesting here to note that, in this comparison, we are testing the equality of two points (the previous three comparisons were between numbers). So the comparison messages are not just limited to number objects. But not all objects can be compared since it all depends on whether they respond to the appropriate comparison messages. Try:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie &gt;= teresa.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You got a </text><text styleclass="Normal" style="font-weight:bold; font-style:normal;" translate="true">does not understand </text><text styleclass="Normal" translate="true">walkback because it does not really make sense to compare the magnitude of a circle with that of a triangle. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: you might of course decide that you wanted to consider the magnitude of a shape to be its area and you wanted to be able to use comparison messages based on this fact. Later you&apos;ll see how to define new messages for particular classes of object. Hence, if you wish, you&apos;ll be able to implement the comparison messages for Playground shapes.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All objects do respond to #= and #~=, however:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie = teresa.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon = simon.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon ~= charlie.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here we are testing to see whether the two shapes are (or aren&apos;t) the same object.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: by default, the #= message does compare two objects to see if they are one and the same (identical). However, you&apos;ll also see that it is possible to change the meaning of a message such that, in the case of shapes, #= could compare the shape areas instead.</text></para>
+  </body>
+</topic>

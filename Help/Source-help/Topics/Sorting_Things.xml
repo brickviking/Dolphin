@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Sorting and Inspecting Things</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sorting and Inspecting Things</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">All the classes in the system (well over 1000) in ascending name order.&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">Class</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> allClasses asSortedCollection.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Use Ctrl+D to evaluate and display the above expression. This asks the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Class</text><text styleclass="Normal" translate="true"> object to give back a collection of all of the classes in the system and then asks for this to be turned into a sorted collection so the results come out in alphabetical order. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you look closely you&apos;ll see that the list isn&apos;t complete but is terminated by </text><text styleclass="Normal" style="font-style:italic;" translate="true">etc... </text><text styleclass="Normal" style="font-style:normal;" translate="true">This is just Dolphin&apos;s way &#160;of truncating a long list of things because you&apos;re probably not interested in reading through all that detail. If you actually want to see all the results then you can do this using an </text><text styleclass="Normal" style="font-style:italic;" translate="true">Inspector</text><text styleclass="Normal" style="font-style:normal;" translate="true">. Delete the results you have displayed so far, put the cursor back on the expression line and then type Ctrl+I (Inspect It), This brings up another window which is the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Inspector</text><text styleclass="Normal" style="font-style:normal;" translate="true">. Using this you can browse around the entire collection of results (don&apos;t worry, you can&apos;t do any damage). To see the complete list, select </text><text styleclass="Normal" style="font-style:italic;" translate="true">a SortedCollection</text><text styleclass="Normal" style="font-style:normal;" translate="true"> in the left hand pane and scroll down the list in the right.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-style:normal;" translate="true">Close the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Inspector</text><text styleclass="Normal" style="font-style:normal;" translate="true"> when you&apos;re done.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt; font-style:normal;" translate="true">Notice the #asSortedCollection message that was sent in the above example? In Smalltalk most messages beginning with #asXXX are used to ask one type of object to convert itself to another. In this case you are asking the </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">OrderedCollection</text><text styleclass="Normal" style="font-size:8pt; font-style:normal;" translate="true"> (which is answered by </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">#allClasses)</text><text styleclass="Normal" style="font-size:8pt; font-style:normal;" translate="true"> to convert itself to a </text><text styleclass="Normal" style="font-size:8pt; font-style:italic;" translate="true">SortedCollection</text><text styleclass="Normal" style="font-size:8pt; font-style:normal;" translate="true">.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

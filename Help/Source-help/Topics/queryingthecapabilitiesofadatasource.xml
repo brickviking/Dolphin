@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Querying the Capabilities of a Data Source</title>
+  <keywords>
+    <keyword translate="true">Querying the Capabilities of a Data Source</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Querying the Capabilities of a Data Source</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Your </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> instance is your entry point to the sample database. There are quite a few public methods available for this object. Why not locate the </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> class in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> and take a look at the methods in the </text><text styleclass="Normal" translate="true">public</text><text styleclass="Normal" translate="true"> category. You can use a number of these to query the capabilities of the ODBC driver and underlying database engine. Try the displaying the result of sending following public accessing messages:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c dbmsName. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c dbmsVer. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c databaseName. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c readOnly. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c numericFunctions. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c autoCommit. &quot;Display it&quot;</text></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

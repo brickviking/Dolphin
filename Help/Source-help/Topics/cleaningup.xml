@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Cleaning up</title>
+  <keywords>
+    <keyword translate="true">Cleaning up</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Cleaning up</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Unreferenced </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> objects such as </text><text styleclass="Class Name" translate="true">DBConnections</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">DBStatements</text><text styleclass="Normal" translate="true"> are automatically cleaned up during garbage collection. This means that it is not explicitly necessary to close these objects in order to free up the external resources they are using. However, because this cleaning up process makes use of Smalltalk finalization, you cannot be sure exactly when the resources will be freed. In general, unless the finalization queue grows too large, the finalization process will only wake up every 10 seconds or so to perform its work. Consequently, you may have to wait up to this length of time (and in some cases longer) for the ODBC objects to be fully disposed of once all references to them have disappeared.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here&apos;s an example you can use to demonstrate this if you are have Microsoft Access available:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs := c query: &apos;select * from Orders&apos;. &quot;Evaluate it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now try to view the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Orders</text><text styleclass="Normal" translate="true"> table in design mode in Microsoft Access. You should get an error message indicating that the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Orders</text><text styleclass="Normal" translate="true"> table is in use by another application (i.e. a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> in Dolphin). Now move back to Dolphin and free up the result set:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs := nil.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you quickly go back to Access and try to open the design window again, you will probably find that the table is still locked. Now wait for 10-20 seconds and try once more. This time you should succeed. This indicates that once the reference to the </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> was dropped, it still took some time for the external ODBC memory associated with it to be freed by Dolphin.</text></para>
+  </body>
+</topic>

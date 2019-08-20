@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #69</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">STB files are created using the STB streaming mechanism (</text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> etc.) and are a means by which object instances can be exported from an image such that they can be transported and reloaded elsewhere.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Presenters</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Presenters</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The presenter is the &quot;hub&quot; of the component. All components will have their own presenter class that brings together a model with an appropriate view to display it. When we talk about a component, we are really talking about a particular presenter.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here are some examples in the image:</text></para>
+    <para styleclass="Normal"><table rowcount="5" colcount="3" style="cell-padding:0px; cell-spacing:0px; border-width:1px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:89px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Purpose</text></para>
+        </td>
+        <td style="width:116px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Presenter class</text></para>
+        </td>
+        <td style="width:323px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Notes</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:89px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Text editing</text></para>
+        </td>
+        <td style="width:116px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">TextPresenter</text></para>
+        </td>
+        <td style="width:323px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Depending what sort of view is used, a </text><text styleclass="Class Name" translate="true">TextPresenter</text><text styleclass="Normal" translate="true"> can be used to edit single line or multiline text.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:89px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Number editing</text></para>
+        </td>
+        <td style="width:116px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">NumberPresenter</text></para>
+        </td>
+        <td style="width:323px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Depending on the view used, a </text><text styleclass="Class Name" translate="true">NumberPresenter</text><text styleclass="Normal" translate="true"> can be used to edit/display numbers in a variety of forms e.g. as text, as a slider, as a spin button, as a progress bar etc.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:89px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Date editing</text></para>
+        </td>
+        <td style="width:116px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">DatePresenter</text></para>
+        </td>
+        <td style="width:323px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Depending on the view used, a </text><text styleclass="Class Name" translate="true">DataPresenter</text><text styleclass="Normal" translate="true"> can be used to edit/display dates as text or as a calendar picker etc.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:89px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">List display</text></para>
+        </td>
+        <td style="width:116px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ListPresenter</text></para>
+        </td>
+        <td style="width:323px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Depending on the view used, a </text><text styleclass="Class Name" translate="true">ListPresenter</text><text styleclass="Normal" translate="true"> can display sequenceable collections of objects in a single column listbox, in a multicolumn list view, as a series of tabs etc</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

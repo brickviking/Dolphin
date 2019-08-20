@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Playing the game</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Playing the game</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We are now ready, with the addition of one last method, to play our </text><text styleclass="Program Feature" translate="true">Animal</text><text styleclass="Normal" translate="true"> game. What we need is a single method to start the game off. Just for a little fun I&apos;ve left the method box below blank, so see if you can guess how the </text><text styleclass="Class Name" translate="true">Animal&gt;&gt;playGame</text><text styleclass="Normal" translate="true"> should be written. Don&apos;t worry if you can&apos;t get it, just click on the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Tell_Me_How" styleclass="Normal" translate="true">tell me how</link><text styleclass="Normal" translate="true"> link and I&apos;ll show you how it&apos;s done.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal class&gt;&gt;playGame</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Start a new Animal game&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><link displaytype="text" defaultstyle="true" type="topiclink" href="Tell_Me_How" styleclass="Code Example" translate="true">tell me how</link></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So now, to play the game just evaluate:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal playGame.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">With a bit of luck you should be able to run through a few sessions with the game so that it learns some new animals. There is a pretty good chance, however, that something may have gone wrong as you worked through this chapter so here is a list of checkpoints.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Package Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Package Browser</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><snippet src="Package_Browser_Summary"/></para>
+    <para styleclass="Normal"><image src="PackageBrowserShell.png" scale="64.52%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A new </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Menu Command" translate="true">Tools/Class Browser</text><text styleclass="Normal" translate="true"> menu command in any tool. &#160;</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The</text><text styleclass="Program Feature" translate="true"> Package Browser </text><text styleclass="Normal" translate="true">consists of the following panes:</text></para>
+  </body>
+</topic>

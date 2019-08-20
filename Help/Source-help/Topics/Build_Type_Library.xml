@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Build Type Library</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Build Type Library</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Building a type library is the straightforward process of running one</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s IDL through the MIDL compiler. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The MIDL compiler is supplied with the Microsoft Platform SDK (available for free download from Microsoft). To build a type library from IDL one typically uses a simple command line such as:</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">MIDL /Oicf &lt;idl file&gt;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are not using type-library marshalling, then you will have to build a marshalling DLL in order to be able to use your component from an external client (see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Standard_Marshalling" styleclass="Normal" translate="true">Standard Marshalling</link><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The type-library for the Random Stream sample is supplied pre-built and can be found as </text><text styleclass="Program Feature" translate="true">Random.tlb</text><text styleclass="Normal" translate="true"> in the </text><text styleclass="Program Feature" translate="true">&lt;my documents dir&gt;\Dolphin Smalltalk 5.1\Object Arts\Samples\ActiveX\Random</text><text styleclass="Normal" translate="true"> folder. If you don</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">t have MIDL available, then just use the pre-built tlb, otherwise:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">MIDL /Oicf random.idl</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This should emit a number of files, including </text><text styleclass="Program Feature" translate="true">random.tlb</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In practice, you are bound to get errors when compiling your own the IDL, which you will have to work through until it spits out the type-library. MIDL</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s error reporting can be a little poor, which is another good reason to start with minimal IDL and build up incrementally.</text></para>
+  </body>
+</topic>

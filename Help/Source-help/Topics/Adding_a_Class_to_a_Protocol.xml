@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding a Class to a Protocol</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding a Class to a Protocol</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is easy to find where such automatically generated methods have been added into the image by browsing the &quot;not yet implemented&quot; pseudo-category from within the Class Browser or System Browser.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that, if a class conforms to a protocol, then so must all of its subclasses. This is why the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Implementing Classes</text><text styleclass="Normal" translate="true"> pane is actually a list of individual class hierarchies.</text></para>
+  </body>
+</topic>

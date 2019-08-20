@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The System Transcript</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The System Transcript</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Transcript" styleclass="Normal" translate="true">System Transcript</link><text styleclass="Normal" translate="true"> is, in some respects, similar to a standard workspace window. &#160;It is a place where text messages can be sent and we&apos;ll make use of this later.</text></para>
+  </body>
+</topic>

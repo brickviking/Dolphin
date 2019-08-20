@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Methods</title>
+  <keywords>
+    <keyword translate="true">Methods</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All the methods of a class are read in one go and the categories for each method are defined afterwards.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An excerpt of the file produced from the </text><text styleclass="Class Name" translate="true">SourceManager</text><text styleclass="Normal" translate="true"> class would be</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">!SourceManager methodsFor!</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">add: aStringFilename</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Adds a file to the SourceManager.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self subclassResponsibility!</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">changesExtension</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Private - Answers the suffix to use for the changes file&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^&apos;chg&apos;! !</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Trailing this the categories of each method are set. A method can belong to a number of categories. If the categories of a method are not supplied it is placed in the &apos;no category&apos; method category.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">!SourceManager categoriesFor: #add:!source code control! !</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">!SourceManager categoriesFor: #changesExtension!accessing!constants! !</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">#changeExtension</text><text styleclass="Normal" translate="true"> method belongs to two method categories; accessing and constants.</text></para>
+  </body>
+</topic>

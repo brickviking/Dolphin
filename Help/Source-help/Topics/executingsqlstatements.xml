@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Executing SQL Statements</title>
+  <keywords>
+    <keyword translate="true">Executing SQL Statements</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Executing SQL Statements</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Many non-query SQL statements do not answer a result table at all. In these situations it is more appropriate to use</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Class Name" translate="true">DBConnection&gt;&gt;exec:</text><text styleclass="Normal" translate="true"> rather than #</text><text styleclass="Class Name" translate="true">query</text><text styleclass="Normal" translate="true">:. This works in a similar way, except that it does not answer a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true">, but rather an instance of </text><text styleclass="Class Name" translate="true">DBStatement</text><text styleclass="Normal" translate="true"> that has just executed the SQL. Typically, you would use #</text><text styleclass="Class Name" translate="true">exec</text><text styleclass="Normal" translate="true">: for performing create, update and delete operations on the database and also when using the various cataloguing operations that SQL provides. Let us try some examples to illustrate this.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">s := c exec: &apos;delete from Orders where OrderID=10250&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If this operation fails it will raise an exception. Hopefully, this statement did not do so, so we can assume that the order was deleted successfully. To find out how many rows were affected by the statement you can use:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">s numRows. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Just to confirm that this particular order is no longer in the </text><text styleclass="Normal" translate="true">Orders</text><text styleclass="Normal" translate="true"> table why not execute the following query:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c query: &apos;select * from Orders where OrderID=10250&apos;. &quot;Inspect it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If the delete operation had found no matching rows to remove then the statement would still succeed but #</text><text styleclass="Class Name" translate="true">numRows</text><text styleclass="Normal" translate="true"> would answer zero.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s try an update operation to modify a record, this time in the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Products</text><text styleclass="Normal" translate="true"> table.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">s := c exec: &apos;update Products set UnitPrice=17.5 where ProductName=&apos;&apos;Tofu&apos;&apos;&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">s numRows. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Just validate that the update succeeded:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(c query: &apos;select UnitPrice from Products where ProductName=&apos;&apos;Tofu&apos;&apos;&apos;) at: 1. &quot;Display it&quot;</text></para>
+  </body>
+</topic>

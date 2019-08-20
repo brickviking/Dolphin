@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating your own Trusted Data</title>
+  <keywords>
+    <keyword translate="true">Creating your own Trusted Data</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating your own Trusted Data</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In addition to its use for signing applets, </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> can be used to create your own trusted data objects that are digitally signed so they can be transported across insecure networks. You should use the </text><text styleclass="Class Name" translate="true">DolphinSureTrustedData</text><text styleclass="Normal" translate="true"> class to do this. The process is best demonstrated by example:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">First locate a certificate from your </text><text styleclass="Program Feature" translate="true">My Certificates</text><text styleclass="Normal" translate="true"> store:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">myCertificate := (ChoicePrompter create)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;caption: &apos;Choose a certificate&apos;;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;choices: DolphinSureCertificateStore myCertificates certificates;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;getTextBlock: [:cert | cert displayString];</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;showModal.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now create the trusted data:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted := DolphinSureTrustedData</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;data: &apos;This message cannot be tampered with&apos; asByteArray</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;description: &apos;A test&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;publisherCertificate: myCertificate</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;privateKey: YOUR_PRIVATE_KEY_INTEGER_HERE.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At this point the trusted object can be transported to a client machine perhaps by using an STB filer stream. On the client side the object is reconstituted and you can then display the publisher&apos;s certificate and decode the original data:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted publisherCertificate show. &quot;Evaluate It&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Is the data valid?</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted isValid. &quot;Display It&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Verify that it is acceptable to access this data:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted trustedData asString. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Try modifying the data:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted data at: 1 put: 99.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">trusted trustedData asString. &quot;Display it&quot;</text></para>
+  </body>
+</topic>

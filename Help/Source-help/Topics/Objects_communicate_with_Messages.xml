@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Objects communicate with Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Objects communicate with Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, objects send messages to one another to cause things to happen. How an object responds to a particular message is determined by the class of object that it is and it is important to realize that not all objects respond successfully to all messages. The set of messages that an object can understand, and its response to these messages, determines the behavior of the object within the Smalltalk system.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">All objects know what set of messages they can understand. This set is governed by the class of the object.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following are typical of messages that might be sent:</text></para>
+    <para style="margin-top:7px; margin-bottom:7px; margin-left:24px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">+</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">-</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">new</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">show</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">exit</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">includes:</text><br/><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-style:italic; color:#000000;" translate="true">asSortedCollection</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can use the Smalltalk language to create objects and send messages to them. Create a new workspace window (</text><text styleclass="Menu Command" translate="true">File/New</text><text styleclass="Normal" translate="true">) and try the following examples. You should display the result of evaluating each line individually. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">3+4</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Hello world&apos; reverse</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">5 factorial</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: Remember that you don&apos;t have to select the entire line to do this, just place the insert cursor somewhere on the line and type Ctrl+D (Workspace/Display it) to cause it to be evaluated and the answer displayed.</text></para>
+  </body>
+</topic>

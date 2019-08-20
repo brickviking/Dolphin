@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The Image</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The Image</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When Dolphin is loaded and running there are many </text><text styleclass="Program Feature" translate="true">objects</text><text styleclass="Normal" translate="true"> in memory that make up the essence of the entire system. I will talk more about what objects are in the next chapter on </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Objects_and_Messages" styleclass="Normal" translate="true">Objects and Messages</link><text styleclass="Normal" translate="true">. However, for the moment, it is important to know that when you choose to save the Dolphin image you are requesting that all these objects be saved to disk in, what is known as, an image file. This allows the system to be re-started in an identical state to that when the image was saved.</text></para>
+  </body>
+</topic>

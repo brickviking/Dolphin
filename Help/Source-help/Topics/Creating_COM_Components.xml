@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating COM Components</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating COM Components</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This section covers the use of Dolphin to implement COM components, in other words the implementation of COM servers. A reasonable understanding of Microsoft</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s Component Object Model is assumed </text><text styleclass="Normal" translate="true">–</text><text styleclass="Normal" translate="true"> for introductory material refer to a text such as </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Bibliography" anchor="Rogerson" styleclass="Normal" translate="true">Rogerson</link><text styleclass="Normal" translate="true">. However because of the relative importance of reference counting (for life-cycle management) and marshalling (for remote method invocation) this section starts with some background on these, with a Dolphin focus of course. It is also recommended that a working understanding of External Interfacing in Dolphin be gained before attempting to implement COM servers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin can be used to implement both in-process (DLL) and out-of-process (EXE) COM servers, but currently supports only the single-threaded apartment model.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #49</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">You can customize the views of any of the system tools to your own taste in the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true">. Ideally, in case something goes wrong, don&apos;t modify the system view itself but save down your changes with a new name. </text></para>
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">To open your custom view by default, simply go to the options for the tool in question (</text><text styleclass="Menu Command" translate="true">Tools/Options</text><text styleclass="Normal" translate="true"> menu) and change the</text><text styleclass="Class Name" translate="true"> #defaultView</text><text styleclass="Normal" translate="true"> aspect to the name of your custom view.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

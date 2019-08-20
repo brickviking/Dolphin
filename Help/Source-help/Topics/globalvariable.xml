@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Global Variable</title>
+  <keywords>
+    <keyword translate="true">Global Variable</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Global Variable</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="glossglobal" styleclass="Normal" translate="true">Global</link><text styleclass="Normal" translate="true"> variables in Smalltalk exist in a single global namespace, the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosssmalltalkdictionary" styleclass="Normal" translate="true">Smalltalk dictionary</link><text styleclass="Normal" translate="true">. They provide access to an object from any class in the image but, in general they are frowned upon because they:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">violate the object oriented principle of data encapsulation</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">create hidden dependencies between classes</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">reduce the portability of applications due to namespace issues</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">create ownership and object lifetime issues</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So when should we decide to create a new global variable?</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Probably never. Under normal circumstances you probably shouldn&apos;t add any global variables (apart from classes, which are global by definition). There are several alternatives: Pool Dictionaries, Class Variables and Class Instance Variables</text><text styleclass="Program Feature" translate="true">&#32;</text><text styleclass="Normal" translate="true">each of which have their own particular advantages and relieve the pressure on the global namespace.</text></para>
+    <list id="4" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Pool Dictionaries hold groups of constants for an application. Pool Dictionaries can be referenced by any instances of any class which has specified the Pool Dictionary in its class definition. These classes can be unrelated.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Class Variables</text><text styleclass="Normal" translate="true"> are available to all instances of a class and all instances of all of its subclasses.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Class Instance Variables</text><text styleclass="Normal" translate="true"> are similar to Class Variables except every subclass (and its instances) has its own copy of the variable.</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">hierarchy uses a </text><text styleclass="Normal" translate="true">Pool Dictionary</text><text styleclass="Normal" translate="true"> called </text><text styleclass="Class Name" translate="true">Win32Constants</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">which holds all of the Windows specific constants. These are available to all instances of </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and all instances of all of its subclasses.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Behavior</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class defines a class variable called </text><text styleclass="Class Name" translate="true">PointersMask</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">which holds a flag mask that can be used to test whether an object holds bytes or pointers.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">ExternalLibrary</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class defines a class instance variable called </text><text styleclass="Normal" translate="true">default</text><text styleclass="Normal" translate="true"> which, for each subclass, is the default instance of that subclass (</text><link displaytype="text" defaultstyle="true" type="topiclink" href="singleton" styleclass="Normal" translate="true">Singleton</link><text styleclass="Normal" translate="true">)</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="globalname" styleclass="Normal" translate="true">Global Name</link></para>
+  </body>
+</topic>

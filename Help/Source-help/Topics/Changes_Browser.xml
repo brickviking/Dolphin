@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Changes Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Changes Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Changes_Browser_Summary"/><image src="ChangesBrowser.png" scale="70.58%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the middle of the window there is a button </text><text styleclass="Menu Command" translate="true">Next difference</text><text styleclass="Normal" translate="true"> which can be used to step through differences in the source code of the methods displayed in the lower comparison source panes. </text></para>
+  </body>
+</topic>

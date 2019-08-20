@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Accessor Method</title>
+  <keywords>
+    <keyword translate="true">Accessor Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Accessor Method</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The state of an object is defined by the values of its instance variables. An object can access its own instance variables directly, but they are hidden from other objects. The variables that define the public state of the object must be made accessible by adding appropriate methods to manipulate them.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Also Known As</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Getting Method, Setting Method</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So called, accessor methods, provide a mechanism for getting and setting the instance variables of an object. For public non-boolean instance variables, there should be two accessor methods:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">a &apos;get&apos; method with the same name as the instance variable</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">a &apos;set&apos; method with the same name as the instance variable, but is followed by a &apos;:&apos; (colon)</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For public boolean variables, there are generally several accessor methods:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">&quot;set&quot; methods of the form #</text><text styleclass="Class Name" translate="true">beXXX</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and #</text><text styleclass="Class Name" translate="true">beNotXXX</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">which set the value of the variable</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">&quot;get&quot; methods of the form </text><text styleclass="Class Name" translate="true">#isXXX</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Resist the temptation to call your accessor methods #</text><text styleclass="Class Name" translate="true">getXXX</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and #</text><text styleclass="Class Name" translate="true">setXXX</text><text styleclass="Normal" translate="true">:.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Car</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;instanceVariableNames: &apos;wheels convertible &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">wheels</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the instance variable wheels.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;wheels represents the number of wheels of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^wheels</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">wheels: anInteger</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Set the instance variable wheels to anInteger.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;See the get method for a description of wheels.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;wheels := anInteger</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">isConvertible</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Answer whether the receiver is convertible.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^convertible</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">beConvertible</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Make the receiver be a convertible.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;convertible := true</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">beNotConvertible</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Make the receiver be not convertible.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;convertible := false</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The sample </text><text styleclass="Class Name" translate="true">VideoTape</text><text styleclass="Normal" translate="true"> class has accessor &quot;get&quot; methods, #</text><text styleclass="Class Name" translate="true">name</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and #</text><text styleclass="Class Name" translate="true">length</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">name</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the &lt;readableString&gt; name of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^name</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">length</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the &lt;Integer&gt; length in minutes of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^length</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although an object can access its instance variables directly, it is sometimes a good idea for an object to use private accessor methods to access its own instance variables. This is to increase the opportunity for subclassing in the future, and to reduce the dependency on implementation details. Consider a class that contains a boolean instance variable. If the boolean data was re-implemented as a single &apos;bit&apos; in a flag bit-pattern, then all direct references to the old boolean variable would have to be visited and changed accordingly. Accessor methods such as this, which are only intended to be used by the receiver, should be marked as private.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="instancevariablename" styleclass="Normal" translate="true">Instance Variable Name</link></para>
+  </body>
+</topic>

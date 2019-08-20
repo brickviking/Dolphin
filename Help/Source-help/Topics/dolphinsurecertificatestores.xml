@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">DolphinSure Certificate Stores</title>
+  <keywords>
+    <keyword translate="true">DolphinSure Certificate Stores</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">DolphinSure Certificate Stores</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> maintains a number of locations where it stores certificates on a local machine. These stores are part of the system registry and can be found within the </text><text styleclass="Class Name" translate="true">HKEY_CURRENT_USER</text><text styleclass="Normal" translate="true"> tree. The certificates are stored as binary data (in Dolphin&apos;s STB file out format) in the following certificate stores:</text></para>
+  </body>
+</topic>

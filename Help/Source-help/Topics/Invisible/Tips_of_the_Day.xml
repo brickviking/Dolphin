@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Tips of the Day</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Tips of the Day</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following &quot;Tips of the Day&quot; can be brought up in order by choosing </text><text styleclass="Menu Command" translate="true">Help/Tip of the Day</text><text styleclass="Normal" translate="true">. You may also configure the development system to show a tip immediately after the image is started.</text></para>
+  </body>
+</topic>

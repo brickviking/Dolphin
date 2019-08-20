@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Classes as Object Factories</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Classes as Object Factories</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far, you&apos;ve seen how a Smalltalk class is an object that specifies how instances of that class behave. It does this by holding on to all the methods that implement the messages the instance can respond to, and by keeping information about the layout of the instance&apos;s data (the instance variables etc.). However, a class object also has an additional useful function; it can act as a &quot;factory&quot; for manufacturing its instances. We&apos;ve seen this before in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Objects_and_Messages" styleclass="Normal" translate="true">Objects and Messages</link><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rect := Rectangle origin: 0@0 extent: </text><link displaytype="text" defaultstyle="true" type="weblink" href="mailto:&lt;%LINK_CAPTION%&gt;" styleclass="Code Example" translate="true">10@10.</link></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here we are sending the message </text><text styleclass="Class Name" translate="true">#origin:#extent:</text><text styleclass="Normal" translate="true"> to the </text><text styleclass="Class Name" translate="true">Rectangle</text><text styleclass="Normal" translate="true"> class with the expectation that it will answer a new instance of a rectangle. In this way the class is acting like a factory object capable of a manufacturing instances to our specifications and returning them for us to use in any way we see fit. The most common instance creation method is #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> which can usually be sent to a class to create a new instance when no additional parameters are required to define it. For example, when we create new shapes to add to a </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> we use something like:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">playground add: Triangle new.</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

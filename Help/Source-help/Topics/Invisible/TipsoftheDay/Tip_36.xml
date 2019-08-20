@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #36</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Minor updates to Dolphin are made available as patch files which can be automatically downloaded by the </text><text styleclass="Program Feature" translate="true">Live Update</text><text styleclass="Normal" translate="true"> facility. &#160;As each patch file is installed your image will be brought up to a particular patch level. &#160;.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can tell the current patch level of your system from the </text><text styleclass="Menu Command" translate="true">Help/About Dolphin Smalltalk</text><text styleclass="Normal" translate="true"> screen.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

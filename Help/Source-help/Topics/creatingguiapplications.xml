@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating GUI Applications</title>
+  <keywords>
+    <keyword translate="true">Creating GUI Applications</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating GUI Applications</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Smalltalk introduces uses a unique GUI framework called </text><link displaytype="text" defaultstyle="true" type="topiclink" href="ModelViewPresenter" styleclass="Normal" translate="true">Model View Presenter</link><text styleclass="Normal" translate="true"> or </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossmvp" styleclass="Program Feature" translate="true">MVP</link><text styleclass="Normal" translate="true">. In many ways it is similar to other component based architectures but we believe it has a flexibility that well exceeds that of its popular rivals. Naturally, one might expect that this added flexibility will increase the complexity, and this is partly true, but you should find the extra capability for reuse far outweighs the additional time spent on the initial learning curve.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although you can use Dolphin to build GUI applications not based on model-view-presenter, you&apos;ll find that all of the Dolphin development tools are built using </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true">. As we discuss the various elements below we&apos;ll draw examples from the development tools so you can see how </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> is used in practice.</text></para>
+  </body>
+</topic>

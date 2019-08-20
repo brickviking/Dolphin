@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Answering a result</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Answering a result</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We have mentioned previously that all message sends answer a result. This must imply that all methods do so too. A result can be returned from a method by pre-fixing an expression with the ^ character. In this example we are answering the result of the following boolean expression:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">x &lt;= aPoint x and: [ y &lt;= aPoint y ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can, in fact, return a result from anywhere within a method; you do not have to hold back until the last line. Also, you don&apos;t have to explicitly return anything at all. If you omit to include a return (^) expression then, by default, the method will answer the receiving object.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can learn a lot about Smalltalk just by browsing, so let&apos;s take a look at some more methods of class </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">. Select the method for </text><text styleclass="Class Name" translate="true">#dotProduct</text><text styleclass="Normal" translate="true">:.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">dotProduct: aPoint </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer a Number that is the sum of the product of the x coordinates</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">and the product of the y coordinates of the receiver and aPoint&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^(x * aPoint x) + (y * aPoint y)</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This illustrates the definition of a method for a keyword message. In this case it is slightly simpler than the previous example because there is no need to declare any temporary variables. Notice that, in nearly all methods, it is conventional to immediately follow the method header with a comment that describes the purpose of the method. The comment should be indented by one tab space and followed by a single blank line before the body of the method code. Once again this is only convention but following this style will make the code you write easier to understand.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: when describing a particular method to someone we often refer to it using a form like Point&gt;&gt;dotProduct:. This is quite important when you realise that the same message selector can be handled by many different classes.</text></para>
+  </body>
+</topic>

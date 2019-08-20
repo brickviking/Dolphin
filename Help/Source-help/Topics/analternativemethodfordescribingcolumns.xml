@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">An alternative method for describing columns</title>
+  <keywords>
+    <keyword translate="true">An alternative method for describing columns</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">An alternative method for describing columns</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far, we have been using the database cataloguing features of a</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> to obtain the descriptions of various columns for use with the #</text><text styleclass="Normal" translate="true">paramCols:</text><text styleclass="Normal" translate="true"> message when configuring the parameter slots. It is also possible to do this in a simpler way, providing you don&apos;t mind executing a </text><text styleclass="Class Name" translate="true">SELECT</text><text styleclass="Normal" translate="true"> statement to obtain the array of </text><text styleclass="Class Name" translate="true">DBColAttr</text><text styleclass="Normal" translate="true"> specifications. Using the previous example of inserting a row into the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Suppliers</text><text styleclass="Normal" translate="true"> table, let us see how this might be done:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps := c prepare: &apos;insert into Suppliers (CompanyName, HomePage) values (?, ?)&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps paramCols: (c query: &apos;select CompanyName, HomePage from Suppliers) describeCols.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see, this is somewhat more straightforward than the previous method, especially in cases where you are describing the columns for a prepared statement which requires many parameters.</text></para>
+  </body>
+</topic>

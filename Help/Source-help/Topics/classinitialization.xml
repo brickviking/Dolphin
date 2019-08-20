@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class Initialization</title>
+  <keywords>
+    <keyword translate="true">Class Initialization</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class Initialization</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> is created the class variables or class instance variables defined for it will be nil by default. If there are sensible default values for these variables, then the new class should be initialized appropriately. Very often, a class variable is used to implement a Singleton, and it is therefore necessary to initialize this in some way.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement a class </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method to set the initial values of the class variables. Dolphin arranges for #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> to be automatically sent to any class that responds to it when the class is installed from a CLS file or package. However, you will need to send it explicitly when the class has just been created, and at any time after the initialization method is changed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Unlike </text><link displaytype="text" defaultstyle="true" type="topiclink" href="instanceinitialization" styleclass="Normal" translate="true">Instance Initialization</link><text styleclass="Normal" translate="true">, the #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> method </text><text styleclass="Normal" translate="true">must not </text><text styleclass="Normal" translate="true">forward itself to </text><text styleclass="Normal" translate="true">super</text><text styleclass="Normal" translate="true"> since Dolphin may then cause the code to be executed several times when the class is installed into a new </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" styleclass="Normal" translate="true">image</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes the initialization of a class variable may not be possible due a dependency issue. That is, it needs to be set up with an instance of some other class that cannot be guaranteed to be available at the class initialization time. In this case employ </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true"> of the appropriate variable instead.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Class </text><text styleclass="Class Name" translate="true">Behavior</text><text styleclass="Normal" translate="true"> holds a number of class variables that hold masks for an instance specification flag. These are initialized when the class is.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Initialize the class variables of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;MournerMask := 16r0400.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;IndirectMask &#160; &#160;:= 16r0800.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;VariableMask &#160; &#160;:= 16r1000.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;PointersMask := 16r2000.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;NullTermMask &#160; &#160;:= 16r4000.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;SizeMask := 16r00FF.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;BasicSpecMask &#160; &#160;:= 16r7FFF.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;FundamentalShapeMask := VariableMask + PointersMask + SizeMask.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;ShapeMask := FundamentalShapeMask + NullTermMask.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;BytesSubMask &#160; &#160;:= NullTermMask + IndirectMask</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="instanceinitialization" styleclass="Normal" translate="true">Instance Initialization</link><text styleclass="Normal" translate="true">, </text><link displaytype="text" defaultstyle="true" type="topiclink" href="singleton" styleclass="Normal" translate="true">Singleton</link></para>
+  </body>
+</topic>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Compiled Field Access</title>
+  <keywords>
+    <keyword translate="true">Compiled Field Access</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Compiled Field Access</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This dynamic mechanism is a space efficient way to implement an external structure, but there is considerable overhead inherent in the </text><text styleclass="Class Name" translate="true">#doesNotUnderstand</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> mechanism in comparison to a successful message send. If one needs higher performance, and we certainly do for </text><text styleclass="Class Name" translate="true">POINTL</text><text styleclass="Normal" translate="true">s, then one can compile the structure by sending the </text><text styleclass="Class Name" translate="true">#compileDefinition</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">message to the class. This will automatically generate a set of accessor methods for the instances in the special category </text><text styleclass="Normal" translate="true">**compiled accessors**</text><text styleclass="Normal" translate="true">. Here is one of the compiled accessors generated for </text><text styleclass="Class Name" translate="true">POINTL</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">y: anObject</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Set the receiver&apos;s y field to the value of anObject.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Automatically generated set method - do not modify&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;bytes sdwordAtOffset: 4 put: anObject</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One can see that the generated method is very similar to the one that one would expect to hand code to access the second 32-bit signed integer field of the structure, but with the difference that one does not have to work out the offset (trivial in this case), or type so much.</text></para>
+  </body>
+</topic>

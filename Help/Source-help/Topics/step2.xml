@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 2</title>
+  <keywords>
+    <keyword translate="true">Step 2</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 2</text></para>
+    </header>
+    <para styleclass="Normal"><image src="ApplicationDeploymentWizard_Page_2.png" scale="83.18%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here you should choose the name of the executable file to which your application will be deployed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Normally, you will want the Dolphin Virtual Machine to be bound into your deployed executable (EXE) file. We call this </text><text styleclass="Program Feature" translate="true">To Go</text><text styleclass="Normal" translate="true"> mode since all you have to do is to handout the resultant EXE. If you would like the EXE to be slightly smaller then uncheck the </text><text styleclass="Program Feature" translate="true">Create single file &quot;To Go&quot; distributable</text><text styleclass="Normal" translate="true"> check box. This might be helpful if you have several small applications that you all want to share the same VM. If you do this, it will be necessary for you to distribute the Dolphin Virtual Machine DLL with your application (see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="redistributablecomponents" styleclass="Normal" translate="true">Redistributable Components</link><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since the eventual application will be executing in a run-time environment it is not appropriate for it to use the standard </text><text styleclass="Class Name" translate="true">DevelopmentSessionManager</text><text styleclass="Normal" translate="true"> that is present in the development image. An instance of a </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> subclass is installed instead, so you will need to specify this by choosing the class from the drop-down list on this page.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Normally it is sensible to write an XML log manifest file since this can be helpful when debugging problems in the stripping process. You can choose to display the last log file written by clicking the </text><text styleclass="Menu Command" translate="true">Show it</text><text styleclass="Normal" translate="true"> button; this will launch an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Environment_Browser" styleclass="Program Feature" translate="true">Executable Browser</link><text styleclass="Normal" translate="true"> on the previous manifest information.</text></para>
+  </body>
+</topic>

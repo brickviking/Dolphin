@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #54</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Classes that have not yet been assigned to any package are called &quot;uncommitted classes&quot;. &#160;By default, new classes created in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> are initially uncommitted. &#160;It is possible, however, to set a default package where new classes will be created. You can use the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true">, </text><text styleclass="Menu Command" translate="true">File/Set As Default Package</text><text styleclass="Normal" translate="true"> command to do this.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Professional users will probably prefer to use the </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> in most situations. Here, new classes are created in the package currently selected in the browser.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Field Types</title>
+  <keywords>
+    <keyword translate="true">External Field Types</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Field Types</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Of course, there&apos;s more variety to structure fields than just 32-bit signed and unsigned integers, so Dolphin has a wide range of fields that one can insert into the structure template. Should these be inadequate one can also can add more to meet one&apos;s needs by defining new classes. Currently the field description objects can all be found as subclasses of </text><text styleclass="Class Name" translate="true">ExternalField</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(a subclass of </text><text styleclass="Class Name" translate="true">AttributeDescriptor</text><text styleclass="Normal" translate="true">) and they break down into three broad groupings corresponding to the main immediate subclasses: </text><text styleclass="Class Name" translate="true">EmbeddedFields</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">PointerFields</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and </text><text styleclass="Class Name" translate="true">ScalarFields</text><text styleclass="Normal" translate="true">. There is also the </text><text styleclass="Class Name" translate="true">FillerField</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">type for padding. The best way to understand the use of each of the field types in Dolphin is to browse their references for existing uses, but a brief description of the broad categories of fields follows.</text></para>
+  </body>
+</topic>

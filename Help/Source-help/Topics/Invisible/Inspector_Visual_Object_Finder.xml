@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Inspector Visual Object Finder Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Visual Object Finder Pane</text><text styleclass="Normal" translate="true"> allows you to find a Dolphin object in a window onscreen and set this as the object being inspected by the current </text><text styleclass="Program Feature" translate="true">Inspector</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:54px;">
+          <para styleclass="Normal"><image src="VisualObjectFinder_finderIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:569px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Drag the magnifying glass icon and drop it over any object that you see in a Dolphin window and that object will become the focus of the </text><text styleclass="Program Feature" translate="true">Inspector</text><text styleclass="Normal" translate="true">.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

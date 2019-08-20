@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #13</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">With Dolphin you can create both console-based, and GUI-based applications. For the latter, Dolphin provides you with the </text><text styleclass="Program Feature" translate="true">Model-View-Presenter</text><text styleclass="Normal" translate="true"> (MVP) application framework.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">MVP allows you to split your applications into three sections. The </text><text styleclass="Program Feature" translate="true">Model</text><text styleclass="Normal" translate="true"> is where the logical operations get done, the </text><text styleclass="Program Feature" translate="true">View</text><text styleclass="Normal" translate="true"> is the visible window that the user sees onscreen and the </text><text styleclass="Program Feature" translate="true">Presenter</text><text styleclass="Normal" translate="true"> is the code that links the two together and dictates how a user&apos;s commands manipulate the m</text><text styleclass="Normal" translate="true">odel&apos;s</text><text styleclass="Normal" translate="true"> data.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

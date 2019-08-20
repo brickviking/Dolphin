@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Registering the Marshalling Code</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Registering the Marshalling Code</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are using </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Type-library_Marshalling" styleclass="Normal" translate="true">type-library marshalling</link><text styleclass="Normal" translate="true"> then you need only register the type-library. A simple way to achieve this is to use Dolphin&apos;s </text><text styleclass="Program Feature" translate="true">Active-X Component Wizard</text><text styleclass="Normal" translate="true"> to browse for and open the type library. If you used the wizard to generate interface wrappers from the type library during development of the component, then this will already be done and you need take no further action.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are using </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Standard_Marshalling" styleclass="Normal" translate="true">standard marshalling</link><text styleclass="Normal" translate="true"> code (e.g. when implementing interfaces with argument types that are not automation compatible) then it will be necessary to build and register a separate marshalling DLL. This is relatively straightforward, but is an advanced topic that should be avoided initially.</text></para>
+  </body>
+</topic>

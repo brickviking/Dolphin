@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">System Folder</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">System Folder</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="System_Folder_Summary"/><image src="SystemFolder.png" scale="75.33%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can navigate around the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true"> hierarchy in much the same way as with any Windows folder. Double-clicking on a folder will open it, and the </text><text styleclass="Program Feature" translate="true">Up</text><text styleclass="Normal" translate="true"> toolbar button will move back to the parent folder. </text></para>
+    <para style="margin-top:11px;"></para>
+  </body>
+</topic>

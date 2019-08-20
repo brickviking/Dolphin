@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Debugger Stack Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Stack Pane</text><text styleclass="Normal" translate="true"> shows the stack of method and block activations currently pending in the process stack. The display is the same as that in a walkback. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By default the depth of the stack trace is limited and so the list does not necessarily include all the stack frames. The depth can be increased with </text><text styleclass="Normal" translate="true">the </text><text styleclass="Menu Command" translate="true">Debug/Call Stack/More</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Menu Command" translate="true">Debug/Call Stack/All</text><text styleclass="Normal" translate="true"> commands. Selecting a frame in the stack trace causes the other panes in the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> to be updated with information pertaining to that frame.</text></para>
+  </body>
+</topic>

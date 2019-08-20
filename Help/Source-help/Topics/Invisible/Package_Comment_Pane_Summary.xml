@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Comment Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Comment Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> d</text><text styleclass="Popup Box" translate="true">isplays the package comment (if available) for the currently selected package. If you make changes to a comment you can commit them using </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Popup Box" translate="true"> or Ctrl+S. If you have more than one package selected the comment pane will be empty and disabled.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that although the comment pane is normally used for entering or browsing comments, it is also a workspace so the various </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace_Operations_Summary" styleclass="Notes" translate="true">workspace operations</link><text styleclass="Notes" translate="true"> can be used here too. This is useful if you wish to provide examples within the comment then readers will be able to execute any lines of Smalltalk in-situ.</text></para>
+  </body>
+</topic>

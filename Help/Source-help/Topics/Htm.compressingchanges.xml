@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Compressing Changes</title>
+  <keywords>
+    <keyword translate="true">Compressing Changes</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Compressing Changes</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since the Changes file keeps a record of all the modifications that you make your image, it can grow to be quite large. Obviously, if you have been modifying the same method repeatedly you will have a number of redundant copies of the method source in the log. If you wish, it is possible to compress the log file to remove this redundant information. This can be done from the System Folder by choosing </text><text styleclass="Normal" style="font-style:italic;" translate="true">File/Compress Changes</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note that compressing changes is something you don&apos;t necessarily want to do too often. The process removes, not only copies of redundant methods, but also the log of evaluations that you have performed.</text></para>
+  </body>
+</topic>

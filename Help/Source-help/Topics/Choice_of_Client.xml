@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Choice of Client</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Choice of Client</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Just about any programming language can be used to build a test client, as well as any other program capable of hosting COM components. Visual Basic is a particularly good choice for throwaway test harnesses due to its initial speed of development and excellent COM integration. Scripting languages such as VBScript and JScript can be used, but these are limited to the use of &quot;late-bound&quot; method calls (i.e. via </text><text styleclass="Class Name" translate="true">IDispatch</text><text styleclass="Normal" translate="true">). For maximum control clients can be written in C++, but we would not recommend it. The .NET languages can also be used if you have VS.NET.</text></para>
+  </body>
+</topic>

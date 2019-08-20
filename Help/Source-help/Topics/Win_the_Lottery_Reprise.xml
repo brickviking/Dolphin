@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Win the Lottery (Reprise)</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Win the Lottery (Reprise)</text></para>
+    </header>
+    <para styleclass="Normal"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;Generate another winning lottery ticket when the Newsagent points out the duplicates in the above (display the result of evaluating next 4 lines with Ctrl+D)&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">r := Random</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> new</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">s := Set</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> new</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">[s</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> size =</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 6</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">]</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> whileFalse:</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true"> [s</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> add:</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true"> (r</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> next *</text><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true"> 49</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">)</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> rounded+1</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">].</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">s</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> asSortedCollection asArray</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Okay, so you were humbled when the newsagent informed you that your first &quot;lottery winning&quot; program didn&apos;t always generate valid tickets. Some of the numbers were duplicated! However, if you select all of the lines in the above, somewhat more complex, expression and use </text><text styleclass="Normal" style="font-style:italic;" translate="true">Display It</text><text styleclass="Normal" translate="true">, you should now get a valid ticket.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:9pt;" translate="true">This experiment uses the, rather useful, Smalltalk </text><text styleclass="Normal" style="font-size:9pt; font-style:italic;" translate="true">Set</text><text styleclass="Normal" style="font-size:9pt;" translate="true"> collection class to avoid getting duplicates. We just have to write a loop that goes around &#160;adding the random ticket numbers to a set until we get six unique values</text><text styleclass="Normal" style="font-size:8pt;" translate="true">.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

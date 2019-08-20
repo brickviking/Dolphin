@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pluggable Models</title>
+  <keywords>
+    <keyword translate="true">Pluggable Models</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pluggable Models</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you wish to change the way the data is held by a component then the model itself can be replaced by another. For example, a </text><text styleclass="Class Name" translate="true">ListPresenter</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">creates, and connects itself to, a </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true"> by default. If you take a look at the </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true"> class you&apos;ll see that it is basically a wrapper around any sequenceable collection.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note, the default model for any presenter is specified in its </text><text styleclass="Notes" style="font-style:italic;" translate="true">#defaultModel</text><text styleclass="Notes" translate="true"> class method. You&apos;ll see that </text><text styleclass="Notes" style="font-style:italic;" translate="true">ListPresenter class&gt;&gt;defaultModel</text><text styleclass="Notes" translate="true"> answers a </text><text styleclass="Notes" style="font-style:italic;" translate="true">ListModel</text><text styleclass="Notes" translate="true"> created to wrap an </text><text styleclass="Notes" style="font-style:italic;" translate="true">OrderedCollection</text><text styleclass="Notes" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Here&apos;s another example:</text></para>
+    <para styleclass="Notes"><text styleclass="Normal" translate="true">Create a standard </text><text styleclass="Normal" style="font-style:italic;" translate="true">ListPresenter</text><text styleclass="Normal" translate="true"> and fill it:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">lp:= ListPresenter show.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">lp model addAll: Object methodDictionary keys.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">However, it is also possible to create a </text><text styleclass="Normal" style="font-style:italic;" translate="true">ListPresenter</text><text styleclass="Normal" translate="true"> on a model different from the default:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">lp:= ListPresenter showOn: (ListModel on: SortedCollection new).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">lp model addAll: Object methodDictionary keys.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This time all the method selectors in the list appear in sorted order by warrant of the </text><text styleclass="Normal" style="font-style:italic;" translate="true">SortedCollection </text><text styleclass="Normal" style="font-style:normal;" translate="true">model we gave to the presenter when it was created</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

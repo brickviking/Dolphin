@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">New Method</title>
+  <keywords>
+    <keyword translate="true">New Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">New Method</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, all objects are instances of a particular class and these instances communicate with one another by sending messages. When defining a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> (or enhancing an existing one) how do we specify the behavior for messages that will be sent to the instances.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement methods to specify how an object responds to a particular message. The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="methodname" styleclass="Normal" translate="true">Method Name</link><text styleclass="Normal" translate="true"> must be the same as the message selector.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is not necessary for every class to provide methods for all of the possible messages it may receive. The object-oriented concept of inheritance can be used to allow behaviour to be inherited from a superclass that already provides an appropriate method for a particular message selector.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Add a new method using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Class_Browser" styleclass="Program Feature" translate="true">Class Browser</link><text styleclass="Normal" translate="true">:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Open the browser and select the appropriate class to which the method is to be added. Bear in mind that there are </text><text styleclass="Normal" translate="true">instance methods</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Normal" translate="true">class methods</text><text styleclass="Normal" translate="true"> and you must choose the appropriate </text><text styleclass="Program Feature" translate="true">Instance</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">or </text><text styleclass="Program Feature" translate="true">Class</text><text styleclass="Normal" translate="true"> mode</text><text styleclass="Normal" translate="true"> in the browser to make sure the new method goes on the correct &quot;side&quot;.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Choose an appropriate </text><link displaytype="text" defaultstyle="true" type="topiclink" href="methodname" styleclass="Normal" translate="true">Method Name</link><text styleclass="Normal" translate="true"> to describe the method. This is the same as the message selector that will be used to invoke it.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Use the</text><text styleclass="Menu Command" translate="true"> Method/New</text><text styleclass="Normal" translate="true"> command to clear out the source pane in the browser and type the new method definition. Use </text><text styleclass="Menu Command" translate="true">Workspace/Accept (Ctrl+S)</text><text styleclass="Normal" translate="true"> to compile it and commit the change to the current class.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Categorize the method using </text><text styleclass="Menu Command" translate="true">Method/Add Category</text><text styleclass="Normal" translate="true">. Including the method in an appropriate category can make it easy to find for developers who are unaccustomed with the class.</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="methodname" styleclass="Normal" translate="true">Method Name</link></para>
+  </body>
+</topic>

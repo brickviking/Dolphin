@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class Icons Summary</title>
+  <body>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Many classes have been given icons to make them easier to identify in the different tools. Here are some of the icons for the more important classes.</text></para>
+    <para styleclass="Popup Box"><table rowcount="4" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Popup Box"><image src="Object.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:390px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">This is the default icon for all objects. Many classes will override their </text><text styleclass="Class Name" translate="true">#icon</text><text styleclass="Popup Box" translate="true"> method but those that do not will be represented by this icon.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Popup Box"><image src="Model.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:390px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">This is the default icon for all </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Popup Box" translate="true"> classes. A </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Popup Box" translate="true"> is a key component of the Dolphin MVP framework. Many </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Popup Box" translate="true"> subclasses will choose to override this icon.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Popup Box"><image src="View.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:390px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">This is the default icon for </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Popup Box" translate="true"> classes. A </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Popup Box" translate="true"> is another key component of the MVP framework. Many </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Popup Box" translate="true"> subclasses will also override this icon.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:middle">
+        <td style="width:42px;">
+          <para styleclass="Popup Box"><image src="Presenter.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:390px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">This is the default icon for </text><text styleclass="Class Name" translate="true">Presenter</text><text styleclass="Popup Box" translate="true"> classes. </text><text styleclass="Popup Box" style="font-style:italic;" translate="true">Presenters</text><text styleclass="Popup Box" translate="true"> are also components of MVP. Many </text><text styleclass="Class Name" translate="true">Presenters</text><text styleclass="Popup Box" translate="true"> will choose to override this icon.</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Idea Space Cards</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Idea Space Cards</text></para>
+    </header>
+    <para styleclass="Normal"><image src="IdeaSpaceCardTools.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each Idea Space card is given its own mini-toolbar at top right. This allows you to perform various operations on the card itself rather than the tool that the card displays. From left to right, the operations are:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">Go Back</text><text styleclass="Normal" translate="true"> to the previous card. A history list of cards visited is kept. This button allows you to go back to the previously selected card in this list.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">Go Forward</text><text styleclass="Normal" translate="true"> to the next card in the history list. Obviously, this option is only available if you have previously use the </text><text styleclass="Program Feature" translate="true">Go Back</text><text styleclass="Normal" translate="true"> button.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">Move Left</text><text styleclass="Normal" translate="true">, moves the current card&apos;s tab to the left.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">Move Right</text><text styleclass="Normal" translate="true">, moved the current card&apos;s tab to the right.</text></li>
+      <li styleclass="Normal"><text styleclass="Program Feature" translate="true">Close Card</text><text styleclass="Normal" translate="true">, closes the current card. If there are any unsaved changes you will be prompted before the card is closed.</text></li>
+    </list>
+  </body>
+</topic>

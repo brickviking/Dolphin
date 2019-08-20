@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Project Editions Browser Tool</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">Project Editions Browser Tool</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="Project Editions Browser.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:214px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Opens the </text><text styleclass="Program Feature" translate="true">Project Editions Browser</text><text styleclass="Popup Box" translate="true"> which can be used to browse, and edit, p</text><text styleclass="Normal" translate="true">roject</text><text styleclass="Popup Box" translate="true"> editions stored in the STS repository.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Popup Box" translate="true"> introduces the notion of a project into </text><var styleclass="Popup Box">&lt;%APP%&gt;</var><text styleclass="Popup Box" translate="true">. </text><text styleclass="Popup Box" translate="true">Using this tool you can choose to load any particular </text><text styleclass="Program Feature" translate="true">Project</text><text styleclass="Popup Box" translate="true"> version into your image. </text><text styleclass="Popup Box" translate="true">A </text><text styleclass="Program Feature" translate="true">Project</text><text styleclass="Popup Box" translate="true"> is a logical grouping of packages that are versioned into the repository as a whole. </text></para>
+  </body>
+</topic>

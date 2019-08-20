@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Monitoring Blocking Calls</title>
+  <keywords>
+    <keyword translate="true">Monitoring Blocking Calls</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Monitoring Blocking Calls</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So far we have been using blocking Socket calls executed from a workspace and therefore relying on the fact that another user interface process will be automatically started when the original is blocked. If you were to use these calls from within your application classes you would normally want to start-up a background process specifically for this purpose. Maintaining one or more background processes can be tedious, especially in situations where the requirements are fairly straightforward. For this reason, we have introduced a class, </text><text styleclass="Class Name" translate="true">BlockingCallMonitor</text><text styleclass="Normal" translate="true">, to help with the task of maintaining a background process in which a blocking call can be easily made and monitored.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once instantiated, a </text><text styleclass="Class Name" translate="true">BlockingCallMonitor</text><text styleclass="Normal" translate="true"> instance can be configured with a Block that, when evaluated, will run the proposed blocking call. It can also be configured with Blocks to be executed when the call completes or when an error occurs. The default completion block merely triggers a #completedWith: event that will be supplied with the result of the call as its argument. The default error block re-signals the error, but you might often replace this with another Block that triggers an appropriate event.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">First, a simple example demonstrating how a </text><text styleclass="Class Name" translate="true">BlockingCallMonitor</text><text styleclass="Normal" translate="true"> can be used to indicate when an STB streamed object has been received and fully assembled by a </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true">. In the Server workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">monitor := BlockingCallMonitor callBlock: [socketA receive].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">monitor when: #completedWith: send: #notify: to: MessageBox.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">monitor monitor.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Tip: note that the parameter passed when</text><text styleclass="Class Name" translate="true"> #completedWith: </text><text styleclass="Normal" translate="true">is triggered will also be forwarded as the parameter to </text><text styleclass="Class Name" translate="true">MessageBox&gt;&gt;notify:</text><text styleclass="Normal" translate="true">. For this reason, this example only works when </text><text styleclass="Class Name" translate="true">socketA</text><text styleclass="Normal" translate="true"> receives </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> objects.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now, in the Client workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;Hello Sockets&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;Hello Again&apos;.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For each send of a </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> from </text><text styleclass="Class Name" translate="true">socketB</text><text styleclass="Normal" translate="true"> you should see the monitor bring up a </text><text styleclass="Class Name" translate="true">MessageBox</text><text styleclass="Normal" translate="true"> displaying the string&apos;s value. Since the monitor is repeatedly evaluating the call block on its background process this can continue ad-infinitum if required.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should always aim to terminate a </text><text styleclass="Class Name" translate="true">BlockingCallMonitor&apos;s</text><text styleclass="Normal" translate="true"> monitoring process when you finished using it. Otherwise, the monitor object will not be garbage collected. In the Server workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">monitor terminate.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As a more complicated example let&apos;s see how multiple </text><text styleclass="Class Name" translate="true">BlockingCallMonitors</text><text styleclass="Normal" translate="true"> can be used to easily implement a complete &quot;Smalltalk Server&quot; capable of servicing multiple client connections. Because of the complexity, you should probably copy the code below into a new workspace via the clipboard to avoid any obvious typos that might prevent it from working first time.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Here is the code to set up the Smalltalk Server&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">serverSocket := ServerSocket port: 2048.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">acceptanceMonitor := BlockingCallMonitor new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">acceptanceMonitor callBlock: [serverSocket accept].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">acceptanceMonitor completionBlock: [:socket |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;serverMonitor := BlockingCallMonitor new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;serverMonitor callBlock: [Compiler evaluate: socket receive logged: false].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;serverMonitor completionBlock: [:answer | socket send: answer].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;serverMonitor errorBlock: [:error | Sound beep. serverMonitor terminate].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;serverMonitor monitor ].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">acceptanceMonitor monitor.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A new </text><text styleclass="Class Name" translate="true">ServerSocket</text><text styleclass="Normal" translate="true"> is set up on port 2048. A </text><text styleclass="Class Name" translate="true">BlockingCallMonitor</text><text styleclass="Normal" translate="true"> is created (the </text><text styleclass="Class Name" translate="true">acceptanceMonitor</text><text styleclass="Normal" translate="true">) to accept connection requests from clients and, as each arrives, another one is instantiated (the </text><text styleclass="Class Name" translate="true">serverMonitor</text><text styleclass="Normal" translate="true">) to receive and handle the Smalltalk evaluations. Note that we are using the error block of the </text><text styleclass="Class Name" translate="true">serverMonitor</text><text styleclass="Normal" translate="true"> to detect any errors and shut down the monitor process. This will also detect the situation when the client socket is closed and clean up appropriately.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now, let&apos;s connect some clients and make some requests of the server.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Client A&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA := Socket port: 2048 address: (InternetAddress ipAddress: #[192 168 0 1]).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA connect.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA send: &apos;5 factorial&apos;; receive. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Client B&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB := Socket port: 2048 address: (InternetAddress ipAddress: #[192 168 0 1]).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB connect.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;3+4&apos;; receive. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;((1 to: 10) collect: [:i | i ]) reverse&apos;; receive. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Close each client&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketA close.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB close.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As each client socket is closed you should hear a beep as the appropriate error block is executed and the corresponding </text><text styleclass="Class Name" translate="true">serverMonitor</text><text styleclass="Normal" translate="true"> is terminated. When you&apos;re finished, don&apos;t forget to clean up the </text><text styleclass="Class Name" translate="true">acceptanceMonitor</text><text styleclass="Normal" translate="true"> before closing the workspace.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">acceptanceMonitor terminate.</text></para>
+  </body>
+</topic>

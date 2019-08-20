@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Contained Package Editions Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Contained Package Editions Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Contained_Package_Editions_Pa2"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Package editions belonging to the project can be manipulated by using the toolbar which is located above the pane. Using appropriate toolbar buttons you can add to, remove from, and reorder package load order for the selected project edition.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following commands are available from the </text><text styleclass="Program Feature" translate="true">Contained Package Editions</text><text styleclass="Normal" translate="true"> context menu:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Add/Replace with..</text><text styleclass="Normal" translate="true">. - Use this function to add a package edition to the selected project edition. If you need to replace a certain version of the package with another you can do this too simply by selecting a different version of the package. In case a package of the same name already exists in the project edition, then the newly selected package edition will replace previously included edition. This option only works if an open edition of a project is selected.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Replace with loaded Edition</text><text styleclass="Normal" translate="true"> - Use this function to drop the loaded package edition into the selected project edition. STS keeps track of loaded package editions so that this way you can easily add a package edition which is already loaded in the image. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Remove</text><text styleclass="Normal" translate="true"> - Removes selected package editions from the selected project edition.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - Loads/installs the selected package editions into Dolphin image.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Browse Editions</text><text styleclass="Normal" translate="true"> - Opens a Package Editions Browser window and displays a list of all package editions for the selected package.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Compare with...</text><text styleclass="Normal" translate="true"> - Compares the package edition in the project with another package edition in the repository. First you are asked to selected another package edition with wich to compare and afterwards all differences are shown in the Comparison Browser.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Import Package</text><text styleclass="Normal" translate="true"> - Use this function to import a package or exported package edition into repository.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Export</text><text styleclass="Normal" translate="true">... - Use this function to export the package edition into a file.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">File Out As</text><text styleclass="Normal" translate="true"> - Use on of these functions to file-out the selected package edition source code into a VisualWorks, Squeak or Smalltalk/X change set file. You can then replay the change set file on the desired target platform to port the code from Dolphin Smalltalk to other Smalltalk dialects.</text></li>
+    </list>
+  </body>
+</topic>

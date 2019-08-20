@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Workspace Variables</title>
+  <keywords>
+    <keyword translate="true">Workspace Variables</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Workspace Variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you are working in a workspace it is very useful to be able to assign the results of your expression evaluations to variables. You can, of course, use the normal Smalltalk temporary variable syntax (e.g.| myVar1 myVar2 |) but this is often inconvenient since the variables will go out of scope as soon as the evaluation has completed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Instead, the Dolphin workspace provide you with the possibility of using </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Workspace Variables</text><text styleclass="Normal" translate="true">. If you make a standard Smalltalk assignment to a variable beginning with a lowercase letter there is very all will be automatically created and held by the workspace itself.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note: If you try to assign to a variable starting with an uppercase letter, the workspace will, instead, prompt to see if you wish to create a global in the Smalltalk dictionary. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">myVar := 200 factorial. &quot;Evaluate it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">myVar. &quot;Display it&quot;</text><br/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Please note that workspace variables remain in existence (and hold onto the objects which are assigned to them) until the workspaces close or they are explicitly deleted. The variables are held in a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="ReferringtoPoolDictionaryConstants" styleclass="Normal" style="font-weight:normal;" translate="true">Pool Dictionary</link><text styleclass="Normal" translate="true"> which can be inspected using the </text><text styleclass="Normal" translate="true">Workspace/Variables</text><text styleclass="Normal" translate="true"> command. From this Inspector you can choose to edit the variables or remove them.</text></para>
+  </body>
+</topic>

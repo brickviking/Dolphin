@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">View Composer</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">View Composer</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="View_Composer_Summary"/></para>
+    <para styleclass="Normal"><image src="ViewComposerMain.png" scale="52.87%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A new, empty </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Menu Command" translate="true">Tools/Class Browser</text><text styleclass="Normal" translate="true"> menu command in any tool. &#160;However, it is more common to open a </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> directly onto a particular view resource by double-clicking it in the</text><text styleclass="Program Feature" translate="true">&#32;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Browser" styleclass="Program Feature" translate="true">View Browser</link><text styleclass="Program Feature" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> consists of the following panes:</text></para>
+  </body>
+</topic>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Classes</title>
+  <keywords>
+    <keyword translate="true">Dolphin User&apos;s Guide - Package Contents - Classes</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Classes</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Classes are defined with the following expression:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #SourceManager</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;imagePath imageStamp &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;classVariableNames: &apos;ChangesIndex ChunkTerminator DefaultInstance SourcesIndex &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;poolDictionaries: &apos;&apos;!</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is the same as the standard except the category of the class is not set at this stage. Dolphin allows a class to belong to a number of class categories.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">!SourceManager categoriesForClass!Change Control!Kernel-Change! !</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This will make the </text><text styleclass="Class Name" translate="true">SourceManager</text><text styleclass="Normal" translate="true"> belong to both the supplied categories. If the </text><text styleclass="Class Name" translate="true">#categoriesForClass</text><text styleclass="Normal" translate="true"> message was not sent to the class it is placed in the &apos;No category&apos; class category.</text></para>
+  </body>
+</topic>

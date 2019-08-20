@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Prompting for a new Animal</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Prompting for a new Animal</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So we saw in the last method a need to have a way of creating a new </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> by prompting for its name. Well here it is.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal class&gt;&gt;prompt</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Prompt for a new animal to add to the game&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| newName |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">[newName isNil or: [newName isEmpty]] whileTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">newName := Prompter prompt: &apos;Tell me, what animal were you thinking of?</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">It was a...&apos; caption: &apos;So, you win...&apos;].</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^self name: newName</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see the method makes use of a class called </text><text styleclass="Class Name" translate="true">Prompter</text><text styleclass="Normal" translate="true">, which can be used to prompt the user to enter a text string. This is checked for validity and then used to create a new </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> instance using our original </text><text styleclass="Class Name" translate="true">#name</text><text styleclass="Normal" translate="true">: method. Remember too that it is a </text><text styleclass="Program Feature" translate="true">class</text><text styleclass="Normal" translate="true"> method so you must have the </text><text styleclass="Program Feature" translate="true">Class</text><text styleclass="Normal" translate="true"> mode selected in the browser when you create it.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: The method is complicated slightly by the fact that we have to check that </text><text styleclass="Notes" style="font-style:italic;" translate="true">Prompter</text><text styleclass="Notes" translate="true"> does answer a valid name. If we didn&apos;t do this you&apos;d find that the game would pretty soon go horribly wrong. </text></para>
+  </body>
+</topic>

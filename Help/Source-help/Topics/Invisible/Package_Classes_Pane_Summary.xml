@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Browser Classes Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Classes Pane</text><text styleclass="Normal" translate="true"> displays a list of classes that are owned by the currently selected package.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dragging a class object from one of the other browsers and dropping it over this pane will add that class to the selected package. If the class was already a member of a different package it will be removed from that since a class cannot belong to more than one package at once.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Double-clicking a class in this pane will open it into a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Setting_the_Default_Browser" styleclass="Normal" translate="true">default browser</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Global Name</title>
+  <keywords>
+    <keyword translate="true">Global Name</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Global Name</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Ignoring classes, which are </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossglobal" styleclass="Normal" translate="true">global</link><text styleclass="Normal" translate="true"> variables by definition, you probably shouldn&apos;t add very many </text><link displaytype="text" defaultstyle="true" type="topiclink" href="globalvariable" styleclass="Normal" translate="true">Global Variables</link><text styleclass="Normal" translate="true"> during application development. However, when you do, it is helpful to be able to easily identify them by making use of a standard naming policy.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Make all global variable names begin with an uppercase letter. If the name has been derived from a phrase that contains more than one word, then use </text><link displaytype="text" defaultstyle="true" type="topiclink" href="wordcapitalization" styleclass="Normal" translate="true">Word Capitalization</link><text styleclass="Normal" translate="true"> to create the name.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may consider prefixing all of your application global names with an identical short string that identifies the application. This will help to avoid name clashes if your application package is likely to be installed into another image where others have already made use of the same global names.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Currently, with the lack of namespace support in the Smalltalk language, there is no real way around the issue of name clashes. Use of a common prefix will alleviate the problem but, almost inevitably, reduce the readability of client code that uses the globals.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="classname" styleclass="Normal" translate="true">Class Name</link></para>
+  </body>
+</topic>

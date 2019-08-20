@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #28</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">You don&apos;t need to explicitly declare the variables you use in a </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true">. Dolphin automatically creates a variable for you the first time it is used and retains it&apos;s value while the </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true"> is open. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can inspect the current variables held by a </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true">, and their values, using the </text><text styleclass="Menu Command" translate="true">Workspace/Variables</text><text styleclass="Normal" translate="true"> menu.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

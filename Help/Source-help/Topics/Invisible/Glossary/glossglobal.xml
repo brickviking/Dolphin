@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossglobal</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Global</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An object that is held by the Smalltalk dictionary. Most classes are globals, as are most pool dictionaries. It is not normally necessary for an application to create many (or, indeed, any) additional globals apart from the classes of which it is comprised. Instead, it is usually considered better practice to use Class Variables to hold an application&apos;s global data.</text></para>
+  </body>
+</topic>

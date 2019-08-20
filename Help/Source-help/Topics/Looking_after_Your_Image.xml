@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Looking after Your Image</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Looking after Your Image</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Inside the image virtually everything is exposed to you. You can modify any of the objects and their behavior in anyway you like. This is naturally very powerful since you can easily tailor any of the development tools to exactly your own requirements and you can even build and integrate your own tools completely into the environment.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">However, this flexibility comes at a price; it can also be dangerous. For example, it&apos;s always possible that you might make a change to one of the system base classes which breaks it in such a way that the development tools no longer operate correctly. If this happens, then your image may no longer be viable and you may have to rely on a backup to continue working.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is not as bad as it sounds. Providing you save your image regularly then you can always revert to the saved copy on disk by exiting Dolphin and restarting. You will obviously lose any changes that were made since the last image save but, even then, there are tools available so that you can recover these changes with very little effort.</text></para>
+  </body>
+</topic>

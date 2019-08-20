@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Representing an object as text</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Representing an object as text</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There are many situations where we might want to display one of our objects as a text string. By convention, Smalltalk provides a number of methods defined in </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> for this purpose. </text></para>
+  </body>
+</topic>

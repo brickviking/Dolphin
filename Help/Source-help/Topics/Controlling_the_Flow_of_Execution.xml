@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Controlling the Flow of Execution</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Controlling the Flow of Execution</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now let&apos;s put these boolean expressions to some good use. Based on the result of a particular expression we might want to execute or skip a piece of code. This is how it&apos;s done in Smalltalk (you don&apos;t need to </text><text styleclass="Menu Command" translate="true">Display it</text><text styleclass="Normal" translate="true">):</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(simon radius &gt; charlie radius) ifTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">MessageBox notify: &apos;Simon is bigger than Charles&apos;].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">What&apos;s going on here? The boolean expression testing the two radii answers </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true"> (because we grew </text><text styleclass="Class Name" translate="true">simon</text><text styleclass="Normal" translate="true"> slightly earlier). Like everything else, a boolean value such as </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true"> is still an object and is therefore capable of handling messages sent to it. Here we send it </text><text styleclass="Class Name" translate="true">#ifTrue</text><text styleclass="Normal" translate="true">: which takes as its parameter a block of code to execute in the case that the receiver is indeed </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true">. The block of code is enclosed in square brackets []. If the receiver is </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true"> then the block does not get executed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There are also additional messages that can be sent to boolean objects along similar lines.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;#ifFalse:&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(charlie color=Color green) ifFalse: [</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;If charlie is not green make him so&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">charlie color: Color green ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;#ifTrue:ifFalse:&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(Time now hours&gt;6) </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Turn charlie off at night&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifTrue: [charlie color: Color yellow]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifFalse: [charlie color: Color black].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This message offers the choice between executing one of two blocks of code. You must remember, though, that </text><text styleclass="Class Name" translate="true">#ifTrue:ifFalse:</text><text styleclass="Normal" translate="true"> is a single keyword message taking two parameters. Hence there must not be a dot separator after the first block since this would terminate the statement at this point (and you&apos;ll subsequently receive an error from the Dolphin compiler).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For convenience, there is also the reverse message:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;#ifFalse:ifTrue:&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(Time now hours&gt;6) </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Turn charlie off at night&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifFalse: [charlie color: Color black]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifTrue: [charlie color: Color yellow].</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

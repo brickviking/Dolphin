@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Assignment</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Assignment</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk uses := for assignment.</text></para>
+    <para styleclass="Normal"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Java</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Smalltalk</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">a = 5;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:312px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;" translate="true">a := 5</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

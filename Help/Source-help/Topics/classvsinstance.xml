@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class vs Instance</title>
+  <keywords>
+    <keyword translate="true">Class vs Instance</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class vs Instance</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There are two broad categories of exception handling systems in Smalltalk implementations:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Class based, as exemplified by Dolphin.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Instances (or Signal) based, as exemplified by the legacy exception system in VisualWorks™</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although the instance-based mechanism does have a slight space advantage (no new classes are needed), this is outweighed by the advantages of a class-based mechanism, such as the ability to add state and behaviour. In fact the exception handling specified in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossansistandard" styleclass="Normal" translate="true">ANSI standard</link><text styleclass="Normal" translate="true"> for Smalltalk is class-based.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin has a class based exception mechanism that is compliant with the ANSI standard, but also implements an instance-based mechanism on top of this (</text><text styleclass="Class Name" translate="true">Signal</text><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Dolphin&apos;s class based exception handling implementation, exceptions are represented by subinstances of the class </text><text styleclass="Class Name" translate="true">Exception</text><text styleclass="Normal" translate="true">. Specific types of exception are instantiated and signalled (e.g. by sending the </text><text styleclass="Class Name" translate="true">#signal</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message to the class), after which user defined exception handlers can &#160;catch (typically by specifying the relevant class or classes of exception) and handle them. Exception handlers are normal Smalltalk blocks, but can also affect the execution state (e.g. to unwind the stack up to that point, or to continue execution as if nothing had happened) by sending messages to the exception itself, which is passed to the handler block as an argument.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The user is free to define new classes of exception, so an exception can include whatever information about the error condition that is required, and one can also define methods to add (or override) behaviour..</text></para>
+  </body>
+</topic>

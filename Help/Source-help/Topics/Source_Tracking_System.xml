@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Source Tracking System</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Source Tracking System</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> is an add-on for the Dolphin Smalltalk development environment that lets you track your project in a team environment. It uses an object oriented database </text><text styleclass="Program Feature" translate="true">OmniBase</text><text styleclass="Normal" translate="true"> as a source code repository where all changes to methods, classes or packages are stored as soon as they are made. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Features include browsing of old method/class/package/project/view editions, </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Changes_Browser" styleclass="Normal" translate="true">comparing changes</link><text styleclass="Normal" translate="true"> between them, loading partial code from packages without installing them, merging code from different package editions and team development support. </text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> also introduces projects into the Dolphin Smalltalk environment with which you can group multiple package versions together and load them all at once in a predefined order.</text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> extends the Dolphin Smalltalk environment with the following system extensions:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Extensions to the Class Browser </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Extensions to the Packages Browser </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Extensions to the System Browser</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Source Tracking System </text><text styleclass="Normal" translate="true">also adds the following new tools and browsers:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Program Feature" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Program Feature" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Method_Editions_Browser" styleclass="Program Feature" translate="true">Method Editions Browser</link><text styleclass="Program Feature" translate="true">&#32;</text></li>
+      <li styleclass="Program Feature" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Class_Editions_Browser" styleclass="Program Feature" translate="true">Class Editions Browser</link><text styleclass="Program Feature" translate="true">&#32;</text></li>
+      <li styleclass="Program Feature" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Editions_Browser" styleclass="Program Feature" translate="true">Package Editions Browser</link><text styleclass="Program Feature" translate="true">&#32;</text></li>
+      <li styleclass="Program Feature" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Project_Editions_Browser" styleclass="Program Feature" translate="true">Project Editions Browser</link><text styleclass="Program Feature" translate="true">&#32;</text></li>
+      <li styleclass="Program Feature" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Changes_Browser" styleclass="Program Feature" translate="true">Comparison Browser</link></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">New browsers also add some additional functionality including the ability to import and export Smalltalk source code to and from other Smalltalk dialects.</text></para>
+  </body>
+</topic>

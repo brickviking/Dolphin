@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosseventprotocol</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Event Protocol</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A contract indicating that an object is required to trigger a particular set of events. Event protocols are particularly relevant for </text><link displaytype="text" defaultstyle="true" type="topiclink" href="ModelViewPresenter" styleclass="Normal" translate="true">MVP</link><text styleclass="Normal" translate="true"> when deciding which views can successfully work with which models.</text></para>
+  </body>
+</topic>

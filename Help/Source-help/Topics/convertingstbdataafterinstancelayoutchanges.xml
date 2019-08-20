@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Converting STB data after instance layout changes</title>
+  <keywords>
+    <keyword translate="true">Converting STB data after instance layout changes</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Converting STB data after instance layout changes</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This can be a difficult job so it is worth stating right at the start that if you never rely on old STB data then you don&apos;t need to bother yourself with STB conversion issues!</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When an object&apos;s data is written to the stream, its instance variables are written out in the order they appear in its definition, followed by any indexed variables. If the order or number of instance variables is changed then STB data stored before the change will either have the wrong meaning in a new instance, will not fit a new instance or both. Loading old-format instances is possible using the STB versioning mechanism.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All object data is prefixed by a reference to its basic class credentials including the STB version number of the class when the data was written. If a class undergoes a change in its format and it is necessary to load its old format from STB data then you need to write a conversion method to translate the old data to the new format or indeed to an instance of some other class.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You need to make essentially two changes:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Increment the STB version number of the class</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Provide a conversion method to translate the layout</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Override the class method </text><text styleclass="Class Name" translate="true">#stbVersion</text><text styleclass="Normal" translate="true"> to answer the new format version number. By default this method answers 0 so for a first change a new version number of 1 is required - be careful to ascertain the impact of the version number on subclasses.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Then you need to provide/amend the </text><text styleclass="Class Name" translate="true">#stbConvertFrom</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class method which is passed an instance of </text><text styleclass="Class Name" translate="true">STBClassFormat</text><text styleclass="Normal" translate="true"> describing the format and version number of the old object. This method should answer nil if it can&apos;t convert from the version identified causing the </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> to signal an </text><text styleclass="Class Name" translate="true">STBError</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The method should answer a monadic valuable (generally a block) that answers a new, current format instance initialized from the old data. It is important that the block answer a new object because the </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> uses </text><text styleclass="Class Name" translate="true">#become</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> to swap the temporary old data object with the new object. The old data is represented by an </text><text styleclass="Class Name" translate="true">Array</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true"> passed as the block&apos;s single parameter. You can calculate the </text><text styleclass="Class Name" translate="true">basicSize</text><text styleclass="Normal" translate="true"> (indexed size) of the old object by querying </text><text styleclass="Class Name" translate="true">STBClassFormat&gt;&gt;#instSize.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Where several version changes occur it may be advisable to re-use previous converters using the following technique.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">stbConvertFrom: anSTBClassFormat</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Answer a block to convert the given data array to</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;an instance of the current version.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| selector array newInstance |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^[:data |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;array := data.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;anSTBClassFormat version to: self stbVersion - 1 do: [:version |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;selector := (&apos;convertFromVersion&apos;, version asString, &apos;:&apos;) asSymbol.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;array := self perform: selector with: array].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;newInstance := self basicNew.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;1 to: self instSize do: [:i |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;newInstance instVarAt: i put: (array at: i)].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;newInstance]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that the old object could be replaced by an object of an entirely different class.</text></para>
+  </body>
+</topic>

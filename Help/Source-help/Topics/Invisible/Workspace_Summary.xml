@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Workspace Summary</title>
+  <body>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">A </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Popup Box" translate="true"> is a general place where snippets of Smalltalk code can be edited and executed. The ability to interactively communicate with the live objects in your image is one of the things that makes Smalltalk such a productive development environment. </text></para>
+  </body>
+</topic>

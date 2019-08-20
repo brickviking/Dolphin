@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">STB Debugging</title>
+  <keywords>
+    <keyword translate="true">STB Debugging</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">STB Debugging</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you should have trouble creating a proxy, loading from an STB stream or simply want to know more about STB then try using an </text><text styleclass="Class Name" translate="true">STBDebugger</text><text styleclass="Normal" translate="true"> in place of an </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true">. This simply writes a text representation of what is being read to the </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each object read from the stream outputs a line of text starting with the offset within the stream. Then, after indenting to indicate nesting of the object, the objects prefix is shown in square brackets. Note that some objects such as a </text><text styleclass="Class Name" translate="true">SmallInteger</text><text styleclass="Normal" translate="true"> live entirely within their own prefix. If the prefix contains only a quoted string then the prefix identifies the first instance of the named class - subsequent instances are prefixed by the class name without the quotes. If the prefix contains something in angle brackets then it represents a reference to that object. For objects which have more than a prefix, their indexed size follows even for non-indexed classes </text><text styleclass="Normal" translate="true">(whoops)</text><text styleclass="Normal" translate="true">. Finally, if the object is a byte object, they print their literal representation.</text></para>
+  </body>
+</topic>

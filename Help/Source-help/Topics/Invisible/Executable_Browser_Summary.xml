@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Executable Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Executable Browser</text><text styleclass="Normal" translate="true"> provides a means of browsing the contents of deployed executables.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you deploy a package to an executable (EXE) file using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lagoondeploymentwizard" styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</link><text styleclass="Program Feature" translate="true">,</text><text styleclass="Normal" translate="true"> you have the opportunity of writing an XML manifest log file that lists the entire contents of the stripped executable image. You can use the </text><text styleclass="Program Feature" translate="true">Executable Browser</text><text styleclass="Normal" translate="true"> to load this manifest file and browse it in the same way that you use a </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> to browse a real image.</text></para>
+  </body>
+</topic>

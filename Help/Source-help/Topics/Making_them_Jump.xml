@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Making them Jump</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Making them Jump</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Teresa, Simon and Charlie will also respond to a number of messages that ask them to perform operations. Try evaluating the following expressions with </text><text styleclass="Menu Command" translate="true">Ctrl+E</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon radius: 80.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon rotateBy: 10.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon moveUp: 30.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie color: Color magenta.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie growBy: 20.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa position: 300@100.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa chooseColor.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">growBy: 15;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">moveBy: 10 @ 15;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">color: Color green.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Remember that the last example is a </text><text styleclass="Program Feature" translate="true">cascaded sequence</text><text styleclass="Normal" translate="true"> of messages so you&apos;ll need to select all the lines at once to evaluate them simultaneously.</text></para>
+  </body>
+</topic>

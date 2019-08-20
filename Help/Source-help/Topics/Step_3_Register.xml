@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 3 Register</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 3 Register</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Active-X DLLs deployed from Dolphin are (by default) self-registering. Register the DLL with the command line: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">regsvr32 corandom.dll</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">regsvr32.exe</text><text styleclass="Normal" translate="true"> should be on the path, but if not it can be found in the windows system directory. On Windows 98 you may have to type:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c:\windows\system\regsvr32 corandom.dll</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

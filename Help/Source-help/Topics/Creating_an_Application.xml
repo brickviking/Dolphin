@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a GUI Application</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a GUI Application</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This chapter is a tutorial session that takes you through the steps needed to build a simple GUI application called </text><text styleclass="Program Feature" translate="true">Personal Money</text><text styleclass="Normal" translate="true"> using Dolphin&apos;s </text><link displaytype="text" defaultstyle="true" type="topiclink" href="ModelViewPresenter" styleclass="Program Feature" translate="true">Model-View-Presenter</link><text styleclass="Normal" translate="true"> framework.</text></para>
+  </body>
+</topic>

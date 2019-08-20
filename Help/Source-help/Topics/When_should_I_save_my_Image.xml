@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">When should I save my Image?</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">When should I save my Image?</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The image contains not only those objects that you may create yourself but also very many objects that are concerned with the Dolphin development system itself. This is a really flexible system since virtually everything is exposed to you and you can make changes that affect not only the program you may be building but also any of the development tools themselves. This can allow you to tailor the system in ways that are not possible with traditional development environments.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">However, this flexibility also brings with it certain dangers. You may, by accident, make a change that corrupts your image such that the development tools no longer work. For this reason, it is always important that you have a good saved image to go back to. I&apos;d recommend that you save your image, not only when you exit Dolphin, but also quite often during use. I suggest you do this at least every hour and once at the end of each chapter in this guide. Do take care, though, not to save down an image that you might have corrupted in any way.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s try a simple example to prove the point. Open up a new workspace window and arrange it appropriately on the screen. Now save the image using </text><text styleclass="Menu Command" translate="true">File/Save Image</text><text styleclass="Normal" translate="true"> or the </text><text styleclass="Menu Command" translate="true">Save Image</text><text styleclass="Normal" translate="true"> toolbar button (the one with the camera). This will save your current state to an image file on disk. Now let&apos;s do some irreparable damage and recover from it. Enter the following line of code into your workspace and evaluate it with </text><text styleclass="Menu Command" translate="true">Ctrl+E</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Processor := nil.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true"> You&apos;ll see that the development system will crash. This is not surprising really when you consider that you have just instructed the main processing element to disappear. However, now restart Dolphin and you should get back to the same state you were in when you previously saved the image.</text></para>
+  </body>
+</topic>

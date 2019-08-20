@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Inheritance vs. Composition</title>
+  <keywords>
+    <keyword translate="true">Inheritance vs. Composition</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Inheritance vs. Composition</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Two of the main techniques for re-using code are </text><text styleclass="Program Feature" translate="true">Class Inheritance</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and </text><text styleclass="Program Feature" translate="true">Object Composition</text><text styleclass="Normal" translate="true">.</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Program Feature" translate="true">Class Inheritance </text><text styleclass="Normal" translate="true">defines a new class in terms of an existing class. A subclass inherits both data and protocol from its superclass.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Program Feature" translate="true">Object Composition</text><text styleclass="Normal" translate="true"> defines a new class as containing an instance of one or more existing classes. This type of class inherits nothing from the objects it contains. This pattern should help you decide which technique to use.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">How do we decide when to use inheritance and when composition is more appropriate?</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A simple rule of thumb is that </text><text styleclass="Program Feature" translate="true">Class Inheritance</text><text styleclass="Normal" translate="true"> should be used only if instances of the new class can be used in all situations where the proposed superclass class can currently be used</text><text styleclass="Program Feature" translate="true">. Class Inheritance</text><text styleclass="Normal" translate="true"> not usually appropriate if the subclass needs to stub out behaviour implemented by the superclass. Use </text><text styleclass="Program Feature" translate="true">Object Composition</text><text styleclass="Normal" translate="true"> if instances of the new class do not require the complete protocol of the superclass.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consider a new class </text><text styleclass="Class Name" translate="true">Stack</text><text styleclass="Normal" translate="true"> which is implemented as an </text><text styleclass="Class Name" translate="true">Array</text><text styleclass="Normal" translate="true">. We can either subclass </text><text styleclass="Class Name" translate="true">Stack</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">from </text><text styleclass="Class Name" translate="true">Array</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(class inheritance):</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Array variableSubclass: #Stack</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;instanceVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">or we can use an instance of </text><text styleclass="Class Name" translate="true">Array</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">as a data member of </text><text styleclass="Class Name" translate="true">Stack</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(object composition):</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Stack</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;instanceVariableNames: &apos;array&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this case, it would make more sense to use object composition (the second example). Instances of </text><text styleclass="Class Name" translate="true">Stack</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">do not need to inherit the extensive </text><text styleclass="Class Name" translate="true">Collection</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">protocol.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">PropertyManager</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class uses </text><text styleclass="Program Feature" translate="true">Object Composition</text><text styleclass="Normal" translate="true">. It contains an instance of </text><text styleclass="Class Name" translate="true">WeakIdentityDictionary</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">rather than subclassing from </text><text styleclass="Class Name" translate="true">WeakIdentityDictionary</text><text styleclass="Normal" translate="true">. As a result, the protocol of </text><text styleclass="Class Name" translate="true">PropertyManager</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is very compact.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="abstractclass" styleclass="Normal" translate="true">Abstract Class</link></para>
+  </body>
+</topic>

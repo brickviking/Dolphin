@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Getting More Help on the Class Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Getting More Help on the Class Browser</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By now you should be pretty familiar with the basics of using the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true">. If you want to learn more about its use then take a look at the online help, which can be accessed by pressing F1 with the browser as the active window.</text></para>
+  </body>
+</topic>

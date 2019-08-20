@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Package Editions Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The</text><text styleclass="Program Feature" translate="true"> Package Editions Browser</text><text styleclass="Normal" translate="true"> is a new tool added to the Dolphin Smalltalk development environment by the </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true">. With this you can browse packages in the repository in the same way as you would browse a package which is installed in the image.</text></para>
+  </body>
+</topic>

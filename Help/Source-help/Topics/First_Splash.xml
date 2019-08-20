@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="SplashF" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">A First Splash with Dolphin</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">A First Splash with Dolphin</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This series of experiments contains some examples for you to try just to get started with Dolphin. The idea is to get you used to the interactive nature of the Smalltalk environment and introduce you to a little bit of Smalltalk syntax. If you already know Smalltalk it might still be worthwhile going through the examples just for a bit of fun. It should only take you about 10 minutes.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">If you&apos;re in a rush then you can ignore the text in the smaller typeface (like this). This is just supplied on an &quot;if you&apos;re interested&quot; basis.</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:97px;">
+          <para styleclass="Normal"><image src="Workspace.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:518px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">To get started, &#160;open a </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true"> by double-clicking the &quot;Workspace&quot; icon in the main Dolphin System Folder. Then position this First Splash window and your new workspace side-by-side on the screen so you can see both at the same time.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#808080;">
+      <tr style="vertical-align:top">
+        <td>
+          <para styleclass="Normal"><text styleclass="Normal" style="font-size:9pt; font-weight:normal; text-decoration:none; color:#ffffff; background-color:transparent;" translate="true">If you get lost you can always get back to this page by choosing the </text><text styleclass="Normal" style="font-size:9pt; font-weight:normal; font-style:italic; color:#ffffff; background-color:transparent;" translate="true">Help/First Splash</text><text styleclass="Normal" style="font-size:9pt; font-weight:normal; text-decoration:none; color:#ffffff; background-color:transparent;" translate="true"> menu command in any Dolphin tool window.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

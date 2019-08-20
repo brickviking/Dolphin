@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Structure Packing</title>
+  <keywords>
+    <keyword translate="true">Structure Packing</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Structure Packing</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Structures are not just the sum of their parts, at least when it comes to their size and how they should be aligned when embedded in other structures or arrays. The actual size of a structure, the alignment of the fields within it, and how it is itself aligned depends on the packing algorithm. The inputs to the packaging algorithm are:</text></para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Field size</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Structure packing constant</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Field alignment</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the case of a simple scalar field, a field will be aligned to the minimum of its size and the structure packing constant. In other words if packing is 4, a </text><text styleclass="Class Name" translate="true">WORDField</text><text styleclass="Normal" translate="true"> will align to the nearest 2-byte boundary, a </text><text styleclass="Class Name" translate="true">DWORDField</text><text styleclass="Normal" translate="true"> will be aligned to the nearest 4-byte boundary, and so will a </text><text styleclass="Class Name" translate="true">DOUBLEField</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">On Win32 platforms the standard packing constant is 8 (this corresponds to a C program compiled with the /</text><text styleclass="Class Name" translate="true">Zp8</text><text styleclass="Normal" translate="true"> compiler option). That is the maximum amount of padding between two fields is 7 bytes, e.g. the size of the structure defined by the following definition would actually be 8-bytes:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #aByte type: BYTEField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #aDouble type: DOUBLEField new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the case of a structure, its alignment when embedded in another structure is the minimum of the structure packing constant and the alignment of its largest member (which might be another embedded structure). For example the structure </text><text styleclass="Class Name" translate="true">RECT</text><text styleclass="Normal" translate="true">, when embedded in other structures such as </text><text styleclass="Class Name" translate="true">DRAWITEMSTRUCT</text><text styleclass="Normal" translate="true"> as defined above, will align to a 4-byte boundary because its largest member fields are 32-bit integers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The total size of a structure is rounded up to its alignment. For example the Active-X Automation </text><text styleclass="Class Name" translate="true">IDLDESC</text><text styleclass="Normal" translate="true"> structure, defined as follows, would appear to require 6-bytes, but is actually an 8 byte structure because its largest member has 4-byte alignment.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #dwReserved type: DWORDField filler;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #wIDLFlags type: WORDField new</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The packing algorithm described above is standard on Win32 platforms, and is sometimes referred to as &quot;natural&quot; packing, or 2-4 packing. As of version 3.0, Dolphin defaults to this standard Windows structure-packing algorithm.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Although structure packing may seem complicated, it is not normally something that it is necessary to worry about. Most external function libraries that use structures will follow the standard Windows packing, and designers often make some effort to arrange the fields so that they align correctly without requiring any packing. On the rare occasions where an alternative packing algorithm is required (the commonest being no packing), then it might be necessary to override one or more of the following methods:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Class Name" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">ExternalStructure class&gt;&gt;packing</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">ExternalStructure class&gt;&gt;alignment</text></li>
+      <li styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">ExternalStructure class&gt;&gt;offsetFor:base:</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Normally it will be sufficient to override just the first of these. For example the </text><text styleclass="Class Name" translate="true">PRINTDLG</text><text styleclass="Normal" translate="true"> structure overrides </text><text styleclass="Class Name" translate="true">#packing</text><text styleclass="Normal" translate="true"> as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">packing</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the default packing for instances of the receiver.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;This is the maximum alignment to which members of the structure</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;after the first are padded. Each field type has a natural alignment</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;(e.g. ints align to 32-bit boundaries), and it is the smaller of the</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;packing and the natural alignment which is used to decide the</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;padding necessary for the field in the structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;PRINTDLG is an old Win16 structure with byte packing.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^1</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">By overriding </text><text styleclass="Class Name" translate="true">#packing</text><text styleclass="Normal" translate="true"> can be used to accommodate different maximum packing, and has much the same effect as changing the argument to the C compilers /</text><text styleclass="Class Name" translate="true">Zp</text><text styleclass="Normal" translate="true"> flag. Specifying one as the packing indicates no packing, which is sometimes used for older Windows structures inherited from 16-bit Windows, or where space is at a premium.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An alternative to modifying the packing algorithm (overkill for a single case) is to specify the exact offsets of all the fields in the structure so that Dolphin doesn&apos;t have to work them out. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the RECT structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;typedef struct tagRECT {</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;long left;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;long top;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;long right;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;long bottom;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;} RECT;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #left type: SDWORDField new offset: 0;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #top type: SDWORDField new offset: 4;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #right type: SDWORDField new offset: 8;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #bottom type: SDWORDField new offset: 12.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self byteSize: 16</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Code Example" translate="true">RECT</text><text styleclass="Normal" translate="true"> is defined like this because the </text><text styleclass="Program Feature" translate="true">Active-X Component Wizard</text><text styleclass="Normal" translate="true"> generated it, but manual definitions may follow this form too. Note that the byte size can also be manually specified.</text></para>
+  </body>
+</topic>

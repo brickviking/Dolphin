@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Convenience methods for reading and writing objects</title>
+  <keywords>
+    <keyword translate="true">Convenience methods for reading and writing objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Convenience methods for reading and writing objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To avoid the need to create explicit STB Filer objects, we have added a couple of convenience methods to the </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> class for sending and receiving objects. You can use the #</text><text styleclass="Class Name" translate="true">send</text><text styleclass="Normal" translate="true">: method to send an object using a dynamically created </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> and then, at the destination </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true">, use #</text><text styleclass="Class Name" translate="true">receive</text><text styleclass="Normal" translate="true"> to receive it. The only disadvantage when using these methods is that they are slightly less efficient for sending large numbers of objects since a new STB Filer must be created for each one.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s illustrate the bare bones of a &quot;Smalltalk Server&quot;. We&apos;ll get the client to send bits of Smalltalk source to the server for evaluation, and the results will then be sent back to the client for display.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Server workspace, start-up a server process:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">serverProcess := [[answer := Compiler evaluate: socketA receive logged: false.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;socketA send: answer] repeat] fork.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This will repeatedly take </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> requests from the server </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> and use the compiler to evaluate them. The resulting answer object is then sent back to the client for display.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Client workspace, send some requests to the server and receive the results:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;3+4&apos;; receive. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB send: &apos;200 factorial&apos;; receive. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Obviously, you want to be somewhat careful about the requests you make of the server in this demonstration. Remember, it is serializing the actual result object across the </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> link (not just its textual representation) so, if this is very large, you might end up waiting a long time for the operation to complete. Also, be aware that not all objects are serializable using the STB mechanism.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you&apos;ve finished, shut down the server process to tidy up:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">serverProcess terminate.</text></para>
+  </body>
+</topic>

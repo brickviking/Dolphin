@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossloosemethods</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Loose Methods</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A loose method is an individual method that is added to a package even though the class to which it belongs is not a member of the same package. Loose methods are a means of augmenting the functionality in existing classes without having to modify packages that, perhaps, you do not own.</text></para>
+  </body>
+</topic>

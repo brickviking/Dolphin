@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Simple Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Simple Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">Simple Message</text><text styleclass="Normal" translate="true"> is one that requires no additional information or parameters apart from the message itself. Such messages must begin with a lower case letter and the remainder of the message keyword can consist of any letters or digits or the underscore (_) character. Try displaying the results of the following examples:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">5 squared.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here the message squared is sent to the integer object 5. All messages return an answer of some description and, in this case, it will be 25. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One great thing about Smalltalk is its ability to handle very large numbers of effectively unlimited precision. Try this:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">200 factorial</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here are some more message sends:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;mary had a little lamb&apos; asUppercase</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The message </text><text styleclass="Class Name" translate="true">asUppercase</text><text styleclass="Normal" translate="true">, when sent to a string object, causes a new string to be created with the contents of the original converted to upper case letters. This new string is then answered as the result of the message.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">#(3 4 5 6 7) size</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The message </text><text styleclass="Class Name" translate="true">size</text><text styleclass="Normal" translate="true">, when sent to this array object containing five integers, answers the number of elements in the array, in this case, 5.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The object to which a message is sent is called the </text><text styleclass="Program Feature" translate="true">receiver</text><text styleclass="Normal" translate="true">. The message itself is sometimes called a </text><text styleclass="Program Feature" translate="true">message selector</text><text styleclass="Normal" translate="true"> (because it selects which operation will be performed) and the result is generally referred to as the </text><text styleclass="Program Feature" translate="true">answer</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

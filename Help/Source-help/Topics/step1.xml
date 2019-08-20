@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 1</title>
+  <keywords>
+    <keyword translate="true">Step 1</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 1</text></para>
+    </header>
+    <para styleclass="Normal"><image src="ApplicationDeploymentWizard_Page_1.png" scale="83.86%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this step you are given the opportunity to choose a class of image stripper to use for the stripping process. The default choice is the </text><text styleclass="Class Name" translate="true">ImageStripper</text><text styleclass="Normal" translate="true"> class that comes with the basic </text><text styleclass="Program Feature" translate="true">ADK</text><text styleclass="Normal" translate="true">. If you require more advanced stripping facilities you may choose to write your own class of image stripper and you can choose to install it here.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that the standard deployment wizard is designed to set up the basic image stripper. A more advanced stripper class may require a modified wizard in order to be able to configure it completely. You may find, however, that the </text><text styleclass="Notes" style="font-weight:bold;" translate="true">Pre-Strip Script</text><text styleclass="Notes" translate="true"> available in </text><text styleclass="Notes" style="font-weight:bold;" translate="true">Step 7</text><text styleclass="Notes" translate="true"> can be used to set up additional options in an alternative stripper.</text></para>
+  </body>
+</topic>

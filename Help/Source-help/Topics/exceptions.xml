@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Exceptions</title>
+  <keywords>
+    <keyword translate="true">Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Error handling for </text><text styleclass="Class Name" translate="true">Sockets</text><text styleclass="Normal" translate="true"> is achieved through the standard </text><text styleclass="Class Name" translate="true">Exception</text><text styleclass="Normal" translate="true"> mechanism. The default outcome of an error is a walkback indicating an unhandled exception. </text><text styleclass="Class Name" translate="true">Exceptions</text><text styleclass="Normal" translate="true"> can be handled by closing the appropriate code in a block and using </text><text styleclass="Class Name" translate="true">#on:do:</text><text styleclass="Normal" translate="true">. All </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> errors are subclassed from </text><text styleclass="Class Name" translate="true">SocketError</text><text styleclass="Normal" translate="true"> but a few of the more useful errors such as </text><text styleclass="Class Name" translate="true">SocketClosed</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">SocketWaitCancelled</text><text styleclass="Normal" translate="true"> are distinguished explicitly.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: the </text><text styleclass="Notes" style="font-style:italic;" translate="true">SocketWouldBlock</text><text styleclass="Notes" translate="true"> error class is provided for internal use only and is not intended to be explicitly trapped by user code.</text></para>
+  </body>
+</topic>

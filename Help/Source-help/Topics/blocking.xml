@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Blocking</title>
+  <keywords>
+    <keyword translate="true">Blocking</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Blocking</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Many of the standard function calls in the </text><text styleclass="Class Name" translate="true">WSockLibrary</text><text styleclass="Normal" translate="true"> will block the operating system thread on which they are executing until an operation completes. &#160;Dolphin Smalltalk does not use native operating system threads. Therefore the use of such thread blocking calls is, to say the least, somewhat inconvenient since they will hang up the entire user interface for the duration of the call. Fortunately, Microsoft has provided a number of asynchronous equivalents to these functions (usually with a WSA prefix) which allows the current thread to continue while the operation takes place. The caller is then notified by means of a Windows message when the function call completes its business.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin supports multiple Smalltalk processes for multitasking purposes but, in fact, these execute on a single operating system thread (apart from garbage collection and </text><link displaytype="text" defaultstyle="true" type="topiclink" href="finalization" styleclass="Normal" translate="true">finalization</link><text styleclass="Normal" translate="true">). The </text><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> package makes extensive use of these asynchronous WSA calls to avoid blocking the Dolphin main thread but to allow the higher level calls to be able to block a Smalltalk process on a </text><text styleclass="Normal" translate="true">Semaphore</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Implementation note: the WinAsyncSocket subclass of View is used to handle the callbacks from the WSAxxx function calls. It has a singleton instance whose job it is to intercept the Windows notification messages and to redirect them to the appropriate Socket that made call. The handlers for these notifications are the #onAsyncXXX methods in SocketAbstract and its subclasses.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The result is that, to all intents and purposes, </text><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> is able to provide blocking socket operations in Dolphin.</text></para>
+  </body>
+</topic>

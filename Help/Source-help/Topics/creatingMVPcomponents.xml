@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating MVP Components</title>
+  <keywords>
+    <keyword translate="true">Elemental and Composite MVP components</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating MVP Components</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you create an </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> triad, by definition you need to bring together three objects:</text></para>
+  </body>
+</topic>

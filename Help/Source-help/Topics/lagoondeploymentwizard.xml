@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Lagoon Deployment Wizard</title>
+  <keywords>
+    <keyword translate="true">Lagoon Deployment Wizard</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Lagoon Deployment Wizard</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</text><text styleclass="Normal" translate="true"> dialog provides a step-by-step approach to deploying a Dolphin image as an executable file. The application deployment process involves stripping redundant classes and methods from an image before saving this out in the Microsoft Windows executable file format. There are a number of options available for the image stripping process and the wizard takes you through the configuration of these in a straightforward manner.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The normal way to start the </text><text styleclass="Program Feature" translate="true">Deployment Wizard </text><text styleclass="Normal" translate="true">is from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Normal" translate="true">Package Browser</link><text styleclass="Normal" translate="true">. As you progress through the wizard&apos;s steps you will be configuring an </text><text styleclass="Class Name" translate="true">ImageStripper</text><text styleclass="Normal" translate="true"> object whose job it is to perform the deployment process. If you are performing package based deployment then this image stripper will be saved along with the package and may be reused each time you choose to deploy any executable from this package.</text></para>
+  </body>
+</topic>

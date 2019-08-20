@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="SplashL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">When You&apos;ve Finished Here...</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">When You&apos;ve Finished Here...</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now you&apos;ve played around with these experiments you should have a pretty good idea of the dynamism of Smalltalk and how to use the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true"> window in Dolphin. At this point you might like to continue with:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The &quot;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="Guided_Tour" target="Main" styleclass="Normal" translate="true">Guided Tour</link><text styleclass="Normal" translate="true">&quot; from the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Help/Guided Tour</text><text styleclass="Normal" translate="true"> menu. This will take you around all of the tools available in the Dolphin environment. This is the place to go now if you already know some Smalltalk and you just want to find your way around in Dolphin.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The &quot;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="Beginners_Guide_to_Dolphin_Sma" target="Main" styleclass="Normal" translate="true">Beginner&apos;s Guide to Dolphin Smalltalk</link><text styleclass="Normal" translate="true">&quot; from the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Help/Tutorials</text><text styleclass="Normal" translate="true"> menu. If you`re not used to the Smalltalk language this tutorial will introduce you to some of the key concepts and teach you how to do some programming with the Dolphin tools.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Alternatively, if you are already a seasoned Dolphin veteran you may just wish to find out what`s new in this version. Take a quick look at </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Whats_New" target="Main" styleclass="Normal" translate="true">What`s New in Version 6</link><text styleclass="Normal" translate="true"> and then you can get straight on with some real work.</text></li>
+    </list>
+  </body>
+</topic>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Changes List Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Changes List Pane</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Change_List_Summary"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Changes List</text><text styleclass="Normal" translate="true"> has the following context menu commands available:</text></para>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Browse editions</text><text styleclass="Normal" translate="true"> - Open a list of all editions of the selected source code item. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Left</text><text styleclass="Normal" translate="true"> - Load the source code edition(s) which is displayed in the left pane into the image. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Right </text><text styleclass="Normal" translate="true">- Load the source code edition(s) which is displayed in the right pane into the image. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Remove from list</text><text styleclass="Normal" translate="true"> - Remove the source code item from the list. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Remove on load</text><text styleclass="Normal" translate="true"> - This option can be toggled on or off. If this option is turned on then the selected item(s) will be removed from the list when they are loaded into the image. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Select All... - Opens the following sub menu: </text></li>
+    </list>
+    <list id="4" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:48px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">Methods with whitespace changes in method source</text><text styleclass="Normal" translate="true"> - Clicking on this option will select all methods where the only difference between the edition on the left and edition on the right are changes in whitespace characters. This kind of changes or usualy result of reformating method source during refactoring. Using this option you can select all such differences and either load them all or remove them from the list. </text></li>
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">Methods with method category changes</text><text styleclass="Normal" translate="true"> - Clicking on this option will select all methods where the source code is the same but method category is different. </text></li>
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">Methods with whitespace and category changes</text><text styleclass="Normal" translate="true"> - Clicking on this option will select all differences where the method on the left and the method on the right is the same except differences in whitespace characters or categories.</text></li>
+    </list>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">File Out Left As..</text><text styleclass="Normal" translate="true">. - Select this to open the following sub menu: </text></li>
+    </list>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:48px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">VisualWorks Change Set </text><text styleclass="Normal" translate="true">- Clicking on this option you can export all differences on the left side as a VisualWorks change set in XML file-out format which can be replayed in the VisualWorks. </text></li>
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">Squeak Change Set</text><text styleclass="Normal" translate="true"> - Use this to file out all difference listed on the left side into Squeak change set file out format. </text></li>
+      <li styleclass="Normal" style="margin-left:48px;"><text styleclass="Menu Command" translate="true">Smalltalk/X Change Set</text><text styleclass="Normal" translate="true"> - Use this option to file out all difference listed on the left side into Smalltalk/X change set format.</text></li>
+    </list>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Browse References</text><text styleclass="Normal" translate="true"> - This method can be used on a class or a method to browse all references to a class or method selector.</text></li>
+    </list>
+  </body>
+</topic>

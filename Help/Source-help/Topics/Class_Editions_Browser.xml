@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class Editions Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class Editions Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Class_Editions_Browser_Summary"/><image src="ClassEditionsBrowser.png" scale="77.33%" styleclass="Image Caption"></image></para>
+  </body>
+</topic>

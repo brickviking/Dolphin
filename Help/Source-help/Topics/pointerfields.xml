@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Pointer Fields</title>
+  <keywords>
+    <keyword translate="true">Pointer Fields</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Pointer Fields</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is common to find pointers (addresses) embedded in structures where we are not particularly interested in the pointer itself, but the object at which it is pointing. We represent these with </text><text styleclass="Class Name" translate="true">PointerField</text><text styleclass="Normal" translate="true"> instances. When instantiating pointer fields we generally need to specify the type of object that the pointer is expected to be pointing at, so that the structure can de-reference the pointer and return a Smalltalk object of the correct type (use the scalar field </text><text styleclass="Class Name" translate="true">LPVOIDField</text><text styleclass="Normal" translate="true"> to avoid having pointer de-referenced automatically). A common example is pointers to C strings; </text><text styleclass="Class Name" translate="true">DOCINFO</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">has a few of these:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the Win32 DOCINFO structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;typedef struct { &#160; &#160; // di</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;int cbSize;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LPCTSTR lpszDocName;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LPCTSTR lpszOutput;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LPCTSTR lpszDatatype; // Windows 95 only; ignored on Windows NT</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;DWORD &#160; &#160;fwType; // Windows 95 only; ignored on Windows NT</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;} DOCINFO;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #cbSize type: DWORDField writeOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpszDocName type: (PointerField to: String) beWriteOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpszOutput type: (PointerField to: String) beWriteOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpszDatatype type: (PointerField to: String) beWriteOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #fwType type: DWORDField writeOnly</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Pointers to Structures</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Less commonly we may need to define a pointer field to another structure type, and we can use </text><text styleclass="Class Name" translate="true">PointerFields</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to do this too. An example can be found in the </text><text styleclass="Class Name" translate="true">CHOOSEFONT</text><text styleclass="Normal" translate="true">, </text><text styleclass="Normal" translate="true">where the </text><text styleclass="Class Name" translate="true">lpLogFont</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">field is described as a </text><text styleclass="Class Name" translate="true">PointerField</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to </text><text styleclass="Class Name" translate="true">LOGFONT</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the Win32 CHOOSEFONT structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;This structure is used only for communication with the font dialog,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;so we don&apos;t compile it.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;CHOOSEFONT defineTemplate</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;typedef struct &#160; &#160;{</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;DWORD lStructSize;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;HWND hwndOwner;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;HDC hDC;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LPLOGFONT lpLogFont;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;INT iPointSize;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;...</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;} CHOOSEFONT;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lStructSize type: DWORDField writeOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #hwndOwner type: DWORDField writeOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #hDC type: DWORDField writeOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpLogFont type: (PointerField to: LOGFONT);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #iPointSize type: DWORDField readOnly;</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true"> &#160; &#160; &#160; &#160;...</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If storing a pointer to a Smalltalk object into a structure one must be careful to ensure that the lifetime of the object corresponds to the time span over which the structure is used, and this may entail maintaining a reference to the Smalltalk object in an instance variable added to the </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">for that purpose. For example, the </text><text styleclass="Class Name" translate="true">TV_ITEM</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class includes a field, </text><text styleclass="Class Name" translate="true">pszText</text><text styleclass="Normal" translate="true">, which is a pointer to string data. When text is set into a </text><text styleclass="Class Name" translate="true">TV_ITEM</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">via the </text><text styleclass="Class Name" translate="true">#text</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message, the </text><text styleclass="Class Name" translate="true">pszText</text><text styleclass="Normal" translate="true"> pointer field is set to point to the bytes of the </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true">, and the string is saved into the </text><text styleclass="Normal" translate="true">text </text><text styleclass="Normal" translate="true">instance variable of </text><text styleclass="Class Name" translate="true">TV_ITEM</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Even more care over storing pointers to Smalltalk objects into structures passed to external functions is necessary if those function capture the pointer for future use (e.g. the binding of columns to buffers in ODBC). The Dolphin object memory may move objects around during garbage collection, so one cannot normally rely on objects having a fixed address. This has no impact on Smalltalk, because it does not rely on direct memory addresses, but it may upset external subsystems.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To simplify interfacing with external systems that capture addresses, the Dolphin VM includes a special memory allocator for byte objects that allocates from a conventional heap. Objects allocated from the &quot;fixed&quot; heap, are guaranteed to maintain the same address for their lifetime (or that of the session if shorter). </text><text styleclass="Class Name" translate="true">ExternalStructures</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">are, by default, allocated from the fixed heap, but one can allocate other byte objects, such as </text><text styleclass="Class Name" translate="true">ByteArrays</text><text styleclass="Normal" translate="true">, from the heap using the </text><text styleclass="Class Name" translate="true">#newFixed</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> message.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Pointers to Arrays</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Structures quite frequently contain pointers to arrays that are held in another area of storage. Dolphin defines 4 field types to represent these, all of which are used in conjuction with </text><link displaytype="text" defaultstyle="true" type="topiclink" href="externalarrays" styleclass="Normal" translate="true">External Arrays</link><text styleclass="Normal" translate="true"> of one sort or another. These fields can be quite complicated to define, so refer to existing examples in the image for guidance.</text></para>
+    <para styleclass="Class Name"><table rowcount="5" colcount="2" style="width:641px; cell-padding:1px; cell-spacing:2px; border-width:1px; cell-border-width:1px; border-color:#aca899; border-style:raised-color;">
+      <tr style="vertical-align:top">
+        <td style="width:32%; background-color:#dddddd;">
+          <para styleclass="Class Name"><text styleclass="Normal" style="font-weight:bold;" translate="true">ExternalField type</text></para>
+        </td>
+        <td style="width:68%; background-color:#dddddd;">
+          <para styleclass="Class Name"><text styleclass="Normal" style="font-weight:bold;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:32%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">ArrayPointerField</text></para>
+        </td>
+        <td style="width:68%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">For representing fields which point to fixed length arrays of scalars (value types), for example arrays of integers. Must be used in conjuction with an </text><text styleclass="Class Name" translate="true">ExternalArray</text><text styleclass="Normal" translate="true"> type such as </text><text styleclass="Class Name" translate="true">DWORDArray</text><text styleclass="Normal" translate="true">. For an example see </text><text styleclass="Class Name" translate="true">CHOOSECOLOR class&gt;&gt;defineFields</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:32%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">StructureArrayPointerField</text></para>
+        </td>
+        <td style="width:68%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">For representing fields which point to arrays of structures. Used in conjunction with </text><text styleclass="Class Name" translate="true">StructureArray</text><text styleclass="Normal" translate="true">. There are no examples in the base image, but usage is similar to </text><text styleclass="Class Name" translate="true">VariableStructureArrayPointerField</text><text styleclass="Normal" translate="true">, except that a fixed length is specified rather than the name of the length field.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:32%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">PointerArrayPointerField</text></para>
+        </td>
+        <td style="width:68%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">For representing fields which point to arrays of pointers. Used in conjunction with </text><text styleclass="Class Name" translate="true">PointerArray</text><text styleclass="Normal" translate="true">. There are no examples in the base image (but see </text><text styleclass="Class Name" translate="true">PointerArrayField</text><text styleclass="Normal" translate="true">, the usage of which is similar).</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:32%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">VariableStructureArrayPointerField</text></para>
+        </td>
+        <td style="width:68%; background-color:#eeeeee;">
+          <para styleclass="Class Name"><text styleclass="Normal" translate="true">For representing fields which point to variable length arrays of structures, i.e. where one of the other fields in the structure dynamically specifies the size of the array. Used in conjunction with </text><text styleclass="Class Name" translate="true">StructureArray</text><text styleclass="Normal" translate="true">. For an example see </text><text styleclass="Class Name" translate="true">DISPPARAMS clalss&gt;&gt;defineFields</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossimage</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Image</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The image is the place where all of your Smalltalk objects reside. Often this term is used to refer to your work file (with .IMG suffix) which contains the saved state of your development environment. It can, however, also be used to refer to the state of your objects when they are loaded into memory while Dolphin is running.</text></para>
+  </body>
+</topic>

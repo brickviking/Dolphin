@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">On Demand Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">On Demand Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once the server is working successfully when pre-started, the next step is to try having it started on-demand. In order for this to work the registry entries must be correct (see </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Registering_the_Component" styleclass="Normal" translate="true">Registering the Component</link><text styleclass="Normal" translate="true">).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The development image, when started as an out-of-process debug server, will be started up in headless mode, and no development windows will be opened (with the exception of the splash screen). In order to do any debugging, therefore, it is necessary to set a breakpoint in an appropriate place before saving down the server image. For example we could set a breakpoint in the </text><text styleclass="Class Name" translate="true">COMRandomStream&gt;&gt;Next:</text><text styleclass="Normal" translate="true"> method:</text></para>
+    <para></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Next: next </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Implement IRandomStream::Next().</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Answer the next pseudo-random number in the sequence defined by the receiver</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">via the [out] parameter, next.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self halt.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">next value: (stream next * (upperBound-lowerBound) + lowerBound) asInteger.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^S_OK</text></para>
+    <para styleclass="Code Example"></para>
+    <para></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If we now re-save the server image (ensuring it has a class factory registration as we are attempting to debug out of process) we can start an instance of </text><text styleclass="Program Feature" translate="true">RandomVBClient.Exe</text><text styleclass="Normal" translate="true"> and observe the normal walkback dialog pop up when we press the </text><text styleclass="Menu Command" translate="true">Next</text><text styleclass="Normal" translate="true"> button in the client. At this point one can start debugging in the normal way, and use the debugger to launch browsers, etc, as required.</text></para>
+  </body>
+</topic>

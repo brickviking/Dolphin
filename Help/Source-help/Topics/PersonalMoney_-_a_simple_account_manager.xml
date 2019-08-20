@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalMoney - a simple account manager</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalMoney - a simple account manager</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The task in this tutorial is to produce a simple personal accounts manager which we&apos;ll call </text><text styleclass="Program Feature" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true">. This application will:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Maintain a list of accounts for a user </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Enable a user to write cheques against an account </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Maintain the balance for any account </text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The application will have a graphical user interface consisting of shell (top-level) windows and dialog windows that allow a user to communicate with the account information and invoke account operations. The application will store the account data within the Smalltalk image but also will provide facilities to save and restore this data to and from disk.</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td colspan="2" style="width:598px;">
+          <para styleclass="Normal" style="text-align:center;"><image src="PersonalMoneyShell.png" scale="76.72%" styleclass="Image Caption"></image></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:235px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><image src="PersonalAccountShell.png" scale="49.38%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:363px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><image src="PersonalAccountTransactionDialog.png" scale="56.39%" styleclass="Image Caption"></image></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

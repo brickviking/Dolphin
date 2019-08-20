@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Variable Name</title>
+  <keywords>
+    <keyword translate="true">Instance Variable Name</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Variable Name</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You are creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> and adding instance variables to the definition. A good instance variable name should result in readable code, not only in methods of the receiver, but also in senders of the corresponding </text><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Methods</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Also Known As</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Role Suggesting Instance Variable Name</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Instance variable names should describe, using natural language, the attribute which they represent. The name does not, in general, need to contain expected type information. Documentation about an instance variable (including its type and purpose) should be located in the associated </text><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link><text styleclass="Normal" translate="true"> and the class comment.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An instance variable name should use </text><link displaytype="text" defaultstyle="true" type="topiclink" href="classinitialization" styleclass="Normal" translate="true">Word Capitalization</link><text styleclass="Normal" translate="true"> where necessary and must begin with a lowercase letter. Underscores are allowed in variable names but are not conventionally used by most Smalltalkers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If an instance variable represents a collection of objects, don&apos;t append &apos;List&apos; or &apos;Collection&apos; to its name. Instead, make the name plural.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As with a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="classname" styleclass="Normal" translate="true">Class Name</link><text styleclass="Normal" translate="true">, the name should not be so generic that it is meaningless.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An </text><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link><text styleclass="Normal" translate="true"> will often have the same name as the instance variable it accesses. This may therefore affect your choice of variable name.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Rectangle</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class has two instance variables </text><text styleclass="Normal" translate="true">origin </text><text styleclass="Normal" translate="true">and </text><text styleclass="Normal" translate="true">corner</text><text styleclass="Normal" translate="true">. These are both instances of </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true"> but it is not necessary to include this information in their names.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Rectangle</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;instanceVariableNames: &apos;origin corner &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link></para>
+  </body>
+</topic>

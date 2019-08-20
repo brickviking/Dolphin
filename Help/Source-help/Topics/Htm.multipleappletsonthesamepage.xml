@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Multiple Applets on the same page</title>
+  <keywords>
+    <keyword translate="true">Multiple Applets on the same page</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Multiple Applets on the same page</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">As you can see from the plug-in framework </text><link displaytype="text" defaultstyle="true" type="topiclink" href="distributingyourapplication" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">diagram</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">, it is possible to embed several Dolphin applets into the same web page. Each applet will be executed in the same plug-in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> so it is possible for them to collaborate with each other. One applet can locate another by means of its textual name. You&apos;ll recall that one of the optional attributes available within the EMBED tag is NAME and this can be used to associate each applet with its own unique name. Then it is only necessary for one of the applets to make use of the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">NPDolphin&gt;&gt;appletAt:ifAbsent:</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> method to lookup another named applet instance for the collaboration to commence.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Packaging the Animal game</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Packaging the Animal game</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Up to now you have just used the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Program Feature" translate="true">Package Browser</link><text styleclass="Normal" translate="true"> to load existing packages into your Dolphin image. Since we have just created what is effectively a new Smalltalk application that we might wish to distribute to others, now is an opportune time to learn how to use the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true"> to create a new package.</text></para>
+  </body>
+</topic>

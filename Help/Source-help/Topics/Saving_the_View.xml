@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Saving the View</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Saving the View</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is now time to save the created view as a resource and to test the functionality of the view-presenter pair. Choose </text><text styleclass="Menu Command" translate="true">File/Save as</text><text styleclass="Normal" translate="true"> or press the </text><text styleclass="Menu Command" translate="true">Save</text><text styleclass="Normal" translate="true"> button on the </text><text styleclass="Program Feature" translate="true">View Composer&apos;s</text><text styleclass="Normal" translate="true"> toolbar. In the resultant dialog find the presenter&apos;s class that this view is to be associated with, ie: </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true">, and select this. Then enter a name for the view resource. In this case we&apos;ll choose to call our new view &quot;Default view&quot; so that it will be identified by the standard </text><text styleclass="Class Name" translate="true">Presenter class&gt;&gt;defaultView</text><text styleclass="Normal" translate="true"> method.</text></para>
+  </body>
+</topic>

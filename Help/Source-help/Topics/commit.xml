@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Commit</title>
+  <keywords>
+    <keyword translate="true">Commit</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Commit</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s see how a typical updating transaction might work:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c beginRWTxn.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c exec: &apos;delete from Suppliers where CompanyName=&apos;&apos;Object Arts Ltd&apos;&apos;&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c exec: &apos;delete from Suppliers where CompanyName=&apos;&apos;Bernies Burgers Inc&apos;&apos;&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c commitTxn.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The #</text><text styleclass="Class Name" translate="true">beginRWTxn</text><text styleclass="Normal" translate="true"> message sent to the connection instance started a new read-write transaction (i.e. one that can read from, and modify, the database). You then executed a couple of </text><text styleclass="Class Name" translate="true">DELETE</text><text styleclass="Normal" translate="true"> statements and finally chose to commit the transaction to the database using #</text><text styleclass="Class Name" translate="true">commitTxn</text><text styleclass="Normal" translate="true">. It is not until this point that the records are actually deleted from the underlying data table and you can guarantee that the deletions will occur as an indivisible operation. That is, you can be sure that either both operations will complete or, possibly, both will fail. You may want to check that the records have indeed been removed:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c query: &apos;select * from Suppliers&apos;. &quot;Inspect it&quot;</text></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Process Monitor</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Process Monitor</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Process_Monitor_Summary"/></para>
+    <para styleclass="Normal"><image src="ProcessMonitor.png" scale="100.00%" styleclass="Image Caption"></image></para>
+  </body>
+</topic>

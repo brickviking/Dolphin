@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Overlapped Calls</title>
+  <keywords>
+    <keyword translate="true">Overlapped Calls</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Overlapped Calls</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Overlapped calls are external calls that the VM performs on a thread other than the main Smalltalk execution thread. These are sometimes called threaded calls, or non-blocking calls.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Overlapped calls are useful where a call is made to a external function that might take some considerable time to complete. Consider for example the </text><text styleclass="Program Feature" translate="true">URLMon</text><text styleclass="Normal" translate="true"> DLL function </text><text styleclass="Class Name" translate="true">URLDownloadToFile</text><text styleclass="Normal" translate="true">() that can be used to download arbitrary resources from the internet. It is, however, a blocking call and obviously downloading from the internet can take from seconds to hours. If we were to invoke this function as an ordinary external call, then the entire image would be blocked for the duration of that call. Obviously this is undesirable, so the call is actually defined as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">overlappedURLDownloadToFile: pCaller szURL: szURL szFilename: szFilename dwReserved: dwReserved pBSC: pBsc</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Downloads bits from the Internet and saves them to a file.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;HRESULT URLDownloadToFile(</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPUNKNOWN pCaller,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPCTSTR szURL,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPCTSTR szFileName,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;DWORD dwReserved,</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;LPBINDSTATUSCALLBACK lpfnCB</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;);&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&lt;overlap stdcall: hresult URLDownloadToFileA IUnknown* lpstr lpstr dword lpvoid&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self invalidCall</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note how the external call primitive definition starts with the </text><text styleclass="Normal" translate="true">overlap </text><text styleclass="Normal" translate="true">keyword. This is all that is required to instruct the VM to perform the external call on a separate thread, blocking only the calling Smalltalk </text><text styleclass="Class Name" translate="true">Process</text><text styleclass="Normal" translate="true"> rather than the entire image. This allows the download from the Internet to complete in the background while the image continues with other work, although if the call is invoked from the foreground, main or UI, process then the image will appear to be blocked but background processes will continue to run.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Another example in the base image is </text><text styleclass="Class Name" translate="true">KernelLibrary&gt;&gt;sleep:</text><text styleclass="Normal" translate="true">, which wraps the Win32 </text><text styleclass="Class Name" translate="true">Sleep</text><text styleclass="Normal" translate="true">() </text><text styleclass="Normal" translate="true">API:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">sleep: anInteger</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Put the calling Win32 thread to sleep for anInteger milliseconds.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;void Sleep(</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;DWORD dwMilliseconds &#160; &#160;// sleep duration in millisecs</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;N.B. This is an overlapped call, and will not interrupt the execution</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;of Dolphin&apos;s background threads since it is performed on a separate</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;thread. Only the calling Process will be delayed.!</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&lt;overlap stdcall: void Sleep dword&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self invalidCall</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This can be used as an alternative form of </text><text styleclass="Class Name" translate="true">Delay</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

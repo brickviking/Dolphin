@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Drawing a View for PersonalMoneyShell</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Drawing a View for PersonalMoneyShell</text></para>
+    </header>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">Use the </text><text styleclass="Program Feature" translate="true">View Composer</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true"> to draw the shell view for a </text><text styleclass="Class Name" translate="true">PersonalMoneyShell</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">. </text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><image src="PersonalMoneyShell.png" scale="100.00%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">The connection points to the Presenter are as follows: </text></para>
+    <para><table rowcount="3" colcount="3" style="width:75%; cell-padding:2px; cell-spacing:2px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Sub-presenter type</text></para>
+        </td>
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Connection name</text></para>
+        </td>
+        <td style="width:34%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Model aspect</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">TextPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;owner&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#owner</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ListPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;accounts&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#accounts</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Also you must configure the command buttons appropriately:</text></para>
+    <para><table rowcount="5" colcount="2" style="width:50%; cell-padding:2px; cell-spacing:2px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">&quot;command&quot; aspect</text></para>
+        </td>
+        <td style="width:50%; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">&quot;text&quot; aspect</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#newAccount</text></para>
+        </td>
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;New</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#editAccount</text></para>
+        </td>
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;Edit</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#removeAccount</text></para>
+        </td>
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&amp;Delete</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#exit</text></para>
+        </td>
+        <td style="vertical-align:middle; width:50%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">E&amp;xit</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In order to use the document save and load facilities you will have to add a </text><text styleclass="Menu Command" translate="true">File</text><text styleclass="Normal" translate="true"> menu containing the commands: #</text><text styleclass="Class Name" translate="true">fileOpen</text><text styleclass="Normal" translate="true">, #</text><text styleclass="Class Name" translate="true">fileSave</text><text styleclass="Normal" translate="true"> and #</text><text styleclass="Class Name" translate="true">fileSaveAs</text><text styleclass="Normal" translate="true">. Use the </text><text styleclass="Program Feature" translate="true">Menu Composer</text><text styleclass="Normal" translate="true"> accessible from</text><text styleclass="Menu Command" translate="true"> Modify/Menu bar</text><text styleclass="Normal" translate="true"> to do this. </text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"></para>
+  </body>
+</topic>

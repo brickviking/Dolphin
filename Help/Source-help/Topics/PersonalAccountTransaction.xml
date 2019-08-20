@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalAccountTransaction</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalAccountTransaction</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One more class to go and then we can do some experimentation. Now will define the class that represents a transaction on a </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Model subclass: #PersonalAccountTransaction</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;date description amount isDebit &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each transaction holds a descriptive </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> and a numeric amount, together with the date of the transfer. The </text><text styleclass="Class Name" translate="true">isDebit</text><text styleclass="Normal" translate="true"> flag is a boolean to indicate whether the transaction is a debit or a credit operation on the account.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Private - Initialize the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">date := Date today.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">description := String new.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">amount := 0.0.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">isDebit := true.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The initialization and accessor methods are again straightforward.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">amount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the amount of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^amount.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">amount: aNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the amount of the receiver to aNumber&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">amount := aNumber.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">date</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the date of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^date.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">date: aDate</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the date of the receiver to aDate&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">date := aDate.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">description</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the String description of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^description.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">description: aString</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the description of the receiver to aString&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">description := aString.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">isDebit</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer true if the receiver is a Debit transaction&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^isDebit.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">isDebit: aBoolean</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the receiver to a Debit transaction according to aBoolean.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">If aBoolean is true then the receiver is treated as a credit&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">isDebit := aBoolean.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It will be useful to provide a proper method that answers the effective amount for the transaction taking in into consideration the </text><text styleclass="Class Name" translate="true">isDebit</text><text styleclass="Normal" translate="true"> flag. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">actualAmount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the actual amount of the receiver taking into consideration</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">whether it is a debit or credit transaction&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^self isDebit</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">ifTrue: [ self amount negated ]</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">ifFalse: [ self amount ].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Again we provide a </text><text styleclass="Class Name" translate="true">printOn</text><text styleclass="Normal" translate="true">: method, but this time we also include a </text><text styleclass="Class Name" translate="true">displayOn</text><text styleclass="Normal" translate="true">: method to determine how a transaction will appear when presented to the user as text. By default it is this method that is used to display an object within a list or text view on the screen.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">printOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Append, to aStream, a String whose characters are a description of the receiver as a developer would want to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self basicPrintOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $(.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">displayOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Append, to aStream, a String whose characters are a description of the receiver as a user</text><tab /><text styleclass="Code Example" translate="true">would want to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self date displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPutAll: &apos;: &apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPutAll: self description.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPutAll: (self isDebit </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifTrue: [&apos; - debit &apos;]</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">ifFalse: [ &apos; - credit &apos;]).</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self amount displayOn: aStream.</text></para>
+    <para styleclass="Code Example"></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true"> </text></para>
+  </body>
+</topic>

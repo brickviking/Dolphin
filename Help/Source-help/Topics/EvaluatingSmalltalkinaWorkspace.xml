@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Evaluating Smalltalk in a Workspace</title>
+  <keywords>
+    <keyword translate="true">Evaluating Smalltalk in a Workspace</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Evaluating Smalltalk in a Workspace</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can execute a piece of Smalltalk using the </text><text styleclass="Menu Command" translate="true">Workspace/Evaluate it</text><text styleclass="Normal" translate="true"> command. If the code occupies a single line simply place the cursor on the line and choose </text><text styleclass="Menu Command" translate="true">Evaluate it</text><text styleclass="Normal" translate="true">. If it spans several lines you must select the appropriate text region before evaluating it.</text><snippet src="Workspace_Operations_Summary"/></para>
+  </body>
+</topic>

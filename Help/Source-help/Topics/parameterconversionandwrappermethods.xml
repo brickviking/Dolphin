@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Parameter Conversion and Wrapper Methods</title>
+  <keywords>
+    <keyword translate="true">Parameter Conversion and Wrapper Methods</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Parameter Conversion and Wrapper Methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Where an object cannot be automatically converted by the VM, or is not converted in the desired manner, then it should first be converted to a more fundamental type in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" styleclass="Normal" translate="true">image</link><text styleclass="Normal" translate="true">. The idiom used is to implement an </text><text styleclass="Normal" translate="true">#asParameter</text><text styleclass="Normal" translate="true"> method for that object to answer an object which will be correctly coerced by the VM when passed directly to an appropriately declared external method. This is also more flexible, because polymorphic conversion can be performed as required.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here is an example from </text><text styleclass="Class Name" translate="true">UserLibrary</text><text styleclass="Normal" translate="true">, which is the class representing User32.DLL (one of the base Win32™ DLLs).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">childWindowFromPointEx: hwnd pt: aPOINTL uFlags: flags</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answers the handle of the window that contains the specified point.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;HWND ChildWindowFromPointEx(</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;HWND hwndParent, &#160; &#160; // handle to parent window</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;POINT pt, &#160; &#160; // structure with point coordinates</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;UINT uFlags &#160; &#160;// skipping flags</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;);&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&lt;stdcall: handle ChildWindowFromPointEx handle POINTL dword&gt;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^self invalidCall</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We might invoke this by evaluating an expression such as:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">UserLibrary default </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">childWindowFromPointEx: View desktop asParameter </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">pt: (300@400) asParameter uFlags: 0.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is good practice to write helper methods that wrap external library calls into more flexible, object-oriented, and easily used methods. Such wrapper methods should perform any useful </text><text styleclass="Class Name" translate="true">#asParameter</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">conversions, and should also convert any return values to appropriate objects (e.g. window handles should normally be wrapped in an appropriate </text><text styleclass="Class Name" translate="true">View</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">subinstance). Where a wrapper method exists, this should be used in </text><text styleclass="Normal" translate="true">preference to the underlying external method, and should generally be the only sender of the external library selector.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Our example, </text><text styleclass="Class Name" translate="true">UserLibrary&gt;&gt;childWindowFromPointEx:pt:uFlags:</text><text styleclass="Normal" translate="true">, is wrapped by </text><text styleclass="Class Name" translate="true">View&gt;&gt;subViewFromPoint:flags:</text><text styleclass="Normal" translate="true"> in the following manner:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">subViewFromPoint: aPoint flags: cwpFlags</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answers the View in the receiver beneath aPoint (in the receivers coordinates).&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| handleFound viewFound |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;handleFound := UserLibrary default</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;childWindowFromPointEx: self asParameter pt: aPoint asParameter uFlags: cwpFlags.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^(handleFound notNil</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;and: [handleFound ~= self handle</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;and: [(viewFound := self class withHandle: handleFound) notNil</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;and: [viewFound isManaged]]])</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;ifTrue: [viewFound]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this example the coordinate argument, a </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">, is converted to a </text><text styleclass="Class Name" translate="true">POINTL</text><text styleclass="Normal" translate="true"> by sending it </text><text styleclass="Class Name" translate="true">#asParameter</text><text styleclass="Normal" translate="true">. This allows it to be either a </text><text styleclass="Class Name" translate="true">POINTL</text><text styleclass="Normal" translate="true">, or a </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">, or some other object which implements </text><text styleclass="Class Name" translate="true">#asParameter</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to return a </text><text styleclass="Class Name" translate="true">POINTL</text><text styleclass="Normal" translate="true">. The routine also &quot;improves&quot; on the underlying Win32™ function by always answering a sub view, regardless of the depth of nesting, and not answering the same window. When modifying the functionality in this way, one should consider providing a more basic wrapping function (perhaps prefixed with </text><text styleclass="Class Name" translate="true">#basic</text><text styleclass="Normal" translate="true">...</text><text styleclass="Normal" translate="true">), as this the &quot;raw&quot; form is sometimes needed by subclasses and other closely related classes.</text></para>
+  </body>
+</topic>

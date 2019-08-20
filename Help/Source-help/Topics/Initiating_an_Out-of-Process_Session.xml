@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Initiating an Out-of-Process Session</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Initiating an Out-of-Process Session</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Out-of-process sessions can be initiated in two ways:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#41;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="Pre-started_Session" styleclass="Normal" translate="true">Pre-started</link></li>
+      <li styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="On_Demand_Session" styleclass="Normal" translate="true">On demand</link></li>
+    </list>
+  </body>
+</topic>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 2 Test (Unregistered)</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 2 Test (Unregistered)</text></para>
+    </header>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#41;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Open a command prompt in the directory to sample</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s directory (see above).</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Run the test VB client that you find there, </text><text styleclass="Program Feature" translate="true">RandomVBClient.exe,</text><text styleclass="Normal" translate="true"> it should report an error something like (depending on the host OS): </text></li>
+    </list>
+    <para styleclass="Normal"><image src="_img5.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that you must have the Visual Basic 6.0 runtime installed (</text><text styleclass="Program Feature" translate="true">MSVBVM60.DLL</text><text styleclass="Normal" translate="true">) on your machine in order to get this far. Most machines will have this installed (certainly it is present after a fresh installation of Windows 2000). If the DLL is not installed you will get an error something like this one from Windows 98:</text></para>
+    <para styleclass="Normal"><image src="_img6.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you get this error (or similar) then the required runtime can be downloaded from Microsoft. </text></para>
+  </body>
+</topic>

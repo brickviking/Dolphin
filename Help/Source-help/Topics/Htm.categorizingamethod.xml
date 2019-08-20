@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Categorizing a Method</title>
+  <keywords>
+    <keyword translate="true">Categorizing a Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Categorizing a Method</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Since the Dolphin base </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> makes an effort to categorise the methods it contains, we also suggested that you should do the same for your own methods. Here are a couple of ways in which you can do this:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" style="text-indent:-13px; margin-left:39px; font-family:Verdana; font-size:10pt; color:#000000;">
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Probably easiest ways add a method to a category is to use the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Method/Add Category</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> command. This generates a dynamic menu containing a number of </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.caption.10" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">suggested categories</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> based on how other similar methods in the system have been categorised in the past. If none of these suggestions is suitable, the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Other </text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">menu item allows you to choose from a list of all the categories in the system or to create a new one.</text></li>
+    </list>
+    <para style="margin-left:39px;"></para>
+    <para style="margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">If you choose to enter a new category name, be aware that categories can exist in hierarchies. This should become apparent when looking at the tree of existing categories in the category prompter. When you create a new category, if you wish to enter a hierarchical category name then use &apos;-&apos; as the hierarchy separator.</text></para>
+    <para style="margin-left:39px;"></para>
+    <para style="margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">If you wish to remove a method from a particular category then the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Method/Remove Category </text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">menu will allow you to do this.</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" style="text-indent:-13px; margin-left:39px; font-family:Verdana; font-size:10pt; color:#000000;">
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">If you know what category the method is to belong to, and that category is already displayed in the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Categories</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> pane of the browser, then you can simply drag the method and drop it onto the category required.</text></li>
+    </list>
+    <para style="margin-left:39px;"></para>
+    <para style="margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Note that, by default, the drag operation will add the method to the chosen category. If you use a Shift+drag operation then the method will be moved to be in the chosen category alone and will be removed from any others. Using Alt+drag will remove the method from the dropped over category.</text></para>
+  </body>
+</topic>

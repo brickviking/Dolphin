@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosspak</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">PAK</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A Dolphin Smalltalk binary package file. PAK files contain the contents of the package in binary format. These can be transferred and loaded into another image without need for the Dolphin compiler. Binary packages are the primary transport mechanism used by Dolphin Web Start applets.</text></para>
+  </body>
+</topic>

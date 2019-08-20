@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Views Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Views Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> s</text><text styleclass="Normal" translate="true">hows a list of the view resources attached to the currently selected class. Double-clicking one of these views will open it for editing in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Composer" styleclass="Program Feature" translate="true">View Composer</link><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal" translate="true">There is also a context menu providing other view-related operations.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Views Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the </text><text styleclass="Notes" translate="true">ResourceListPlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

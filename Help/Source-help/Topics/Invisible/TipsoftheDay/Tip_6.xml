@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #6</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Normal" translate="true">or </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> is where you&apos;ll start off developing most of your code. &#160;It&apos;s in here that you&apos;ll create classes for your application objects and populate these with the methods that dictate their behaviour.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

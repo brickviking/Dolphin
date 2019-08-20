@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Save Your Image Often</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Save Your Image Often</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Providing you understand that your image is both important and yet breakable you&apos;ll soon get used to working with it. The most important thing to remember is to save your image often, preferably at least once an hour (possibly more frequently when you are just starting out). You can save the image from the </text><text styleclass="Menu Command" translate="true">File/Save Image</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">menu command in all of the development tools or by clicking the camera &quot;snapshot&quot; toolbar button. You&apos;ll hear a shutter release sound to confirm that the image was saved successfully.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Because there is always the chance that you may inadvertently save down an image that has been corrupted in some hidden way over the top of a good image on disk, it is important that you also have a complete backup copy to fall back on. See </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Image_Maintenance" styleclass="Normal" translate="true">Image Maintenance</link><text styleclass="Normal" translate="true"> in the Reference section for more details on how to keep an appropriate backup.</text></para>
+  </body>
+</topic>

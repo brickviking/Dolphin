@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging and Inspecting</title>
+  <keywords>
+    <keyword translate="true">Debugging and Inspecting</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging and Inspecting</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you would like to debug through the evaluation of a Smalltalk expression choose </text><text styleclass="Menu Command" translate="true">Workspace/Debug it </text><text styleclass="Normal" translate="true">(F11). This will bring up the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">positioned just before the first message send. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Alternatively, if you wish to examine the contents of an expression&apos;s result you can choose </text><text styleclass="Menu Command" translate="true">Workspace/Inspect it </text><text styleclass="Normal" translate="true">to invoke an </text><text styleclass="Program Feature" translate="true">Inspector</text><text styleclass="Normal" translate="true"> on the final object.</text></para>
+  </body>
+</topic>

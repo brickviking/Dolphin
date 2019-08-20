@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Tell Me How</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Tell Me How</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here&apos;s the answer to the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Playing_the_game" styleclass="Normal" translate="true">Programming in Smalltalk</link><text styleclass="Normal" translate="true"> quiz.</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="1" style="cell-padding:0px; cell-spacing:0px; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:top; width:886px; height:18px; background-color:#ffffff;">
+          <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal class&gt;&gt;playGame</text></para>
+          <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Start a new game using the existing knowledge base held in the</text></para>
+          <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">KnowledgeBase class variable&quot;</text></para>
+          <para styleclass="Code Example"></para>
+          <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">MessageBox notify: &apos;Think of an animal and I will try to guess what it is.</text></para>
+          <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Are you ready?&apos; caption: &apos;The Animal Game&apos; .</text></para>
+          <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">KnowledgeBase ask</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Press the </text><text styleclass="Program Feature" translate="true">Back</text><text styleclass="Normal" translate="true"> button on your browser to return to the chapter</text></para>
+  </body>
+</topic>

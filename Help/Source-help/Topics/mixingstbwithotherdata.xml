@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Mixing STB with other data</title>
+  <keywords>
+    <keyword translate="true">Mixing STB with other data</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Mixing STB with other data</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is possible to store any number of STB &apos;sessions&apos; on to a single stream or even mixing STB data with other data. The start of an STB session is marked with an STB header, this is read/written at the current position of the stream when the </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> is created. If the STB data does not start at the very beginning of your stream then you must position the stream appropriately before creating the filer on it but you may subsequently reposition the filer for a new session on the same stream using the </text><text styleclass="Class Name" translate="true">#position</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> method.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There is an </text><text styleclass="Class Name" translate="true">#atEnd</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method for determining whether the end of the stream has been reached but this is really only useful in single-session streams because it does not indicate the end of an STB session, just the end of the underlying </text><text styleclass="Class Name" translate="true">Stream</text><text styleclass="Normal" translate="true">. While reading a mixed/multiple session stream you will need to know how many objects were stored. In this case you can either store the data in a collection and </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> that, or </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> the count of objects at the start followed by a </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> for each of the objects themselves.</text></para>
+  </body>
+</topic>

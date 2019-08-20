@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Parameterization and Execution</title>
+  <keywords>
+    <keyword translate="true">Parameterization and Execution</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Parameterization and Execution</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At this stage the prepared statement is fully initialised and can be retained for future execution. Obviously, before actually executing the statement the appropriate parameter substitutions must be made. This is done using </text><text styleclass="Class Name" translate="true">#value</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps values: #(&apos;Object Arts Ltd&apos; &apos;http://www.object-arts.com&apos;).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps exec.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps numRows. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should find that this has inserted one row into the database. Let&apos;s try adding a couple more:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps values: #(&apos;Bernies Burgers Inc&apos; &apos;http://www.burgers.com&apos;).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps exec.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps values: #(&apos;Cajun Spice Ltd&apos; &apos;http://www.hot-spice.com&apos;).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps exec.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Just to check that we have indeed added three rows, you can query the following:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c query: &apos;select * from Suppliers where SupplierID&gt;=30&apos;. &quot;Inspect it&quot;</text></para>
+  </body>
+</topic>

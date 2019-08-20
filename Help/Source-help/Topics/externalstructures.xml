@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Structures</title>
+  <keywords>
+    <keyword translate="true">External Structures</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Structures</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All native Smalltalk objects have one of three regular formats:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">They contain bytes, accessible by index only; or</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">They contain references to other objects (object pointers), accessible by index and/or name; or</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">They have an &quot;immediate&quot; representation, whereby their value is encoded in their identity (their object pointer).</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The outside world is not so simple - data structures are normally a mish-mash of different data types, packed together into C structs, or C++ classes, or whatever. There is no direct support in standard Smalltalk syntax for accessing the fields of structures which are different data types, and indeed this is somewhat contrary to the Smalltalk &quot;everything is an object&quot; concept. The purpose of the external structure support in Dolphin is to allow one to represent free format data structures, and provide means of getting (creating objects out of) and setting (putting objects into) the fields of such data structures.</text></para>
+  </body>
+</topic>

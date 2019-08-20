@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding a Loose Methods to a Package</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding a Loose Methods to a Package</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:14px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">You can add loose methods to a particular package in the following ways:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" style="text-indent:-13px; margin-left:39px; font-family:Symbol; font-size:10pt; color:#000000;">
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">A method can be dragged individually from the method pane of a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossclasshierarchybrowser" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Class Hierarchy Browser</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> and dropped over a package name in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosspackagebrowser" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Package Browser</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> to assign it as a loose method within this package.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">Use the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Method/Package</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> menu command within the Class Hierarchy Browser to choose a package for the selected method.</text></li>
+    </list>
+  </body>
+</topic>

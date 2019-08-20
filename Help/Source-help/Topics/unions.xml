@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Unions</title>
+  <keywords>
+    <keyword translate="true">Unions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Unions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some C structures contain </text><text styleclass="Class Name" translate="true">Unions</text><text styleclass="Normal" translate="true">, which overlay multiple field types on the same memory space, with some tag (discriminated unions) or other method used to decide which field type to use to interpret the data. Normally Dolphin automatically calculates the offset of each field in a structure on the assumption that each field should follow on from the previous one contiguously in memory, after allowing for any packing. This default behaviour can be overridden by specifying fixed offsets, and multiple fields can be defined at the same offset. This allows us to implement unions quite easily, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the VARDESC structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;typedef struct FARSTRUCT tagVARDESC {</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;MEMBERID memid;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;OLECHAR FAR* lpstrSchema;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;union {</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;unsigned long oInst;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;VARIANT FAR* lpvarValue; &#160; </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;} UNION_NAME(u);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;ELEMDESC elemdescVar; &#160; &#160;***</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;unsigned short wVarFlags;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;VARKIND varkind;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;} VARDESC;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;*** Renamed to &apos;elemdesc&apos; for polymorphism with FUNCDESC</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #memid type: SDWORDField new offset: 0;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpstrSchema type: (PointerField type: UnicodeString) offset: 4;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Note union here&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #oInst type: DWORDField new offset: 8;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lpvarValue type: (PointerField type: VARIANT) offset: 8;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #elemdesc type: (StructureField type: ELEMDESC) offset: 12;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #wVarFlags type: WORDField new offset: 28;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #varkind type: SDWORDField new offset: 32.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self byteSize: 36</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This definition was in fact originally auto-generated by the </text><text styleclass="Program Feature" translate="true">Active-X Component Wizard</text><text styleclass="Normal" translate="true">, which always defines unions in this manner. The same technique can be used to implement custom structure packing, as described in the next section.</text></para>
+  </body>
+</topic>

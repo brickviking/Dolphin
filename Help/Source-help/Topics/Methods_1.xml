@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Methods</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Methods</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">I&apos;ve already mentioned that methods are chunks of Smalltalk code that describe to an object how a particular message should be processed. Let&apos;s look at some of the methods for class </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">. With this class selected in the browser, choose &lt;= in the top right methods pane. The browser will bring up and display the Smalltalk source for the method that handles the #</text><text styleclass="Class Name" translate="true">&lt;=</text><text styleclass="Normal" translate="true"> comparison message for points.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&lt;= anArithmeticValue</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer whether the receiver is neither below nor to the right of anArithmeticValue.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">A double dispatch of #&lt; with the superclass implementation of #&lt;= would not work here.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| aPoint |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aPoint := anArithmeticValue asPoint.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^x &lt;= aPoint x and: [ y &lt;= aPoint y ]</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This method illustrates a few points that we haven&apos;t yet touched upon in the Smalltalk code you&apos;ve written so far. Let&apos;s go through these one by one.</text></para>
+  </body>
+</topic>

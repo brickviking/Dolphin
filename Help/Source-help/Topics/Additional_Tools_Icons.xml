@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Additional Tools Icons</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Additional Tools Icons</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="ActiveX_Component_Wizard_Tool"/><snippet src="ActiveX_Control_Browser_Tool"/><snippet src="Register_ActiveX_Control"/><snippet src="Register_Type_Library"/><snippet src="Source_Browser_Tool"/><snippet src="SUnit_Browser_Tool"/><snippet src="SUnit_Resource_Browser_Tool"/><snippet src="Test_Runner_Tool"/></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Project Editions Browser Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Project Editions Browser</text><text styleclass="Normal" translate="true"> is part of the</text><text styleclass="Program Feature" translate="true"> Source Tracking System</text><text styleclass="Normal" translate="true"> and allows you to browse </text><text styleclass="Program Feature" translate="true">Projects</text><text styleclass="Normal" translate="true"> in the repository.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">STS introduces </text><text styleclass="Program Feature" translate="true">Projects</text><text styleclass="Normal" translate="true"> as a new concept into the Dolphin development environment. A </text><text styleclass="Program Feature" translate="true">Project</text><text styleclass="Normal" translate="true"> groups multiple packages which belong together into a single installable unit. Any </text><text styleclass="Program Feature" translate="true">Project</text><text styleclass="Normal" translate="true"> can have many project editions with each of them grouping together a certain set of package editions.</text></para>
+  </body>
+</topic>

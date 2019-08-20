@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Code Rewriter Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Code Rewriter Pane</text><text styleclass="Normal" translate="true"> is a plug-in that provides a user interface onto the Refactoring Browser&apos;s source rewriting facility. The rewrite engine uses a powerful but simple language for specifying transformations of code. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Because the engine performs matches and rewrites using compiler syntax trees it is much more accurate and flexible than using a simple source code &quot;find and replace&quot;.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Code Rewriter Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the </text><text styleclass="Notes" translate="true">CodeRewriterPlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

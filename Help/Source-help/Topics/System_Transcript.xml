@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">System Transcript</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">System Transcript</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="System_Transcript_Summary"/></para>
+    <para styleclass="Normal"><image src="SystemTranscriptMain.png" scale="81.09%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In your Smalltalk code you can treat the </text><text styleclass="Program Feature" translate="true">Transcript</text><text styleclass="Normal" translate="true"> as a writable </text><text styleclass="Class Name" translate="true">Stream</text><text styleclass="Normal" translate="true"> object identified by the </text><text styleclass="Class Name" translate="true">Transcript</text><text styleclass="Normal" translate="true"> global. For example, here is one way to write a trace message:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Transcript </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">nextPutAll: &apos;Database file closed at &apos;; </text><br/><tab /><text styleclass="Code Example" translate="true">display: Time now; </text><br/><tab /><text styleclass="Code Example" translate="true">cr.</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

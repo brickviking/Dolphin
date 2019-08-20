@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Protocols Filter Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Protocols Filter Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true">&#32;</text><text styleclass="Normal" style="font-weight:normal;" translate="true">displays</text><text styleclass="Normal" translate="true"> a list of the method protocols used by the currently selected class. The protocols for the currently selected method (if any) are highlighted in bold. You can filter the method list display to only show the methods in a particular protocol by selecting the protocol you want in this pane.</text></para>
+    <para styleclass="Normal Head"><snippet src="Protocols_Summary"/></para>
+  </body>
+</topic>

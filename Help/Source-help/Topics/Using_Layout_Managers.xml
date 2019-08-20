@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Using Layout Managers</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Using Layout Managers</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you choose to place a view under the control of a Layout Manager you may find that your positioning and sizing operations are ignored. The Layout Manager&apos;s decision is final!</text></para>
+    <para style="margin-top:8px; margin-bottom:14px; line-height:1.46;"></para>
+  </body>
+</topic>

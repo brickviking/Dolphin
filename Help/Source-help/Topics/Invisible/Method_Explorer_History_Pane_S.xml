@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Method Explorer History Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">History Pane </text><text styleclass="Normal" translate="true">displays a tree of the previous explorations that have been shown in the </text><text styleclass="Program Feature" translate="true">Method Explorer</text><text styleclass="Normal" translate="true">. If a further exploration is opened from within an existing one then the new entry in the history pane is added as a sub-node in the tree. This allows you to trace the route you have followed while performing a series explorations.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If required, you can choose to delete an entry from the history pane by choosing </text><text styleclass="Menu Command" translate="true">Remove</text><text styleclass="Normal" translate="true"> from the context menu.</text></para>
+  </body>
+</topic>

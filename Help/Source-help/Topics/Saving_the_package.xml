@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Saving the package</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Saving the package</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">After you have created a new package or changed any of its contents you must save it in order to export the classes from your image. If you are about to save the package for the first time you may want to choose a particular directory in which the package file (with .PAC extension) will reside. You can do this using the </text><text styleclass="Menu Command" translate="true">Package/Save as</text><text styleclass="Normal" translate="true"> command. As you might expect, on subsequent saves you can just use </text><text styleclass="Menu Command" translate="true">Package/Save</text><text styleclass="Normal" translate="true"> or the </text><text styleclass="Menu Command" translate="true">Save</text><text styleclass="Normal" translate="true"> toolbar button to export the contents.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class Editions Method List</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class Editions Method List</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Class_Editions_Method_List_Sum"/><text styleclass="Normal" translate="true">The context menu which is available in this pane has the following options:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - use this option to load the selected method edition. The source of the method edition is displayed in the pane below the list. After the method is loaded the asterisk (*) sign in the status-bar indicates that the selected method edition is loaded in the image. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Browse Editions</text><text styleclass="Normal" translate="true"> - this option will open a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Method_Editions_Browser" styleclass="Program Feature" translate="true">Method Editions Browser</link><text styleclass="Normal" translate="true"> with a list of all method editions.</text></li>
+    </list>
+  </body>
+</topic>

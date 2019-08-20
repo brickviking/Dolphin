@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Appendix A: Jumping Into Smalltalk</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Appendix A: Jumping Into Smalltalk</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following introduction to Smalltalk for Java and C/C++/C# programmers is by </text><text styleclass="Normal" style="font-weight:bold;" translate="true">David Buck</text><text styleclass="Normal" translate="true"> of </text><text styleclass="Normal" style="font-weight:bold;" translate="true">Simberon</text><text styleclass="Normal" translate="true"> and is reproduced here with his kind permission. If you&apos;d be interested in formal training contact </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://simberon.com/" target="_blank" styleclass="Normal" translate="true">Simberon</link><text styleclass="Normal" translate="true"> and ask about Smalltalk </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://simberon.com/training.htm" target="_blank" styleclass="Normal" translate="true">training</link></para>
+    <para styleclass="Normal">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">I hear from many Java and C# programmers that they can&apos;t read Smalltalk code. Smalltalk is actually very easy to learn since it has very little syntax. The true power of Smalltalk lies in the environment and the class libraries.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This article is intended to give Java and C# programmers an extremely rapid plunge into Smalltalk. I&apos;ll do that by using side-by-side code comparisons.</text></para>
+    <para styleclass="Class Name"><text styleclass="Class Name" style="font-family:Symbol; font-size:8pt; font-style:normal;" translate="true">Ó</text><text styleclass="Class Name" style="font-size:8pt; font-style:normal;" translate="true"> Copyright David Buck 2005</text></para>
+  </body>
+</topic>

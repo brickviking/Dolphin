@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Private Method</title>
+  <keywords>
+    <keyword translate="true">Private Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Private Method</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newmethod" styleclass="Normal" translate="true">New Method</link><text styleclass="Normal" translate="true"> it is apparent that some methods are intended to be used by clients of a class and therefore form part of the class&apos;s public protocol. Other methods, however, are for internal use only and are concerned with implementation details. Such </text><text styleclass="Normal" translate="true">private </text><text styleclass="Normal" translate="true">methods should only be called from methods in the same class or from methods in closely related classes where it is permissible for them to have knowledge of such intimate implementation details.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, unlike C++, there is no way of genuinely hiding particular methods from access by a client. However, developer&apos;s of client classes need some way of differentiating between methods they should be able to use and those that they shouldn&apos;t.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In Smalltalk, we generally use an informal convention for marking a method as private. This is to begin the method comment with the string &apos;</text><text styleclass="Normal" translate="true">Private -&apos;</text><text styleclass="Normal" translate="true"> . In Dolphin we also use </text><text styleclass="Normal" translate="true">private </text><text styleclass="Normal" translate="true">and </text><text styleclass="Normal" translate="true">public </text><text styleclass="Normal" translate="true">method categories to convey this information.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Methods marked as private</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">are not guaranteed to be compatible, or indeed present, in future releases of the class to which they belong. Hence they should not be used by clients of the class. It is, however, acceptable for private messages to be sent from within closely related families of classes.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Example</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">errorNotFound</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Raise a NotFound exception.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;...</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Color</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class contains a private method </text><text styleclass="Class Name" translate="true">#defaultPalette</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defaultPalette</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Private - Answer the default palette.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^GDILibrary default getStockObject: DefaultPalette</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="methodcomment" styleclass="Normal" translate="true">Method Comment</link></para>
+  </body>
+</topic>

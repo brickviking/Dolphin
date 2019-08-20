@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Workspace Files</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Workspace Files</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Workspaces</text><text styleclass="Normal" translate="true"> can be saved to disk and are usually given a .ST file type. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes, you may wish to write a script file in a workspace that can be loaded in, and executed in one operation. Such files are written in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Chunk_Files" styleclass="Normal" translate="true">Chunk File</link><text styleclass="Normal" translate="true"> format and can then be loaded in to your image using the </text><text styleclass="Menu Command" translate="true">File/File In</text><text styleclass="Normal" translate="true"> command in most of the Dolphin tools. These chunk files are also normally given a .ST file type.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Loose Methods Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An important facility offered by the Dolphin packaging system is the ability to augment existing classes with additional methods of your own. The existing classes may well be in packages that you do not own or have control over and therefore it would be inappropriate if you were to make modifications directly to them. Fortunately, Dolphin allows you to add individual methods to your own packages even though the classes to which they belong don&apos;t reside in the same package. We call such renegade methods, </text><text styleclass="Normal" style="font-style:italic;" translate="true">loose methods</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

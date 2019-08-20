@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #39</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">In order for your view to accept drops you must set its </text><text styleclass="Class Name" translate="true">#isDropTarget</text><text styleclass="Normal" translate="true"> aspect to true in the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> as well as setting up handlers for the </text><text styleclass="Class Name" translate="true">#dragEnter</text><text styleclass="Normal" style="font-style:italic;" translate="true">:</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">#dragOver</text><text styleclass="Normal" style="font-style:italic;" translate="true">:</text><text styleclass="Normal" translate="true">, and </text><text styleclass="Class Name" translate="true">#drop</text><text styleclass="Normal" style="font-style:italic;" translate="true">:</text><text styleclass="Normal" translate="true"> events in the associated presenter&apos;s </text><text styleclass="Class Name" translate="true">#createSchematicWiring</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Normal" style="font-style:normal;" translate="true">method.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Take a look at </text><text styleclass="Class Name" translate="true">ClassSelector&gt;&gt;createSchematicWiring</text><text styleclass="Normal" translate="true"> to see how class panes handle drops of class objects.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

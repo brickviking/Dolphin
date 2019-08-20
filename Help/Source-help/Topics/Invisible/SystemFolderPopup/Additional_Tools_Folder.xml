@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Additional Tools Folder</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">Additional Tools Folder</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="Additional Tools.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:215px;">
+          <para styleclass="Popup Heading"><text styleclass="Popup Box" translate="true">Open this icon to navigate to </text><text styleclass="Popup Box" style="font-style:normal;" translate="true">the contents of the </text><text styleclass="Program Feature" translate="true">Additional Tools</text><text styleclass="Popup Box" style="font-style:italic;" translate="true"> f</text><text styleclass="Popup Box" style="font-style:normal;" translate="true">older, which contains further Smalltalk development tools. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" style="font-style:normal;" translate="true">You may install your own tools in this folder (see </text><text styleclass="Popup Box" style="font-style:italic;" translate="true">SourcefBrowser&gt;&gt;initialize</text><text styleclass="Popup Box" style="font-style:normal;" translate="true"> for an example).</text></para>
+  </body>
+</topic>

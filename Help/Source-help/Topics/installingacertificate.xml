@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Installing a Certificate</title>
+  <keywords>
+    <keyword translate="true">Installing a Certificate</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Installing a Certificate</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you are issued a certificate it will normally be sent to via e-mail with instructions on how to install it into your #</text><text styleclass="Class Name" translate="true">myCertificates</text><text styleclass="Normal" translate="true"> store. You will also be issued with a private key to go along with the public key that is contained in the certificate itself. You will need be private key when you come to sign data with the certificate. Obviously, you must not disclose the private key to anyone else.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Project Editions Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Project Editions Pane</text></para>
+    </header>
+    <para styleclass="Normal" style="margin-left:0px;"><snippet src="Project_Editions_Pane_Summary"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Project Editions Pane</text><text styleclass="Normal" translate="true"> context menu offers further functionality as follows:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Update list</text><text styleclass="Normal" translate="true"> - This will refresh the list of project editions in the repository based on the data in repository. Use this if you are working in repository with other people who might have changed repository since the list was loaded the last time. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Version</text><text styleclass="Normal" translate="true">... - Use this option to mark an open project edition as a version. This will lock the version so that it can not be changed anymore. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Create New Edition</text><text styleclass="Normal" translate="true"> - When a project version is selected you can create an open edition from it. A project version will be copied into a new opened edition which can then be changed. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Load Edition</text><text styleclass="Normal" translate="true"> - This will load and install all package editions which are contained in the project edition/version. If a package edition is already installed in the image it will be skipped during the load phase. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Export...</text><text styleclass="Normal" translate="true"> - Use this function to export a complete project edition with all of it package versions into a file. A project can be exported either into a textual XML (.PEX) file or into a compressed XML file (.PEZ). </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Import </text><text styleclass="Normal" translate="true">- Use this function to import a project edition from a .PEZ or .PEX file. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Show Project History</text><text styleclass="Normal" translate="true"> - Use this function to display a version tree with a history of version from which the selected edition originates. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Rename version</text><text styleclass="Normal" translate="true"> - Use this feature to rename a project version. This way you can change version descriptor/number of a project version. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Purge</text><text styleclass="Normal" translate="true"> - Use this feature to delete a project edition from the repository. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Menu Command" translate="true">Salvage</text><text styleclass="Normal" translate="true"> - Use this feature to salvage a deleted project edition in the repository. Only last two deletions can be salvaged.</text></li>
+    </list>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The Image Key</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The Image Key</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Image</text><text styleclass="Normal" translate="true"> key that </text><text styleclass="Class Name" translate="true">COMInterfaceImp</text><text styleclass="Normal" translate="true"> class&gt;&gt;register creates in the registry is used by the generic in-process stub (</text><text styleclass="Program Feature" translate="true">IPDolphin.DLL</text><text styleclass="Normal" translate="true">) to specify the path of the image which contains the component implementation. This is possible because after COM has loaded an in-process DLL, its first call into that DLL passes the </text><text styleclass="Class Name" translate="true">CLSID</text><text styleclass="Normal" translate="true"> of the required component. With knowledge of the </text><text styleclass="Class Name" translate="true">CLSID</text><text styleclass="Normal" translate="true"> of the desired component </text><text styleclass="Program Feature" translate="true">IPDolphin.DLL</text><text styleclass="Normal" translate="true"> can look up the required image from the registry and load it. With the registry entries listed above (as created by evaluating </text><text styleclass="Class Name" translate="true">COMInterfaceImp class&gt;&gt;register</text><text styleclass="Normal" translate="true">) one&apos;s working development image will be used.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If the </text><text styleclass="Class Name" translate="true">Image</text><text styleclass="Normal" translate="true"> key is not present, then the image must be bound to the DLL, which is the form used for deployed DLLs.</text></para>
+  </body>
+</topic>

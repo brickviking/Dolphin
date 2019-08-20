@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">A Note to Those New to Smalltalk</title>
+  <keywords>
+    <keyword translate="true">A note to those new to Smalltalk</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">A Note to Those New to Smalltalk</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This tour does not attempt to teach you about the Smalltalk language. If you are new to the language then you may wish to leave off here and start with the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Tutorials" styleclass="Normal" translate="true">Tutorials</link><text styleclass="Normal" translate="true"> or the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="First_Splash" target="SplashF" styleclass="Normal" translate="true">First Splash</link><text styleclass="Normal" translate="true"> experiments</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true">&#32;</text></para>
+  </body>
+</topic>

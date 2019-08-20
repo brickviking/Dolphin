@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Talking Objects across a Socket Connection</title>
+  <keywords>
+    <keyword translate="true">Talking Objects across a Socket Connection</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Talking Objects across a Socket Connection</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are safe in the knowledge that both ends of a connection are being handled by a Dolphin application then you can make use of an STB Filer to send higher levels of data over the link. As you are probably aware, the STB (Smalltalk Binary) mechanism is able to stream entire object graphs into a serial format and then to rebuild an equivalent set of objects at some destination location.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal" translate="true">To send an object across a Socket write stream using the STB mechanism you must first create an </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> on to the stream. A number of simple or complex objects can then be put to the filer, which will serialize them onto the stream and across the socket connection. To retrieve these objects at a destination Socket you must have an </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> that has been created on the </text><text styleclass="Class Name" translate="true">Socket&apos;s</text><text styleclass="Normal" translate="true"> read stream. It is then simply a matter of pulling the objects from the filer, one by one, using its #</text><text styleclass="Normal Head" translate="true">next method.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let us send some more complex objects from </text><text styleclass="Class Name" translate="true">socketB</text><text styleclass="Normal" translate="true"> to </text><text styleclass="Class Name" translate="true">socketA</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and vice versa. We&apos;ll send a </text><text styleclass="Class Name" translate="true">Dictionary</text><text styleclass="Normal" translate="true"> from the Client to the Server and add some items to it at the Server end. Then we&apos;ll return the updated </text><text styleclass="Class Name" translate="true">Dictionary</text><text styleclass="Normal" translate="true"> back to the Client.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Client workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerB := STBOutFiler on: socketB writeStream.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerB nextPut: ##(Dictionary new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;at: &apos;Jones&apos; put: &apos;171 209 9000&apos;;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;at: &apos;Smith&apos; put: &apos;181 200 2345&apos;;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;yourself).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerB stream flush.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Server workspace we receive the </text><text styleclass="Class Name" translate="true">Dictionary</text><text styleclass="Normal" translate="true">, add to it, and return it:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">inFilerA := STBInFiler on: socketA readStream.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">myDictionary := inFilerA next.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">myDictionary at: &apos;Thomas&apos; put: &apos;1785 66928&apos;.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerA := STBOutFiler on: socketA writeStream.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerA nextPut: myDictionary.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">outFilerA stream flush.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now, back in the Client workspace, we&apos;ll receive the returned </text><text styleclass="Class Name" translate="true">Dictionary</text><text styleclass="Normal" translate="true"> and display it to confirm that it has the new entry.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">inFilerB := STBInFiler on: socketB readStream.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">inFilerB next. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Tip: when you create an </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> onto a </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> read stream, this operation will generally block. This is because the filer initially attempts to read some header information from the stream. If this is inconvenient then you should ensure that the </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> at the other end of the connection is always created first, and the stream flushed, so that the header information is immediately available at the receiving end.</text></para>
+  </body>
+</topic>

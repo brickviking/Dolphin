@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Making use of the filer context</title>
+  <keywords>
+    <keyword translate="true">Making use of the filer context</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Making use of the filer context</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Both </text><text styleclass="Class Name" translate="true">STBInFilers</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">STBOutFilers</text><text styleclass="Normal" translate="true"> contain a single, user-specified instance variable which can be accessed using </text><text styleclass="Class Name" translate="true">#context</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Class Name" translate="true">#context</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true"> These are typically set before a filing session commences and then queried by the filed objects or proxies to determine the &apos;context&apos; of the session. The filer itself puts no interpretation on this information, it just makes it available.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For example, it is sometimes useful to &apos;snip out&apos; an object from its environment before you save it so that we don&apos;t save its entire neighbourhood. When the object is subsequently loaded it initially lives nowhere but its proxy can query </text><text styleclass="Class Name" translate="true">STBInFiler&gt;&gt;#context</text><text styleclass="Normal" translate="true"> to ascertain the new neighbourhood. Use </text><text styleclass="Class Name" translate="true">STBInFiler&gt;&gt;#context:</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">to specify the context information at any time prior to the send of </text><text styleclass="Normal" translate="true">#next</text><text styleclass="Normal" translate="true"> that requires the information.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For example, the filing of views (which are really operating system windows) makes use of this context scheme to ensure that when a view is filed in it is given a parent view that will own it. This parent is specified to the </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true"> using </text><text styleclass="Class Name" translate="true">#context</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">. See </text><text styleclass="Class Name" translate="true">ResourceSTBFileAccessor&gt;&gt;loadWithContext: </text><text styleclass="Normal" translate="true">for an example of this in use.</text></para>
+  </body>
+</topic>

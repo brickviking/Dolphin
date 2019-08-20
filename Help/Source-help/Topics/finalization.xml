@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Finalization</title>
+  <keywords>
+    <keyword translate="true">Finalization</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Finalization</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Smalltalk is a garbage collected system, and Smalltalk objects are not normally notified before they are destroyed. In general such notifications are not required, because the memory occupied by garbage collected objects is automatically and recursively recovered. On occasion, however, there is a need to perform additional clean-up operations when an object is no longer needed, particularly if the object owns some external resources. Explicitly performing such clean-up operations may be very tricky to time correctly, because the lifetime of the objects is not always predictable.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">What we need is mechanism whereby an object will be sent a message just before it is about to be garbage collected. How can this be achieved?</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Mark specific object instances as requiring </text><link displaytype="text" defaultstyle="true" type="topiclink" href="finalization" styleclass="Normal" translate="true">finalization</link><text styleclass="Normal" translate="true">. Such objects receive a death-bed notification from the memory manager, and can perform whatever tidying is necessary.</text></para>
+    <list id="4" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Mark an object as requiring finalization by sending it the </text><text styleclass="Class Name" translate="true">#beFinalizable</text><text styleclass="Normal" translate="true"> message at an appropriate point. This is either done in the instance </text><text styleclass="Class Name" translate="true">#initialize</text><text styleclass="Normal" translate="true"> method, or preferably after the object has acquired its external resource(s).</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Implement a </text><text styleclass="Class Name" translate="true">#finalize</text><text styleclass="Normal" translate="true"> method to perform the required finalization. There is no need to remove the finalization mark as the VM will already have done so.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If the object has a method for explicitly freeing its external resource(s) programmatically (which will be the case if you&apos;ve followed the Object Liberation Strategy), then remove the finalization mark immediately after freeing the resource, by sending the </text><text styleclass="Class Name" translate="true">#beUnfinalizable</text><text styleclass="Normal" translate="true"> message. This reduces finalization overhead and allows objects to die sooner.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">You can remove an object&apos;s finalization mark at any other time that you wish, and that object will not then receive a </text><text styleclass="Class Name" translate="true">#finalize</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">message.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For more information on finalization please refer to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Htm.exceptionhandling" styleclass="Normal" translate="true">Weak References and Finalization</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">GraphicsTool</text><text styleclass="Normal" translate="true"> is the superclass of most of the classes in Dolphin which encapsulate Windows drawing objects. </text><text styleclass="Class Name" translate="true">GraphicsTool</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">adds the finalization mark after creating an owned external resource:</text></li>
+    </list>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true">realize</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Realize (create) the external resource associated with the receiver,</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true"> &#160; &#160;but only if not already realized. Subclasses must implement #basicRealize&quot;</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true"> &#160; &#160;^self isRealized ifFalse: [</text></para>
+    <para styleclass="Code Example" style="margin-left:24px;"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;self basicRealize; beFinalizable]</text></para>
+    <para styleclass="Code Example"></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">GraphicsTool</text><text styleclass="Normal" translate="true">. </text><text styleclass="Normal" translate="true">Subclasses are wrappers for UI objects, finalization ensures the external resource is released..</text></li>
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">File</text><text styleclass="Normal" translate="true">. Finalization is used to ensure the file is closed.</text></li>
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">FileStream</text><text styleclass="Normal" translate="true">. Finalization is used to ensure that the streams buffers are flushed to the underlying medium.</text></li>
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">Process</text><text styleclass="Normal" translate="true">. </text><text styleclass="Normal" translate="true">Finalization is used to ensure the process is correctly terminated so that any unwind blocks are run.</text></li>
+      <li styleclass="Normal"><text styleclass="Class Name" translate="true">ExternalMemory</text><text styleclass="Normal" translate="true">. Finalization is used to ensure that memory allocated from external heaps is returned.</text></li>
+    </list>
+    <list id="6" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">OLE COM</text><text styleclass="Normal" translate="true">. Finalization is used to manage the lifetime of interface objects (</text><text styleclass="Class Name" translate="true">IUnknown</text><text styleclass="Normal" translate="true"> and subclasses) so that explicit management of the reference count is not necessary.</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <list id="7" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Finalization can only occur after a garbage collection cycle, and is a low priority operation, so clean-up operations performed this way are far from immediate, and may be delayed indefinitely if a CPU bound process is running.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The objects referenced from finalizable objects cannot be garbage collected until the objects have been finalized.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Finalization has considerable overhead relative to explicitly releasing resources.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Using the finalization of objects to maintain other data structures breaks encapsulation, and may require process synchronization.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Finalization is performed asynchronously at an unpredictable time after the last strong reference to an object has been removed. Furthermore finalization is performed after all weak references to an object have been removed by the garbage collector. This means that very little can be assumed about the state of the environment in the </text><text styleclass="Class Name" translate="true">#finalize</text><text styleclass="Normal" translate="true"> method, and successful rescue is difficult.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Order of finalization may be significant, and may be difficult to guarantee where one finalizable object weakly references another since there is no notion of ownership.</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="weakcollection" styleclass="Normal" translate="true">Weak Collections</link></para>
+  </body>
+</topic>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Tidying up</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Tidying up</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;And finally, tidy up any mess. This will close all views, including the System Folder. A new, System Folder will be opened after a short delay.&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">SmalltalkSystem</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> current panic</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;ve come to the end of our First Splash experiments. If you&apos;ve still got any windows open that you want to get rid of then you can reset the system by evaluating the above expression. If you&apos;ve not got any excess windows cluttering up your screen then just close the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true"> you been working with and they&apos;ll be no need to execute the </text><text styleclass="Normal" style="font-style:italic;" translate="true">#panic</text><text styleclass="Normal" translate="true">..</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">IMPORTANT: You should be aware that, if you do use #panic and acknowledge the prompt that follows, you will destroy all your open Dolphin windows without having further chance to save their contents. So don&apos;t do this if there&apos;s anything you want to keep.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">The Panic facility is also available as an icon in the System Folder. You may find it useful at times when working with Dolphin.</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

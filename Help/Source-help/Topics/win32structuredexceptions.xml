@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Win32 Structured Exceptions</title>
+  <keywords>
+    <keyword translate="true">Win32 Structured Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Win32 Structured Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Dolphin VM catches a number of Win32 exceptions (notable examples being GP faults, floating point errors, and integer division by zero) and notifies the image of their occurrence.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The VM catches the Win32 exceptions even if they did not occur in Smalltalk code, but happened in some external library function. For example, if one evaluates:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;CRTLibrary default sqrt: -1</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Then one gets a walkback resulting from an invalid floating point operation exception that occurs in the C-runtime library&apos;s </text><text styleclass="Class Name" translate="true">sqrt</text><text styleclass="Normal" translate="true">()</text><text styleclass="Normal" translate="true"> function.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Dolphin exception classes which are created when Win32 structured exceptions occur are:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">FloatingPointException</text><text styleclass="Normal" translate="true">. </text><text styleclass="Normal" translate="true">These contain standard IEEE FP error details as an instance of &#160;</text><text styleclass="Class Name" translate="true">_FPIEEE_RECORD</text><text styleclass="Normal" translate="true">.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">GPFault</text><text styleclass="Normal" translate="true">. </text><text styleclass="Normal" translate="true">These contain the address being accessed when the access violation occurred, and also information such as whether a read or write was being attempted.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Class Name" translate="true">ZeroDivide</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true"> Represents integer or floating-point division by zero. Holds the dividend (that which was divided by zero) in the exception tag.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Win32Fault. </text><text styleclass="Normal" translate="true">Raised when any other Win32 structured exception occurs. Holds the Win32 exception details record (i.e. an instance of </text><text styleclass="Class Name" translate="true">EXCEPTION_RECORD</text><text styleclass="Normal" translate="true">) describing the fault. </text><text styleclass="Class Name" translate="true">GPFault</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is actually a specialised </text><text styleclass="Class Name" translate="true">Win32Fault</text><text styleclass="Normal" translate="true">.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that although access violations can frequently be recovered from by dismissing the walkback (especially if they arise because of attempts to read inaccessible memory, or to read/write through a null pointer), they may represent just the tip of the iceberg. A </text><text styleclass="Class Name" translate="true">GPFault</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">may only be raised after everything has gone horribly wrong, so do not be too surprised if Dolphin subsequently crashes.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If regular </text><text styleclass="Class Name" translate="true">GPFaults</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">start to occur during garbage collection activity, then do </text><text styleclass="Normal" translate="true">not </text><text styleclass="Normal" translate="true">save the image, as it has been corrupted, probably by an external function writing off the end of an inadequately sized buffer.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A limitation is that although Win32 structured exceptions can often be resumed, the Dolphin equivalents cannot.</text></para>
+  </body>
+</topic>

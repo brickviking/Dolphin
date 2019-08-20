@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a Project</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a Project</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;re going to follow the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="New_Application" styleclass="Normal" translate="true">New Application</link><text styleclass="Normal" translate="true"> pattern and the first step in this is to create a package for the </text><text styleclass="Program Feature" translate="true">Personal Money</text><text styleclass="Normal" translate="true"> application using the Dolphin </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Program Feature" translate="true">Package Browser</link><text styleclass="Normal" translate="true">.</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Go to the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> and double-click the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true"> icon to open the package browser window. </text></li>
+    </list>
+    <para style="text-indent:-24px; margin-top:7px; margin-bottom:7px; margin-left:72px;"><image src="Package Browser.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">If you do not want to interactively follow this tutorial there is normally a pre-built sample version of the application loaded in the image from the file </text><text styleclass="Program Feature" translate="true">Object Arts\Samples\MVP\Personal Money\PersonalMoney.pac.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Obviously, if you&apos;re going to follow with this tutorial and use the same names for packages and classes, you&apos;ll have to make sure that the pre-built sample has first been removed from your image. Find the </text><text styleclass="Program Feature" translate="true">Personal Money</text><text styleclass="Normal" translate="true"> package in the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true">, select it and choose </text><text styleclass="Menu Command" translate="true">File/Uninstall Package</text><text styleclass="Normal" translate="true">.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Now use </text><text styleclass="Menu Command" translate="true">File/New Package</text><text styleclass="Normal" translate="true"> to create a new package and give it a name, say, </text><text styleclass="Program Feature" translate="true">PersonalMoney.pac</text><text styleclass="Normal" translate="true">. All of the classes and resources that you create for the </text><text styleclass="Program Feature" translate="true">Personal Money</text><text styleclass="Normal" translate="true"> application will be associated with this package which will allow them to be exported from your image and then imported into another image at a later date.</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

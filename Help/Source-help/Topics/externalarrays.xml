@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Arrays</title>
+  <keywords>
+    <keyword translate="true">External Arrays</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Arrays</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin includes classes to represent arrays of value types in the machine native format, i.e. where the elements of the array are values or structures rather than objects, and they are stored adjacent to one another in a contiguous block of memory. The classes be divided into three categories:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Arrays of </text><text styleclass="Class Name" translate="true">Scalar</text><text styleclass="Normal" translate="true"> values</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Arrays of </text><text styleclass="Class Name" translate="true">Structures</text><text styleclass="Normal" translate="true">, or </text><text styleclass="Class Name" translate="true">StructureArrays</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">COM/Active-X Array types</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All such array classes are subclasses of </text><text styleclass="Class Name" translate="true">ExternalArray</text><text styleclass="Normal" translate="true">, which implements various Smalltalk collection protocols. The standard classes are for single dimensioned arrays, although other arrangements are possible, either by doing some arithmetic to calculate the offset or by subclassing.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Composite MVP Components</title>
+  <keywords>
+    <keyword translate="true">Composite MVP Component</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Composite MVP Components</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">Composite component </text><text styleclass="Normal" translate="true">is formed where a more complex model is connected to a composite presenter and to a composite view structure. When the model is connected to the composite presenter it is often treated as several sub-models which are then individually doled out to various sub-presenters. The end result is that a composite triad inevitably consists of a hierarchy of sub-triads, which are comprised either of basic, or composite triads themselves.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A good example of a composite component is a </text><text styleclass="Class Name" translate="true">MethodBrowser</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><image src="methodbrowercomponent.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The model of the </text><text styleclass="Class Name" translate="true">MethodBrowser</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">presenter is the singleton instance of </text><text styleclass="Class Name" translate="true">SmalltalkSystem</text><text styleclass="Normal" translate="true"> and the view is a composite built using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossviewcomposer" styleclass="Normal" translate="true">View Composer</link><text styleclass="Normal" translate="true">. The composite presenter contains two additional components; a </text><text styleclass="Class Name" translate="true">ListPresenter</text><text styleclass="Normal" translate="true"> is used to display the list of methods being browsed and the method source text is displayed in a </text><text styleclass="Normal" translate="true">SmalltalkWorkspace</text><text styleclass="Normal" translate="true"> presenter.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s take a look at some examples of the objects that make up composite MVP components in the basic Dolphin image:</text></para>
+    <para styleclass="Normal"><table rowcount="3" colcount="5" style="cell-padding:0px; cell-spacing:0px; border-width:1px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:129px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Presenter class</text></para>
+        </td>
+        <td style="width:98px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Model class</text></para>
+        </td>
+        <td style="width:127px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">View name</text></para>
+        </td>
+        <td style="width:70px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">View class</text></para>
+        </td>
+        <td style="width:184px; background-color:#c0c0c0;">
+          <para styleclass="Normal"><text styleclass="Normal" style="font-weight:bold;" translate="true">Notes</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:129px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">PersonalAccountShell</text></para>
+        </td>
+        <td style="width:98px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">PersonalAccount</text></para>
+        </td>
+        <td style="width:127px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">PersonalAccountShell.</text><br/><text styleclass="Class Name" translate="true">Default view</text></para>
+        </td>
+        <td style="width:70px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ShellView</text></para>
+        </td>
+        <td style="width:184px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">From the Personal Money sample. The view has been built with the View Composer as a top-level shell window containing named elemental views for all of the individual objects within the </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> model.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:129px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ClassBrowserShell</text></para>
+        </td>
+        <td style="width:98px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">SmalltalkSystem</text></para>
+        </td>
+        <td style="width:127px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ClassBrowserShell.</text><br/><text styleclass="Class Name" translate="true">Default view</text></para>
+        </td>
+        <td style="width:70px;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ShellView</text></para>
+        </td>
+        <td style="width:184px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">One of the major tools in the development system. Here, the model (</text><text styleclass="Class Name" translate="true">SmalltalkSystem</text><text styleclass="Normal" translate="true">) is an object representing a facade onto the underlying development environment.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice how the above components are very specific to the applications in which they are used. This tends to be the case with composite MVP components.</text></para>
+  </body>
+</topic>

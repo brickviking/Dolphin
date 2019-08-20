@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging Callbacks</title>
+  <keywords>
+    <keyword translate="true">Debugging Callbacks</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging Callbacks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Callback blocks can be debugged in the normal manner by inserting a </text><text styleclass="Class Name" translate="true">#halt</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method into the callback block (or any subsidiary method), or, if the callback is synchronous, by stepping into the external function which uses the callback.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Dolphin VM serializes returns from all callbacks so that the returns match the order of entry and the C stack is correctly maintained. This can mean that a </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> started after a previous debugging session may prevent the previous debugging session from unwinding past the callback entry point because it has to block until the later stack frame has been removed. Fortunately this happens rarely in practice and is perfectly safe even when it does. Closing the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true">, which is holding things up will resume normal service.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Customising storage</title>
+  <keywords>
+    <keyword translate="true">Customising storage</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Customising storage</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes it is necessary to perform some special action on an object as it is being read from an STB data stream. For instance, a </text><text styleclass="Class Name" translate="true">Symbol</text><text styleclass="Normal" translate="true"> object cannot just be constructed from the data, Smalltalk must be made aware of its existence by &apos;re-interning&apos; it. Another example is a </text><text styleclass="Class Name" translate="true">Collection</text><text styleclass="Normal" translate="true"> subclass whose elements are hashed; they must be properly created with respect to their hash values or they will fail to work properly. If the object you are saving contains a reference to some object that must not be re-created, you may instead want to find the contemporary of the object in the target image on load.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In all of these cases you can achieve the required objective by using or creating a subclass of </text><text styleclass="Class Name" translate="true">STBProxy</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true"> You simply store an instance of the proxy in place of the original object, the proxy contains sufficient methods and information to properly resolve itself back into the original object when re-loaded.</text></para>
+  </body>
+</topic>

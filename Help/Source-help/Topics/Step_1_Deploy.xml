@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 1 Deploy</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 1 Deploy</text></para>
+    </header>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#41;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Open a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Program Feature" translate="true">Package Browser</link><text styleclass="Normal" translate="true"> and locate the </text><text styleclass="Program Feature" translate="true">COM Random Stream</text><text styleclass="Normal" translate="true"> package. </text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Deploy using pre-configured options: </text><text styleclass="Menu Command" translate="true">Deploy Executable</text><text styleclass="Normal" translate="true"> from the context menu, then press the </text><text styleclass="Menu Command" translate="true">Deploy</text><text styleclass="Normal" translate="true"> button on the first page of the</text><text styleclass="Program Feature" translate="true">&#32;</text><link displaytype="text" defaultstyle="true" type="topiclink" href="lagoondeploymentwizard" styleclass="Program Feature" translate="true">Application Deployment Wizard</link><text styleclass="Normal" translate="true">.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At the end of this step you should have created </text><text styleclass="Program Feature" translate="true">corandom.dll</text><text styleclass="Normal" translate="true"> in </text><text styleclass="Program Feature" translate="true">&lt;my docs&gt;\Dolphin Smalltalk 5.1\Object Arts\Samples\ActiveX\Random\</text></para>
+  </body>
+</topic>

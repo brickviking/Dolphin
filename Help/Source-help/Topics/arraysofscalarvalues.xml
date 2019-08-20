@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Arrays of Scalar Values</title>
+  <keywords>
+    <keyword translate="true">Arrays of Scalar Values</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Arrays of Scalar Values</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The scalar value arrays represent single dimensioned arrays of native data types, generally numerics. They can be instantiated with buffer space reserved in Smalltalk memory with the class </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">: message (the argument specifies the number of elements), or as a reference to external memory with the class </text><text styleclass="Class Name" translate="true">#fromAddress:length:</text><text styleclass="Normal" translate="true"> message. They can also be instantied directly from Smalltalk objects and collections using the class </text><text styleclass="Class Name" translate="true">#with</text><text styleclass="Normal" translate="true">: and </text><text styleclass="Class Name" translate="true">#withAll</text><text styleclass="Normal" translate="true">: messages, although the elements need to be of a type whose value can be stored in that type of external array. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">DWORDArray withAll: (1 to: 1000)</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><table rowcount="7" colcount="2" style="width:449px; cell-padding:1px; cell-spacing:2px; border-width:1px; cell-border-width:1px; border-color:#aca899; border-style:raised-color;">
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">DOUBLEArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of double precision (64 bit) IEEE floats.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">DWORDArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of 32-bit unsigned integers.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">FLOATArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of single precision (32 bit) IEEE floats.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">PointerArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of 32-bit pointers to some other external type.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">SDWORDArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of 32-bit signed integers.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">SWORDArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Represents single dimensioned arrays of 16-bit signed integers.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">WORDArray</text></para>
+        </td>
+        <td style="width:50%; background-color:#eeeeee;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&#32;</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is worth noting that value array, in particular </text><text styleclass="Class Name" translate="true">DOUBLEArrays</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and </text><text styleclass="Class Name" translate="true">FLOATArrays</text><text styleclass="Normal" translate="true">, </text><text styleclass="Normal" translate="true">can consume considerably less memory than an equivalent </text><text styleclass="Normal" translate="true">Array</text><text styleclass="Normal" translate="true"> of Smalltalk objects. This is because the overhead of allocating each as an individual object and providing it with header information can be as large or larger than the size of the object&apos;s value if the object is small. Garbage collector overhead is also reduced because a smaller the number of objects and references need be traversed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Binary filing of </text><text styleclass="Class Name" translate="true">ExternalArrays</text><text styleclass="Normal" translate="true"> is also very fast and compact, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">| a |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a := (1.0 to: 1000.0) asArray.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a binaryStoreBytes size. &quot;More objects means larger STB file: 16025&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Time millisecondsToRun: [a binaryStoreBytes]. &quot;And longer to create it: 159&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Time microsecondsToRun: [100 timesRepeat: [a at: 1]] &#160; &#160;&quot;But access is fast:21&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Versus:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">| a |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a := DOUBLEArray withAll: (1.0 to: 1000.0).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">a binaryStoreBytes size. &#160; &#160; &#160; &#160;&quot;More compact: 8047&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Time millisecondsToRun: [a binaryStoreBytes]. &#160; &#160;&quot; Very fast to store: 11&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Time microsecondsToRun: [100 timesRepeat: [a at: 1]] &#160; &#160;&quot; But slower to access: 115&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One can clearly see that </text><text styleclass="Class Name" translate="true">ExternalArrays</text><text styleclass="Normal" translate="true"> may also have a role outside external interfacing, especially in applications that store and process large quantities of floating point numbers.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Accessing the elements of an </text><text styleclass="Class Name" translate="true">ExternalArray</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is, however, significantly slower, because there is a need to instantiate an object to wrap the value. This may be an issue when computations are implemented in Smalltalk, but the reverse is true when passing arrays of values to external DLLs for processing because the values will already be in a form which the external function can directly access.</text></para>
+  </body>
+</topic>

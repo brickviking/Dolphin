@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Short is beautiful</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Short is beautiful</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The first thing to note is that the method text is </text><text styleclass="Normal" style="font-style:normal; text-decoration:underline;" translate="true">short</text><text styleclass="Normal" translate="true">. This is very often the case with Smalltalk code and you should find that, as a matter of good style, you&apos;ll end up writing a lot of rather short methods rather than a few long ones. This makes it very easy for the reader to assimilate how a method works. Also, by breaking down a program into many small chunks, it becomes more flexible. A method is more likely to be re-usable in future situations if it does not try to do too much at once. By re-using pre-written methods your programs will be smaller and easier to maintain.</text></para>
+  </body>
+</topic>

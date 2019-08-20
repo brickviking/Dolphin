@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Examples</title>
+  <keywords>
+    <keyword translate="true">Dolphin Developer&apos;s Guide - The Socket Connection Interface - Examples</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dolphin Developer&apos;s Guide - Establishing a Client Connection - Examples</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the Client workspace:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Identify the host and port of the server to connect to&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB := Socket port: 2048 address: (InternetAddress ipAddress: #[192 169 0 1]).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&quot;Connect to the server - this call will block until the connection is acknowledged&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">socketB connect.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So now we have an open connection with </text><text styleclass="Class Name" translate="true">socketA</text><text styleclass="Normal" translate="true"> at one end and </text><text styleclass="Class Name" translate="true">socketB</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">at the other.</text></para>
+  </body>
+</topic>

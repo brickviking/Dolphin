@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">MessageCallback Objects</title>
+  <keywords>
+    <keyword translate="true">MessageCallback Objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">MessageCallback Objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The method-based callbacks (called </text><text styleclass="Class Name" translate="true">MessageCallbacks</text><text styleclass="Normal" translate="true">) used in earlier versions of Dolphin are still available but we recommend the use of the simpler and more powerful </text><text styleclass="Class Name" translate="true">BlockCallbacks</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

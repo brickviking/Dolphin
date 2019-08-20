@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 5 Register Type Library (Windows 9x only)</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 5 Register Type Library (Windows 9x only)</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you deployed the DLL on a Windows 9x derivative, then Dolphin will not be able to bind the type library into the DLL, and consequently it cannot be automatically registered at step (3). If this is the case then at step (4) you may get the message something like the following one, again from Windows 98:</text></para>
+    <para styleclass="Normal"><image src="_img7.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Or you may get:</text></para>
+    <para styleclass="Normal"><image src="_img8.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This latter error decodes to &apos;Interface not registered&apos;, which effectively says that no marshalling code is available for a requested interface. In order to provide this it is necessary to manually register the type library, which is quite easy to do, either use the </text><text styleclass="Menu Command" translate="true">Register Type Library</text><text styleclass="Normal" translate="true"> command on the </text><text styleclass="Menu Command" translate="true">Additional Tools</text><text styleclass="Normal" translate="true"> menu to browse for and select </text><text styleclass="Program Feature" translate="true">corandom.tlb</text><text styleclass="Normal" translate="true">, or use the </text><text styleclass="Program Feature" translate="true">Active-X Component Wizard</text><text styleclass="Normal" translate="true"> as follows:</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:&apos;Times New Roman&apos;; font-size:10pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:10pt; color:#000000;" translate="true">Open up an </text><text styleclass="Program Feature" translate="true">ActiveX Component Wizard</text><text style="font-family:&apos;Times New Roman&apos;; font-size:10pt; color:#000000;" translate="true"> in Dolphin (on the </text><text styleclass="Normal" translate="true">Additional Tools</text><text style="font-family:&apos;Times New Roman&apos;; font-size:10pt; color:#000000;" translate="true"> menu)</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">On the first page of the wizard press the </text><text styleclass="Menu Command" translate="true">Browse..</text><text styleclass="Normal" translate="true">. button.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">In the subsequent dialog press the </text><text styleclass="Menu Command" translate="true">Open...</text><text styleclass="Normal" translate="true"> button.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Use the resulting file open dialog to browse to the </text><text styleclass="Program Feature" translate="true">COM Random Stream</text><text styleclass="Normal" translate="true"> sample directory, i.e. </text><text styleclass="Program Feature" translate="true">&lt;my docs&gt;\Dolphin Smalltalk 5.1\Object Arts\Samples\ActiveX\Random\</text><text styleclass="Normal" translate="true">, and open the </text><text styleclass="Program Feature" translate="true">Random.tlb</text><text styleclass="Normal" translate="true"> file.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Cancel out of the wizard</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The type library should now be registered, so you should now be able to repeat step (4) successfully, but it is advisable to repeat from step (3).</text></para>
+  </body>
+</topic>

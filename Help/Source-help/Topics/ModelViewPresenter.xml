@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Model View Presenter Overview</title>
+  <keywords>
+    <keyword translate="true">Model View Presenter</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Model View Presenter Overview</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Applications built on </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> consist of triads of cooperating classes.</text></para>
+    <para styleclass="Normal"><image src="mvptriad.bmp" scale="100.00%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see, each triad consists of three elements, a model, a view and a presenter.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class Factories</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class Factories</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">COM has the notion of factory objects that are responsible for creating instances of COM objects. Any COM server must expose class factories that can be used to instantiate instances of the coclasses for which it has been registered to serve.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s COM framework provides standard a standard class factory implementation, </text><text styleclass="Class Name" translate="true">COMClassFactory</text><text styleclass="Normal" translate="true">, that is adequate for most purposes. This is itself a COM server object (i.e. COM has first-class classes, unlike some popular programming languages that are frequently used in conjunction with COM!).</text></para>
+    <para styleclass="Normal"><text styleclass="Class Name" translate="true">COMClassFactory</text><text styleclass="Normal" translate="true"> can be subclassed to support specialized object allocation policies if desired. As an example a class factory that always answer the same object instance is included as part of the framework, i.e. the singleton class factory, C</text><text styleclass="Class Name" translate="true">OMSingletonClassFactory</text><text styleclass="Normal" translate="true">.</text></para>
+    <para style="margin-top:8px; margin-left:192px; page-break-inside:avoid;"></para>
+  </body>
+</topic>

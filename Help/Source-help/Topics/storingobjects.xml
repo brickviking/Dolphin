@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Storing objects</title>
+  <keywords>
+    <keyword translate="true">Storing objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Storing objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When objects are stored they include any objects contained within their named and indexed instance variables. The translation to the compact binary format is performed by an instance of </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true">.</text><text styleclass="Normal" translate="true"> This routes its output via an attached, binary-aware stream which you must create first (this is typically a writeable </text><text styleclass="Class Name" translate="true">FileStream</text><text styleclass="Normal" translate="true"> in byte mode). Once the </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true"> is instantiated on the stream, objects can be output using the filer&apos;s </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> method.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">S := FileStream write:&apos;Test.STB&apos; text: false.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(STBOutFiler on: S)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;nextPut: X;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;nextPut: Y;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;nextPut: Z.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">S close.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To store the objects to a </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true"> rather than a file, simply replace the binary-aware </text><text styleclass="Class Name" translate="true">FileStream</text><text styleclass="Normal" translate="true"> with a </text><text styleclass="Class Name" translate="true">WriteStream</text><text styleclass="Normal" translate="true"> on a </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

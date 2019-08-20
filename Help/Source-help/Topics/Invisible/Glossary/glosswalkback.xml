@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosswalkback</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Walkback</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A message box that indicates when an error has occurred with Dolphin. This will usually occur as the result of a problem in some code that you have written. Such errors are rarely fatal and you can opt to terminate the Smalltalk process that caused the error or to use the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Debugger" styleclass="Normal" translate="true">Debugger</link><text styleclass="Normal" translate="true"> to isolate the problem.</text></para>
+  </body>
+</topic>

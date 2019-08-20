@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #44</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Don&apos;t know how to write a particular method? Simply create a stub method containing a </text><text styleclass="Code Example" translate="true">self halt</text><text styleclass="Normal" translate="true"> expression and cause the method to be invoked. </text></para>
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Once in the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> you will find that the extra context of call stack, arguments, instance variables, etc, somehow makes the problem seem much more concrete and easier to solve. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You will also find that the auto-completion facilities are even more helpful when programming inside the debugger in this way. This is due to the additional type information that is available during the execution of a method.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

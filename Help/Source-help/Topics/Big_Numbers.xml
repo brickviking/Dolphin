@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Big Numbers</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Big Numbers</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;Our standard arithmetic benchmark (try this in C++ or Java)!&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; color:#800080;" translate="true">1000</text><text style="font-family:Arial; font-size:10pt; color:#0000ff;" translate="true"> factorial</text><text style="font-family:Arial; font-size:10pt; color:#000000;" translate="true">.</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Either copy the above into a </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true"> window or type it in. Once again, position the cursor anywhere on the line with the actual expression (&quot;1000 factorial&quot;) and then type Ctrl+D to evaluate it and display the result. You should get a (very) big number.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This example shows a couple of things. First, Smalltalk arithmetic is capable of adapting itself to the type and size of numbers involved. You don&apos;t have to know whether the result will be a floating point number, a fraction or a large or small integer, the Smalltalk class library will handle it automatically. Secondly, the Dolphin large integer arithmetic is pretty fast. In fact, most of the time in this example was spent actually displaying the result rather than calculating it!</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Again, hit the DEL key while the answer is highlighted to delete it. If you have accidentally un-highlighted the text you&apos;ll have to select it again first before getting rid of it .</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">If you&apos;re one of those people who just can&apos;t help going off and pushing the boundaries, just be careful here if you want to try out larger and larger factorials as the calculations can get very big, very quickly. Please don&apos;t try out anything larger than 10,000 factorial, especially if you are displaying the result -- otherwise you&apos;ll be in for a rather long wait. Normally, if you give Dolphin something to do which takes a long time you can break out of it using Ctrl+Break. In this case, however, the large integer calculations are performed at such a low level that the break request will not be serviced and you&apos;ll have to kill the Dolphin environment from the task manager. Not very graceful!</text></para>
+    <para styleclass="Normal"><snippet src="Get_Back_To_Splash_Experients"/></para>
+  </body>
+</topic>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Testing an Object</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Testing an Object</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some objects understand messages that answer boolean </text><text styleclass="Class Name" translate="true">true</text><text styleclass="Normal" translate="true"> or </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true"> values. You can use these to test to see if an object is of a particular kind or in a particular state. Try these examples:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;this is not an integer&apos; isInteger.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">5 between: 0 and: 10.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">$A isLowercase.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie respondsTo: #&gt;=.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This last expression asks to see if </text><text styleclass="Class Name" translate="true">charlie</text><text styleclass="Normal" translate="true"> can understand a </text><text styleclass="Class Name" translate="true">#&gt;=</text><text styleclass="Normal" translate="true"> message. We&apos;ve already seen above that it can&apos;t so the </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true"> answer comes as no surprise.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: many testing messages take the form </text><text styleclass="Notes" style="font-style:italic;" translate="true">#isXXX</text><text styleclass="Notes" translate="true">. You&apos;ll find that this helps to make code easy to read and also gives an indication that the message will answer a boolean value.</text></para>
+  </body>
+</topic>

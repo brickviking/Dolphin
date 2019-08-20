@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Variables</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Variables</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Objects have to hold their state information somewhere, and instance variables are the place. An object can contain one or more variable slots where its internal data is kept. Instance variables are private to the object in question and are not exposed to the outside world. This allows the object to keep its internal representation hidden so its users don&apos;t come to rely on it. Since it is not permissible for a user to manipulate another object&apos;s instance variables so messages become the only means to communicate with it. This encapsulation is a very important principle behind </text><text styleclass="Program Feature" translate="true">Object Oriented Programming</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">I&apos;ll show you how to create and use instance variables in the chapter on </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Classes_and_Methods" styleclass="Normal" translate="true">Classes and Methods</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

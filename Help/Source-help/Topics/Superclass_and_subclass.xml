@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Superclass and subclass</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Superclass and subclass</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Okay, now for a couple of definitions. We have seen that a class can have a number of child classes beneath it. These are known as its </text><text styleclass="Program Feature" translate="true">subclasses</text><text styleclass="Normal" translate="true">. It therefore follows that the parent of a particular class should equally be known as its </text><text styleclass="Program Feature" translate="true">superclass</text><text styleclass="Normal" translate="true">. Every class apart from </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> will have one, and only one, superclass but may have many subclasses. </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> is unique in not having a superclass because it is the root of the hierarchy.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: Once again I&apos;ve introduced a slight simplification here. There actually can be other classes like Object which exist at the root of the hierarchy and therefore have no superclasses. This is quite an advanced topic so we shall not dwell on it here.</text></para>
+  </body>
+</topic>

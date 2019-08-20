@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Get Back To Splash Experients</title>
+  <body>
+    <para styleclass="Normal"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#808080;">
+      <tr style="vertical-align:top">
+        <td>
+          <para styleclass="Normal"><text styleclass="Normal" style="color:#ffffff;" translate="true">Remember, to get back to these experiments just choose</text><text styleclass="Menu Command" translate="true"> Help/First </text><text styleclass="Normal" style="font-style:italic; color:#ffffff;" translate="true">Splash</text><text styleclass="Normal" style="color:#ffffff;" translate="true"> in any Dolphin tool window.</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

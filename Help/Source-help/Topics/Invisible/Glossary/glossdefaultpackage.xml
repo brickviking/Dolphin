@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossdefaultpackage</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Default Package</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A package that has being chosen to be the default owner of all newly created packages when working in the Class or System Browsers. </text><conditional-text type="IFNOT" value="PRINT"/><text styleclass="Normal" translate="true">Click </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Setting_a_Default_Package" styleclass="Normal" translate="true">here</link><text styleclass="Normal" translate="true"> for more details.</text><conditional-text type="END"/></para>
+  </body>
+</topic>

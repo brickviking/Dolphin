@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosssmalltalkdictionary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Smalltalk Dictionary</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An instance of </text><text styleclass="Normal" style="font-style:italic;" translate="true">SystemDictionary</text><text styleclass="Normal" translate="true"> that holds all the global objects in the image. Most of the globals are classes or pool dictionaries. You can inspect the contents of the Smalltalk dictionary by evaluating: </text></para>
+    <para styleclass="Normal"><text styleclass="Code Example" translate="true">Smalltalk inspect</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

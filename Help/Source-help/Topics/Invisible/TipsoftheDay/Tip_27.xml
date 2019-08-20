@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #27</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">System Browser</text><text styleclass="Normal" translate="true"> support a web browser style history that records all the methods you visit. You can navigate back and forth through this visit history in the normal way by using the back/forward arrow buttons on the toolbar.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The history only records methods that you visit for longer than a specified amount of time. This time can be specified by the </text><text styleclass="Class Name" translate="true">#historyDwellTime</text><text styleclass="Normal" translate="true"> aspect in the browser options.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

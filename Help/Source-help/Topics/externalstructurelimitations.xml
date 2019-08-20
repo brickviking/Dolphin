@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Structure Limitations</title>
+  <keywords>
+    <keyword translate="true">External Structure Limitations</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Structure Limitations</text></para>
+    </header>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">It is not currently possible to define embedded multi-dimensional arrays directly. The workaround is to define classes to represent dimensions, embedding further dimensions in these. A two dimensional array, for example, would require one </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class, call it </text><text styleclass="Class Name" translate="true">Dimension2</text><text styleclass="Normal" translate="true">, containing a </text><text styleclass="Class Name" translate="true">StructureArrayField</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">of the required type and length, and another </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class for the outer dimension, containing a </text><text styleclass="Class Name" translate="true">StructureArrayField</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">of the type </text><text styleclass="Class Name" translate="true">Dimension2</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">and the required length.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Accessors for bit fields will have to be hand coded – an example in the base image is </text><text styleclass="Class Name" translate="true">_FPIEEE_RECORD</text><text styleclass="Normal" translate="true">. These are rather uncommon, so automated support is considered a low priority.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">At present there is no parser to automatically generate external buffer template definitions from C header files. However the </text><text styleclass="Program Feature" translate="true">Active-X Component Wizard</text><text styleclass="Normal" translate="true"> can generate structure classes automatically from type libraries. As type libraries can be readily generated from an IDL file into which one has included the C header file, this is often a fast and accurate way to generate structures.</text></li>
+    </list>
+  </body>
+</topic>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Add class Question as a subclass of Object</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Add class Question as a subclass of Object</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Select </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true"> in the </text><text styleclass="Program Feature" translate="true">Class Browser</text><text styleclass="Normal" translate="true">. Now use the </text><text styleclass="Menu Command" translate="true">Class/New</text><text styleclass="Normal" translate="true"> menu command to create the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> subclass of </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true">. Once again, don&apos;t package the class by turning the </text><text styleclass="Program Feature" translate="true">Packaged</text><text styleclass="Normal" translate="true">? check box off in the dialog. Add the new instance variables and re-compile the definition as indicated below.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Object subclass: #Question</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;text yes no&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Idea Space</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Idea Space</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Idea_Space_Summary"/><image src="IdeaSpaceMain.png" scale="65.34%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An </text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Normal" translate="true"> can be opened from the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="System_Folder" styleclass="Program Feature" translate="true">System Folder</link><text styleclass="Normal" translate="true"> or from the </text><text styleclass="Menu Command" translate="true">Tools/Class Browser</text><text styleclass="Normal" translate="true"> menu command in any tool. &#160;Once open, additional Dolphin tools that are opened while the </text><text styleclass="Program Feature" translate="true">Idea Space</text><text styleclass="Normal" translate="true"> is active will appear as separate tabbed windows within it.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">External Callbacks</title>
+  <keywords>
+    <keyword translate="true">External Callbacks</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">External Callbacks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin&apos;s external callback facilities are intended to support situations where an external interface expects a function pointer that it then &quot;calls back&quot; (for example a window procedure). They should not be confused with VM callbacks, which are a form of interrupt from the VM to run Smalltalk code on its behalf.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossimagestripper</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Image Stripper</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An object responsible for removing unwanted packages, classes and methods from an image prior to its deployment as an executable. The stripping process is the means by which large image files can be exported as relatively small EXEs. Generally, an image stripper will be configured using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="creatingguiapplications" styleclass="Normal" translate="true">Lagoon Wizard</link><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

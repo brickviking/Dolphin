@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Deployment Strategy</title>
+  <keywords>
+    <keyword translate="true">Deployment Strategies</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Deployment Strategy</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The first step is to create a new </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> subclass that instantiates the application as part of its start-up processing. This is done by overriding the #</text><text styleclass="Class Name" translate="true">main</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When deploying the application the package is simply selected in the Package Browser and the Deployment can wizard is invoked by right-clicking on the desired package and clicking on the </text><text styleclass="Menu Command" translate="true">Deployment/Deploy Executable</text><text styleclass="Normal" translate="true"> command. One of the steps in configuring the </text><text styleclass="Class Name" translate="true">ImageStripper</text><text styleclass="Normal" translate="true"> allows the selection of the session manager that will be installed during deployment and it is here that the new </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> subclass is specified.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: the deployment process saves the development image just before it starts. This ensures that when you restart it, it is in the same state as it was before image stripping.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When creating a new </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> note that</text><text styleclass="Normal" translate="true">:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Using the #</text><text styleclass="Class Name" translate="true">getCommandLine</text><text styleclass="Normal" translate="true"> method of </text><text styleclass="Class Name" translate="true">SessionManager</text><text styleclass="Normal" translate="true"> can be useful in to configure how an application will behave depending on parameters supplied on the command line.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">It is also possible to override the #</text><text styleclass="Class Name" translate="true">onUnhandledError</text><text styleclass="Normal" translate="true">:, #</text><text styleclass="Class Name" translate="true">onUnhandledWarning</text><text styleclass="Normal" translate="true">: and #</text><text styleclass="Class Name" translate="true">onUnhandledNotification</text><text styleclass="Normal" translate="true">: methods in any </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> subclass that you create. This will give control over how such events are dealt with.</text></li>
+    </list>
+  </body>
+</topic>

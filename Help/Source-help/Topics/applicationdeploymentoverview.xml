@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Application Deployment Overview</title>
+  <keywords>
+    <keyword translate="true">Application Deployment Overview</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Application Deployment Overview</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The application deployment process consists of two stages.</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">The image is stripped of redundant objects (development tools, classes, methods etc.) in order to make it, and therefore the final application executable, smaller. At the same time, the standard </text><text styleclass="Class Name" translate="true">DevelopmentSessionManager</text><text styleclass="Normal" translate="true"> instance that normally controls the development environment is replaced by an instance of </text><text styleclass="Class Name" translate="true">RuntimeSessionManager</text><text styleclass="Normal" translate="true"> or one of its subclasses.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Subsequently the stripped image is saved out in the format of an executable (EXE) file.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Both stages are implemented by the </text><text styleclass="Class Name" translate="true">ImageStripper</text><text styleclass="Normal" translate="true"> class.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An </text><text styleclass="Class Name" translate="true">ImageStripper</text><text styleclass="Normal" translate="true"> object can be configured with a number of options. These control how the stripping operation proceeds and also determine the name of the executable file to which the image will be deployed. It is the job of the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lagoondeploymentwizard" styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</link><text styleclass="Normal" translate="true"> to provide the user interface for setting these options and to instigate the deployment process.</text></para>
+  </body>
+</topic>

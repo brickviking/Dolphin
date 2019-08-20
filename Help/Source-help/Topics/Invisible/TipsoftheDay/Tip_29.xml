@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #29</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">The</text><text styleclass="Normal" style="font-style:italic;" translate="true">&#32;</text><text styleclass="Program Feature" translate="true">Lagoon Deployment Wizard</text><text styleclass="Normal" translate="true"> is a tool available in Dolphin Professional and provides a wizard style interface that allows you to configure the various settings for an image stripper prior to deployment of a Dolphin application to an executable or DLL.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can bring up the </text><text styleclass="Program Feature" translate="true">Deployment Wizard</text><text styleclass="Normal" translate="true"> by selecting the main package to be deployed in the </text><text styleclass="Program Feature" translate="true">Package Browser</text><text styleclass="Normal" translate="true"> and choosing </text><text styleclass="Menu Command" translate="true">File/Deployment/Deploy Executable</text><text styleclass="Normal" translate="true">. Remember, this feature is not available in the free Community Edition.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

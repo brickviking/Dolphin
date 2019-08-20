@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Creating a Playground</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Creating a Playground</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> package introduces several new classes of object into your image. One of these is the </text><text styleclass="Class Name" translate="true">Playground</text><text styleclass="Normal" translate="true"> class itself, which represents the functionality behind a </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> window. Let&apos;s create such a window:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">playground := Playground new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here we send a #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> message to the </text><text styleclass="Class Name" translate="true">Playground</text><text styleclass="Normal" translate="true"> class and this results in a </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> window being created. You&apos;ll see this appear on your screen. The Smalltalk object that represents this window will also have been assigned to the </text><text styleclass="Class Name" translate="true">playground</text><text styleclass="Normal" translate="true"> workspace variable. We can use this to communicate with the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> in subsequent examples.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: we don&apos;t fully introduce the idea of classes until the later chapter on </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Classes_and_Methods" styleclass="Notes" translate="true">Classes and Methods</link><text styleclass="Notes" translate="true">. However, it should be apparent from what we have just done, i.e. sending a message to a class, that classes are indeed objects too. If this sounds odd, then don&apos;t worry at this stage. Just remember: in Smalltalk, everything is an object.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Arrange the Windows on the screen so you can simultaneously see the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> and your current workspace.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Splash" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">With the examples below:</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">With the examples below:</text></para>
+    </header>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><table rowcount="1" colcount="1" style="width:96%; cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px; background-color:#faf2d0;">
+      <tr style="vertical-align:top">
+        <td>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"><text style="font-family:Arial; font-size:10pt; font-style:italic; color:#008000;" translate="true">&quot;There will be some Smalltalk code in this area for you to copy over to your workspace&quot;</text></para>
+          <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;"></para>
+        </td>
+      </tr>
+    </table></para>
+    <para style="tabstops:33px left,67px left,100px left,133px left,167px left,200px left,233px left,267px left ;">    <line style="height:1px;" />
+</para>
+    <list id="2" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Everything in the shaded area is valid Smalltalk. You can either copy and paste (or select and drag) this region to a Dolphin </text><text styleclass="Normal" style="font-style:italic;" translate="true">Workspace</text><text styleclass="Normal" translate="true"> or you can choose to type it in directly. For some of the short examples we would recommend typing it in. That way you&apos;re more likely to learn from what you are doing and also you&apos;ll be given help by Dolphin&apos;s auto-completion system, so it shouldn&apos;t be too much of a chore anyway.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">To evaluate an expression, type Ctrl+E (for Evaluate It).</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">To evaluate and display the result of an expression, type Ctrl+D (for Display It). The result will be displayed and highlighted at the end of the line. While it is still highlighted, use DEL to clear it before moving on.</text></li>
+    </list>
+    <list id="3" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">There is no need to select single line expressions, just place the text cursor on the line and press the desired evaluation shortcut-key. If the expression consists of more than one line, select it in the normal way with the mouse or keyboard before attempting to evaluate it.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt;" translate="true">Note: </text><text styleclass="Normal" style="font-size:8pt;" translate="true">Smalltalkers usually call the act of executing a piece of Smalltalk code, &quot;evaluation&quot;.</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:47px;">
+          <para styleclass="Normal"><image src="Warning.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:596px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">If you make a mistake, the system may bring up a </text><text styleclass="Normal" style="font-style:italic;" translate="true">Walkback</text><text styleclass="Normal" translate="true"> window. To the uninitiated this may appear as a message box with an exclamation icon and filled with hieroglyphics. Don&apos;t panic, if you come across a walkback, for now just press the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Terminate</text><text styleclass="Normal" translate="true"> button and carry on.</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Class Browser Method List Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Method List Pane</text><text styleclass="Normal" translate="true"> shows the methods available in the selected class. The methods displayed will also depend on the </text><text styleclass="Program Feature" translate="true">Instance/Class</text><text styleclass="Program Feature" translate="true"> Mode</text><text styleclass="Normal" translate="true"> that is currently selected in the browser. </text><snippet src="Method_List_Pane_Summary"/></para>
+  </body>
+</topic>

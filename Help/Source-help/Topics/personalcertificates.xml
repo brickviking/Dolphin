@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Personal Certificates</title>
+  <keywords>
+    <keyword translate="true">Personal Certificates</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Personal Certificates</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is also possible to obtain a personal certificate which can be used to identify a private individual as the author of some </text><text styleclass="Program Feature" translate="true">DolphinSure</text><text styleclass="Normal" translate="true"> trusted data. Personal certificates may contain the e-mail address of the owner but additional contact details are also held on filed by the CA. In cases where abuse is reported , the certificate will be revoked.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A personal certificate looks like this:</text></para>
+    <para styleclass="Normal"><image src="personalcertificate.jpg" scale="100.00%" styleclass="Normal"></image></para>
+  </body>
+</topic>

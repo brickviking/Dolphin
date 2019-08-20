@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Things Left To Learn</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Things Left To Learn</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This concludes this quick introduction to Smalltalk. There are still many things to learn but there is no more syntax. Everything else is part of the class library.</text></para>
+  </body>
+</topic>

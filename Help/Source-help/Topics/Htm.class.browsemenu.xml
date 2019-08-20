@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Class/Browse Menu</title>
+  <keywords>
+    <keyword translate="true">Class/Browse Menu</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Class/Browse Menu</text></para>
+    </header>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" style="text-indent:-13px; margin-left:39px; font-family:Symbol; font-size:10pt; color:#000000;">
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Inst Var Refs</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> -- brings up a list of the instance variables for the selected class. Choose a variable to browse a list of all the methods that reference it.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">Class Var Refs</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> -- brings up a list of the class variables for the selected class. Choose a variable to browse a list of all the methods that reference it.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">References</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> -- browse a list of all the methods that reference the selected class.</text></li>
+      <li style="text-indent:-13px; margin-left:39px;"><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">ChangedMethods</text><text style="font-family:Verdana; font-size:10pt; text-decoration:underline; color:#000000;" translate="true">&#32;</text><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">-- browse a list of all the methods that have been changed in the selected class.</text></li>
+    </list>
+  </body>
+</topic>

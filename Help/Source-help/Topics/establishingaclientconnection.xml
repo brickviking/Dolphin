@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Establishing a Client Connection</title>
+  <keywords>
+    <keyword translate="true">Establishing a Client Connection</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Establishing a Client Connection</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An instance of the </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> class represents one end of a connection. A client must create a </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true">, identifying the server to which it wants to connect (by </text><text styleclass="Class Name" translate="true">InternetAddress</text><text styleclass="Normal" translate="true"> and port number), and then issue a #</text><text styleclass="Class Name" translate="true">connect</text><text styleclass="Normal" translate="true"> call. If the connection succeeds, each end will have an appropriate </text><text styleclass="Class Name" translate="true">Socket</text><text styleclass="Normal" translate="true"> object that can be used to talk across the link.</text></para>
+  </body>
+</topic>

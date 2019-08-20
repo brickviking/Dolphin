@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Process Monitor Summary</title>
+  <body>
+    <para styleclass="Normal"><snippet src="Only_Available_in_Dolphin_Prof"/><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Process Monitor</text><text styleclass="Normal" translate="true"> allows you to inspect the Smalltalk processes that are running in your image and to perform various administration functions upon them. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that, Smalltalk processes are so-called &quot;green threads&quot; and are independent of the processes and threads managed by the Windows operating system.</text></para>
+    <para styleclass="Notes"><text styleclass="Normal" translate="true">In a normal, basic, Dolphin image there should be five processes running. If you have more than this, and you have not deliberately started additional processes (or installed packages that do so) then this is an indication that you may have some </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glosszombies" styleclass="Normal" translate="true">Zombies</link><text styleclass="Normal" translate="true"> lurking in your image. A quick way to get rid of most zombies is to use the </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Normal" translate="true"> icon in the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

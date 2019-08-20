@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Deploying Console Applications</title>
+  <keywords>
+    <keyword translate="true">Deploying Console Applications</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Deploying Console Applications</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An important difference between GUI and Console applications is the executable stub file that is used. Console applications must use </text><text styleclass="Class Name" translate="true">ConsoleStub</text><text styleclass="Normal" translate="true"> rather than </text><text styleclass="Class Name" translate="true">EmptyStub</text><text styleclass="Normal" translate="true">. If the latter is used then Windows will not recognise the executable as a console application, and will not create or connect to a console window for the application. In addition the standard I/O streams will not be initialised correctly. The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lagoondeploymentwizard" styleclass="Normal" translate="true">Lagoon Deployment Wizard</link><text styleclass="Normal" translate="true"> should automatically select the correct stub file.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is recommended that when first deploying a console application the default options be retained (although it should be safe to strip deprecated methods too).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It goes without saying that console applications are not intended to support graphical user interfaces. You can use </text><text styleclass="Class Name" translate="true">MessageBox</text><text styleclass="Normal" translate="true"> to display notifications, but apart from that Dolphin&apos;s MVP sub-system is not correctly initialized in console applications, and should not be used. It is worth checking </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Prerequisites_Pane" styleclass="Normal" translate="true">package pre-requisites</link><text styleclass="Normal" translate="true"> to be sure that GUI classes have not inadvertently been used. The deployment manifest can also be checked using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Environment_Browser" styleclass="Normal" translate="true">Executable Browser</link><text styleclass="Normal" translate="true"> to be verify that all MVP related classes are stripped from the console executable. If they are, then the executable will be significantly smaller, and small utilities should come in well under 0.5Mb, the minimum size being around 370Kb.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once an application has been deployed it can be best tested by invoking it directly from the command line.</text></para>
+  </body>
+</topic>

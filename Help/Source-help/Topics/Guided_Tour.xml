@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Guided Tour</title>
+  <keywords>
+    <keyword translate="true">Touring the Development System</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Guided Tour</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you have just installed Dolphin Smalltalk and are new to the system then you can follow this guided tour of the development environment to bring yourself up to speed. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In general, we&apos;ll assume that you are familiar with the Smalltalk language (if not then see the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="A_Note_To_Those_New_To_Smalltalk" styleclass="Normal" translate="true">note</link><text styleclass="Normal" translate="true"> below) and that you&apos;ve probably used another Smalltalk environment in the past. You&apos;ll find that the Dolphin development tools are easy-to-use and highly integrated with the Windows operating system, employing the latest native widgets (Windows controls) throughout. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin has the look and feel of a modern development environment and we hope that this will provide you with the freedom of expression that you expect from the Smalltalk language.</text></para>
+    <para style="margin-top:11px;"></para>
+  </body>
+</topic>

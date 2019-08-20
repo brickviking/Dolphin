@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Querying the Database Structure</title>
+  <keywords>
+    <keyword translate="true">Querying the Database Structure</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Querying the Database Structure</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can also use the </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> to easily ask questions about the structure (or catalogue) of the underlying database. Let&apos;s find out what tables are available in the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">NorthWind</text><text styleclass="Normal" translate="true"> traders sample database.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c tables. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should receive back a collection of table names describing the tables within the database. Hopefully, for the </text><text styleclass="Normal" style="font-weight:bold;" translate="true">NorthWind</text><text styleclass="Normal" translate="true"> sample, this will be confirmed by the database structure as viewed in Microsoft Access (if you have it available).</text></para>
+    <para styleclass="Normal"><image src="ODBCNwind.png" scale="69.71%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To find out the descriptions of the columns that exist in a particular table you can use:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">c columns: &apos;Orders&apos;. &apos;Inspect it&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can compare this with the design view of the </text><text styleclass="Normal" translate="true">Orders</text><text styleclass="Normal" translate="true"> table in Access:</text></para>
+    <para styleclass="Normal"><image src="ODBCNwindOrders.png" scale="81.77%" styleclass="Normal"></image></para>
+  </body>
+</topic>

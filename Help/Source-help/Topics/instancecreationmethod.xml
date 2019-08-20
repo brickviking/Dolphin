@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Creation Method</title>
+  <keywords>
+    <keyword translate="true">Instance Creation Method</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Creation Method</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some objects require parameterization by the programmer when they are created. This </text><text styleclass="Normal" translate="true">can</text><text styleclass="Normal" translate="true"> be achieved by creating a new default instance of the class and then later using its accessor methods to set each of the instance variables individually. However, sometimes a class contains instance variables which are fundamental to its operation or identity, without which a new instance would be considered invalid.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Also Known As</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Constructor Method</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement an instance creation class method which is passed initial values for the identity instance variables, and answers an instance of the class containing those details. This method typically sends the </text><text styleclass="Normal" translate="true">#new </text><text styleclass="Normal" translate="true">message to the class (or super) and then uses an </text><link displaytype="text" defaultstyle="true" type="topiclink" href="accessormethod" styleclass="Normal" translate="true">Accessor Method</link><text styleclass="Normal" translate="true"> to set the details of the new instance.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Consider a class </text><text styleclass="Class Name" translate="true">IndexEntry</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">(with instance variables </text><text styleclass="Normal" translate="true">description </text><text styleclass="Normal" translate="true">and </text><text styleclass="Normal" translate="true">page</text><text styleclass="Normal" translate="true">) which represents an entry in a book index. It seems unlikely that a programmer would create an instance of </text><text styleclass="Class Name" translate="true">IndexEntry</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">without immediately setting its details. </text><text styleclass="Class Name" translate="true">IndexEntry</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">would supply an instance creation method </text><text styleclass="Class Name" translate="true">#description:page: </text><text styleclass="Normal" translate="true">which answers a new instance of </text><text styleclass="Class Name" translate="true">IndexEntry</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">with the details supplied by the caller.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">description: aString page: anInteger</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answer a new instance of IndexEntry</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;with description aString and page anInteger.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;description: aString;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;page: anInteger;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;yourself</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class offers an instance creation method </text><text styleclass="Class Name" translate="true">#x:y: </text><text styleclass="Normal" translate="true">which answers a new instance of </text><text styleclass="Class Name" translate="true">Point</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">with </text><text styleclass="Class Name" translate="true">x</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">y</text><text styleclass="Normal" translate="true"> initialized from the parameters.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Point class&gt;&gt;x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;&quot;Answer a new instance of the receiver with the specified</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;x and y coordinates&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;^self basicNew x: xCoord y: yCoord</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="instanceinitialization" styleclass="Normal" translate="true">Instance Initialisation</link></para>
+  </body>
+</topic>

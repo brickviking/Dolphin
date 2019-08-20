@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Accessing the Stores</title>
+  <keywords>
+    <keyword translate="true">Accessing the Stores</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Accessing the Stores</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you want to manipulate the contents of any of the certificate stores then you can use the class, </text><text styleclass="Class Name" translate="true">DolphinSureCertificateStore</text><text styleclass="Normal" translate="true">, to do so. Please see the class comment for more details.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Project Editions Browser</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Project Editions Browser</text></para>
+    </header>
+    <para styleclass="Normal"><snippet src="Project_Editions_Browser_Sum"/><text styleclass="Normal" translate="true">For example: if the project you are working on, involves many packages you can group them together into a </text><text styleclass="Program Feature" translate="true">Project</text><text styleclass="Normal" translate="true">, and version them together as a whole. When a project edition is loaded, all of its package editions are loaded at once in the predefined order specified by the order in which they are placed into the project edition.</text></para>
+    <para styleclass="Normal"><image src="ProjectEditionsBrowser.png" scale="79.41%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal" style="margin-left:0px;"></para>
+  </body>
+</topic>

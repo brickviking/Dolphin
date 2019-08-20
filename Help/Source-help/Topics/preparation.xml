@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Preparation</title>
+  <keywords>
+    <keyword translate="true">Preparation</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Preparation</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s prepare a typical insert statement:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps := c prepare: &apos;insert into Suppliers (CompanyName, HomePage) values (?, ?)&apos;. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see, this answers an instance of </text><text styleclass="Class Name" translate="true">DBParameterizedStatement</text><text styleclass="Normal" translate="true">. This is very much like a </text><text styleclass="Class Name" translate="true">DBStatement</text><text styleclass="Normal" translate="true">, except that it has not yet been executed and it has placeholders for the parameter substitutions it requires before it can be run. However, there is one more thing that we must do before the statement can be considered to be fully prepared. It is necessary to configure it with the information regarding the types and sizes of each of the parameters substitutions. This is done using the #</text><text styleclass="Class Name" translate="true">paramCols</text><text styleclass="Normal" translate="true">: message, which takes as its parameter an array of </text><text styleclass="Class Name" translate="true">DBColAttr</text><text styleclass="Normal" translate="true"> objects, each one describing the missing columns in the statement. The best place to get this information is by querying it from the database catalogue.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">pcols := (c columns: &apos;Suppliers&apos;) select: [:col | </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">col name=&apos;CompanyName&apos; or: [col name=&apos;HomePage&apos;]].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">pcols. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">ps paramCols: pcols.</text></para>
+  </body>
+</topic>

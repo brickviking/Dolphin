@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The Animal game</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The Animal game</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this chapter we will build an implementation of a simple animal guessing game. The game will ask you to think of an animal and it will then try to guess what it is by asking a series of questions. If it turns out that it does not know the animal you are thinking of then the program will ask you to tell it what it was so it can learn this new animal for future games.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">I originally saw this game written a long time ago in a compendium of BASIC programs (written when BASIC was far from &quot;Visual&quot;). It was the first learning program that I&apos;d seen and I was amazed that something so simple could appear to be &quot;intelligent&quot;. I thought it would be interesting to see what it looked like in Smalltalk, so here it is.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The full game has been provided in a package called </text><text styleclass="Program Feature" translate="true">Animals</text><text styleclass="Normal" translate="true">. Go to a workspace and evaluate: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal playGame.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You will be asked to think of an animal and then to respond to questions about it. Initially, the game only knows one animal (a dog) so the first round will be pretty boring. If the game does not know the animal you are thinking of then it will ask you to enter its name so it can learn it for next time. You will also be asked to think of a question that distinguishes the new animal from one that is already in the database. Make sure you follow the instructions here and enter a question that fits the format requested.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you get tired of expanding the </text><text styleclass="Program Feature" translate="true">Animal</text><text styleclass="Normal" translate="true"> game&apos;s knowledge base then be sure to uninstall the package from your image so that you can follow the tutorial in this chapter. You can do this using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Package_Browser" styleclass="Normal" translate="true">Package Browser&apos;s</link><text styleclass="Normal" translate="true">, </text><text styleclass="Menu Command" translate="true">Package/Uninstall</text><text styleclass="Normal" translate="true"> menu command.</text></para>
+  </body>
+</topic>

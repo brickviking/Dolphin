@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Contained Package Editions Pane Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Contained Package Editions Pane</text><text styleclass="Normal" translate="true"> displays the list of package editions which belong to the selected edition of the project. Package editions are listed in their load order (which has to be defined by the developer since STS has no automatic functionality to determine the right load order of packages).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">STS uses icons to indicate if a package edition is loaded in the image. This way you can easily see if a package edition is already loaded or not.</text></para>
+    <para styleclass="Normal"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:92px;">
+          <para styleclass="Normal" style="text-align:center;"><image src="StsPackageEditionIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:531px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">When this icon is shown before a package version, it indicates that the version of the package is not loaded in the image</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:92px;">
+          <para styleclass="Normal" style="text-align:center;"><image src="PackageIcon.png" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:531px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true"> When this icon is shown before a package version, it indicates that either this is the version of the package which was </text><text styleclass="Normal" style="font-weight:bold;" translate="true">versioned</text><text styleclass="Normal" translate="true"> or that this is the version of the package which was </text><text styleclass="Normal" style="font-weight:bold;" translate="true">installed</text><text styleclass="Normal" translate="true"> by loading it from the repository.</text></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

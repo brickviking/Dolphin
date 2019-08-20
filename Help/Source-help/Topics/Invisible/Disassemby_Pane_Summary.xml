@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Disassemby Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Disassembly Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> s</text><text styleclass="Normal" translate="true">hows a bytecode disassembly of the current method. Bytecodes are the internal &quot;machine code&quot; of the Dolphin virtual machine.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">The </text><text styleclass="Notes" translate="true">Disassembly Pane</text><text styleclass="Notes" translate="true"> is a class browser plug-in and is implemented by the </text><text styleclass="Notes" translate="true">DisassemblyPlugIn</text><text styleclass="Notes" translate="true"> class in the image.</text></para>
+  </body>
+</topic>

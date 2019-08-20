@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Preparing SQL for Later Execution</title>
+  <keywords>
+    <keyword translate="true">Preparing SQL for Later Execution</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Preparing SQL for Later Execution</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Very often it is a good idea to compile an SQL statement once so that it is ready to be used repeatedly later. This will naturally be more efficient since the database engine will not have to parse the SQL string each time the statement is submitted. The Dolphin </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> allows you to </text><text styleclass="Normal" translate="true">prepare</text><text styleclass="Normal" translate="true"> SQL statements in advance for just this purpose. The SQL text may also contain &apos;?&apos; placeholders that can later be substituted with parameter values immediately prior to execution</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+  </body>
+</topic>

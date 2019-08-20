@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Target Machine Requirements</title>
+  <keywords>
+    <keyword translate="true">Target Machine Requirements</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Target Machine Requirements</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In general, you can run a Dolphin Smalltalk application on any machine that is capable of running the development environment. In addition, you can also deploy executable for some of the older Windows operating systems. Specifically, you will need to ensure the following are available:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Windows 98/ME/NT4 SP3/2000/2003/XP. Note executables will not will run under Windows 95.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Internet Explorer 5 or later must be installed. The Dolphin runtime system does not necessarily make use of IE5 but it does require the operating system updates that are applied when this is installed.</text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">The machine must have available the Microsoft C runtime library files, </text><text styleclass="Program Feature" translate="true">MSVCRT.DLL</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">MSVCIRT.DLL</text><text styleclass="Normal" translate="true"> version 7.1 or later. You can add the runtime libraries that are distributed with Dolphin to your applications installer. You should aim to install these in your own private application directory, rather than any shared location.</text></li>
+    </list>
+  </body>
+</topic>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalAccount</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalAccount</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s now create a class to represent each account. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Model subclass: #PersonalAccount</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;name accountNumber initialBalance transactions currentBalance&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each account instance holds some details about the account, such as the name, the account number and the initial balance, together with a list of all the transactions on the account. These variables obviously require initialization to place an instance into a known state.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Initialize the receiver&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">name := &apos;New account&apos;.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">initialBalance := currentBalance := 0.0.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">transactions := ListModel on: </text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">(SortedCollection sortBlock: [:x :y | x date &lt;= y date])</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once again our list is to be a </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true">, but this time it wraps a </text><text styleclass="Class Name" translate="true">SortedCollection</text><text styleclass="Normal" translate="true"> capable of sorting the account objects that it holds based on their dates. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now add the following </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Accessor_Methods" styleclass="Normal" translate="true">accessor methods</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">accountNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the account number of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^accountNumber.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">accountNumber: aString</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the account number of the receiver to aString&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accountNumber := aString.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">currentBalance</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the calculated current balance of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^currentBalance</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">currentBalance: aNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the current balance of the receiver to aNumber.&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">currentBalance := aNumber.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self trigger: #currentBalanceChanged.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialBalance</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the account initial balance of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^initialBalance.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialBalance: aNumber</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the account initial balance of the receiver to aNumber&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">initialBalance := aNumber.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self calculateCurrentBalance</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">name</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the account name of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^name.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">name: aString</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the account name of the receiver to aString&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">name := aString.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">transactions</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the transactions collection&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^transactions.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Again there is no need to provide a method to set the transactions </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true">. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following methods add behaviour to the class.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">printOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Append, to aStream, a String whose characters are a description of the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver as a developer would want to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self basicPrintOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $(.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self name displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $,.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self accountNumber displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $,.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self currentBalance displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">displayOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Append, to aStream, a String whose characters are a description of the </text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver as a user would want to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self name displayOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $-.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self accountNumber displayOn: aStream.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">addTransaction: aPersonalAccountTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Add aPersonalAccountTransaction to the collection of transactions owned by the receiver.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">Answers aPersonalAccountTransaction&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self transactions add: aPersonalAccountTransaction.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self calculateCurrentBalance.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^aPersonalAccountTransaction.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">removeTransaction: aPersonalAccountTransaction</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Remove aPersonalAccountTransaction from the collection of transactions</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">owned by the receiver. Answers aPersonalAccountTransaction&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self transactions remove: aPersonalAccountTransaction.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self calculateCurrentBalance.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^aPersonalAccountTransaction.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">calculateCurrentBalance</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Calculate and set the current balance of the receiver. Add the total</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">of all the actual amounts to the initial balance&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">| balance |</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">balance := self transactions inject: self initialBalance into: [:total :each |</text></para>
+    <para styleclass="Code Example"><tab /><tab /><text styleclass="Code Example" translate="true">total + each actualAmount ].</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self currentBalance: balance.</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

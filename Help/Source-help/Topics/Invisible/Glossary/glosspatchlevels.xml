@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glosspatchlevels</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Patch Levels</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Minor updates to Dolphin are made available as patch files which can be automatically downloaded by the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Live_Update" styleclass="Normal" translate="true">Live Update</link><text styleclass="Normal" translate="true"> facility. As each patch file is installed your image will be brought up to a particular patch level. You can tell the current patch level of your system from the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Help/About</text><text styleclass="Normal" translate="true"> box.</text></para>
+  </body>
+</topic>

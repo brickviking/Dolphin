@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Method Protocol Summary</title>
+  <body>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Method protocols are the Smalltalk equivalent of Java</text><text styleclass="Popup Box" style="font-family:Symbol;" translate="true">Ô</text><text styleclass="Popup Box" translate="true"> interfaces. A protocol consists of a series of message selectors that must be implemented by a class if it is to conform to that protocol. In Smalltalk, protocols are advisory only and not enforced.</text></para>
+  </body>
+</topic>

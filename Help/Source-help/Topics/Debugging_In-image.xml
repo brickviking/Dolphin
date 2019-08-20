@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Debugging &quot;In-image&quot;</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Debugging &quot;In-image&quot;</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Debugging in-image means that both client and server objects exist in the same image. Although effectively running as a </text><text styleclass="Program Feature" translate="true">Local Server</text><text styleclass="Normal" translate="true"> as far as COM is concerned, both client and server are actually running on the same Dolphin thread within the same address space (i.e. in the same </text><text styleclass="Program Feature" translate="true">apartment</text><text styleclass="Normal" translate="true">). Despite this neither client nor server side are aware that the underlying objects are within the same image, and all calls are routed externally via COM (or through interface call outs/callbacks), so one can do the majority of testing in this way. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Running in-image is the one case where marshalling code is not required because both client and server are running in the same apartment. Furthermore when running in-image one does not need any registry entries (instead one must ensure that a class factory is registered with the COM subsystem).</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since debugging in-image requires neither marshalling code nor registry entries one can concentrate on the ensuring that the functionality of the server is correct, and avoid most of the unpleasantness of COM that is required for binary component re-use. In consequence it is most productive to perform the majority of one</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s development work in-image. </text></para>
+  </body>
+</topic>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">View Browser Category Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View Categories Pane</text><text styleclass="Normal" translate="true"> splits all of the available view resources into categories so you can more easily find the views you want. As you click on a category icon the list of views in that category are displayed in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_List__Preview_Pane" styleclass="Program Feature" translate="true">View List  Pane</link><text styleclass="Normal" translate="true"> to the right. Views can belong to more than one category and you may select more than one catetgory at a time to view the views in several categories at once.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can re-categorize a view resource by by dragging it from the list pane and dropping it over a category icon. However, it is important to realize that when you categorize a view you are actually changing the class category for the class that owns it. &#160;</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">If you move or copy a view to a new category then you will have also done the same to all other resources belonging to the same class</text></para>
+  </body>
+</topic>

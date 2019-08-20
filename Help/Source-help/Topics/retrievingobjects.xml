@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Retrieving objects</title>
+  <keywords>
+    <keyword translate="true">Retrieving objects</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Retrieving objects</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is, as you might expect, just the reverse of storing. You need to create a binary-aware stream on the data and attach it to an </text><text styleclass="Class Name" translate="true">STBInFiler</text><text styleclass="Normal" translate="true">. Then each send of the </text><text styleclass="Class Name" translate="true">#next</text><text styleclass="Normal" translate="true"> method will recreate and answer the corresponding object that was </text><text styleclass="Class Name" translate="true">#nextPut</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> into the data stream by the </text><text styleclass="Class Name" translate="true">STBOutFiler</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">S := FileStream read: &apos;Test.STB&apos; text: false.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">STB := STBInFiler on: S.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">X := STB next.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Y := STB next.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Z := STB next.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">S close.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To retrieve the objects from a </text><text styleclass="Class Name" translate="true">ByteArray</text><text styleclass="Normal" translate="true"> rather than a file, simply substitute a </text><text styleclass="Class Name" translate="true">ReadStream</text><text styleclass="Normal" translate="true"> on the byte array instead of a file stream.</text></para>
+  </body>
+</topic>

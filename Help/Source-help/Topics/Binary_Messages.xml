@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Binary Messages</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Binary Messages</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes, a message needs additional information to perform its work. Certain messages, called </text><text styleclass="Program Feature" translate="true">Binary Messages</text><text styleclass="Normal" translate="true">, require two objects; the receiver and one </text><text styleclass="Program Feature" translate="true">parameter</text><text styleclass="Normal" translate="true">. Try:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">3 + 4</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">6 * 5</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">5 squared + 6</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">4 ** 3</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The latter </text><text styleclass="Class Name" translate="true">**</text><text styleclass="Normal" translate="true"> message selector represents exponentiation, so this expression computes 4 to the power 3. Here, the integer object 4 is the receiver and 3 is the single parameter required by the </text><text styleclass="Class Name" translate="true">**</text><text styleclass="Normal" translate="true"> message.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you can see, binary messages are often used to perform arithmetic in Smalltalk. The message selectors consist of one or more special characters that are not letters or digits. They can be used for other operations too:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;skin&apos; , &apos;diver&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The , message is used for concatenation. In this case it is used to append the string &apos;diver&apos; to the receiving object, the string &apos;skin&apos;. The operation answers a new string that contains the concatenation of the two source strings. In fact, this message can be used to concatenate many similar collections of objects:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">#(1 2 3) , #(4 5 6)</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes, messages are used simply to &quot;construct&quot; a new object. We&apos;ll hear more about these constructor or class messages later but here is an interesting example using the binary message. </text><text styleclass="Class Name" translate="true">@</text><text styleclass="Normal" translate="true">:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(50 @ 150) class</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The @ message, when sent to an integer, is used to create a two-dimensional point object. The </text><text styleclass="Class Name" translate="true">class</text><text styleclass="Normal" translate="true"> message simply asks the resultant object to answer what class it is (we&apos;ll learn more about classes later). The interesting thing here is that the sequence </text><text styleclass="Class Name" translate="true">50@150</text><text styleclass="Normal" translate="true"> appears, in the Smalltalk language, to represent a two-dimensional point, but, it&apos;s important to understand that the @ symbol is not part of the language per se. Rather, it is simply a message that performs a particular operation (in this case the creation of a point object) just like any other binary message. Just for fun, try some more operations on points.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(50 @ 150) + (25 @ 35)</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(640 @ 480) * 3</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Embedded Fields</title>
+  <keywords>
+    <keyword translate="true">Embedded Fields</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Embedded Fields</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An alternative to embedding a pointer to an object in a structure is to embed the object itself. </text><text styleclass="Normal" translate="true">EmbeddedField</text><text styleclass="Normal" translate="true"> and its subclasses support these types of fields. There are two broad categories:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Embedded Structures, represented by </text><text styleclass="Normal" translate="true">StructureField</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Embedded Arrays, represented by </text><text styleclass="Normal" translate="true">ArrayField </text><text styleclass="Normal" translate="true">and subclasses</text></li>
+    </list>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Embedded Structures</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Occasionally one encounters structures which have other structures embedded inside them. For example,</text><text styleclass="Normal" translate="true"> LV_FINDINFO </text><text styleclass="Normal" translate="true">contains an embedded </text><text styleclass="Normal" translate="true">POINTL</text><text styleclass="Normal" translate="true"> as its </text><text styleclass="Normal" translate="true">pt </text><text styleclass="Normal" translate="true">field:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the Win32 LV_FINDINFO structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LV_FINDINFO compileDefinition</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #flags type: DWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #psz type:(PointerField to: String);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lParam type: DWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #pt type: (StructureField type: POINTL);</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #vkDirection type: DWORDField new;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that because the field type is a subclass of </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">, the answer will reference the original embedded data, and modifications will write directly back into that data.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is possible to nest structures to an arbitrary depth, and </text><text styleclass="Class Name" translate="true">ExternalStructure</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">will automatically calculate the correct size. This is achieved by lazily calculating the size of structures, and may occasionally trigger the recompilation of External Methods that might be dependent on the size of any structures that they reference. Circular nesting is, of course, not possible.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Embedded Arrays</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some structures contain embedded arrays. Embedded fields differ from scalar fields in that the size is not fixed, but is some multiple of the size of the array elements, after taking account of </text><link displaytype="text" defaultstyle="true" type="topiclink" href="structurepacking" styleclass="Normal" translate="true">packing</link><text styleclass="Normal" translate="true">. A number of structures embed character arrays (sometimes called &quot;strings&quot;), and there is a &#160;specialized embedded field type for these,</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Class Name" translate="true">StringField</text><text styleclass="Normal" translate="true">. A familiar example is the face name (</text><text styleclass="Class Name" translate="true">lfFaceName</text><text styleclass="Normal" translate="true">) in the </text><text styleclass="Class Name" translate="true">LOGFONT</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">structure:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the Win32 LOGFONT structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;LOGFONT compileDefinition.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lfHeight type: SDWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lfWidth type: SDWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;...</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lfPitchAndFamily type: BYTEField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #lfFaceName type: (StringField length: LF_FACESIZE)</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When the </text><text styleclass="Class Name" translate="true">lfFaceName</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">field is accessed by sending </text><text styleclass="Class Name" translate="true">#lfFaceName</text><text styleclass="Normal" translate="true">, the answer will be a copy of the data in the structure, so modifications to it will not be reflected back into the structure. To update the </text><text styleclass="Class Name" translate="true">lfFaceName</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">field in the structure, it must be sent </text><text styleclass="Class Name" translate="true">#lfFaceName</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> with an appropriate </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">as the parameter.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Embedded Arrays of Structures</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">These are relatively uncommon (except perhaps in graphics and mathematical systems), but can be defined using the </text><text styleclass="Class Name" translate="true">StructureArrayField</text><text styleclass="Normal" translate="true"> field type. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the hypothetical POLYLINE structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;struct {</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;int nPoints;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;POINTL aPoints[100];</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;} POLYLINE;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #nPoints type: DWORDField new;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #aPoints type: (StructureArrayField type: POINTL length: 100)</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Individual elements of the embedded array can be accessed using the normal Smalltalk syntax, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;| pl r |</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;pl := POLYLINE new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;pl nPoints: 100.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;r := Random new.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;1 to: 100 do: [:i | (pl aPoints at: i) x: (r next * 640) truncated; y: (r next * 480) truncated].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;pl</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that the accessed elements update the original structure in place when modified.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Occasionally one may have to define structures that contain embedded arrays, the contents of which are of no particular interest. In this case it is easiest to define these as being </text><text styleclass="Class Name" translate="true">ByteArrays</text><text styleclass="Normal" translate="true">. For example the </text><text styleclass="Class Name" translate="true">PAINTSTRUCT</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">structure contains a reserved area of 32 bytes, and this structure is defined in the base Dolphin image as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the Win32 PAINTSTRUCT structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;PAINTSTRUCT compileDefinition</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #hdc type: DWORDField readOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #fErase type: BOOLField readOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #rcPaint type: (StructureField type: RECT) beReadOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #fRestore type: BOOLField filler;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #fIncUpdate type: BOOLField filler;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #rgbReserved type: (ArrayField type: ByteArray length: 32) beFiller</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that it is necessary to specify the size in bytes as the length.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Variable Length Embedded Arrays of Structures</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Very occasionally you may come across embedded arrays of structures where the length is variable. The length of the array is dynamically specified by some other integer field in the structure. This type of field can be represented by Dolphin&apos;s </text><text styleclass="Class Name" translate="true">VariableStructureArrayField</text><text styleclass="Normal" translate="true"> type. For example, the Active-X Automation </text><text styleclass="Class Name" translate="true">SAFEARRAY</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">structure is defined as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">defineFields</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Define the fields of the SAFEARRAY structure.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;struct SAFEARRAY {</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;unsigned short cDims; // Number of dimensions in the array</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;…</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;SAFEARRAYBOUND rgsabound[1]; // One bound for each dimension</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;}; &quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #cDims type: WORDField readOnly;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;…</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160;defineField: #rgsabound &#160; &#160;type: (VariableStructureArrayField</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;type: SAFEARRAYBOUND</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;length: #cDims) beReadOnly</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Note that this means that the structure itself will be of variable length, and therefore sending the </text><text styleclass="Class Name" translate="true">#byteSize</text><text styleclass="Normal" translate="true"> message to the structure class will report a size less than that of any of its actual instances.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Only one variable length embedded field is supported per structure.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Further Information</title>
+  <keywords>
+    <keyword translate="true">Further Information</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Further Information</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="externalcallback" styleclass="Normal" translate="true">External Callback</link><text styleclass="Normal" translate="true"> pattern guides one through the steps needed to implement one&apos;s own callbacks, and provides some useful tips too.</text></para>
+  </body>
+</topic>

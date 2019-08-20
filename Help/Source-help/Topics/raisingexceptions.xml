@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Raising Exceptions</title>
+  <keywords>
+    <keyword translate="true">Raising Exceptions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Raising Exceptions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Having detected that a particular exceptional condition has occurred, one needs to be able to instantiate and raise an instance of the appropriate </text><text styleclass="Normal" translate="true">Exception </text><text styleclass="Normal" translate="true">class. The easiest way to do this is by using the class </text><text styleclass="Class Name" translate="true">#signal</text><text styleclass="Normal" translate="true">: method. For example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Error signal: &apos;A gratuitious error&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossansistandard" styleclass="Normal" translate="true">ANSI standard</link><text styleclass="Normal" translate="true"> specifies that the argument to </text><text styleclass="Class Name" translate="true">#signal</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> should implement the &lt;string&gt; protocol, but Dolphin will actually accept any object to which it sends </text><text styleclass="Class Name" translate="true">#displayString</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">in order to generate the error message text.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">One can also include additional information in the form of a &apos;tag&apos; that can be hold any type of </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true">. In order to set the tag one uses the class </text><text styleclass="Class Name" translate="true">#signal</text><text styleclass="Normal" translate="true">:with:</text><text styleclass="Normal" translate="true"> method, for example:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Win32Fault signal: &apos;Floating point stack under/overflow&apos; with: aWin32ExceptionRecord</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To set the tag alone without setting a specific error message one can use the class </text><text styleclass="Class Name" translate="true">#signalWith</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> method.</text></para>
+    <para styleclass="Code Example"><text styleclass="Normal" translate="true">If one needs to capture additional information when raising an exception, then the object can be instantiated in the normal way, and once set-up with the use of accessor methods, it can be sent </text><text styleclass="Class Name" translate="true">#signal/signal:/signalWith: </text><text styleclass="Normal" translate="true">to actually raise it. For example </text><text styleclass="Class Name" translate="true">BoundsError</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">is an error class which includes the receiver whose bounds were violated, and the index at which the violating attempt was made. </text><text styleclass="Code Example" translate="true">BoundsErrors are raised as follows:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">^BoundsError new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;receiver: self;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;signalWith: anInteger</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Bear in mind that one is free to add whatever behaviour and state one needs in one&apos;s own exception classes.</text></para>
+  </body>
+</topic>

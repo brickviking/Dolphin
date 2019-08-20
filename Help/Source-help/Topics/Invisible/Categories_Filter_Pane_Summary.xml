@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Categories Filter Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Category Filter Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> d</text><text styleclass="Normal" style="font-weight:normal;" translate="true">isplays</text><text styleclass="Normal" translate="true"> a list of the method categories used by the currently selected class. The categories for the currently selected method (if any) are highlighted in bold. You can filter the method list display to only show the methods in a particular category by selecting the category you want in this pane.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can use this pane to categorise one or more methods by dragging them from the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Method List Pane</text><text styleclass="Normal" translate="true"> and dropping them over the required category here. The drag operations are:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">A normal drag will add the method(s) to the category. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Shift+Drag this will move them to the category instead, thus removing them from any others. </text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Alt+Drag will just remove the method(s) from the chosen category.</text></li>
+    </list>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note that the * node shows &quot;pseudo-categories&quot; that are automatically calculated by the system. You can expand this node by clicking the [+] symbol. Because these pseudo-categories are automatically generated, you cannot drag methods over them.</text></para>
+  </body>
+</topic>

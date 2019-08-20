@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">PersonalMoney</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">PersonalMoney</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true"> class can be subclassed from </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Normal" translate="true">. This will usually be the norm for domain model classes that are liable to trigger update events when aspects of them change. You might choose a different superclass if you need to inherit specific behaviour from another class or if your model does not trigger any update events (in this latter case a more suitable superclass might be </text><text styleclass="Class Name" translate="true">Object</text><text styleclass="Normal" translate="true">). Define the </text><text styleclass="Class Name" translate="true">PersonalMoney</text><text styleclass="Normal" translate="true"> class as follows: </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Model subclass: #PersonalMoney</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">instanceVariableNames: &apos;owner accounts &apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">classVariableNames: &apos;&apos;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">poolDictionaries: &apos;&apos;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The owner instance variable will hold a string containing the user&apos;s name, and the account variable will hold a collection of account objects.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next responsibility is to add any specialized instance creation methods that the class may require. We have two instance variables here that require initialization and the normal method to ensure that this occurs is to add an </text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> instance method to the class and arrange that this is called from whenever an instance is created. In fact, the Model superclass contains a </text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> method that sends #</text><text styleclass="Class Name" translate="true">initialize</text><text styleclass="Normal" translate="true"> to all newly created instances, therefore we only need to add the initialize functionality since it will be called by default.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Private - Initialize the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">accounts := ListModel new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We initialize our </text><text styleclass="Class Name" translate="true">accounts</text><text styleclass="Normal" translate="true"> collection with a </text><text styleclass="Class Name" translate="true">ListModel</text><text styleclass="Normal" translate="true"> rather than just an </text><text styleclass="Class Name" translate="true">OrderedCollection</text><text styleclass="Normal" translate="true"> because we&apos;ll want to receive change notifications as the list is updated. If this was not the case then a plain </text><text styleclass="Class Name" translate="true">OrderedCollection</text><text styleclass="Normal" translate="true"> would do just fine. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next step is to add </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Accessor_Methods" styleclass="Normal" translate="true">Accessor Methods</link><text styleclass="Normal" translate="true"> to allow other objects access to the contents of the instance variables. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">owner</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the owner of the receiver&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^owner.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">owner: aString</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Set the owner of the receiver to aString&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">owner := aString.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">accounts</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Answer the accounts collection&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^accounts</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There is no need to add an accessor method to set the </text><text styleclass="Class Name" translate="true">accounts</text><text styleclass="Normal" translate="true"> collection since this is only ever necessary during the initialization of an instance. Consequently this can be considered a </text><text styleclass="Program Feature" translate="true">private</text><text styleclass="Normal" translate="true"> operation which does not warrant such a method.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next duty, according to the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> pattern, is to define the class</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s behaviour. A useful method to add to all new classes is #</text><text styleclass="Class Name" translate="true">printOn</text><text styleclass="Normal" translate="true">: to print the contents of an object in a form suitable for a developer to read. This will aid later testing and debugging.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">printOn: aStream</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Append, to aStream, a String whose characters are a description of the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver as a developer would want to see it.&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self basicPrintOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $(.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">self owner printOn: aStream.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">aStream nextPut: $).</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We are also going to need to add new </text><text styleclass="Class Name" translate="true">PersonalAccounts</text><text styleclass="Normal" translate="true"> to the application and also to allow them to be removed. </text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">addAccount: aPersonalAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Add aPersonalAccount to the collection of accounts owned by the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver Answers aPersonalAccount&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^self accounts add: aPersonalAccount</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">removeAccount: aPersonalAccount</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">&quot;Remove aPersonalAccount from the collection of accounts owned by the</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">receiver. Answers aPersonalAccount&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">^self accounts remove: aPersonalAccount</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice the use of descriptive parameter names for these methods which aids readability.</text></para>
+    <para></para>
+  </body>
+</topic>

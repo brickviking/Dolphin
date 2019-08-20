@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Beginners Guide to Smalltalk</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Beginners Guide to Smalltalk</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Welcome to our </text><text styleclass="Program Feature" translate="true">Smalltalk Beginners Guide</text><text styleclass="Normal" translate="true"> tailored to Dolphin Smalltalk. By now, you have probably installed Dolphin onto your computer and are wondering where to go from here. If you have already completed the First Splash Experiments and your new to programming in Smalltalk, then this guide is the place to continue. </text></para>
+  </body>
+</topic>

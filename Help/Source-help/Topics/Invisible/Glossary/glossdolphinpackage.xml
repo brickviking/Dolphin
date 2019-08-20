@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossdolphinpackage</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Dolphin Package</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The base system package. This contains the fundamental classes in the image and it cannot be uninstalled. It is also not possible to export the contents of this package to disk as a PAC or PAX file. You can, however, version it as part of a Source Tracking System repository.</text></para>
+  </body>
+</topic>

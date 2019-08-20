@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">glossdolphinsmalltalk_freshinstall_icon</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Dolphin Smalltalk (Fresh Install) Icon</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A shortcut icon installed in the Dolphin Smalltalk program group that can be used to start Dolphin for the first time or to reinstall a fresh copy over an existing, possibly corrupt, installation.</text></para>
+  </body>
+</topic>

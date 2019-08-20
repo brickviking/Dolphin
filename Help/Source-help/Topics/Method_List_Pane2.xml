@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Method List Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Method List Pane</text></para>
+    </header>
+    <para styleclass="Normal"><image src="MethodExplorerShell_methods.png" scale="100.00%" styleclass="Image Caption"></image><br/><text styleclass="Normal" translate="true">The </text><text styleclass="Normal" style="font-style:italic;" translate="true">Method List Pane</text><text styleclass="Normal" translate="true"> shows the list of methods in the system which currently match the </text><text styleclass="Program Feature" translate="true">Method Explorer&apos;s</text><text styleclass="Normal" translate="true"> selection criteria. The list can be ordered by selector or class by clicking on the relevant column header. As methods are added and removed from the image, this list will be dynamically updated to reflect the currently matching set. Further sub-searches may be spawned by using the </text><text styleclass="Normal" style="font-style:italic;" translate="true">Method/Browse</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">menu options and these will be added to the Explorer&apos;s </text><link displaytype="text" defaultstyle="true" type="topiclink" href="History_Pane" styleclass="Program Feature" translate="true">History Pane</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><snippet src="Method_List_Pane_Summary"/></para>
+  </body>
+</topic>

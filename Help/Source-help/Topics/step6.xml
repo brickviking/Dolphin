@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Step 6</title>
+  <keywords>
+    <keyword translate="true">Step 6</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Step 6</text></para>
+    </header>
+    <para styleclass="Normal"><image src="ApplicationDeploymentWizard_Page_6.png" scale="83.86%" styleclass="Normal"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If your application does not make use of the Smalltalk compiler at runtime then you can choose to </text><text styleclass="Program Feature" translate="true">Strip Class Builder</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">Strip &#160; empty Method Dictionaries</text><text styleclass="Normal" translate="true">. Obviously, if you are likely to be creating new classes or methods (or both) then you must leave these facilities in the image.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Fold duplicate strings</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">Fold duplicated bytecode arrays</text><text styleclass="Normal" translate="true"> options will cause all references to string literals and methods bytecodes arrays that compare equal to be folded into one. There should be no disadvantage to choosing these options.</text></para>
+  </body>
+</topic>

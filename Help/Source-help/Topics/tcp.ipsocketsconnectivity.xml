@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Sockets Connectivity</title>
+  <keywords>
+    <keyword translate="true">TCP/IP Sockets Connectivity</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sockets Connectivity</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> package provides Dolphin Smalltalk with an interface to TCP/IP Sockets.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sockets provide a network communication infrastructure so that two computer processes may exchange data with one another. A Socket represents one end of a network connection. When two parties are connected there is a Socket at each end of the connection. These two end points may reside in the same machine, on separate machines on a LAN or on separate machines on a wide area network such as the Internet. Once a connection has been established, is listed data can be sent in either direction across the link.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Microsoft Windows implements Sockets so that they can be used with a number of underlying network protocols. However, Dolphin </text><text styleclass="Program Feature" translate="true">Sockets Connection</text><text styleclass="Normal" translate="true"> is mainly concerned with using TCP/IP which is the standard Internet-protocol.</text></para>
+  </body>
+</topic>

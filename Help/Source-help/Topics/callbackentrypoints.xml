@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Callback Entry Points</title>
+  <keywords>
+    <keyword translate="true">Callback Entry Points</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Callback Entry Points</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As mentioned above, when the VM&apos;s generic callback entry point is called from a callback thunk, the VM sends a message to the </text><text styleclass="Class Name" translate="true">Processor</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">object, i.e. the singleton instance of </text><text styleclass="Class Name" translate="true">ProcessorScheduler</text><text styleclass="Normal" translate="true">. In the case of normal callbacks the message with selector </text><text styleclass="Class Name" translate="true">callback:withArgumentsAt:cookie</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true">is set, and in the case of COM/virtual method invocations, </text><text styleclass="Class Name" translate="true">#comCallback:id:subid:withArgumentsAt:cookie</text><text styleclass="Normal" translate="true">:</text><text styleclass="Normal" translate="true"> is sent. The callbacks are translated into a normal Smalltalk message send to either the </text><text styleclass="Class Name" translate="true">ExternalCallback</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">object, or </text><text styleclass="Class Name" translate="true">COMObjectStub</text><text styleclass="Normal" translate="true">, respectively, with object arguments being instantiated to wrap the raw C data types on the stack.</text></para>
+  </body>
+</topic>

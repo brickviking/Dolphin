@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Permanent Trust</title>
+  <keywords>
+    <keyword translate="true">Permanent Trust</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Permanent Trust</text></para>
+    </header>
+    <para styleclass="Program Feature"><text styleclass="Program Feature" translate="true">HKCU\Software\Object Arts\DolphinSure\Certificates\PermanentTrust</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This store holds certificates that have been accepted by the user as being permanently trustworthy.</text></para>
+  </body>
+</topic>

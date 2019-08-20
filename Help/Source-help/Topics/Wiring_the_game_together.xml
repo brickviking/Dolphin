@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Wiring the game together</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Wiring the game together</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So now we have most of the elements in place for our </text><text styleclass="Program Feature" translate="true">Animal</text><text styleclass="Normal" translate="true"> game and it just remains to add a few methods that wire all the pieces together. First of all, since we are going to be adding methods to both the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> classes, I&apos;d like to introduce a bit of nomenclature that will help avoid any confusion as to exactly where the methods belong. Take a look at the following:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Class Name" style="font-family:Symbol; font-size:9pt; color:#000000;">
+      <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Animal&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the instance side of the </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> class</text></li>
+      <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Animal class&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the class side of the </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> class</text></li>
+      <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Question&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the instance side of the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> class</text></li>
+      <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Question&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the instance side of the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> class</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This &gt;&gt; symbol is commonly used as a means of documenting that a method belongs to a particular class you&apos;ll find that we use it quite often from now on in this guide.</text></para>
+  </body>
+</topic>

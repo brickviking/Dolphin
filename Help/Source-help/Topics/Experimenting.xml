@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Experimenting</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Experimenting</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Nearly all the &quot;fun&quot; of Smalltalk is that you can dynamically interact with the objects that you create. Why not now try some experiments on your own? Ask the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> objects to perform some operations and then query their states. Perhaps you&apos;ll want to add some new shapes. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following messages are available for you to play with. </text></para>
+    <para styleclass="Normal"><table rowcount="20" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid; background-color:#ebe9d6;">
+      <tr style="vertical-align:top">
+        <td style="width:110px; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Message</text></para>
+        </td>
+        <td style="width:141px; background-color:#c0c0c0;">
+          <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Parameter</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#sides</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#sides:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">An integer</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#radius</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#radius</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A number</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#rotation</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#rotation:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A number</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#position</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#position</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A point (e.g: 50@60)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#color</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#color</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A color (e.g. Color red)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#growBy</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A number</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#shrinkBy</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A number</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#rotateBy:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A number</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#moveBy:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A point (e.g: 50@60)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#moveUp:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">An integer</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#moveDown:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">An integer</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#moveLeft:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">An integer</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#moveRight:</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">An integer</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:110px;">
+          <para styleclass="Normal"><text styleclass="Class Name" translate="true">#chooseColor</text></para>
+        </td>
+        <td style="width:141px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">None</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Remember, if you make a mistake (perhaps by providing an incorrect type of parameter), you&apos;ll most likely bring up a walkback. This protects you from doing any real damage. If this happens, simply click </text><text styleclass="Menu Command" translate="true">Terminate</text><text styleclass="Normal" translate="true"> to continue and then try to fix the problem. If you really get into trouble you should be able to clean things up by closing the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> window and the associated workspace and starting again.</text></para>
+  </body>
+</topic>

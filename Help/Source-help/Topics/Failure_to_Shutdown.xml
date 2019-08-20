@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Failure to Shutdown</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Failure to Shutdown</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is quite likely that during debugging an out-of-process server started on-demand will fail to shut down. This could result from a problem in either server or client code that means that one or more server object does not get released. A Dolphin server will not shut down until all the COM objects it is serving have been released. This may not happen if there is a reference counting error, or perhaps a circular reference.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true"> If you have opened any browsers or other windows during the session, then these will prevent the server from shutting down, at least until the windows have all been closed. Leaving a browser open is a good way of ensuring that an image does not terminate in order to preserve any changes one has made in it.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If necessary the errant server can be forcibly terminated using the Windows task manager. Be aware that forcibly terminating an out-of-process COM server on Windows 9x may cause system instability, though this is perfectly safe on Windows NT/2000/2003/XP.</text></para>
+  </body>
+</topic>

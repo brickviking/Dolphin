@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Instance Variables Pane</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Instance Variables Pane</text></para>
+    </header>
+    <para styleclass="Normal"><image src="Presenter_InstVarInspector1.png" scale="100.00%" styleclass="Image Caption"></image><br/><snippet src="Inspector_Instance_Variables_P"/></para>
+  </body>
+</topic>

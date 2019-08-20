@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Database Connectivity</title>
+  <keywords>
+    <keyword translate="true">Database Connectivity</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Database Connectivity</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Database Connection </text><text styleclass="Normal" translate="true">package for Dolphin Smalltalk offers an interface for accessing databases through Microsoft&apos;s Open Database Connectivity (ODBC) driver layer.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">ODBC provides a common interface to a great number of SQL database management systems. By using the Dolphin Smalltalk </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> to write to the ODBC layer, not only will you have access to a wide range of database engines from the major vendors, but you will also have the ability to port your application code to use another database system should it ever become necessary.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Please be aware that the </text><text styleclass="Program Feature" translate="true">Database Connection</text><text styleclass="Normal" translate="true"> does not come supplied with a database engine of its own. You must first install an ODBC compliant database and its ODBC driver to make use of this product.</text></para>
+  </body>
+</topic>

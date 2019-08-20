@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Emergency checklist</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Emergency checklist</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Check that you have the following methods defined:</text></para>
+    <para styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">Animal class&gt;&gt;initialize</text><br/><text styleclass="Class Name" translate="true">Animal class&gt;&gt;name:</text><br/><text styleclass="Class Name" translate="true">Animal class&gt;&gt;playGame</text><br/><text styleclass="Class Name" translate="true">Animal class&gt;&gt;prompt</text></para>
+    <para styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">Animal&gt;&gt;ask</text><br/><text styleclass="Class Name" translate="true">Animal&gt;&gt;displayOn:</text><br/><text styleclass="Class Name" translate="true">Animal&gt;&gt;name</text><br/><text styleclass="Class Name" translate="true">Animal&gt;&gt;name:</text><br/><text styleclass="Class Name" translate="true">Animal&gt;&gt;printOn:</text></para>
+    <para styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">Question class&gt;&gt; promptToDistinguish:from:</text><br/><text styleclass="Class Name" translate="true">Question class&gt;&gt;text:yes:no:</text></para>
+    <para styleclass="Class Name" style="margin-left:24px;"><text styleclass="Class Name" translate="true">Question&gt;&gt;ask</text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;displayOn:</text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;no</text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;printOn: </text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;text</text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;text:yes:no:</text><br/><text styleclass="Class Name" translate="true">Question&gt;&gt;yes</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Also check that you have initialized the game by evaluating:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Animal initialize</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

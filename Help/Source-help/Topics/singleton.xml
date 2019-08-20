@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Singleton</title>
+  <keywords>
+    <keyword translate="true">Singleton</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Singleton</text></para>
+    </header>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Context</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="newclass" styleclass="Normal" translate="true">New Class</link><text styleclass="Normal" translate="true"> it may be apparent that there should only ever be one instance of it. It&apos;s too risky to rely on a developer not to create several instances by accident, so a scheme to enforce this criterion is required. An example might be a class which represents the mouse or screen. There should only be a single representation of these devices since that accurately models the real world situation. We must also provide a means of accessing the singleton; ideally without creating a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="globalvariable" styleclass="Normal" translate="true">Global Variable</link><text styleclass="Normal" translate="true"> in which to store it.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Solution</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Make the class itself responsible for managing its single instance.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Implement this by adding a class variable to hold the singleton, and a class method </text><text styleclass="Normal" translate="true">current </text><text styleclass="Normal" translate="true">to answer it. Ensure that the singleton is initialized, either when the application starts, or by using </text><link displaytype="text" defaultstyle="true" type="topiclink" href="classinitialization" styleclass="Normal" translate="true">Class Initialization</link><text styleclass="Normal" translate="true"> or </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true">. All access to the singleton should be by sending #</text><text styleclass="Class Name" translate="true">current</text><text styleclass="Normal" translate="true"> to the </text><text styleclass="Normal" translate="true">class.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should also, disable the </text><text styleclass="Class Name" translate="true">#new</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">method by overriding it to raise an exception. This will prevent programmers from accidentally creating their own, non-singleton, instances of the class.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Examples</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">An imaginary </text><text styleclass="Class Name" translate="true">Mouse</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class has a class variable called </text><text styleclass="Class Name" translate="true">Current</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">which holds the singleton instance. Access to it is allowed only through the </text><text styleclass="Normal" translate="true">current </text><text styleclass="Normal" translate="true">class method which uses </text><link displaytype="text" defaultstyle="true" type="topiclink" href="lazyinitialization" styleclass="Normal" translate="true">Lazy Initialization</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Mouse class&gt;&gt;current</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answer the singleton instance of the Mouse class.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Current isNil ifTrue: [self current: self basicNew].</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^Current</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Mouse class&gt;&gt;current: aMouse</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Set the Mouse singleton Current to aMouse.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Current := aMouse</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">Mouse class&gt;&gt;new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Mouse is a singleton class. Use #current.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;self shouldNotImplement</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Consequences</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Sometimes you need to create a class which isn&apos;t a true singleton, but instead has a commonly used default instance but other instances can potentially exist. In such cases, create the class as if it were a singleton but use #</text><text styleclass="Class Name" translate="true">default</text><text styleclass="Normal" translate="true"> (by convention) to access the default instance. Don&apos;t override #</text><text styleclass="Class Name" translate="true">new</text><text styleclass="Normal" translate="true"> though, or you won&apos;t be able to create any additional instances.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Known Uses</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">DesktopView</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class maintains a singleton instance in the class variable </text><text styleclass="Class Name" translate="true">Current</text><text styleclass="Normal" translate="true">, and access to this singleton is provided by the </text><text styleclass="Class Name" translate="true">#current</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">class method. </text><text styleclass="Class Name" translate="true">DesktopView</text><text styleclass="Normal" translate="true"> initializes this during it&apos;s </text><link displaytype="text" defaultstyle="true" type="topiclink" href="classinitialization" styleclass="Normal" translate="true">Class Initialization</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">current</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Answers the singleton instance of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;^Current</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">current: aDesktopView</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Sets the singleton instance of the receiver.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Current := aDesktopView</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">initialize</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;&quot;Initialize the DesktopView singleton.&quot;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160;Current := self new</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;assumeDesktopHandle;</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true"> &#160; &#160; &#160; &#160; &#160; &#160;yourself</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Related Patterns</text></para>
+    <para styleclass="Normal"><link displaytype="text" defaultstyle="true" type="topiclink" href="globalvariable" styleclass="Normal" translate="true">Global Variable</link></para>
+  </body>
+</topic>

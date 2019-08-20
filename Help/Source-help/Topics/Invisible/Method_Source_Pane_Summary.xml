@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Method Source Pane_Summary</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Method Source Pane</text><text styleclass="Popup Heading" style="font-weight:normal;" translate="true"> s</text><text styleclass="Popup Box" translate="true">hows the source of the currently selected method. </text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">You may type changes to the method here and compile them using the </text><text styleclass="Menu Command" translate="true">Workspace/Accept </text><text styleclass="Normal" translate="true">(Ctrl+S</text><text styleclass="Popup Box" style="font-style:italic;" translate="true">) </text><text styleclass="Popup Box" translate="true">command. If the compilation results in an error, the problematic expression will be underlined with a &quot;squiggly line&quot;. You can find out more about the error by hovering the mouse over the expression.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Note that although the source pane is normally used for entering or browsing method source code, it is at the same time a workspace and the various </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Workspace_Operations_Summary" styleclass="Popup Box" translate="true">workspace operations</link><text styleclass="Popup Box" translate="true"> can also be used here.</text></para>
+  </body>
+</topic>

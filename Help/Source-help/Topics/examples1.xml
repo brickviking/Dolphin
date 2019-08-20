@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Examples</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dolphin Developer&apos;s Guide - The Socket Connection Interface - Examples</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the examples that follow we will assume that you have two workspace windows, one for each end of a connection. We&apos;ll call these the Server and Client workspaces. Ideally, to demonstrate the full networking potential, you&apos;ll have these workspaces on two different machines connected via a LAN. However, you can just as easily use two workspaces running in the same image on a single machine.</text></para>
+  </body>
+</topic>

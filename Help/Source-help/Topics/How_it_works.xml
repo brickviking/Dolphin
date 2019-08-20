@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">How it works</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">How it works</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Before we use the Dolphin development system to design and build this game it might be useful to look at how it works. Let us consider exactly what this game does. It builds up a knowledge base of the animals that it knows about and, in order for it to be able to guess sensibly, this must also contain questions that enable it to distinguish between one animal and another. In this version of the game each question has a yes or a no answer. This might lead us to think that a &quot;tree&quot; of objects something like the following can represent the knowledge base:</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><image src="AnimalKnowledge.gif" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This is an inverted tree with its root(s) at the top of the diagram. The brown </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> nodes represent the branches and the leaves are at the </text><text styleclass="Class Name" translate="true">Animal</text><text styleclass="Normal" translate="true"> nodes in green. Pick one of the animals in the diagram (Dog, Snake, Eagle or Horse) as your guess and follow the decision tree through from the root of the tree starting at the brown arrow.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">So it seems that we can build our animal knowledge base from two classes of object; </text><text styleclass="Class Name" translate="true">Animals</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">Questions</text><text styleclass="Normal" translate="true">. We will also have to hold the tree&apos;s root object (always a </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true">) somewhere so we can get access to it in order to start the game. You&apos;ll see how to do this later.</text></para>
+  </body>
+</topic>

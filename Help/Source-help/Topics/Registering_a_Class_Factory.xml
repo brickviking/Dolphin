@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Registering a Class Factory</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Registering a Class Factory</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">To make the COM subsystem aware of the components that a server can supply one must go through the process of registering class factory objects for each component. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin provides a standard class factory implementation as part of its COM framework (see </text><text styleclass="Class Name" translate="true">COMClassFactory</text><text styleclass="Normal" translate="true"> and subclasses), and this maintains its own register mapping COM</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s class identifiers (</text><text styleclass="Class Name" translate="true">CLSID</text><text styleclass="Normal" translate="true">s) to the Dolphin class that implements that component. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Registering a class factory in Dolphin is a simple operation that is achieved by sending </text><text styleclass="Class Name" translate="true">#registerClassFactory</text><text styleclass="Normal" translate="true"> to one&apos;s </text><text styleclass="Class Name" translate="true">COMInterfaceImp</text><text styleclass="Normal" translate="true"> subclass, for example:</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">COMRandomStream registerClassFactory</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This need only be done once, as subsequently Dolphin will automatically register a class factory object for all previously registered COM classes on image start-up. Once this has been done, the running development system will have been registered as both the local </text><text styleclass="Normal" style="font-weight:bold; font-style:normal;" translate="true">and</text><text styleclass="Normal" translate="true"> in-process server for that component, and COM will service instance creation requests using that server without reference to the registry. Hence, even without making any registry entries, one can now evaluate:</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">r := IRandomStream new.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You might like to debug through this expression to see how Dolphin constructs a call to </text><text styleclass="Class Name" translate="true">CoGetClassObject</text><text styleclass="Normal" translate="true">() that calls back into Dolphin to find the class factory we registered earlier. The first callback will be an </text><text styleclass="Class Name" translate="true">IUnknown::AddRef()</text><text styleclass="Normal" translate="true">, then a call to </text><text styleclass="Class Name" translate="true">IUnknown::QueryInterface()</text><text styleclass="Normal" translate="true"> for </text><text styleclass="Class Name" translate="true">IClassFactory</text><text styleclass="Normal" translate="true">, and so on. If you continue stepping through these you will be able to follow through the whole instance creation process on client and server sides, all implemented entirely in Smalltalk. This will give you a good understanding of this basic functionality of Dolphin</text><text styleclass="Normal" translate="true">’</text><text styleclass="Normal" translate="true">s COM framework.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For debugging purposes, the client code could just be some workspace test expressions, for example:</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">r := IRandomStream new.</text><tab /><text styleclass="Code Example" translate="true">&quot;Creates object via COM, but in-image/process&quot;</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">r next.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">r lowerBound: 10.</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">r next.</text></para>
+    <para styleclass="Code Example"></para>
+    <para></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Ideally, though, we would recommend the construction of suitable SUnit </text><text styleclass="Class Name" translate="true">TestCase</text><text styleclass="Normal" translate="true">s to provide repeatable regression tests. SUnit </text><text styleclass="Class Name" translate="true">TestResource</text><text styleclass="Normal" translate="true">s can be used to ensure that the correct environment for in-image running is prepared (essentially just that a class factory is registered).</text></para>
+  </body>
+</topic>

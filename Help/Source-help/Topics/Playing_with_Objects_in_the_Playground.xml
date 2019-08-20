@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Playing with Objects in the Playground</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Playing with Objects in the Playground</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Okay, let&apos;s be honest. The previous chapters have been a little dry and it&apos;s about time we had some fun. I&apos;d like to introduce you now to a sample application for Dolphin called </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true">, which we can use to consolidate some of the ideas you&apos;ve learned so far. A </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> is a window to which you can add visible shape objects and then communicate with them by sending messages from a workspace. It looks like this:</text></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><image src="Playground.png" scale="93.40%" styleclass="Normal"></image><br/><text styleclass="Normal" translate="true">You can send messages to perform operations on the shapes, causing them to move, rotate, grow and change colour. As each operation is executed, the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> window updates as necessary to show the new state of its shapes. You can also send messages to query and display information about the shapes and their current states. A typical dialogue in a workspace might appear as follows:</text></para>
+    <para styleclass="Normal"><image src="Playground_Workspace.png" scale="73.00%" styleclass="Normal"></image><br/><text styleclass="Normal" translate="true">Now open another new workspace to use for the examples in this chapter..</text></para>
+  </body>
+</topic>

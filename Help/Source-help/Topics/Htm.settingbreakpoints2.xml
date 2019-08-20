@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Setting Breakpoints</title>
+  <keywords>
+    <keyword translate="true">Dolphin User&apos;s Guide - Overview - Setting Breakpoints</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Dolphin Developer&apos;s Guide - Debugging Applets - Setting Breakpoints</text></para>
+    </header>
+    <para styleclass="body-text" style="text-align:left; text-indent:0px; margin-top:9px; margin-right:0px; margin-bottom:14px; margin-left:0px; line-height:1.46; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Most likely, you&apos;ll want to set a breakpoint within your development </text><link displaytype="text" defaultstyle="true" type="topiclink" href="glossimage" style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true">image</link><text style="font-family:Verdana; font-size:10pt; color:#000000;" translate="true"> just as an applet is starting. This will allow you to, either trace through an applet&apos;s initialization sequence, or to set other breakpoints within the image. The best place to set such a breakpoint is at the start of the </text><text style="font-family:Verdana; font-size:10pt; font-style:italic; color:#000000;" translate="true">NPApplet&gt;&gt;startApplet</text><text styleclass="body-text" style="font-family:Verdana; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> method. You should do this by loading the development environment as normal, setting the breakpoint, and then saving and exiting the image. Then, when you load the applet within your web browser, the development image will start and break at your chosen location.</text></para>
+  </body>
+</topic>

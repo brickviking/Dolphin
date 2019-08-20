@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Further Reading</title>
+  <keywords>
+    <keyword translate="true">Further Reading</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Further Reading</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A definitive book on Smalltalk patterns is:</text></para>
+    <para styleclass="Normal"><text styleclass="Program Feature" translate="true">Smalltalk Best Practice Patterns</text><text styleclass="Normal" translate="true"> by </text><text styleclass="Program Feature" translate="true">Kent Beck</text><br/><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" style="font-style:italic;" translate="true">ISBN 0-13-476904-X</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Some of the patterns in this book are also replicated here. Where this is the case we have added an </text><text styleclass="Program Feature" translate="true">Also Known As</text><text styleclass="Normal" translate="true">&#32;</text><text styleclass="Normal" translate="true">section that tells you what the Dolphin pattern is called in Kent&apos;s book.</text></para>
+  </body>
+</topic>

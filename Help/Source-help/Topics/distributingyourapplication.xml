@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Distributing Your Application</title>
+  <keywords>
+    <keyword translate="true">Distributing Your Application</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Distributing Your Application</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once you have deployed your application to one or more executable files then you only part of the way to creating a successful distribution. In order for your executables to run correctly on a target machine you must make sure that the operating system on the machine is up-to-date enough and that the appropriate Dolphin Smalltalk run-time files are available on it.</text></para>
+  </body>
+</topic>

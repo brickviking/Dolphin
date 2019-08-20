@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The Beauty of #ifTrue: (and friends)</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The Beauty of #ifTrue: (and friends)</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are used using other computer languages using these messages may look a little odd at first. You&apos;re probably used to using something like:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">if (simon radius &gt; charlie radius) {</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">printf(&quot;Simon is bigger than Charles&quot;) }</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">in which case, the Smalltalk equivalent:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">(simon radius &gt; charlie radius) ifTrue: [</text></para>
+    <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">MessageBox notify: &apos;Simon is bigger than Charles&apos;].</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">looks somewhat &quot;backwards&quot; and perhaps harder to read. I know that I originally thought this when learning Smalltalk for the first time. However, I guarantee that you&apos;ll soon get used to it.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The beauty comes when you realize that #</text><text styleclass="Class Name" translate="true">ifTrue</text><text styleclass="Normal" translate="true">: is a message and not part of the Smalltalk language definition at all. The grammar of the traditional language includes the definition of how an &quot;if&quot; statement is formed but Smalltalk needs no such definition. Instead, the control flow is implemented solely with messages. This makes the &quot;language&quot; smaller, more regular, and easier to learn because it has many fewer elements to it. It is also more flexible since you could (if you wished) define new messages to perform similar operations.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Of course, all this also applies equally to the other control flow messages: </text><text styleclass="Class Name" translate="true">#whileTrue:, #whileTrue, #whileFalse:, #whileFalse, #repeat, #timesRepeat:, #to:do: and #to:by:do:.</text></para>
+  </body>
+</topic>

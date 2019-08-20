@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">What Is a Version?</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">What Is a Version?</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">Source Tracking System</text><text styleclass="Normal" translate="true"> is designed to store and manage all the components that comprise a Dolphin Smalltalk source code package. This means that every time you save a package into a repository you do not overwrite the previously stored package but instead a new version will be created under the same package name. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This way you can always keep track of changes that you have done in your code. So with STS you are &quot;versioning a package&quot; instead of saving it. What a versioning process does is saving the state of the whole package into the repository like it would be saved to a disk file while also tagging it with its version name (descriptor). Also, instead of saving packages into files, all your code is stored in a single repository database which can be later browsed without actually compiling the old code.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In STS only packages, projects, classes and methods are versioned. Each time you save a method a new version will be created in the repository while a class will be versioned only when you explicitly version the whole package that owns it. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Note, due to historical reasons a version is also referred as edition. This comes from the original ENVY system which may be familiar to developers using VisualAge Smalltalk. In ENVY an edition can be changed and once it is &quot;versioned&quot; it can not be changed again in future. In Dolphin&apos;s STS there is currently no such thing as an open edition, since work in progress is not automatically stored into the repository. Only versions are stored into repository but this could change in the future so the term edition is still being kept in the GUI to make menu options more similar to the ENVY system.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">The PersonalMoney application in use</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The PersonalMoney application in use</text></para>
+    </header>
+    <para style="margin-top:7px; margin-bottom:7px;"><table rowcount="2" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td colspan="2" style="width:598px;">
+          <para styleclass="Normal" style="text-align:center;"><image src="PersonalMoneyShell.png" scale="76.72%" styleclass="Image Caption"></image></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="width:235px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><image src="PersonalAccountShell.png" scale="49.38%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:363px;">
+          <para style="margin-top:7px; margin-bottom:7px;"><image src="PersonalAccountTransactionDialog.png" scale="56.39%" styleclass="Image Caption"></image></para>
+        </td>
+      </tr>
+    </table></para>
+    <para></para>
+  </body>
+</topic>

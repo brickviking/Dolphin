@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">View Browser List Pane_Summary</title>
+  <body>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Program Feature" translate="true">View List Pane </text><text styleclass="Normal" translate="true">displays a list of the views in the currently selected view category.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">As you select each view in here, a preview image will appear in the </text><text styleclass="Program Feature" translate="true">Preview</text><text styleclass="Normal" translate="true"> area in the lower half of the pane.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can drag views out of this list into the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> to drop them into a view being edited. You can also drag a view over the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="View_Categories_Pane" styleclass="Program Feature" translate="true">View Categories Pane</link><text styleclass="Normal" translate="true"> in order to re-categorize it. A normal drag will add it to the chosen category and a </text><text styleclass="Menu Command" translate="true">Shift+drag</text><text styleclass="Normal" translate="true"> will move it to that category, thus removing it from all others.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Double-clicking a view in the list will open it into the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> for editing.</text></para>
+  </body>
+</topic>

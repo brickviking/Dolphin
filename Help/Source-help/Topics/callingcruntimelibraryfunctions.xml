@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Calling C Runtime Library Functions</title>
+  <keywords>
+    <keyword translate="true">Calling C Runtime Library Functions</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Calling C Runtime Library Functions</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">It is quite likely that you will want to make use of CRT functions in your console applications, and almost all of these may be freely called from Dolphin. Many are already implemented in </text><text styleclass="Class Name" translate="true">CRTLibrary</text><text styleclass="Normal" translate="true">, and others can be added by following the guidelines in the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="externalinterfacing" styleclass="Normal" translate="true">External Interfacing</link><text styleclass="Normal" translate="true"> documentation, and using the existing functions as a guide. Functions in other external libraries, either those built into the system or your own additions, can also be called.</text></para>
+  </body>
+</topic>

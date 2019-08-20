@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Executing SQL Queries</title>
+  <keywords>
+    <keyword translate="true">Executing SQL Queries</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Executing SQL Queries</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Class Name" translate="true">DBConnection</text><text styleclass="Normal" translate="true"> class </text><text styleclass="Normal" translate="true">defines a number of methods for working with SQL statements. If you want to execute a query that answers a result table then you should use #</text><text styleclass="Class Name" translate="true">query</text><text styleclass="Normal" translate="true">: to do this. Let us try executing a query to see how it works.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">rs := c query: &apos;select * from Orders&apos;. &quot;Display it&quot;</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You should find that this answers a </text><text styleclass="Class Name" translate="true">DBResultSet</text><text styleclass="Normal" translate="true"> object capable of providing access to the rows of the result table.</text></para>
+  </body>
+</topic>

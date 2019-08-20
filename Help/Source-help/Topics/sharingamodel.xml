@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Sharing a Model</title>
+  <keywords>
+    <keyword translate="true">Sharing a Model</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Sharing a Model</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Since we are using an Observer pattern we get the benefit of allowing components to share the model&apos;s data.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Normally, since a presenter creates and associates itself with a default model, you might consider that it effectively owns this model data. For most purposes this makes sense but you might want to use two presenters to display and edit the same data. Naturally, you&apos;d want both to be kept up to date with changes made by the other. To achieve this, both presenters may clip onto a separately created model or one presenter may share its model with another.</text><br/><image src="mvpmodelshare.bmp" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In this situation, each view is kept up-to-date with changes made to the model either by the other view (or possibly by some other component). As the model is changed it triggers change notifications that both views can intercept to cause themselves to refresh their displays. To demonstrate this, try the following example.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">m := false asValue.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">BooleanPresenter showOn: m.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">BooleanPresenter show: &apos;Push to toggle&apos; on: m.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">BooleanPresenter show: &apos;Yes-no text&apos; on: m.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Here, the model is a </text><text styleclass="Class Name" translate="true">ValueModel</text><text styleclass="Normal" translate="true"> wrapping an instance (initially) of </text><text styleclass="Class Name" translate="true">False</text><text styleclass="Normal" translate="true">. Onto this we connect three </text><text styleclass="Class Name" translate="true">BooleanPresenters</text><text styleclass="Normal" translate="true"> each with different views for displaying the model&apos;s value. As you click in each of the buttons, the model is changed and the other views update to reflect the new value.</text></para>
+  </body>
+</topic>

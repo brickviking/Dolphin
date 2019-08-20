@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Building a COM component</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Building a COM component</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The following is the recommended sequence of steps when building a COM component in Dolphin. It is not always necessary (or possible) to follow this sequence, but you should start off this way.</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Write_or_Acquire_IDL" styleclass="Normal" translate="true">Acquire or Write IDL</link></li>
+      <li styleclass="Normal" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Build_Type_Library" styleclass="Normal" translate="true">Build type library</link></li>
+      <li styleclass="Normal" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Generate_Interfaces" styleclass="Normal" translate="true">Generate Interfaces</link><text styleclass="Normal" translate="true"> using Active-X wizard</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Define_Implementation_Class" styleclass="Normal" translate="true">Define COMInterfaceImp subclass</link></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Add protocol/drag down COM interface method category</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Define </text><text styleclass="Class Name" translate="true">#clsid</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Define </text><text styleclass="Class Name" translate="true">#supportedInterfaces</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Test in-image </text><text styleclass="Normal" translate="true">–</text><text styleclass="Normal" translate="true"> should fail.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">Flesh out using normal process </text><text styleclass="Normal" translate="true">–</text><text styleclass="Normal" translate="true"> e.g. program in the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true">.</text></li>
+      <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">See </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Testing__Debugging" styleclass="Normal" translate="true">Testing &amp; Debugging</link></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We are going to follow the steps through with the “COM Random Sample”, so if you want to follow along you will need to uninstall the sample package from the image. </text></para>
+  </body>
+</topic>

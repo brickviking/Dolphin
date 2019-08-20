@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Component-based Architecture</title>
+  <keywords>
+    <keyword translate="true">Component-based Architecture</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Component-based Architecture</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Each </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true"> triad can be thought of as a &quot;component&quot;. As such, it can later be reused to build other composite components, which can then be reused to build other components... and so on.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In fact, this combined block of three elements, </text><text styleclass="Program Feature" translate="true">model</text><text styleclass="Normal" translate="true">, </text><text styleclass="Program Feature" translate="true">view</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Program Feature" translate="true">presenter</text><text styleclass="Normal" translate="true"> is very similar to a </text><text styleclass="Normal" translate="true">component</text><text styleclass="Normal" translate="true"> in a more traditional component-based architecture such as ActiveX or Java Beans. The added advantage of </text><text styleclass="Program Feature" translate="true">MVP</text><text styleclass="Normal" translate="true">, however, is that the individual parts making up the component can also be interchanged. This provides another level of pluggability (and therefore reuse) compared with these alternative architectures.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Rearranging the M, V and P elements allows you to create a proliferation of new components simply by plugging together the elements in different ways.The number of possible combinations is limited merely by the expectations of &quot;type&quot; between the elements, something which is discussed below.</text></para>
+  </body>
+</topic>

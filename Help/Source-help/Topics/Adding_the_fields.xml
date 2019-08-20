@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Adding the fields</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Adding the fields</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When you&apos;re creating a view it is important to bear in mind details about the presenters to which the views will be attached., in particular, you will need to know the types and names of the sub-presenters which must to be connected to sub-views that you&apos;re drawing. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In </text><text styleclass="Class Name" translate="true">PersonalAccountShell</text><text styleclass="Normal" translate="true"> we have: </text></para>
+    <para><table rowcount="6" colcount="3" style="width:75%; cell-padding:2px; cell-spacing:2px; border-width:1px; cell-border-width:0px; border-color:#000000; border-style:solid;">
+      <tr style="vertical-align:top">
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Sub-presenter type</text></para>
+        </td>
+        <td style="width:33%; background-color:#c0c0c0;">
+          <para><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Connection name</text></para>
+        </td>
+        <td style="width:34%; background-color:#c0c0c0;">
+          <para><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; font-weight:bold; color:#000000;" translate="true">Model aspect</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">TextPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;name&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#name</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">TextPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;accountNumber&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#accountNumber</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">NumberPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;initialBalance&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#initialBalance</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">NumberPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle; width:33%;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;currentBalance&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle; width:34%;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#currentBalance</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">ListPresenter</text></para>
+        </td>
+        <td style="vertical-align:middle;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">&apos;transactions&apos;</text></para>
+        </td>
+        <td style="vertical-align:middle;">
+          <para styleclass="Class Name"><text styleclass="Class Name" translate="true">#transactions</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We&apos;ll take you through the creation of one of the fields to get you used to the </text><text styleclass="Program Feature" translate="true">View Composer&apos;s</text><text styleclass="Normal" translate="true"> operation. After that, you&apos;ll be left to your own devices to finish off the remaining fields. </text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Let&apos;s add an entry field for the account name. We know that the account name is being handled by a TextPresenter (see table above) so find the </text><text styleclass="Program Feature" translate="true">Text Fields</text><text styleclass="Normal" translate="true"> category icon in the toolbox to see all the views that are appropriate for editing text. An account name is single line text and we can use a &quot;Default view&quot; to handle the display and editing of this. Find </text><text styleclass="Program Feature" translate="true">TextPresenter.Default view</text><text styleclass="Normal" translate="true"> and drag this item from the toolbox and drop it within the shell being composed. </text></li>
+    </list>
+    <para styleclass="Notes" style="margin-left:24px;"><text styleclass="Notes" translate="true">Tip: notice that as objects are added to the </text><text styleclass="Notes" style="font-weight:bold;" translate="true">View Composer</text><text styleclass="Notes" translate="true"> they are displayed in the view hierarchy at top right. Although the view we are creating is fairly simple you will find this hierarchy indispensable in more complex situations, allowing you to navigate around and see the structure of your composition much more easily.</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Position the new view within the shell by dragging with the left mouse button held down. Any view can be re-sized by dragging the small grabbers at the corners or in the centre of each edge. Notice that, within the </text><text styleclass="Program Feature" translate="true">View Composer</text><text styleclass="Normal" translate="true"> there is always one view that is currently selected and this is indicated by a eight black grabbers around it. </text></li>
+    </list>
+    <para styleclass="Notes" style="margin-left:24px;"><text styleclass="Notes" translate="true">Tip: many of the operations within the </text><text styleclass="Notes" style="font-weight:bold;" translate="true">View Composer</text><text styleclass="Notes" translate="true"> can act on more than one selection. In these cases the first view that was selected will be treated as the primary selection and the remainder as secondary selections. The </text><text styleclass="Notes" style="font-style:italic;" translate="true">Match</text><text styleclass="Notes" translate="true"> and </text><text styleclass="Notes" style="font-style:italic;" translate="true">Align</text><text styleclass="Notes" translate="true"> commands within the </text><text styleclass="Notes" style="font-style:italic;" translate="true">Modify</text><text styleclass="Notes" translate="true"> menu are examples of commands that act on multiple selections.</text></para>
+    <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#115;&#46;" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Arial; font-size:9pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">This single line text field you&apos;ve just added is to connect to the </text><text styleclass="Class Name" translate="true">TextPresenter</text><text styleclass="Normal" translate="true"> called &quot;name&quot; (and therefore to the #name property of the </text><text styleclass="Class Name" translate="true">PersonalAccount</text><text styleclass="Normal" translate="true"> model). Therefore, we must set the name of the field to match. Ensure the text field is selected and choose the </text><text styleclass="Class Name" translate="true">name</text><text styleclass="Normal" translate="true"> property. Then type &quot;name&quot; into the lower pane of the inspector. Hit the </text><text styleclass="Menu Command" translate="true">Enter</text><text styleclass="Normal" translate="true"> key to commit the change and you&apos;ll see the entry in the view hierarchy change to display what you&apos;ve typed. </text></li>
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Most of our fields will require a static label text. Go back to the toolbox and drag a </text><text styleclass="Program Feature" translate="true">TextPresenter.Static text</text><text styleclass="Normal" translate="true"> view into the shell. Select the text property and type a suitable label for the account name field, eg: &quot;Account Name:&quot;. In this case you&apos;ll see the text appear in the field directly, as you type. Note that this static text item is not going to be connected to any presenter so we don&apos;t need to give it a connection name. This demonstrates a flexibility of allowing the views to be defined separately from the presenters since only items involved in the application functionality need to be actually part of the presenter. Consequently, a composite view can be embellished without affecting the complexity of the underlying application code.</text></li>
+    </list>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now you can add the remaining fields for the other presenters (</text><text styleclass="Class Name" translate="true">#accountNumber</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">#initialBalance</text><text styleclass="Normal" translate="true">, </text><text styleclass="Class Name" translate="true">#currentBalance</text><text styleclass="Normal" translate="true"> and </text><text styleclass="Class Name" translate="true">#transactions</text><text styleclass="Normal" translate="true">); just remember to drag across an appropriate view from the toolbox (ie: one listed under the presenter&apos;s class) and name it to match the name we gave to the presenter in our </text><text styleclass="Class Name" translate="true">#createComponents</text><text styleclass="Normal" translate="true"> method. If in doubt check with the table of presenter types and names given above. </text></para>
+  </body>
+</topic>

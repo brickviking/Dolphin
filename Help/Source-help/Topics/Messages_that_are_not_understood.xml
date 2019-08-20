@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Messages that are not understood</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Messages that are not understood</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">We mentioned before that an object will only respond to a certain set of messages depending on what class of object it is. For example, objects that are kinds of number will hopefully handle arithmetic messages successfully. We would not, however, really expect text string objects to behave in the same way. Let&apos;s deliberately send a dubious message to a string:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">&apos;Hi Andy&apos; squared</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Notice that this causes a </text><text styleclass="Program Feature" translate="true">walkback</text><text styleclass="Normal" translate="true"> window to pop-up. Dolphin uses these windows to indicate when some sort of error has occurred. The window caption indicates the basic problem, in this case, </text><text styleclass="Normal" style="font-style:italic;" translate="true">String does not understand #squared</text><text styleclass="Normal" translate="true">. At this stage, you could choose to enter the system debugger (by pressing the </text><text styleclass="Menu Command" translate="true">Debug</text><text styleclass="Normal" translate="true"> button) to further diagnose the problem. However, understanding the debugger is perhaps beyond us at this point so, for the time being, get used to clicking on </text><text styleclass="Menu Command" translate="true">Terminate</text><text styleclass="Normal" translate="true"> when you see a walkback pop up.</text></para>
+  </body>
+</topic>

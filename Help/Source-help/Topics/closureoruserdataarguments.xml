@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Closure or User Data Arguments</title>
+  <keywords>
+    <keyword translate="true">Closure or User Data Arguments</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Closure or User Data Arguments</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The callback interface that one is using may provide a means of passing back a user-supplied parameter (usually a 32-bit value) in order to provide &quot;closure&quot;. However, as callbacks are implemented with blocks, one can capture whatever closure is required in the block, and so one can normally ignore any &quot;user data&quot; argument.</text></para>
+  </body>
+</topic>

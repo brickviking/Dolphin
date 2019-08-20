@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
+  <title translate="true">Browser Class List Pane_Summary</title>
+  <body>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" style="font-weight:normal;" translate="true">The </text><text styleclass="Program Feature" translate="true">Class List Pane</text><text styleclass="Normal Head" style="font-weight:normal;" translate="true"> displays</text><text styleclass="Popup Box" style="font-weight:normal;" translate="true"> the current</text><text styleclass="Popup Box" translate="true"> classes shown by the browser as an alphabetically sorted list. The contents of this list is determined by the package(s) that have been previously selected. Click on a class to browse its methods. You can also switch to a hierarchy view if you wish by selecting the </text><text styleclass="Program Feature" translate="true">Class Hierarchy</text><text styleclass="Popup Box" translate="true"> tab.</text></para>
+    <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Common Operations</text></para>
+    <para styleclass="Popup Box"><text styleclass="Normal" translate="true">If you drag a class object and drop it over another class in this pane, this will be regarded as an instruction to reorganise the class hierarchy and change the superclass of the class that was dropped. Dropping a method over a class will copy the method to that class. If the operation is a Shift+Drag then the method will be moved instead.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You may also choose to drag classes from this pane to several other locations in the various Dolphin tools... see the help for the different tool panes for more information about these drag operations.</text></para>
+  </body>
+</topic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Fixing Problems in the Debugger</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Fixing Problems in the Debugger</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you discover a bug in a method while working in the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true"> then you can edit the code in the </text><text styleclass="Program Feature" translate="true">Source Pane</text><text styleclass="Normal" translate="true"> and recompile it using </text><text styleclass="Menu Command" translate="true">Workspace/Accept</text><text styleclass="Normal" translate="true">. Under normal circumstances, recompiling the method will cause the method invocation to restart (including dropping any stack frames on top of it). This can be very useful and save a great deal of time when programming dynamically within the </text><text styleclass="Program Feature" translate="true">Debugger</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In some circumstances, restarting a method will have an untoward effect. This is the case if you are debugging through a method that has side-effects (such as moving a stream pointer etc). In such cases, you should choose </text><text styleclass="Menu Command" translate="true">Workspace/Accept No Restart </text><text styleclass="Normal" translate="true">when recompiling the method. You can also choose to turn off the automatic restart facility by setting the </text><text styleclass="Class Name" translate="true">restartOnMethodSave</text><text styleclass="Normal" translate="true"> system preference to </text><text styleclass="Class Name" translate="true">false</text><text styleclass="Normal" translate="true">.</text></para>
+  </body>
+</topic>

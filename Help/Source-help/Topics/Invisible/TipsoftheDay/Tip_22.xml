@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Tip #22</title>
+  <body>
+    <para styleclass="Heading3"><text styleclass="Heading3" translate="true">Tip of the Day</text></para>
+    <para styleclass="Normal"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="width:58px;">
+          <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="width:328px;">
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin </text><text styleclass="Program Feature" translate="true">Live Update</text><text styleclass="Normal" translate="true"> is a facility for of obtaining the latest updates for your Dolphin Smalltalk product. &#160;These are downloaded in the form of secure patch levels for automatic installation into your Dolphin image. </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">You can access </text><text styleclass="Program Feature" translate="true">Live Update</text><text styleclass="Normal" translate="true"> from the icon in the </text><text styleclass="Program Feature" translate="true">System Folder</text><text styleclass="Normal" translate="true"> or by choosing </text><text styleclass="Menu Command" translate="true">Help/Check for Live Updates</text><text styleclass="Normal" translate="true">.</text><snippet src="Tip_Of_The_Day_Footer"/></para>
+  </body>
+</topic>

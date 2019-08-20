@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Talking to Teresa, Simon and Charlie</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Talking to Teresa, Simon and Charlie</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Now let&apos;s ask our shapes some questions. Evaluate the following expressions in turn and display the results using </text><text styleclass="Menu Command" translate="true">Display it (Ctrl+D).</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa position.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon position.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie position.</text></para>
+    <para styleclass="Code Example"></para>
+    <para style="margin-top:7px; margin-bottom:7px;"><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true">Note that the position of each shape is answered as a two-dimensional point. This marks the location of the center of the shape within the </text><text styleclass="Program Feature" translate="true">Playground</text><text style="font-family:&apos;Times New Roman&apos;; font-size:12pt; color:#000000;" translate="true"> window. </text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: It is an oddity of the way Microsoft Windows works that y coordinates increase toward the bottom of the screen or window.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">There are number of other messages you can send to the shapes to query information. Try these:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa sides.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">simon rotation.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">charlie color.</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">teresa radius.</text></para>
+    <para styleclass="Code Example"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All the shapes respond to a #</text><text styleclass="Class Name" translate="true">radius</text><text styleclass="Normal" translate="true"> message and answer the radius of their smallest enclosing circle. You&apos;ll see in a minute that the radius of a shape is what governs its overall size.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Try asking the </text><text styleclass="Program Feature" translate="true">Playground</text><text styleclass="Normal" translate="true"> itself what shapes it contains:</text></para>
+    <para styleclass="Code Example"><text styleclass="Code Example" translate="true">playground shapes.</text></para>
+    <para styleclass="Code Example"></para>
+  </body>
+</topic>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../helpproject.xsl" ?>
+<topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../helpproject.xsd">
+  <title translate="true">Panic Tool</title>
+  <body>
+    <para styleclass="Popup Heading"><text styleclass="Popup Heading" translate="true">Panic Tool</text></para>
+    <para styleclass="Popup Heading"><table rowcount="1" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
+      <tr style="vertical-align:top">
+        <td style="vertical-align:middle; width:99px;">
+          <para styleclass="Popup Heading"><image src="Panic.png" align="left" scale="100.00%" styleclass="Image Caption"></image></para>
+        </td>
+        <td style="vertical-align:middle; width:217px;">
+          <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">The </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Popup Box" translate="true"> tool icon (fashioned after Edvard Munch&apos;s picture &quot;The Scream&quot;) can be useful under some circumstances if you believe that your image may have acquired some zombies (unwanted hidden windows). </text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">Opening the </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Popup Box" translate="true"> icon</text><text styleclass="Popup Box" translate="true"> will bring up a warning indicating that all Dolphin windows will be closed without offering any further prompt to save changes. Hence, you should always ensure that you have saved anything that you require before executing a </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Popup Box" translate="true">. A </text><text styleclass="Program Feature" translate="true">Panic</text><text styleclass="Popup Box" translate="true"> forcibly closes </text><text styleclass="Popup Box" style="font-weight:normal; text-decoration:underline;" translate="true">all</text><text styleclass="Popup Box" translate="true"> windows; &#160;both development tools &amp; your own.</text></para>
+  </body>
+</topic>

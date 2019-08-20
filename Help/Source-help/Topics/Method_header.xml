@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Method header</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Method header</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The next important thing is the first line, which forms the method header. This defines the selector for the method (&lt;=) and any parameters that the method takes. Since #</text><text styleclass="Class Name" translate="true">&lt;=</text><text styleclass="Normal" translate="true"> is a binary message we expect it to take a single parameter which, in this case, we have called </text><text styleclass="Class Name" translate="true">anArithmeticValue</text><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Tip: it is very common in Smalltalk to describe the method parameters using names like anArithmeticValue, aString, anInteger etc. This is not enforced; it is just a way of helping the reader determine what sort of parameter a particular method expects.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Once the parameters have been named at the beginning of the method they can be used like any variable in the body text. In fact, that&apos;s not quite true because you&apos;re not allowed to assign to them; they are read only. For this reason they are sometimes called pseudo-variables.</text></para>
+  </body>
+</topic>
