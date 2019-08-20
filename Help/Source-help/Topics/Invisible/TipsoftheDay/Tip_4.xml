@@ -10,7 +10,7 @@
           <para styleclass="Normal"><image src="TipOfTheDayBulb.jpg" scale="100.00%" styleclass="Image Caption"></image></para>
         </td>
         <td style="width:328px;">
-          <para styleclass="Normal"><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true"> can be used to evaluate snippets of Smalltalk code at any time. &#160;You&apos;ll often use this feature to &quot;talk&quot; to your application objects while you are developing. This is one of the features that makes Smalltalk such </text><text styleclass="Normal" style="font-weight:bold;" translate="true">fun</text><text styleclass="Normal" translate="true"> to use</text></para>
+          <para styleclass="Normal"><text styleclass="Normal" translate="true">A </text><text styleclass="Program Feature" translate="true">Workspace</text><text styleclass="Normal" translate="true"> can be used to evaluate snippets of Smalltalk code at any time. &#160;You&apos;ll often use this feature to &quot;talk&quot; to your application objects while you are developing. This is one of the features that makes Smalltalk such </text><text styleclass="Normal" style="font-weight:bold;" translate="true">fun</text><text styleclass="Normal" translate="true"> to use.</text></para>
         </td>
       </tr>
     </table></para>
