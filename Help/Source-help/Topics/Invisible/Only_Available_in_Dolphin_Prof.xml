@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../helpproject.xsl" ?>
 <topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
-  <title translate="true">Only Available in Dolphin Profession</title>
+  <title translate="true">Previously only Available in Dolphin Professional</title>
   <body>
-    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt; font-weight:bold;" translate="true">Only Available in Dolphin Professional</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" style="font-size:8pt; font-weight:bold;" translate="true">Was previously only available in Dolphin Professional X6 and earlier.</text></para>
   </body>
 </topic>
