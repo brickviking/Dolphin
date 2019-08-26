@@ -40,9 +40,6 @@
       <topicref type="topic" id="386379807240052" build="ALL" modified="2005-10-13T01:42:48.234Z" icon="0" href="Sample_Applications_Icons">
         <caption translate="true">Sample Applications Icons</caption>
       </topicref>
-      <topicref type="topic" id="386380437479983" build="ALL" modified="2005-10-13T01:42:58.593Z" icon="0" href="Source_Tracking_Tools_Icons">
-        <caption translate="true">Source Tracking Tools Icons</caption>
-      </topicref>
     </topicref>
     <topicref type="topic" id="38588095127061" build="ALL" modified="2005-11-02T12:46:21.607Z" icon="0" href="Workspace">
       <caption translate="true">Workspace</caption>
@@ -2161,24 +2158,6 @@
     </topicref>
     <topicref type="topic" id="386378802421068" modified="2005-11-22T19:13:14.079Z" icon="0" href="More_Advanced_Procedures">
       <caption translate="true">More Advanced Procedures</caption>
-      <topicref type="topic" id="386756678768230" modified="2005-11-19T10:52:59.271Z" icon="0" href="Using_the_Source_Tracking_Syst">
-        <caption translate="true">Using the Source Tracking System</caption>
-        <topicref type="topic" id="386754106900122" modified="2005-11-19T10:58:47.802Z" icon="0" href="What_Is_a_Version">
-          <caption translate="true">What Is a Version?</caption>
-        </topicref>
-        <topicref type="topic" id="386756249851151" modified="2005-11-19T11:04:13.942Z" icon="0" href="Creating_a_Repository">
-          <caption translate="true">Creating a Repository</caption>
-        </topicref>
-        <topicref type="topic" id="386753073389315" modified="2005-11-19T10:55:17.614Z" icon="0" href="Adding_Versions_to_a_Repositor">
-          <caption translate="true">Adding Versions to a Repository</caption>
-        </topicref>
-        <topicref type="topic" id="386755636090342" modified="2005-11-19T10:55:32.646Z" icon="0" href="Backing_up_a_Repository">
-          <caption translate="true">Backing up a Repository</caption>
-        </topicref>
-        <topicref type="topic" id="386752894444665" modified="2005-11-19T10:56:32.427Z" icon="0" href="Creating_a_Project2">
-          <caption translate="true">Creating a Project</caption>
-        </topicref>
-      </topicref>
       <topicref type="topic" id="386664700630209" modified="2005-11-10T14:04:36.906Z" icon="0" href="Refactoring">
         <caption translate="true">Refactoring</caption>
       </topicref>
@@ -2490,15 +2469,6 @@
       </topicref>
       <topicref type="topic" id="386342930218570" build="ALL" modified="2005-10-10T13:51:07.077Z" icon="0" href="Workspace_Tool">
         <caption translate="true">Workspace Tool</caption>
-      </topicref>
-      <topicref type="topic" id="386349323244299" build="ALL" modified="2005-10-10T13:51:07.093Z" icon="0" href="Source_Tracking_Tools_Folder">
-        <caption translate="true">Source Tracking Tools Folder</caption>
-        <topicref type="topic" id="386348499099976" build="ALL" modified="2005-10-10T13:51:48.296Z" icon="0" href="Package_Editions_Browser_Tool">
-          <caption translate="true">Package Editions Browser Tool</caption>
-        </topicref>
-        <topicref type="topic" id="386348303000847" build="ALL" modified="2005-10-10T13:51:48.296Z" icon="0" href="Project_Editions_Browser_Tool">
-          <caption translate="true">Project Editions Browser Tool</caption>
-        </topicref>
       </topicref>
     </topicref>
     <topicref type="topic" id="386379120026586" build="ALL" modified="2005-11-03T12:39:32.654Z" icon="0" href="Class_Browser_Summary">
