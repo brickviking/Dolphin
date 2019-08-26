@@ -4,6 +4,6 @@
   <title translate="true">glossuncommittedglobals</title>
   <body>
     <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Uncommitted Globals</text></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">Globals that have not yet been assigned to any Package. By default, new globals created by adding then to the Smalltalk dictionary are initially uncommitted. .</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Globals that have not yet been assigned to any Package. By default, new globals created by adding them to the Smalltalk dictionary are initially uncommitted.</text></para>
   </body>
 </topic>
