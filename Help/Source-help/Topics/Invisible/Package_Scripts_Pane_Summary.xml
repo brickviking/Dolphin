@@ -3,7 +3,7 @@
 <topic class="popup" template="Popup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../helpproject.xsd">
   <title translate="true">Package Browser Scripts Pane_Summary</title>
   <body>
-    <para styleclass="IndentList2 Noafter" style="margin-left:6px;"><text styleclass="IndentList2 Noafter" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Scripts Pane </text><text styleclass="IndentList2 Noafter" translate="true">provides tabbed access to the four scripts that are held by the currently selected package. Most packages don&apos;t need to use scripts at all so, where a script is not present, the tab is marked with a red cross. Where a script is supplied the tab is marked with a green tick. The available script, and their functions are as follows:</text></para>
+    <para styleclass="IndentList2 Noafter" style="margin-left:6px;"><text styleclass="IndentList2 Noafter" translate="true">The </text><text styleclass="Program Feature" translate="true">Package Scripts Pane </text><text styleclass="IndentList2 Noafter" translate="true">provides tabbed access to the four scripts that are held by the currently selected package. Most packages don&apos;t need to use scripts at all so, where a script is not present, the tab is marked with a red cross. Where a script is supplied the tab is marked with a green tick. The available scripts, and their functions are as follows:</text></para>
     <para styleclass="IndentList2 Noafter"></para>
     <para styleclass="IndentList2 Noafter"><table rowcount="4" colcount="2" style="cell-padding:0px; cell-spacing:0px; border-width:0px; cell-border-width:0px;">
       <tr style="vertical-align:top">
@@ -39,6 +39,6 @@
         </td>
       </tr>
     </table></para>
-    <para styleclass="Notes"><text styleclass="Notes" translate="true">Notice that the script are in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Chunk_Files" styleclass="Notes" translate="true">Chunk File Format</link><text styleclass="Notes" translate="true"> so that each separate evaluation is terminated by an exclamation mark.</text></para>
+    <para styleclass="Notes"><text styleclass="Notes" translate="true">Notice that the scripts are in </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Chunk_Files" styleclass="Notes" translate="true">Chunk File Format</link><text styleclass="Notes" translate="true"> so that each separate evaluation is terminated by an exclamation mark.</text></para>
   </body>
 </topic>
