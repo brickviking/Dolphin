@@ -4,6 +4,6 @@
   <title translate="true">glossuserprefs</title>
   <body>
     <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">User Preferences</text></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">A Published Aspect Inspector that allows you to browse various system options for the development environment. It is available from the System Folder. </text></para>
+	<para styleclass="Normal"><text styleclass="Normal" translate="true">A Published Aspect Inspector that allows you to browse various system options for the development environment. It is available from the</text><text styleclass="Program Feature" translate="true">System Folder</true><text styleclass="Normal" translate="true">, as well as the Tools menu in any tool.</text></para>
   </body>
 </topic>
