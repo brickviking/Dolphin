@@ -5,6 +5,6 @@
   <body>
     <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Source Tracking System (STS)</text></para>
     <para styleclass="Normal Head"><snippet src="Only_Available_in_Dolphin_Prof"/></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">A full, multi-user, method level repository for storing past editions of your Smalltalk source code. For those of you who have experience of it, STS is very much like the ENVY product that has been available for other Smalltalk environments in the past</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">A full, multi-user, method level repository for storing past editions of your Smalltalk source code. For those of you who have experience of it, STS is very much like the ENVY product that has been available for other Smalltalk environments in the past.</text></para>
   </body>
 </topic>
