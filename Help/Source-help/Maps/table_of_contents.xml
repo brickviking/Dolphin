@@ -266,60 +266,6 @@
     <topicref type="topic" id="386603581328075" build="ALL" modified="2005-11-04T09:43:44.482Z" icon="0" href="Environment_Browser">
       <caption translate="true">Executable Browser</caption>
     </topicref>
-    <topicref type="topic" id="386605674023825" build="ALL" modified="2005-11-04T09:44:50.029Z" icon="0">
-      <caption translate="true">STS Tools</caption>
-      <topicref type="topic" id="386306215714440" build="ALL" modified="2005-11-10T11:40:06.375Z" icon="0" href="Source_Tracking_System">
-        <caption translate="true">Source Tracking System</caption>
-      </topicref>
-      <topicref type="topic" id="386657164043709" build="ALL" modified="2005-11-09T19:10:56.796Z" icon="0" href="Method_Editions_Browser">
-        <caption translate="true">Method Editions Browser</caption>
-        <topicref type="topic" id="386750410682190" build="ALL" modified="2005-11-18T21:22:21.942Z" icon="0" href="Method_Editions_Pane">
-          <caption translate="true">Method Editions Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386750053910866" build="ALL" modified="2005-11-18T21:25:34.458Z" icon="0" href="Method_Comparison_Browser">
-          <caption translate="true">Method Comparison Browser</caption>
-        </topicref>
-      </topicref>
-      <topicref type="topic" id="386603303753459" build="ALL" modified="2005-11-04T09:45:49.404Z" icon="0" href="Class_Editions_Browser">
-        <caption translate="true">Class Editions Browser</caption>
-        <topicref type="topic" id="386749669040626" build="ALL" modified="2005-11-18T21:27:59.458Z" icon="0" href="Class_Editions_Pane">
-          <caption translate="true">Class Editions Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386746831103291" build="ALL" modified="2005-11-18T21:28:31.442Z" icon="0" href="Class_Editions_Method_List">
-          <caption translate="true">Class Editions Method List</caption>
-        </topicref>
-      </topicref>
-      <topicref type="topic" id="386603726129779" build="ALL" modified="2005-11-04T09:45:19.639Z" icon="0" href="Package_Editions_Browser">
-        <caption translate="true">Package Editions Browser</caption>
-        <topicref type="topic" id="38675922626143" build="ALL" modified="2005-11-18T21:31:21.536Z" icon="0" href="Package_Editions_Package_Pane">
-          <caption translate="true">Package Editions Package Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386749212533841" build="ALL" modified="2005-11-18T21:31:02.083Z" icon="0" href="Package_Editions_Pane">
-          <caption translate="true">Package Editions Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386748630905281" build="ALL" modified="2005-11-18T21:32:19.614Z" icon="0" href="Package_Editions_History_Viewe">
-          <caption translate="true">Package Editions History Viewer</caption>
-        </topicref>
-      </topicref>
-      <topicref type="topic" id="386603252166993" build="ALL" modified="2005-11-04T09:45:38.545Z" icon="0" href="Project_Editions_Browser">
-        <caption translate="true">Project Editions Browser</caption>
-        <topicref type="topic" id="386750327823841" build="ALL" modified="2005-11-18T21:38:57.630Z" icon="0" href="Projects_Pane">
-          <caption translate="true">Projects Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386749479194383" build="ALL" modified="2005-11-18T21:39:35.396Z" icon="0" href="Project_Editions_Pane">
-          <caption translate="true">Project Editions Pane</caption>
-        </topicref>
-        <topicref type="topic" id="386748344769341" build="ALL" modified="2005-11-18T21:43:47.083Z" icon="0" href="Contained_Package_Editions_Pan">
-          <caption translate="true">Contained Package Editions Pane</caption>
-        </topicref>
-      </topicref>
-      <topicref type="topic" id="386658281895391" build="ALL" modified="2005-11-22T19:11:18.735Z" icon="0" href="Changes_Browser">
-        <caption translate="true">Changes Browser</caption>
-        <topicref type="topic" id="386754749798079" build="ALL" modified="2005-11-19T10:34:59.567Z" icon="0" href="Changes_List_Pane">
-          <caption translate="true">Changes List Pane</caption>
-        </topicref>
-      </topicref>
-    </topicref>
   </topicref>
   <topicref type="topic" id="385898878647101" build="ALL" modified="2005-11-17T15:32:38.849Z" icon="0">
     <caption translate="true">Programming Cookbook</caption>
