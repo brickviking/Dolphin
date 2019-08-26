@@ -6,7 +6,7 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Models</text></para>
     </header>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">The model data is usually described by a particular class in the image. Most often these are created beneath the </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Normal" translate="true"> hierarchy although, this is not essential. All that is necessary is that the model must trigger appropriate events for the view to intercept so that any changes made to it can be read displayed.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The model data is usually described by a particular class in the image. Most often these are created beneath the </text><text styleclass="Class Name" translate="true">Model</text><text styleclass="Normal" translate="true"> hierarchy although, this is not essential. All that is necessary is that the model must trigger appropriate events for the view to intercept so that any changes made to it can be read and displayed.</text></para>
     <para styleclass="Normal"><text styleclass="Normal" translate="true">Here are some examples:</text></para>
     <para styleclass="Normal"><table rowcount="5" colcount="4" style="cell-padding:0px; cell-spacing:0px; border-width:1px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#000000; border-style:solid;">
       <tr style="vertical-align:top">
