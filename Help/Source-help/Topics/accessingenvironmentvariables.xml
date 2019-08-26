@@ -9,7 +9,7 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Accessing Environment Variables</text></para>
     </header>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">Environment variables are frequently used in conjunction with command line applications, and can be read as using the </text><text styleclass="Class Name" translate="true">getenv</text><text styleclass="Normal" translate="true">() function of the CRT. For example:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Environment variables are frequently used in conjunction with command line applications, and can be read by using the </text><text styleclass="Class Name" translate="true">getenv</text><text styleclass="Normal" translate="true">() function of the CRT. For example:</text></para>
     <para styleclass="Code Example"><text styleclass="Code Example" translate="true">CRTLibrary default getenv: &apos;TZ&apos;</text></para>
     <para styleclass="Code Example"></para>
     <para styleclass="Normal"><text styleclass="Normal" translate="true">The result is a </text><text styleclass="Class Name" translate="true">String</text><text styleclass="Normal" translate="true"> (in this case the name of the current timezone).</text></para>
