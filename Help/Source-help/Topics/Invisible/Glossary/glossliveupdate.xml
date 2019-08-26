@@ -4,6 +4,6 @@
   <title translate="true">glossliveupdate</title>
   <body>
     <para styleclass="Normal Head"><text styleclass="Normal Head" translate="true">Live Update</text></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Live Update is a facility for of obtaining the latest updates for your Dolphin Smalltalk product. These are downloaded in the form of Patch Levels for automatic installation into your Dolphin image. </text><conditional-text type="IFNOT" value="PRINT"/><text styleclass="Normal" translate="true">Click </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Live_Update" styleclass="Normal" translate="true">here</link><text styleclass="Normal" translate="true"> for more details.</text><conditional-text type="END"/></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Live Update is a facility for obtaining the latest updates for your Dolphin Smalltalk product. These are downloaded in the form of Patch Levels for automatic installation into your Dolphin image. </text><conditional-text type="IFNOT" value="PRINT"/><text styleclass="Normal" translate="true">Click </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Dolphin_Live_Update" styleclass="Normal" translate="true">here</link><text styleclass="Normal" translate="true"> for more details.</text><conditional-text type="END"/></para>
   </body>
 </topic>
