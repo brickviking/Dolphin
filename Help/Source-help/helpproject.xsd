@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by Alexander Halser (EC Software GmbH) -->
 <!-- (C) Copyright EC Software GmbH, 2006-2008 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XInclude" xmlns:xml="http://www.w3.org/XML/1998/namespace" elementFormDefault="unqualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/XML/1998/namespace"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XInclude" xmlns:xml="http://www.w3.org/2001/xml" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.w3.org/2001/xml" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
 	<xs:element name="helpproject">
 		<xs:complexType>
 			<xs:sequence>
