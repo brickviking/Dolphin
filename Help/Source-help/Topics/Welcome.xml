@@ -3,7 +3,7 @@
 <topic template="Default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
   <body>
     <header>
-      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Welcome to` &lt;%APPFULL%&gt;</text></para>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Welcome to Dolphin Smalltalk 7</text></para>
     </header>
     <para styleclass="Normal"><text styleclass="Normal" translate="true">Enter topic text here.</text></para>
   </body>

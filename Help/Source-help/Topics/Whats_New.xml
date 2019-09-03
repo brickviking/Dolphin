@@ -6,6 +6,6 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">What&apos;s New</text></para>
     </header>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">&lt;%APPFULL%&gt; continues to improve on various aspects of the development environment but the most significant change in this release is that Dolphin is now fully Open Source under the MIT licence. Both the image and VM sources are available in GitHub so, if you feel like getting your hands dirty, take a look at the </text><link displaytype="text" defaultstyle="true" type="weblink" href="https://github.com/dolphinsmalltalk" target="_blank" styleclass="Normal" translate="true">GitHub Repositories</link><text styleclass="Normal" translate="true">.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Dolphin Smalltalk 7 continues to improve on various aspects of the development environment but the most significant change in this release is that Dolphin is now fully Open Source under the MIT licence. Both the image and VM sources are available in GitHub so, if you feel like getting your hands dirty, take a look at the </text><link displaytype="text" defaultstyle="true" type="weblink" href="https://github.com/dolphinsmalltalk" target="_blank" styleclass="Normal" translate="true">GitHub Repositories</link><text styleclass="Normal" translate="true">.</text></para>
   </body>
 </topic>
