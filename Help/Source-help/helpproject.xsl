@@ -22,7 +22,10 @@
 </xsl:variable>
 
 <xsl:template match="include">
-<!-- <xsl:apply-templates select="document(@href)"/> -->
+	<!--  <snippet>
+    <xsl:apply-templates select="document(@href)"/>
+    <xsl:apply-templates/>
+	</snippet> -->
 </xsl:template>
 
 <xsl:template name="textstyleclass">
@@ -124,17 +127,17 @@
  <table border="0" cellpadding="0" style="margin-left:10px;margin-bottom:40px;">
    <tr><td>
    <table border="0" cellpadding="0" cellspacing="0" style="vertical-align:top;margin-bottom:10px">
-     <xsl:if test="./title">
+	   <!-- <xsl:if test="./title">
      <tr>
        <td style="width:120px">Topic Title:</td><td style="font-weight:bold"><xsl:value-of select="./title"/></td>
      </tr>
      </xsl:if>
-     <tr>
+	 <tr>
        <td style="width:120px">Modified by:</td><td style="font-weight:bold"><xsl:value-of select="@lasteditedby"/></td>
      </tr>
      <tr>
        <td style="width:120px">Template:</td><td style="font-weight:bold"><xsl:value-of select="@template"/></td>
-     </tr>
+	 </tr> -->
      <xsl:if test="./keywords">
        <tr style="vertical-align:top">
          <td style="width:120px">Keywords:</td><td>
@@ -311,9 +314,12 @@
 </xsl:template>
 
 <xsl:template match="snippet">
-<div style="width:100%;text-align:center;padding:4px;background-color:#E2E2E2;border:1px dashed #000000">
-Snippet: <b><xsl:value-of select="@src"/></b>
-</div>
+	<!-- <div style="width:100%;text-align:center;padding:4px;background-color:#E2E2E2;border:1px dashed #000000">
+		Snippet: <b><xsl:value-of select="@src"/></b> -->
+	  <!-- </div> -->
+  <!-- <xsl:apply-templates select="document(@src)"/> -->
+  <xsl:apply-templates select="document( concat(@src, '.xml') )"/>
+  <xsl:apply-templates/>
 </xsl:template>
 
 <xsl:template match="tab">
