@@ -14,6 +14,6 @@
         </td>
       </tr>
     </table></para>
-    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">PAX mode was introduced to allow </text><var styleclass="Popup Box">&lt;%APP%&gt;</var><text styleclass="Popup Box" translate="true"> packages to be split into several different source files that are appropriate for checking into a file based Change Control System (CCS). Using the </text><text styleclass="Program Feature" translate="true">Source Browser</text><text styleclass="Popup Box" translate="true"> you can determine which of these files have been changed and needs to be checked out, saved and updated back into the CCS.</text></para>
+    <para styleclass="Popup Box"><text styleclass="Popup Box" translate="true">PAX mode was introduced to allow </text><var styleclass="Popup Box">Dolphin</var><text styleclass="Popup Box" translate="true"> packages to be split into several different source files that are appropriate for checking into a file based Change Control System (CCS). Using the </text><text styleclass="Program Feature" translate="true">Source Browser</text><text styleclass="Popup Box" translate="true"> you can determine which of these files have been changed and needs to be checked out, saved and updated back into the CCS.</text></para>
   </body>
 </topic>
