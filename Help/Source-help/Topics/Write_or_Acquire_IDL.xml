@@ -6,8 +6,8 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Write or Acquire IDL</text></para>
     </header>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">When writing a new component from scratch, one should start by defining components COM interfaces in IDL. This is a “language independent” description of the interfaces to the component that is essential for binary interoperability. </text></para>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">When implementing a pre-defined COM interface one does not have to design the interface, but the starting point is the same, but:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When writing a new component from scratch, one should start by defining the component's COM interfaces in IDL. This is a “language independent” description of the interfaces to the component that is essential for binary interoperability. </text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When implementing a pre-defined COM interface one does not have to design the interface; even though the starting point is the same, the following steps apply:</text></para>
     <list id="1" type="ol" listtype="decimal" formatstring="&#37;&#48;&#58;&#115;&#46;" levelreset="false" legalstyle="false" startfrom="1" styleclass="Normal" style="margin-left:24px; font-family:Arial; font-size:9pt; color:#000000;">
       <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If a type-library is available, move straight on to </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Generate_Interfaces" styleclass="Normal" translate="true">Interface Generation</link><text styleclass="Normal" translate="true">, you can reverse engineer the IDL from the type library should you need it.</text></li>
       <li styleclass="Normal" style="margin-left:24px;"><text styleclass="Normal" translate="true">If IDL is available then go to the next stage and build a type library from it.</text></li>
