@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <map xmlns:xsi="http://www.w3.org/2001/XInclude">
   <topicref type="topic" id="386295481997353" build="ALL" modified="2005-10-04T17:23:21.156Z" icon="0" href="Welcome_to_Dolphin">
-    <caption translate="true">Welcome to &lt;%APPFULL%&gt;</caption>
+    <caption translate="true">Welcome to Dolphin Smalltalk 7</caption>
   </topicref>
   <topicref type="topic" id="38639016149317" build="ALL" modified="2016-01-25T16:59:57.805Z" icon="0" href="Whats_New">
     <caption translate="true">What's New</caption>
