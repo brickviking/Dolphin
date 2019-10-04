@@ -13,6 +13,6 @@
       <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Question&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the instance side of the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> class</text></li>
       <li styleclass="Class Name"><text styleclass="Class Name" translate="true">Question&gt;&gt;thisMethod</text><br/><text styleclass="Normal" translate="true">Indicates that </text><text styleclass="Class Name" translate="true">thisMethod</text><text styleclass="Normal" translate="true"> belongs on the instance side of the </text><text styleclass="Class Name" translate="true">Question</text><text styleclass="Normal" translate="true"> class</text></li>
     </list>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">This &gt;&gt; symbol is commonly used as a means of documenting that a method belongs to a particular class you&apos;ll find that we use it quite often from now on in this guide.</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">This &gt;&gt; symbol is commonly used as a means of documenting that a method belongs to a particular class, and you&apos;ll find that we use it quite often from now on in this guide.</text></para>
   </body>
 </topic>
