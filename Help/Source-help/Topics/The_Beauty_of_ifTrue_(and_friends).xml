@@ -6,7 +6,7 @@
     <header>
       <para styleclass="Heading1"><text styleclass="Heading1" translate="true">The Beauty of #ifTrue: (and friends)</text></para>
     </header>
-    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are used using other computer languages using these messages may look a little odd at first. You&apos;re probably used to using something like:</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If you are used to using other computer languages using these messages may look a little odd at first. You&apos;re probably used to using something like:</text></para>
     <para styleclass="Code Example"><text styleclass="Code Example" translate="true">if (simon radius &gt; charlie radius) {</text></para>
     <para styleclass="Code Example"><tab /><text styleclass="Code Example" translate="true">printf(&quot;Simon is bigger than Charles&quot;) }</text></para>
     <para styleclass="Code Example"></para>
