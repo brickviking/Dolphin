@@ -66,17 +66,19 @@ shearTransform: aPoint order: aMatrixOrderConstant
 				order: aMatrixOrderConstant) = Ok 
 		ifFalse: [GdiplusError signal: 'GdipShearMatrix failed' with: status]!
 
-transformPoints: aPointsCollection 
-	| status pts|
-	pts := (StructureArray withAll: (aPointsCollection collect: [:e | POINTL fromPoint: e])
-						elementClass: POINTL).
-	(status := GdiplusLibrary default 
+transformPoints: aPointsCollection
+	| pts status |
+	pts := (StructureArray
+				withAll: aPointsCollection
+				elementClass: POINTL
+				initializer: [:pointl :point | pointl x: point x y: point y]).
+	pts beUnfinalizable.
+	(status := GdiplusLibrary default
 				gdipTransformMatrixPointsI: self handle
 				pts: pts
-				count: aPointsCollection size) = Ok 
+				count: aPointsCollection size) == Ok
 		ifFalse: [GdiplusError signal: 'GdipTransformMatrixPoints: failed' with: status].
-	^pts
-	!
+	^pts!
 
 translateTransform: aPoint
 	self translateTransform: aPoint order: MatrixOrderPrepend!
@@ -120,7 +122,7 @@ exampleGdipMShadows
 		translateTransform: 180 @ 86.
 	graphics transform: matrix.
 	font := GdiplusFont name: 'Times New Roman' pointSize: 100.
-	brush := GdiplusSolidBrush color: ARGB gray.
+	brush := GdiplusSolidBrush color: Color gray.
 	#(50 150 250 330 415 510 560) with: 'DOLPHIN'
 		do: 
 			[:num :char |
@@ -131,7 +133,7 @@ exampleGdipMShadows
 				format: nil
 				brush: brush].
 	graphics resetTransform.
-	brush color: ARGB blue.
+	brush color: Color blue.
 	#(50 150 250 330 415 510 560) with: 'DOLPHIN'
 		do: 
 			[:num :char |

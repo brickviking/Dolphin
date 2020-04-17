@@ -428,7 +428,7 @@ EXTERN ZCTHIGHWATER:near32
 
 ASYNCPENDING			EQU		?m_bAsyncPending@Interpreter@@0JC
 EXTERN ASYNCPENDING:DWORD
-NEWDWORD				EQU		?NewDWORD@Interpreter@@SIPAV?$TOTE@VVariantByteObject@ST@@@@KPAV?$TOTE@VBehavior@ST@@@@@Z
+NEWDWORD				EQU		?NewUint32@Interpreter@@SIPAV?$TOTE@VVariantByteObject@ST@@@@IPAV?$TOTE@VBehavior@ST@@@@@Z
 extern NEWDWORD:near32
 LINEWSIGNED				EQU		?liNewSigned32@LargeInteger@ST@@SIPAV?$TOTE@VLargeInteger@ST@@@@H@Z
 extern LINEWSIGNED:near32
@@ -740,11 +740,11 @@ GetIPOffsetUsing MACRO tempRegister
 		mov		tempRegister, (OTE PTR[tempRegister]).m_location	;; Include the object header
 	.ENDIF
 	sub		_IP, tempRegister								;; Convert _IP to offset into object
-	IFDEF _DEBUG
-		.IF (_IP > 8192)
-			int	3											;; Probably a bug - _IP index very large
-		.ENDIF
-	ENDIF
+;	IFDEF _DEBUG
+;		.IF (_IP > 8192)
+;			int	3											;; Probably a bug - _IP index very large
+;		.ENDIF
+;	ENDIF
 ENDM
 
 PrimitiveFailureInvalidParameter1 EQU 0680000EFh

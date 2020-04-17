@@ -157,7 +157,7 @@ forecolor: aColorOrNil
 	forecolor := aColorOrNil!
 
 getThreeStateFlag: anInteger
-	^#(nil true false) at: ((flags bitAnd: anInteger) >> (anInteger lowBit - 1)) + 1!
+	^#(nil true false) at: ((flags bitAnd: anInteger) bitShift: 1 - anInteger lowBit) + 1!
 
 initialize
 	super initialize.
@@ -407,12 +407,12 @@ buildPropertyMap
 		at: #forecolor
 			put: (ScintillaColorPropertyDescriptor
 					getSelector: #forecolor
-					defaultValue: RGB black
+					defaultValue: Color black
 					setMessage: SCI_STYLESETFORE);
 		at: #backcolor
 			put: (ScintillaColorPropertyDescriptor
 					getSelector: #backcolor
-					defaultValue: RGB white
+					defaultValue: Color white
 					setMessage: SCI_STYLESETBACK);
 		at: #fontName
 			put: (ScintillaPropertyDescriptor

@@ -22,19 +22,19 @@
 #include "STAssoc.h"
 
 #ifdef PROFILING
-	extern unsigned blocksInstantiated;
-	extern unsigned	freeBlocks = 0;
-	extern unsigned contextsSuspended;
+	extern size_t blocksInstantiated;
+	extern size_t	freeBlocks = 0;
+	extern size_t contextsSuspended;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
 // Primitive Helper routines
 
-Oop* __fastcall Interpreter::unusedPrimitive(Oop* const, unsigned)
+Oop* __fastcall Interpreter::unusedPrimitive(Oop* const, primargcount_t)
 {
 	// Note that the failure code is not set.
 #ifdef _DEBUG
-	int primitiveIndex = m_registers.m_oopNewMethod->m_location->m_header.primitiveIndex;
+	auto primitiveIndex = m_registers.m_oopNewMethod->m_location->m_header.primitiveIndex;
 	TRACESTREAM << L"Unused primitive " << primitiveIndex << " in " << m_registers.m_oopNewMethod << std::endl;
 #endif
 
@@ -55,21 +55,21 @@ Oop* __fastcall Interpreter::unusedPrimitive(Oop* const, unsigned)
 
 #pragma code_seg(MEM_SEG)
 
-Oop* __fastcall Interpreter::primitiveBasicIdentityHash(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveBasicIdentityHash(Oop* const sp, primargcount_t)
 {
 	OTE* ote = (OTE*)*sp;
 	*sp = ObjectMemoryIntegerObjectOf(ote->identityHash());
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveIdentityHash(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveIdentityHash(Oop* const sp, primargcount_t)
 {
 	OTE* ote = (OTE*)*sp;
 	*sp = ObjectMemoryIntegerObjectOf(ote->identityHash() << 14);
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveClass(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveClass(Oop* const sp, primargcount_t)
 {
 	Oop receiver = *sp;
 	*sp = reinterpret_cast<Oop>(!ObjectMemoryIsIntegerObject(receiver) 
@@ -77,7 +77,7 @@ Oop* __fastcall Interpreter::primitiveClass(Oop* const sp, unsigned)
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveIdentical(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveIdentical(Oop* const sp, primargcount_t)
 {
 	Oop receiver = *(sp-1);
 	Oop arg = *sp;
@@ -87,11 +87,11 @@ Oop* __fastcall Interpreter::primitiveIdentical(Oop* const sp, unsigned)
 
 // This primitive is unusual(like primitiveClass) in that it cannot fail
 // Essentially same code as shortSpecialSendBasicSize
-Oop* __fastcall Interpreter::primitiveSize(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveSize(Oop* const sp, primargcount_t)
 {
 	// The primitive assumes it is never called for SmallIntegers.
 	OTE* oteReceiver = reinterpret_cast<OTE*>(*sp);
-	MWORD bytesSize = oteReceiver->getSize();
+	size_t bytesSize = oteReceiver->getSize();
 	if (oteReceiver->m_flags.m_pointer)
 	{
 		InstanceSpecification instSpec = oteReceiver->m_oteClass->m_location->m_instanceSpec;
@@ -127,7 +127,7 @@ Oop* __fastcall Interpreter::primitiveSize(Oop* const sp, unsigned)
 
 // Primitive to speed up #isKindOf: (so we don't have to implement too many #isXXXXX methods, 
 // which are nasty, requiring a change to Object for each).
-Oop* __fastcall Interpreter::primitiveIsKindOf(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveIsKindOf(Oop* const sp, primargcount_t)
 {
 	Oop arg = *sp;
 	// Nothing can be a kind of SmallInteger instance
@@ -158,14 +158,14 @@ Oop* __fastcall Interpreter::primitiveIsKindOf(Oop* const sp, unsigned)
 
 // Does not use successFlag, and returns a clean stack because can only succeed if
 // argument is a positive SmallInteger
-Oop* __fastcall Interpreter::primitiveResize(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveResize(Oop* const sp, primargcount_t)
 {
 	Oop integerPointer = *sp;
 	
 	if (!ObjectMemoryIsIntegerObject(integerPointer))
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);	// Size not a positive SmallInteger
 
-	SMALLINTEGER newSize = ObjectMemoryIntegerValueOf(integerPointer);
+	SmallInteger newSize = ObjectMemoryIntegerValueOf(integerPointer);
 	if (newSize < 0)
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 
@@ -180,10 +180,10 @@ Oop* __fastcall Interpreter::primitiveResize(Oop* const sp, unsigned)
 		if (!behavior->isIndexable())
 			return primitiveFailure(_PrimitiveFailureCode::ObjectTypeMismatch);
 
-		MWORD newPointerSize = newSize + behavior->fixedFields();
+		size_t newPointerSize = static_cast<size_t>(newSize) + behavior->fixedFields();
 
-		int currentPointerSize = oteReceiver->pointersSizeForUpdate();
-		if (currentPointerSize == (int)newPointerSize)
+		ptrdiff_t currentPointerSize = oteReceiver->pointersSizeForUpdate();
+		if (currentPointerSize == (ptrdiff_t)newPointerSize)
 		{
 			// No change, succeed
 			return sp - 1;
@@ -204,8 +204,8 @@ Oop* __fastcall Interpreter::primitiveResize(Oop* const sp, unsigned)
 	}
 	else
 	{
-		int currentByteSize = oteReceiver->bytesSizeForUpdate();
-		if (currentByteSize == (int)newSize)
+		ptrdiff_t currentByteSize = oteReceiver->bytesSizeForUpdate();
+		if (currentByteSize == static_cast<ptrdiff_t>(newSize))
 		{
 			// No change, succeed
 			return sp - 1;
@@ -225,7 +225,7 @@ Oop* __fastcall Interpreter::primitiveResize(Oop* const sp, unsigned)
 	return sp - 1;
 }
 
-Oop* __fastcall Interpreter::primitiveChangeBehavior(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveChangeBehavior(Oop* const sp, primargcount_t)
 {
 	// Receiver becomes an instance of the class specified as the argument - neither
 	// receiver or arg may be SmallIntegers, and the shape of the receivers current class
@@ -262,7 +262,7 @@ Oop* __fastcall Interpreter::primitiveChangeBehavior(Oop* const sp, unsigned)
 
 				// We must check class shapes the same, so compare instance spec. of receivers class with that of new class by xor'ing together
 				// and then checking if any of the important shape bits are different
-				DWORD diff = receiverClass->m_instanceSpec.m_value ^ argClass->m_instanceSpec.m_value;
+				SmallUinteger diff = receiverClass->m_instanceSpec.m_value ^ argClass->m_instanceSpec.m_value;
 				if ((diff & ~InstanceSpecification::IndirectMask) == 0)
 				{
 
@@ -284,9 +284,9 @@ Oop* __fastcall Interpreter::primitiveChangeBehavior(Oop* const sp, unsigned)
 				// Do instances of the new class contain pointers, if so fail
 				if (!argClass->m_instanceSpec.m_pointers)
 				{
-					BytesOTE* oteBytes = ObjectMemory::newByteObject<false, false>(oteClassArg, sizeof(MWORD));
+					BytesOTE* oteBytes = ObjectMemory::newByteObject<false, false>(oteClassArg, sizeof(SmallUinteger));
 					oteClassArg->countUp();
-					*reinterpret_cast<MWORD*>(oteBytes->m_location->m_fields) = ObjectMemoryIntegerValueOf(receiver);
+					*reinterpret_cast<SmallUinteger*>(oteBytes->m_location->m_fields) = ObjectMemoryIntegerValueOf(receiver);
 
 					// We've created a new object, so must replace the receiver at stack top
 					*(sp - 1) = reinterpret_cast<Oop>(oteBytes);
@@ -304,7 +304,7 @@ Oop* __fastcall Interpreter::primitiveChangeBehavior(Oop* const sp, unsigned)
 	return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 }
 
-Oop* __fastcall Interpreter::primitiveExtraInstanceSpec(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveExtraInstanceSpec(Oop* const sp, primargcount_t)
 {
 	BehaviorOTE* oteClass = reinterpret_cast<BehaviorOTE*>(*sp);
 	*sp = (oteClass->m_location->m_instanceSpec.m_value >> 15) | 1;
@@ -319,28 +319,28 @@ Oop* __fastcall Interpreter::primitiveExtraInstanceSpec(Oop* const sp, unsigned)
 // The primitive ensures that the current values of bits which may affect the stability of the
 // system cannot be modified.
 // To query the current value of the special bits, pass in 16rFF00.
-Oop* __fastcall Interpreter::primitiveSetSpecialBehavior(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveSetSpecialBehavior(Oop* const sp, primargcount_t)
 {
 	Oop oopMask = *sp;
 	if (ObjectMemoryIsIntegerObject(oopMask))
 	{
-		SMALLINTEGER mask = ObjectMemoryIntegerValueOf(oopMask);
+		SmallInteger mask = ObjectMemoryIntegerValueOf(oopMask);
 		Oop oopReceiver = *(sp - 1);
 		if (!ObjectMemoryIsIntegerObject(oopReceiver))
 		{
-			static const BYTE criticalPointerObjectFlags = static_cast<BYTE>(OTEFlags::PointerMask | OTEFlags::MarkMask | OTEFlags::FreeMask | OTEFlags::SpaceMask);
-			static const BYTE criticalByteObjectFlags = static_cast<BYTE>(OTEFlags::PointerMask | OTEFlags::MarkMask | OTEFlags::FreeMask | OTEFlags::SpaceMask | OTEFlags::WeakOrZMask);
+			static const uint8_t criticalPointerObjectFlags = static_cast<uint8_t>(OTEFlags::PointerMask | OTEFlags::MarkMask | OTEFlags::FreeMask | OTEFlags::SpaceMask);
+			static const uint8_t criticalByteObjectFlags = static_cast<uint8_t>(OTEFlags::PointerMask | OTEFlags::MarkMask | OTEFlags::FreeMask | OTEFlags::SpaceMask | OTEFlags::WeakOrZMask);
 
 			OTE* oteReceiver = reinterpret_cast<OTE*>(oopReceiver);
 
 			// Ensure the masks cannot affect the critical bits of the flags
 			// the AND mask, must have the pointer, mark, and free bits set, to keep these bits
 			// the OR mask, must have those bits reset so as not to add them
-			BYTE criticalFlags = oteReceiver->m_flags.m_pointer ? criticalPointerObjectFlags : criticalByteObjectFlags;
-			BYTE andMask = (mask >> 8) | criticalFlags;
-			BYTE orMask = mask & static_cast<BYTE>(~criticalFlags);
+			uint8_t criticalFlags = oteReceiver->m_flags.m_pointer ? criticalPointerObjectFlags : criticalByteObjectFlags;
+			uint8_t andMask = (mask >> 8) | criticalFlags;
+			uint8_t orMask = mask & static_cast<uint8_t>(~criticalFlags);
 
-			BYTE oldFlags = oteReceiver->m_ubFlags;
+			uint8_t oldFlags = oteReceiver->m_ubFlags;
 			oteReceiver->m_ubFlags = (oldFlags & andMask) | orMask;
 
 			ASSERT(oteReceiver->isNullTerminated() == oteReceiver->m_oteClass->m_location->m_instanceSpec.m_nullTerminated);
@@ -366,7 +366,7 @@ Oop* __fastcall Interpreter::primitiveSetSpecialBehavior(Oop* const sp, unsigned
 // Remove a request from the last request queue, nil if none pending. Fails if argument is not an
 // array of the correct length to receiver the popped Queue entry (currently 2 objects)
 // Answers nil if the queue is empty, or the argument if an entry was successfully popped into it
-Oop* __fastcall Interpreter::primitiveDeQBereavement(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveDeQBereavement(Oop* const sp, primargcount_t)
 {
 	Oop argPointer = *sp;
 	if (ObjectMemoryIsIntegerObject(argPointer))
@@ -405,7 +405,7 @@ void Interpreter::flushCaches()
 	ZeroMemory(methodCache, sizeof(methodCache));
 }
 
-Oop* __fastcall Interpreter::primitiveFlushCache(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveFlushCache(Oop* const sp, primargcount_t)
 {
 #ifdef _DEBUG
 	DumpCacheStats();
@@ -416,13 +416,13 @@ Oop* __fastcall Interpreter::primitiveFlushCache(Oop* const sp, unsigned)
 
 // Separate atPut primitive is needed to write to the stack because the active process
 // stack is not reference counted.
-Oop* __fastcall Interpreter::primitiveStackAtPut(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveStackAtPut(Oop* const sp, primargcount_t)
 {
 	Oop indexPointer = *(sp-1);
 	if (!ObjectMemoryIsIntegerObject(indexPointer))
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 
-	SMALLINTEGER index = ObjectMemoryIntegerValueOf(indexPointer);
+	SmallInteger index = ObjectMemoryIntegerValueOf(indexPointer);
 	if (index < 1)
 		return primitiveFailure(_PrimitiveFailureCode::OutOfBounds);
 
@@ -430,7 +430,7 @@ Oop* __fastcall Interpreter::primitiveStackAtPut(Oop* const sp, unsigned)
 
 	ProcessOTE* oteReceiver = reinterpret_cast<ProcessOTE*>(*(sp-2));
 	Process* receiverProcess = static_cast<Process*>(oteReceiver->m_location);
-	if (static_cast<MWORD>(index) > receiverProcess->stackSize(oteReceiver))
+	if (static_cast<size_t>(index) > receiverProcess->stackSize(oteReceiver))
 			return primitiveFailure(_PrimitiveFailureCode::OutOfBounds);
 
 	Oop argPointer = *sp;
@@ -448,7 +448,7 @@ Oop* __fastcall Interpreter::primitiveStackAtPut(Oop* const sp, unsigned)
 	return sp-2;
 }
 
-Oop* __fastcall Interpreter::primitiveIndexOfSP(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveIndexOfSP(Oop* const sp, primargcount_t)
 {
 	ProcessOTE* oteReceiver = reinterpret_cast<ProcessOTE*>(*(sp - 1));
 	Oop oopArg = *sp;
@@ -464,28 +464,28 @@ Oop* __fastcall Interpreter::primitiveIndexOfSP(Oop* const sp, unsigned)
 }
 
 // Don't care what effect on stack is!!
-[[noreturn]] void __fastcall Interpreter::primitiveQuit(Oop* const sp, unsigned)
+[[noreturn]] void __fastcall Interpreter::primitiveQuit(Oop* const sp, primargcount_t)
 {
 	Oop argPointer = *sp;
 	exitSmalltalk(ObjectMemoryIntegerValueOf(argPointer));
 }
 
-Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, primargcount_t)
 {
 	Oop integerPointer = *sp;
 	if (!ObjectMemoryIsIntegerObject(integerPointer))
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter4);	// startAt is not an integer
-	SMALLINTEGER startAt = ObjectMemoryIntegerValueOf(integerPointer);
+	SmallInteger startAt = ObjectMemoryIntegerValueOf(integerPointer);
 
 	integerPointer = *(sp-1);
 	if (!ObjectMemoryIsIntegerObject(integerPointer))
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter3);	// stop is not an integer
-	SMALLINTEGER stop = ObjectMemoryIntegerValueOf(integerPointer);
+	SmallInteger stop = ObjectMemoryIntegerValueOf(integerPointer);
 
 	integerPointer = *(sp-2);
 	if (!ObjectMemoryIsIntegerObject(integerPointer))
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter2);	// start is not an integer
-	SMALLINTEGER start = ObjectMemoryIntegerValueOf(integerPointer);
+	SmallInteger start = ObjectMemoryIntegerValueOf(integerPointer);
 
 	PointersOTE* argPointer = reinterpret_cast<PointersOTE*>(*(sp-3));
 	if (ObjectMemoryIsIntegerObject(argPointer) || !argPointer->isPointers())
@@ -500,9 +500,9 @@ Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
 		// this is the convention adopted by most implementations.
 
 		// We can test that we're not going to write off the end of the argument
-		int length = argPointer->pointersSizeForUpdate();
+		auto length = argPointer->pointersSizeForUpdate();
 
-		unsigned toOffset = argPointer->m_oteClass->m_location->fixedFields();
+		auto toOffset = argPointer->m_oteClass->m_location->fixedFields();
 		
 		// Adjust to zero-based indices into variable fields of target
 		stop = stop - 1 + toOffset;
@@ -516,13 +516,13 @@ Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
 
 		PointersOTE* receiverPointer = reinterpret_cast<PointersOTE*>(*(sp-4));
 
-		int fromSize = receiverPointer->pointersSize();
-		unsigned fromOffset = receiverPointer->m_oteClass->m_location->fixedFields();
+		size_t fromSize = receiverPointer->pointersSize();
+		auto fromOffset = receiverPointer->m_oteClass->m_location->fixedFields();
 		// Adjust to zero based index into variable fields of source
 		startAt = startAt - 1 + fromOffset;
 
-		int stopAt = startAt + stop - start;
-		if (stopAt >= fromSize)
+		auto stopAt = startAt + stop - start;
+		if (stopAt >= static_cast<ptrdiff_t>(fromSize))
 			return primitiveFailure(_PrimitiveFailureCode::OutOfBounds);
 
 		// Only works for pointer objects
@@ -535,7 +535,7 @@ Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
 		if (argPointer == receiverPointer && startAt < start)
 		{
 			// Need to do backwards
-			for (int i = stop - start; i >= 0; i--)
+			for (auto i = stop - start; i >= 0; i--)
 			{
 				ObjectMemory::storePointerWithValue(pTo[start + i], pFrom[startAt + i]);
 			}
@@ -543,7 +543,7 @@ Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
 		else
 		{
 			// Do forwards
-			for (int i = 0; i <= stop - start; i++)
+			for (auto i = 0; i <= stop - start; i++)
 			{
 				ObjectMemory::storePointerWithValue(pTo[start + i], pFrom[startAt + i]);
 			}
@@ -555,7 +555,7 @@ Oop* __fastcall Interpreter::primitiveReplacePointers(Oop* const sp, unsigned)
 	return sp-4;
 }
 
-Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const unsigned argCount)
+Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const primargcount_t argCount)
 {
 	Oop* newSp = sp - argCount;
 	OTE* oteReceiver = reinterpret_cast<OTE*>(*newSp);
@@ -563,14 +563,14 @@ Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const unsigned argC
 
 	if (ObjectMemoryIsIntegerObject(oopIndex))
 	{
-		SMALLINTEGER index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
+		SmallInteger index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
 		if (oteReceiver->m_flags.m_pointer)
 		{
-			MWORD size = oteReceiver->pointersSize();
-			MWORD fixedFields = oteReceiver->m_oteClass->m_location->fixedFields();
+			size_t size = oteReceiver->pointersSize();
+			const auto fixedFields = oteReceiver->m_oteClass->m_location->fixedFields();
 			VariantObject* pointerObj = reinterpret_cast<PointersOTE*>(oteReceiver)->m_location;
 
-			if (index >= 0 && (index + fixedFields) < size)
+			if (index >= 0 && static_cast<size_t>(index) + fixedFields < size)
 			{
 				Oop field = pointerObj->m_fields[index + fixedFields];
 				*newSp = field;
@@ -587,16 +587,16 @@ Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const unsigned argC
 			switch (ObjectMemory::GetBytesElementSize(reinterpret_cast<BytesOTE*>(oteReceiver)))
 			{
 			case 1:
-				if (static_cast<MWORD>(index) < oteReceiver->bytesSize())
+				if (static_cast<size_t>(index) < oteReceiver->bytesSize())
 				{
-					BYTE value = reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index];
+					uint8_t value = reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
 					return newSp;
 				}
 				break;
 				
 			case 2:
-				if (static_cast<MWORD>(index) < (oteReceiver->bytesSize() / 2))
+				if (static_cast<size_t>(index) < (oteReceiver->bytesSize() / 2))
 				{
 					uint16_t value = reinterpret_cast<WordsOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
@@ -605,7 +605,7 @@ Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const unsigned argC
 				break;
 
 			case 4:
-				if (static_cast<MWORD>(index) < (oteReceiver->bytesSize() / 4))
+				if (static_cast<size_t>(index) < (oteReceiver->bytesSize() / 4))
 				{
 					uint32_t value = reinterpret_cast<QuadsOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
@@ -629,7 +629,7 @@ Oop* __fastcall Interpreter::primitiveBasicAt(Oop* const sp, const unsigned argC
 	}
 }
 
-Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, primargcount_t)
 {
 	Oop* const newSp = sp - 2;
 	OTE* oteReceiver = reinterpret_cast<OTE*>(*newSp);
@@ -637,15 +637,15 @@ Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, unsigned)
 
 	if (ObjectMemoryIsIntegerObject(oopIndex))
 	{
-		SMALLINTEGER index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
+		SmallInteger index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
 		if (index >= 0)
 		{
 			if (oteReceiver->m_flags.m_pointer)
 			{
 				// Store into pointer object
 
-				int size = oteReceiver->pointersSizeForUpdate();
-				int fixedFields = static_cast<int>(oteReceiver->m_oteClass->m_location->fixedFields());
+				const auto size = oteReceiver->pointersSizeForUpdate();
+				const auto fixedFields = oteReceiver->m_oteClass->m_location->fixedFields();
 				VariantObject* pointerObj = reinterpret_cast<PointersOTE*>(oteReceiver)->m_location;
 
 				if (index + fixedFields < size)
@@ -675,17 +675,17 @@ Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, unsigned)
 				Oop oopValue = *sp;
 				if (ObjectMemoryIsIntegerObject(oopValue))
 				{
-					const MWORD newValue = ObjectMemoryIntegerValueOf(oopValue);
-					const int size = oteReceiver->bytesSizeForUpdate();
+					const SmallUinteger newValue = ObjectMemoryIntegerValueOf(oopValue);
+					const auto size = oteReceiver->bytesSizeForUpdate();
 
 					switch (ObjectMemory::GetBytesElementSize(reinterpret_cast<BytesOTE*>(oteReceiver)))
 					{
 					case 1:
-						if (newValue <= 0xFF)
+						if (newValue <= UINT8_MAX)
 						{
 							if (index < size)
 							{
-								reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index] = static_cast<BYTE>(newValue);
+								reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index] = static_cast<uint8_t>(newValue);
 								*newSp = oopValue;
 								return newSp;
 							}
@@ -698,7 +698,7 @@ Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, unsigned)
 							return primitiveFailure(_PrimitiveFailureCode::IntegerOutOfRange);
 
 					case 2:
-						if (newValue <= 0xFFFF)
+						if (newValue <= UINT16_MAX)
 						{
 							if (index < (size / 2))
 							{
@@ -744,7 +744,7 @@ Oop* __fastcall Interpreter::primitiveBasicAtPut(Oop* const sp, unsigned)
 }
 
 
-Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, primargcount_t)
 {
 	Oop* const newSp = sp - 1;
 	Oop oopIndex = *sp;
@@ -752,13 +752,13 @@ Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, unsigned)
 	
 	if (ObjectMemoryIsIntegerObject(oopIndex))
 	{
-		SMALLINTEGER index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
+		SmallInteger index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
 		if (oteReceiver->m_flags.m_pointer)
 		{
-			MWORD size = oteReceiver->pointersSize();
+			size_t size = oteReceiver->pointersSize();
 			VariantObject* pointerObj = reinterpret_cast<PointersOTE*>(oteReceiver)->m_location;
 
-			if (static_cast<MWORD>(index) < size)
+			if (static_cast<size_t>(index) < size)
 			{
 				Oop field = pointerObj->m_fields[index];
 				*newSp = field;
@@ -772,16 +772,16 @@ Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, unsigned)
 			switch (ObjectMemory::GetBytesElementSize(reinterpret_cast<BytesOTE*>(oteReceiver)))
 			{
 			case 1:
-				if (static_cast<MWORD>(index) < oteReceiver->bytesSize())
+				if (static_cast<size_t>(index) < oteReceiver->bytesSize())
 				{
-					BYTE value = reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index];
+					uint8_t value = reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
 					return newSp;
 				}
 				break;
 
 			case 2:
-				if (static_cast<MWORD>(index) < (oteReceiver->bytesSize() / 2))
+				if (static_cast<size_t>(index) < (oteReceiver->bytesSize() / 2))
 				{
 					uint16_t value = reinterpret_cast<WordsOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
@@ -790,7 +790,7 @@ Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, unsigned)
 				break;
 
 			case 4:
-				if (static_cast<MWORD>(index) < (oteReceiver->bytesSize() / 4))
+				if (static_cast<size_t>(index) < (oteReceiver->bytesSize() / 4))
 				{
 					uint32_t value = reinterpret_cast<QuadsOTE*>(oteReceiver)->m_location->m_fields[index];
 					*newSp = ObjectMemoryIntegerObjectOf(value);
@@ -811,7 +811,7 @@ Oop* __fastcall Interpreter::primitiveInstVarAt(Oop* const sp, unsigned)
 	return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 }
 
-Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, primargcount_t)
 {
 	Oop* const newSp = sp - 2;
 	OTE* oteReceiver = reinterpret_cast<OTE*>(*newSp);
@@ -819,14 +819,14 @@ Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, unsigned)
 
 	if (ObjectMemoryIsIntegerObject(oopIndex))
 	{
-		SMALLINTEGER index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
+		SmallInteger index = ObjectMemoryIntegerValueOf(oopIndex) - 1;
 		if (index >= 0)
 		{
 			if (oteReceiver->m_flags.m_pointer)
 			{
 				// Store into pointer object
 
-				int size = oteReceiver->pointersSizeForUpdate();
+				ptrdiff_t size = oteReceiver->pointersSizeForUpdate();
 				VariantObject* pointerObj = reinterpret_cast<PointersOTE*>(oteReceiver)->m_location;
 
 				if (index < size)
@@ -852,17 +852,17 @@ Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, unsigned)
 				Oop oopValue = *sp;
 				if (ObjectMemoryIsIntegerObject(oopValue))
 				{
-					const MWORD newValue = ObjectMemoryIntegerValueOf(oopValue);
-					const int size = oteReceiver->bytesSizeForUpdate();
+					const SmallUinteger newValue = ObjectMemoryIntegerValueOf(oopValue);
+					const ptrdiff_t size = oteReceiver->bytesSizeForUpdate();
 
 					switch (ObjectMemory::GetBytesElementSize(reinterpret_cast<BytesOTE*>(oteReceiver)))
 					{
 					case 1:
-						if (newValue <= 0xFF)
+						if (newValue <= UINT8_MAX)
 						{
 							if (index < size)
 							{
-								reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index] = static_cast<BYTE>(newValue);
+								reinterpret_cast<BytesOTE*>(oteReceiver)->m_location->m_fields[index] = static_cast<uint8_t>(newValue);
 								*newSp = oopValue;
 								return newSp;
 							}
@@ -875,7 +875,7 @@ Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, unsigned)
 						return primitiveFailure(_PrimitiveFailureCode::IntegerOutOfRange);
 
 					case 2:
-						if (newValue <= 0xFFFF)
+						if (newValue <= UINT16_MAX)
 						{
 							if (index < (size / 2))
 							{
@@ -921,14 +921,14 @@ Oop* __fastcall Interpreter::primitiveInstVarAtPut(Oop* const sp, unsigned)
 	return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 }
 
-Oop* __fastcall Interpreter::primitiveGetImmutable(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveGetImmutable(Oop* const sp, primargcount_t)
 {
 	Oop receiver = *sp;
 	*sp = reinterpret_cast<Oop>(ObjectMemoryIsIntegerObject(receiver) || reinterpret_cast<OTE*>(receiver)->isImmutable() ? Pointers.True : Pointers.False);
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveSetImmutable(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveSetImmutable(Oop* const sp, primargcount_t)
 {
 	if (*sp == reinterpret_cast<Oop>(Pointers.True))
 	{
@@ -955,7 +955,7 @@ Oop* __fastcall Interpreter::primitiveSetImmutable(Oop* const sp, unsigned)
 	}
 }
 
-Oop* __fastcall Interpreter::primitiveDeQForFinalize(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveDeQForFinalize(Oop* const sp, primargcount_t)
 {
 	// Dequeue an entry from the finalization queue, and answer it.Answers nil if the queue is empty
 	OTE* ote = dequeueForFinalization();
@@ -964,7 +964,7 @@ Oop* __fastcall Interpreter::primitiveDeQForFinalize(Oop* const sp, unsigned)
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveBecome(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveBecome(Oop* const sp, primargcount_t)
 {
 	Oop	arg = *sp;
 	if (!ObjectMemoryIsIntegerObject(arg))

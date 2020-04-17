@@ -1,6 +1,6 @@
 #pragma once
 
-template <class Op> static Oop* __fastcall Interpreter::primitiveIntegerOp(Oop* const sp, unsigned)
+template <class Op> static Oop* __fastcall Interpreter::primitiveIntegerOp(Oop* const sp, primargcount_t)
 {
 	Oop arg = *sp;
 	if (!ObjectMemoryIsIntegerObject(arg))
@@ -11,7 +11,7 @@ template <class Op> static Oop* __fastcall Interpreter::primitiveIntegerOp(Oop* 
 	return sp - 1;
 }
 
-template <typename Cmp, bool Lt> static Oop* __fastcall Interpreter::primitiveIntegerCmp(Oop* const sp, unsigned)
+template <typename Cmp, bool Lt> static Oop* __fastcall Interpreter::primitiveIntegerCmp(Oop* const sp, primargcount_t)
 {
 	// Normally it is better to jump on the failure case as the static prediction is that forward
 	// jumps are not taken, but these primitives are normally only invoked when the special bytecode 
@@ -37,7 +37,7 @@ template <typename Cmp, bool Lt> static Oop* __fastcall Interpreter::primitiveIn
 	{
 		Oop receiver = *(sp - 1);
 		// We can perform the comparisons without shifting away the SmallInteger bit since it always 1
-		*(sp - 1) = reinterpret_cast<Oop>(Cmp()(static_cast<SMALLINTEGER>(receiver), static_cast<SMALLINTEGER>(arg)) ? Pointers.True : Pointers.False);
+		*(sp - 1) = reinterpret_cast<Oop>(Cmp()(static_cast<SmallInteger>(receiver), static_cast<SmallInteger>(arg)) ? Pointers.True : Pointers.False);
 		return sp - 1;
 	}
 }

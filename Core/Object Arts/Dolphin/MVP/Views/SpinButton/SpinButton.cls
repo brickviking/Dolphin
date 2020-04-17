@@ -251,6 +251,7 @@ setStep: anInteger
 	prevStep := accels isEmpty 
 				ifTrue: 
 					[accels := StructureArray length: 1 elementClass: UDACCEL.
+					accels beUnfinalizable.
 					1]
 				ifFalse: [accels first nInc].
 	(accels first)
@@ -282,6 +283,7 @@ udmGetAccel
 	| answer count |
 	count := self sendMessage: UDM_GETACCEL.
 	answer := StructureArray length: count elementClass: UDACCEL.
+	answer beUnfinalizable.
 	self 
 		sendMessage: UDM_GETACCEL
 		wParam: count
@@ -386,6 +388,9 @@ initialize
 				isImmutable: true;
 				yourself)!
 
+themePartName
+	^'SPIN'!
+
 winClassName
 	"Private - Answer the name of the Windows window class to use when realizing the receiver."
 
@@ -393,5 +398,6 @@ winClassName
 !SpinButton class categoriesFor: #defaultModel!models!public! !
 !SpinButton class categoriesFor: #icon!constants!public! !
 !SpinButton class categoriesFor: #initialize!development!initializing!private! !
+!SpinButton class categoriesFor: #themePartName!constants!private! !
 !SpinButton class categoriesFor: #winClassName!constants!private! !
 

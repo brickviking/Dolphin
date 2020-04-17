@@ -78,15 +78,13 @@ asParameter
 backcolor
 	"Get the receiver's current background color."
 
-	^Color fromInteger: (GDILibrary default getBkColor: self asParameter)!
+	^Color fromCOLORREF: (GDILibrary default getBkColor: self asParameter)!
 
 backcolor: aColor
 	"Set the receiver's background color to the <Color>, aColor.
 	Answers the previous background <Color>."
 
-	^Color fromInteger: (GDILibrary default 
-						setBkColor: self asParameter 
-						crColor: aColor asParameter)!
+	^Color fromCOLORREF: (GDILibrary default setBkColor: self asParameter crColor: aColor asCOLORREF)!
 
 backgroundMode
 	^GDILibrary default getBkMode: self asParameter!
@@ -139,7 +137,7 @@ brushColor
 	"Get the colour of the brush currently selected into the DC. N.B. Only works on XP and
 	later, and undefined if the brush is not solid."
 
-	^Color fromInteger: (GDILibrary default getDCBrushColor: self asParameter)!
+	^Color fromCOLORREF: (GDILibrary default getDCBrushColor: self asParameter)!
 
 brushOrigin: aPoint
 	"Sets the origin offset for brush drawing within the receiver to
@@ -216,7 +214,7 @@ ellipse: aRectangle
 !
 
 erase
-	"Erase the receiver to the current background colour"
+	"Erase the receiver to the current background colour (not the current brush)."
 
 	self fillRectangle: (RECT 
 				left: 0
@@ -357,12 +355,12 @@ fonts: aString do: operation
 forecolor
 	"Get the receiver's colour for drawing text."
 
-	^ColorRef fromInteger: (GDILibrary default getTextColor: self asParameter)!
+	^Color fromCOLORREF: (GDILibrary default getTextColor: self asParameter)!
 
 forecolor: colour
 	"Set the receiver's colour for drawing text."
 
-	^GDILibrary default setTextColor: self asParameter crColor: colour asParameter!
+	^GDILibrary default setTextColor: self asParameter crColor: colour asCOLORREF!
 
 formatText: text in: rect
 	"Formats the <readableString> text within the <Rectangle> rect with wordbreak and 
@@ -642,12 +640,12 @@ pen: aPen
 penColor
 	"Get the colour of the pen currently selected into the DC. N.B. Only works on XP and later."
 
-	^Color fromInteger: (GDILibrary default getDCBrushColor: self asParameter)!
+	^Color fromCOLORREF: (GDILibrary default getDCBrushColor: self asParameter)!
 
 pixelAt: aPoint 
 	"Answer the <Color> the pixel at the <Point> argument. Note that the co-ordinates are zero-based!!"
 
-	^Color fromInteger: (self getPixel: aPoint)!
+	^Color fromCOLORREF: (self getPixel: aPoint)!
 
 pixelAt: aPoint put: pixelColor
 	"Set the colour of the pixel at aPoint to pixelColor.
@@ -657,7 +655,7 @@ pixelAt: aPoint put: pixelColor
 		setPixelV: self asParameter
 		x: aPoint x
 		y: aPoint y
-		crColor: pixelColor asParameter!
+		crColor: pixelColor asCOLORREF!
 
 plgBlt: aCanvas rectangle: aRectangle topLeft: topLeftPoint topRight: topRightPoint bottomLeft: bottomLeftPoint 
 	| points |
@@ -684,14 +682,15 @@ plgBlt: aCanvas rectangle: aRectangle topLeft: topLeftPoint topRight: topRightPo
 polygon: collectionOfPoints
 	"Draw a filled polygon from the collection of points."
 
-	| points count |
-	count := collectionOfPoints size.
-	points := StructureArray length: count elementClass: POINTL.
-	points with: collectionOfPoints do: [:pointl :point | pointl x: point x; y: point y].
 	^GDILibrary default
 		polygon: self asParameter
-		lpPoints: points
-		nCount: count!
+		lpPoints: ((StructureArray
+				withAll: collectionOfPoints
+				elementClass: POINTL
+				initializer: [:pointl :point | pointl x: point x y: point y])
+				beUnfinalizable;
+				yourself)
+		nCount: collectionOfPoints size!
 
 realizePalette
 	"Realizes the current logical palette of the receiver into the system palette"

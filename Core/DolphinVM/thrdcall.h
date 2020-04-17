@@ -116,7 +116,75 @@ public:
 class OverlappedCall;
 typedef SmartPtr<OverlappedCall> OverlappedCallPtr;
 
-class OverlappedCall
+template <class T> class DoubleLink
+{
+	T* prev;
+	T* next;
+
+public:
+	DoubleLink() : prev(NULL), next(NULL) {}
+
+	T* Next() const { return next; }
+
+	T* Unlink()
+	{
+		// next null if last link in list
+		if (next)
+			next->prev = prev;
+		// prev pointer normally valid because there is an anchor node, but when shutting
+		// down will already have been unlinked from the list
+		if (prev)
+			prev->next = next;
+		next = prev = NULL;
+
+		return static_cast<T*>(this);
+	}
+
+	void LinkAfter(T* prevArg)
+	{
+		T* pThis = static_cast<T*>(this);
+		this->next = prevArg->next;
+		if (this->next)
+			this->next->prev = pThis;
+		this->prev = prevArg;
+		prevArg->next = pThis;
+	}
+};
+
+template <class T> class DoublyLinkedList
+{
+	DoubleLink<T> anchor;
+public:
+	T* First() const
+	{
+		return anchor.Next();
+	}
+
+	bool IsEmpty() const
+	{
+		return First() == NULL;
+	}
+
+	T* RemoveFirst()
+	{
+		T* node = First();
+		if (node != NULL)
+			node->Unlink();
+		return node;
+	}
+
+	void AddFirst(T* node)
+	{
+		// Slightly nasty thing is that anchor node is not actually the same type as
+		// the other nodes, so we need a cast here.
+		node->LinkAfter(reinterpret_cast<T*>(&anchor));
+	}
+};
+
+class OverlappedCall;
+typedef DoublyLinkedList<OverlappedCall> OverlappedCallList;
+
+class OverlappedCall : public DoubleLink<OverlappedCall>
 {
 public:
 	// Allocate/free methods for maintaining pool of available blocks
@@ -126,8 +194,8 @@ public:
 
 	friend std::wostream& operator<<(std::wostream& stream, const OverlappedCall& oc);
 
-	DWORD AddRef();
-	DWORD Release();
+	uint32_t AddRef();
+	uint32_t Release();
 
 	enum States { Starting, Resting, Terminated, Calling, Returned };
 
@@ -155,7 +223,7 @@ private:
 
 	void TerminateThread();
 
-	bool Initiate(CompiledMethod* pMethod, unsigned nArgCount);
+	bool Initiate(CompiledMethod* pMethod, argcount_t nArgCount);
 	DWORD WaitForRequest();
 	int ProcessRequests();
 	bool PerformCall();
@@ -191,37 +259,44 @@ public:
 	static void Uninitialize();
 
 	static OverlappedCallPtr GetActiveProcessOverlappedCall();
-	static OverlappedCallPtr Do(CompiledMethod* pMethod, unsigned argCount);
+	static OverlappedCallPtr Do(CompiledMethod* pMethod, argcount_t argCount);
 
 	static Semaphore* pendingTerms();
 
+	static void MarkRoots();
+	static void OnCompact();
+
 	void OnActivateProcess();
-	void OnCompact();
+
+#ifdef _DEBUG
+	static void ReincrementProcessReferences();
+#endif
 
 	bool IsInCall();
 
 private:
 	// Low-level management routines
 	static OverlappedCallPtr New(ProcessOTE*);
-	//static OverlappedCallPtr RemoveFirstFromList(OverlappedCallList&);
+	static OverlappedCallPtr RemoveFirstFromList(OverlappedCallList&);
 
 	// Thread entry point function
 	static unsigned __stdcall ThreadMain(void* pThis);
 	static int MainExceptionFilter(LPEXCEPTION_POINTERS pExInfo);
 
 	// APC functions (APCs are used to queue messages between threads)
-	static void __stdcall SuspendAPC(DWORD dwParam);
-	static void __stdcall TerminatedAPC(DWORD dwParam);
-	static OverlappedCallPtr BeginAPC(DWORD dwParam);
-	static OverlappedCallPtr BeginMainThreadAPC(DWORD dwParam);
+	static void __stdcall SuspendAPC(ULONG_PTR param);
+	static void __stdcall TerminatedAPC(ULONG_PTR param);
+	static OverlappedCallPtr BeginAPC(ULONG_PTR param);
+	static OverlappedCallPtr BeginMainThreadAPC(ULONG_PTR param);
 
-	//static void CompactCallsOnList(OverlappedCallList& list);
+	static void CompactCallsOnList(OverlappedCallList& list);
+	void compact();
 
 	///////////////////////////////////////////////////////////////////////////
 	// Static data members
 private:
 
-	//static OverlappedCallList s_activeList;
+	static OverlappedCallList s_activeList;
 	
 	static bool s_bShutdown;
 
@@ -235,7 +310,7 @@ public:
 	// Context of the process for which we are running
 	InterpreterRegisters	m_interpContext;
 	ProcessOTE*				m_oteProcess;	// paired Smalltalk Process
-	SHAREDLONG				m_dwRefs;
+	SHAREDLONG				m_nRefs;
 
 	HANDLE					m_hThread;		// thread handle (returned by _beginthread(ex))
 	DWORD					m_dwThreadId;	// thread's ID
@@ -244,7 +319,7 @@ public:
 
 	// Method causing this overlapped call to start executing
 	CompiledMethod*			m_pMethod;
-	unsigned				m_nArgCount;
+	argcount_t				m_nArgCount;
 	volatile States			m_state;
 private:
 	SHAREDLONG				m_nSuspendCount;
@@ -254,17 +329,17 @@ private:
 
 std::wostream& operator<<(std::wostream& stream, const OverlappedCall& oc);
 
-inline DWORD OverlappedCall::AddRef()
+inline uint32_t OverlappedCall::AddRef()
 {
-	return InterlockedIncrement(&m_dwRefs);
+	return InterlockedIncrement(&m_nRefs);
 }
 
-inline DWORD OverlappedCall::Release()
+inline uint32_t OverlappedCall::Release()
 {
-	DWORD dwRefs = InterlockedDecrement(&m_dwRefs);
-	if (dwRefs == 0)
+	uint32_t nRefs = InterlockedDecrement(&m_nRefs);
+	if (nRefs == 0)
 		delete this;
-	return dwRefs;
+	return nRefs;
 }
 
 inline bool OverlappedCall::IsInCall()

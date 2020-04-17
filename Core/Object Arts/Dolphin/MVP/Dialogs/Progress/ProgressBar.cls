@@ -67,7 +67,7 @@ forecolor: aColorOrNil
 	self 
 		sendMessage: PBM_SETBARCOLOR
 		wParam: 0
-		lParam: (self forecolor ifNil: [CLR_DEFAULT] ifNotNil: [:color | color asColorRef asParameter]).
+		lParam: (self forecolor ifNil: [CLR_DEFAULT] ifNotNil: [:color | color asCOLORREF]).
 	[self invalidate] postToMessageQueue!
 
 incrementBy: anInteger
@@ -121,7 +121,7 @@ setControlBackcolor: aColor
 	self 
 		sendMessage: CCM_SETBKCOLOR
 		wParam: 0
-		lParam: aColor asColorRef asParameter!
+		lParam: aColor asCOLORREF!
 
 state
 	"Private - Answer a MessageSequence which, when replayed, will restore the receiver 
@@ -164,6 +164,9 @@ initialize
 
 	ValidRange := 0 to: 65535!
 
+themePartName
+	^'PROGRESS'!
+
 validRange
 	"Private - Answer an Interval delimiting the valid range for the 
 	receiver's win common control."
@@ -178,6 +181,7 @@ winClassName
 !ProgressBar class categoriesFor: #defaultModel!models!public! !
 !ProgressBar class categoriesFor: #icon!constants!public! !
 !ProgressBar class categoriesFor: #initialize!development!initializing!private! !
+!ProgressBar class categoriesFor: #themePartName!constants!private! !
 !ProgressBar class categoriesFor: #validRange!constants!private! !
 !ProgressBar class categoriesFor: #winClassName!constants!private! !
 

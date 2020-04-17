@@ -32,37 +32,31 @@ typedef TOTE<ST::Symbol> SymbolOTE;
 class AnsiStringOTE : public TOTE<ST::AnsiString>
 {
 public:
-	__forceinline int sizeForUpdate() const { return static_cast<int>(m_size); }
+	__forceinline ptrdiff_t sizeForUpdate() const { return static_cast<ptrdiff_t>(m_size); }
 };
 
 class Utf8StringOTE : public TOTE<ST::Utf8String>
 {
 public:
-	__forceinline int sizeForUpdate() const { return static_cast<int>(m_size); }
+	__forceinline ptrdiff_t sizeForUpdate() const { return static_cast<ptrdiff_t>(m_size); }
 };
 
 class Utf16StringOTE : public TOTE<ST::Utf16String>
 {
 public:
-	__forceinline int sizeForUpdate() const { return static_cast<int>(m_size) / static_cast<int>(sizeof(char16_t)); }
+	__forceinline ptrdiff_t sizeForUpdate() const { return static_cast<ptrdiff_t>(m_size) / static_cast<ptrdiff_t>(sizeof(char16_t)); }
 };
 
 class Utf32StringOTE : public TOTE<ST::Utf32String>
 {
 public:
-	__forceinline int sizeForUpdate() const { return static_cast<int>(m_size) / static_cast<int>(sizeof(char32_t)); }
+	__forceinline ptrdiff_t sizeForUpdate() const { return static_cast<ptrdiff_t>(m_size) / static_cast<ptrdiff_t>(sizeof(char32_t)); }
 };
+
+typedef UINT codepage_t;
 
 namespace ST
 {
-	enum class StringEncoding
-	{
-		Ansi,
-		Utf8,
-		Utf16,
-		Utf32
-	};
-
 	class String : public ArrayedCollection
 	{
 	public:
@@ -74,18 +68,22 @@ namespace ST
 		}
 	};
 
-	template <UINT CP, size_t I, class OTE, class TChar> class ByteStringT : public ArrayedCollection
+	template <codepage_t CP, size_t I, class OTE, class TChar> class ByteStringT : public ArrayedCollection
 	{
 	public:
 		typedef TChar CU;
 		typedef const TChar * __restrict PCSZ;
-		static const UINT CodePage = CP;
 		static const size_t PointersIndex = I;
 
 		CU m_characters[1];		// Variable length array of data
 
 		typedef ByteStringT<CP, PointersIndex, OTE, TChar> MyType;
 		typedef OTE* POTE;
+
+		static codepage_t CodePage()
+		{
+			return CP == CP_ACP ? Interpreter::m_ansiCodePage : CP;
+		}
 
 		static POTE __fastcall New(size_t cch)
 		{
@@ -118,11 +116,11 @@ namespace ST
 		// Allocate a new String from a Unicode string
 		static POTE __fastcall New(LPCWSTR wsz)
 		{
-			int cch = ::WideCharToMultiByte(CP, 0, wsz, -1, nullptr, 0, nullptr, nullptr);
+			int cch = ::WideCharToMultiByte(CodePage(), 0, wsz, -1, nullptr, 0, nullptr, nullptr);
 			// Length includes null terminator since input is null terminated
 			OTE* stringPointer = reinterpret_cast<OTE*>(ObjectMemory::newUninitializedNullTermObject<MyType>((cch - 1)*sizeof(CU)));
 			CU* psz = stringPointer->m_location->m_characters;
-			int cch2 = ::WideCharToMultiByte(CP, 0, wsz, -1, reinterpret_cast<LPSTR>(psz), cch, nullptr, nullptr);
+			int cch2 = ::WideCharToMultiByte(CodePage(), 0, wsz, -1, reinterpret_cast<LPSTR>(psz), cch, nullptr, nullptr);
 			UNREFERENCED_PARAMETER(cch2);
 			ASSERT(cch2 == cch);
 			ASSERT(stringPointer->isNullTerminated());
@@ -131,12 +129,12 @@ namespace ST
 
 		static POTE __fastcall New(const char16_t* pwch, size_t cwch)
 		{
-			int cch = ::WideCharToMultiByte(CP, 0, (LPCWCH)pwch, cwch, nullptr, 0, nullptr, nullptr);
+			int cch = ::WideCharToMultiByte(CodePage(), 0, (LPCWCH)pwch, cwch, nullptr, 0, nullptr, nullptr);
 			// Length does not include null terminator
 			OTE* stringPointer = reinterpret_cast<OTE*>(ObjectMemory::newUninitializedNullTermObject<MyType>(cch*sizeof(CU)));
 			CU* psz = stringPointer->m_location->m_characters;
 			psz[cch] = '\0';
-			int cch2 = ::WideCharToMultiByte(CP, 0, (LPCWCH)pwch, cwch, reinterpret_cast<LPSTR>(psz), cch, nullptr, nullptr);
+			int cch2 = ::WideCharToMultiByte(CodePage(), 0, (LPCWCH)pwch, cwch, reinterpret_cast<LPSTR>(psz), cch, nullptr, nullptr);
 			UNREFERENCED_PARAMETER(cch2);
 			ASSERT(cch2 == cch);
 			ASSERT(stringPointer->isNullTerminated());
@@ -195,7 +193,7 @@ namespace ST
 
 		static Utf16StringOTE* __fastcall New(LPCWSTR wsz);
 		static Utf16StringOTE* __fastcall New(const WCHAR* pChars, size_t len);
-		template <UINT CP, class T> static Utf16StringOTE* __fastcall New(const T* pChars, size_t len);
+		template <codepage_t CP, class T> static Utf16StringOTE* __fastcall New(const T* pChars, size_t len);
 		static Utf16StringOTE* __fastcall New(OTE* oteByteString);
 		static Utf16StringOTE* __fastcall New(size_t cwch);
 		static Utf16StringOTE * ST::Utf16String::NewFromBSTR(BSTR bs)

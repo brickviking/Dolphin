@@ -34,7 +34,7 @@ inline FloatOTE* __stdcall Float::New()
 {
 	ASSERT(sizeof(Float) == sizeof(double) + ObjectHeaderSize);
 
-	FloatOTE* newFloatPointer = reinterpret_cast<FloatOTE*>(Interpreter::m_otePools[Interpreter::FLOATPOOL].newByteObject(Pointers.ClassFloat, sizeof(double), OTEFlags::FloatSpace));
+	FloatOTE* newFloatPointer = reinterpret_cast<FloatOTE*>(Interpreter::m_otePools[static_cast<size_t>(Interpreter::Pools::Floats)].newByteObject(Pointers.ClassFloat, sizeof(double), OTEFlags::FloatSpace));
 	ASSERT(ObjectMemory::hasCurrentMark(newFloatPointer));
 	ASSERT(newFloatPointer->m_oteClass == Pointers.ClassFloat);
 	newFloatPointer->beImmutable();
@@ -47,7 +47,7 @@ inline FloatOTE* __stdcall Float::New(double fValue)
 {
 	ASSERT(sizeof(Float) == sizeof(double) + ObjectHeaderSize);
 
-	FloatOTE* newFloatPointer = reinterpret_cast<FloatOTE*>(Interpreter::m_otePools[Interpreter::FLOATPOOL].newByteObject(Pointers.ClassFloat, sizeof(double), OTEFlags::FloatSpace));
+	FloatOTE* newFloatPointer = reinterpret_cast<FloatOTE*>(Interpreter::m_otePools[static_cast<size_t>(Interpreter::Pools::Floats)].newByteObject(Pointers.ClassFloat, sizeof(double), OTEFlags::FloatSpace));
 	ASSERT(ObjectMemory::hasCurrentMark(newFloatPointer));
 	ASSERT(newFloatPointer->m_oteClass == Pointers.ClassFloat);
 	newFloatPointer->beImmutable();
@@ -60,7 +60,7 @@ inline FloatOTE* __stdcall Float::New(double fValue)
 ///////////////////////////////////////////////////////////////////////////////
 //	Float conversion primitives
 
-Oop* __fastcall Interpreter::primitiveAsFloat(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveAsFloat(Oop* const sp, primargcount_t)
 {
 	FloatOTE* oteResult = Float::New(ObjectMemoryIntegerValueOf(*sp));
 	*sp = reinterpret_cast<Oop>(oteResult);
@@ -68,13 +68,13 @@ Oop* __fastcall Interpreter::primitiveAsFloat(Oop* const sp, unsigned)
 	return sp;
 }
 
-Oop* Interpreter::primitiveFloatTimesTwoPower(Oop* const sp, unsigned)
+Oop* Interpreter::primitiveFloatTimesTwoPower(Oop* const sp, primargcount_t)
 {
 	Oop oopArg = *sp;
 
 	if (ObjectMemoryIsIntegerObject(oopArg))
 	{
-		SMALLINTEGER arg = ObjectMemoryIntegerValueOf(oopArg);
+		SmallInteger arg = ObjectMemoryIntegerValueOf(oopArg);
 
 		FloatOTE* oteResult = Float::New();
 		FloatOTE* oteReceiver = reinterpret_cast<FloatOTE*>(*(sp-1));
@@ -91,25 +91,25 @@ Oop* Interpreter::primitiveFloatTimesTwoPower(Oop* const sp, unsigned)
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);
 }
 
-Oop* __fastcall Interpreter::primitiveFloatExponent(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveFloatExponent(Oop* const sp, primargcount_t)
 {
 	FloatOTE* oteReceiver = reinterpret_cast<FloatOTE*>(*sp);
 	double fValue = oteReceiver->m_location->m_fValue;
-	SMALLINTEGER exponent = ilogb(fValue);
+	SmallInteger exponent = ilogb(fValue);
 	*sp = ObjectMemoryIntegerObjectOf(exponent);
 	return sp;
 }
 
-Oop* Interpreter::primitiveFloatClassify(Oop* const sp, unsigned)
+Oop* Interpreter::primitiveFloatClassify(Oop* const sp, primargcount_t)
 {
 	FloatOTE* oteReceiver = reinterpret_cast<FloatOTE*>(*sp);
 	double fValue = oteReceiver->m_location->m_fValue;
-	SMALLINTEGER classification = _fpclass(fValue);
+	SmallInteger classification = _fpclass(fValue);
 	*sp = ObjectMemoryIntegerObjectOf(classification);
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveLongDoubleAt(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveLongDoubleAt(Oop* const sp, primargcount_t)
 {
 	Oop integerPointer = *sp;
 	if (!ObjectMemoryIsIntegerObject(integerPointer))
@@ -118,7 +118,7 @@ Oop* __fastcall Interpreter::primitiveLongDoubleAt(Oop* const sp, unsigned)
 		return primitiveFailure(_PrimitiveFailureCode::InvalidParameter1);	// Index not an integer
 	}
 
-	SMALLUNSIGNED offset = ObjectMemoryIntegerValueOf(integerPointer);
+	SmallInteger offset = ObjectMemoryIntegerValueOf(integerPointer);
 	OTE* receiver = reinterpret_cast<OTE*>(*(sp-1));
 
 	ASSERT(!ObjectMemoryIsIntegerObject(receiver));
@@ -131,14 +131,14 @@ Oop* __fastcall Interpreter::primitiveLongDoubleAt(Oop* const sp, unsigned)
 	if (behavior->isIndirect())
 	{
 		ExternalAddress* ptr = static_cast<ExternalAddress*>(receiver->m_location);
-		pLongDbl = reinterpret_cast<_FP80*>(static_cast<BYTE*>(ptr->m_pointer)+offset);
+		pLongDbl = reinterpret_cast<_FP80*>(static_cast<uint8_t*>(ptr->m_pointer)+offset);
 	}
 	else
 	{
 		BytesOTE* oteBytes = reinterpret_cast<BytesOTE*>(receiver);
 
 		// We can check that the offset is in bounds
-		if (static_cast<int>(offset) < 0 || offset+sizeof(double) > oteBytes->bytesSize())
+		if (offset < 0 || static_cast<size_t>(offset)+sizeof(double) > oteBytes->bytesSize())
 			return primitiveFailure(_PrimitiveFailureCode::OutOfBounds);	// Out of bounds
 
 		VariantByteObject* bytes = oteBytes->m_location;

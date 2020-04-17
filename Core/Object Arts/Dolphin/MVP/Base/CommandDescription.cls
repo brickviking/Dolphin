@@ -52,7 +52,7 @@ acceleratorKeyString: keys
 	"Sets the accelerator key to the key code generated from parsing the <readableString> 
 	accelerator key description, keys. The string is assumed to be in English."
 
-	self acceleratorKey: (AcceleratorTable keyCodeFromString: keys)!
+	self acceleratorKey: (AcceleratorTable keyCodeFromInvariantString: keys)!
 
 canPerformAgainst: destination
 	"Answer whether the command described by the receiver can be 
@@ -267,10 +267,14 @@ initialize
 		CommandDescription initialize
 	"
 
-	CommandDescriptionRegistry isNil 
+	CommandDescriptionRegistry isNil
 		ifTrue: 
 			[CommandDescriptionRegistry := WeakIdentityDictionary newWithWeakKeys: 150.
-			CurrentId := self startingId].
+			CurrentId := self startingId]
+		ifFalse: 
+			[CommandDescriptionRegistry
+				haveStrongValues;
+				haveWeakKeys].
 	DefaultMask := 1.
 	ModalMask := 2!
 
@@ -317,7 +321,7 @@ stbConvertFrom: anSTBClassFormat
 			newInstance instVarAt: 3
 				put: (anSTBClassFormat version < 1 
 						ifFalse: [data at: 4]
-						ifTrue: [(data at: 4) isNil ifTrue: [0] ifFalse: [AcceleratorTable keyCodeFromString: (data at: 4)]]).
+						ifTrue: [(data at: 4) isNil ifTrue: [0] ifFalse: [AcceleratorTable keyCodeFromInvariantString: (data at: 4)]]).
 			4 to: self instSize do: [:i | newInstance instVarAt: i put: (data at: i + 1)]].
 	anSTBClassFormat version < 4 
 		ifTrue: 

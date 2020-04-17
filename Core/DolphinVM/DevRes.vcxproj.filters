@@ -37,9 +37,6 @@
     <Image Include="Res\Brush.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\ByteArray.ico">
-      <Filter>Icons</Filter>
-    </Image>
     <Image Include="Res\Canvas.ico">
       <Filter>Icons</Filter>
     </Image>
@@ -343,9 +340,6 @@
     <Image Include="Res\ListPresenter.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\ListValuePresenter.ico">
-      <Filter>Icons</Filter>
-    </Image>
     <Image Include="Res\ListViewColumn.ico">
       <Filter>Icons</Filter>
     </Image>
@@ -574,25 +568,16 @@
     <Image Include="Res\StaticText.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\Status.ico">
+    <Image Include="Res\StepInto.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\StepInto.ico">
+    <Image Include="Res\StepIntoBlock.ico">
       <Filter>Icons</Filter>
     </Image>
     <Image Include="Res\StepOut.ico">
       <Filter>Icons</Filter>
     </Image>
     <Image Include="Res\StepOver.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\String.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\SUnitAbsBrowser.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\symbol.ico">
       <Filter>Icons</Filter>
     </Image>
     <Image Include="Res\SystemBrowserShell.ico">
@@ -662,12 +647,6 @@
       <Filter>Icons</Filter>
     </Image>
     <Image Include="Res\UnitTestPluginPass.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\UnlockDialog.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\Up.ico">
       <Filter>Icons</Filter>
     </Image>
     <Image Include="Res\ValueAdaptor.ico">
@@ -859,15 +838,6 @@
     <Image Include="Res\ViewLargeIcons.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\ViewReportMode.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\ViewThumbnails.ico">
-      <Filter>Icons</Filter>
-    </Image>
-    <Image Include="Res\ViewTileIcons.ico">
-      <Filter>Icons</Filter>
-    </Image>
     <Image Include="Res\Box.ico">
       <Filter>Icons</Filter>
     </Image>
@@ -988,9 +958,6 @@
     <Image Include="Res\Toolbar.ico">
       <Filter>Icons</Filter>
     </Image>
-    <Image Include="Res\Toolbox.ico">
-      <Filter>Icons</Filter>
-    </Image>
     <Image Include="Res\UpArrow.ico">
       <Filter>Icons</Filter>
     </Image>
@@ -1018,6 +985,13 @@
     <Image Include="Res\ViewTiles.ico">
       <Filter>Icons</Filter>
     </Image>
+    <Image Include="Res\DateAndTime.ico">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Res\Guid.ico">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Res\AXControlSite.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\hsplit.cur">

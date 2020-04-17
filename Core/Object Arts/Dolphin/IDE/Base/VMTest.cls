@@ -368,6 +368,26 @@ suspendAndTerminate
 
 	"2) Ditto, but resumed and so allowed to complete"!
 
+testAllReferences
+	| object refs weak |
+	object := Array new: 1.
+	refs := object allReferences.
+	self assert: refs equals: {Processor activeProcess}.
+	object at: 1 put: object.
+	refs := object allReferences.
+	self assert: (refs noDifference: {Processor activeProcess. object})!
+
+testAllReferencesWeak
+	| object refs weak |
+	object := Object new.
+	weak := WeakArray with: object.
+	refs := object allReferences.
+	self assert: (refs noDifference: {Processor activeProcess. weak}).
+	refs := object allReferences: false.
+	self assert: (refs noDifference: {Processor activeProcess}).
+
+!
+
 testBSTRArg
 	"#1377 - Make sure there is no problem in the VM's automatic conversion of a string to a BSTR.
 	In an unpatched VM this typically crashes the whole system."
@@ -1076,6 +1096,34 @@ testMustBeBoolean
 	"Near jump if false"
 	self assert: (pseudoTrue ifTrue: [1 + 2 + 3 + 4] ifFalse: [2]) equals: 1 + 2 + 3 + 4.
 	self assert: (pseudoFalse ifTrue: [1 + 2 + 3 + 4] ifFalse: [2]) equals: 2!
+
+testOverlappedCallGC
+	| kernel event finished delay1 delay2 |
+	kernel := KernelLibrary default.
+	event := kernel
+				createEvent: nil
+				bManualReset: false
+				bInitialState: false
+				lpName: nil.
+	finished := false.
+	delay1 := Delay forDuration: 50 milliseconds.
+	delay2 := Delay forDuration: 20 milliseconds.
+	
+	[delay1 signal.
+	kernel waitForSingleObject: event dwMilliseconds: -1.
+	finished := true.
+	delay2 signal]
+			forkAt: Processor userInterruptPriority.
+	self deny: finished.
+	delay1 wait.
+	1 timesRepeat: 
+			[MemoryManager current
+				collectGarbage;
+				administerLastRites].
+	self deny: finished.
+	kernel setEvent: event.
+	delay2 wait.
+	self assert: finished!
 
 testOverlappedCallInvalidArguments
 	"Invalid arguments should be detected and handled as for a non-overlapped call."
@@ -3137,6 +3185,8 @@ verifyPrimitiveNextPutAllOnUtfStrings: method
 !VMTest categoriesFor: #isFault:raisedIn:receiver:!helpers!private! !
 !VMTest categoriesFor: #isGPF:reading:address:!helpers!private! !
 !VMTest categoriesFor: #suspendAndTerminate!helpers!private! !
+!VMTest categoriesFor: #testAllReferences!public!unit tests! !
+!VMTest categoriesFor: #testAllReferencesWeak!public! !
 !VMTest categoriesFor: #testBSTRArg!public!unit tests! !
 !VMTest categoriesFor: #testCRTFault!public!unit tests! !
 !VMTest categoriesFor: #testDwordAtOffsetPut!public!unit tests! !
@@ -3166,6 +3216,7 @@ verifyPrimitiveNextPutAllOnUtfStrings: method
 !VMTest categoriesFor: #testIntDivideByZero!public!unit tests! !
 !VMTest categoriesFor: #testMakeLargeUnsigned!public!unit tests! !
 !VMTest categoriesFor: #testMustBeBoolean!public!unit tests! !
+!VMTest categoriesFor: #testOverlappedCallGC!public!unit tests! !
 !VMTest categoriesFor: #testOverlappedCallInvalidArguments!public!unit tests! !
 !VMTest categoriesFor: #testOverlappedCallRetHRESULT!public!unit tests! !
 !VMTest categoriesFor: #testOverlappedCallsSuspendAndTerminate!public!unit tests! !

@@ -5,399 +5,480 @@ Compiler.h
 Smalltalk compiler
 */
 
-#ifndef _IST_BYTECODE_H_
-#define _IST_BYTECODE_H_
+#pragma once
 
 #include "..\bytecdes.h"
+#include "EnumHelpers.h"
+
 class LexicalScope;
+class TempVarRef;
+
+enum class ip_t : intptr_t 
+{
+	npos = -1,
+	zero,
+	one,
+	two,
+	three
+};
+
+ENABLE_INT_OPERATORS(ip_t)
 
 struct BYTECODE
 {
-	enum BYTEFLAGS { IsOpCode=0x00, IsData=0x01, IsJump=0x02 };
+	enum class Flags : uint8_t { IsOpCode = 0x00, IsData = 0x01, IsJump = 0x02 };
 
-	BYTE	byte;
-	BYTE	flags;			// BYTEFLAGS
-	WORD	jumpsTo;		// count of the number of other byte codes using this as a jump target
+	uint8_t		byte;
+	Flags		flags;
+	uint16_t	jumpsTo;		// count of the number of other byte codes using this as a jump target
 
 	union
 	{
-		int				target;			// Jump target location. Max jump is +/-32K, but this is checked only when the jump instruction is fixed up
+		ip_t			target;			// Jump target location. Max jump is +/-32K, but this is checked only when the jump instruction is fixed up
 		TempVarRef*		pVarRef;
 	};
 
 	LexicalScope*	pScope;
 
-	bool isInstruction(BYTE b) const
-							{ return byte == b && isOpCode(); };
-	bool isData() const		{ return flags & IsData; }
-	void makeData()			
-	{ 
-		flags |= IsData;
-		pScope = NULL;
-	}
+	bool isInstruction(OpCode b) const
+	{
+		return IsOpCode && Opcode == b; 
+	};
+	
+	__declspec(property(get = get_IsData)) bool IsData;
+	bool get_IsData() const;
+
+	void makeData();
 
 	// A byte code is either instruction or data, not both
-	bool isOpCode()	const	{ return !isData(); }
-	void makeOpCode(BYTE b, LexicalScope* pScope)	
+	__declspec(property(get = get_IsOpCode)) bool IsOpCode;
+	bool get_IsOpCode()	const	{ return !IsData; }
+
+	void makeOpCode(OpCode b, LexicalScope* pScope)	
 	{ 
-		_ASSERTE(pScope != NULL);
-		byte = b; 
-		flags &= ~IsData;
+		_ASSERTE(pScope != nullptr);
+		Opcode = b;
+		makeNonData();
 		this->pScope = pScope;
 	}
 
 	void makeNop(LexicalScope* pScope)
 	{
-		makeOpCode(Nop, pScope);
+		makeOpCode(OpCode::Nop, pScope);
 	}
 
-	bool isJumpSource() const		
-	{	
-		return (flags & IsJump) != 0; 
-	}
-	void makeNonJump()		{ flags &= ~IsJump; }
-	void makeJump()			{ flags |= IsJump; }
-	void makeJumpTo(int pos)
+	__declspec(property(get = get_IsJumpSource)) bool IsJumpSource;
+	bool get_IsJumpSource() const;
+
+	void makeNonData();
+	void makeNonJump();
+	void makeJump();
+	void makeJumpTo(ip_t pos)
 	{ 
-		_ASSERTE(pos >= 0); 
-		target = static_cast<WORD>(pos); 
+		target = pos; 
 		makeJump(); 
 	}
 
-	__forceinline bool isJumpTarget() const	
+	__declspec(property(get = get_IsJumpTarget)) bool IsJumpTarget;
+	__forceinline bool get_IsJumpTarget() const	
 	{ 
 		return jumpsTo > 0; 
 	}
 
 	void addJumpTo()		
 	{ 
-		_ASSERTE(isOpCode());
+		_ASSERTE(IsOpCode);
 		jumpsTo++;
 		_ASSERTE(jumpsTo < 256); 
 	}
 
 	void removeJumpTo()		
 	{ 
-		_ASSERTE(isOpCode() && jumpsTo > 0); 
+		_ASSERTE(IsOpCode && jumpsTo > 0); 
 		jumpsTo--; 
 	}
 	
-	__forceinline int instructionLength() const 
+	__declspec(property(get = get_InstructionLength)) size_t InstructionLength;
+	__forceinline size_t get_InstructionLength() const
 	{ 
-		_ASSERTE(isOpCode()); 
-		return lengthOfByteCode(byte); 
+		_ASSERTE(IsOpCode); 
+		return lengthOfByteCode(static_cast<OpCode>(byte)); 
 	}
 
-	BYTECODE(BYTE b=0, BYTE f=0, LexicalScope* s=NULL) : pVarRef(NULL), jumpsTo(0), byte(b), flags(f), pScope(s) {}
+	BYTECODE(uint8_t b=0, Flags f=Flags::IsOpCode, LexicalScope* s=nullptr) : pVarRef(nullptr), jumpsTo(0), byte(b), flags(f), pScope(s) {}
 
-	INLINE bool isBreak() const
+	__declspec(property(get = get_Opcode, put = set_Opcode)) OpCode Opcode;
+	INLINE OpCode get_Opcode() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == Break;
+		_ASSERTE(IsOpCode);
+		return static_cast<OpCode>(byte);
 	}
-
-	INLINE bool isShortPushConst() const
+	INLINE void set_Opcode(OpCode opcode)
 	{
-		return byte >= ShortPushConst && byte < ShortPushConst + NumShortPushConsts;
+		byte = static_cast<uint8_t>(opcode);
 	}
 
-	INLINE bool isShortPushStatic() const
+	__declspec(property(get = get_IsBreak)) bool IsBreak;
+	INLINE bool get_IsBreak() const
 	{
-		return byte >= ShortPushStatic && byte < ShortPushStatic + NumShortPushStatics;
+		return Opcode == OpCode::Break;
 	}
 
-	INLINE bool isShortPushTemp() const
+	__declspec(property(get = get_IsShortPushConst)) bool IsShortPushConst;
+	INLINE bool get_IsShortPushConst() const
 	{
-		return byte >= ShortPushTemp && byte < ShortPushTemp + NumShortPushTemps;
+		return ::isShortPushConst(Opcode);
 	}
 
-	INLINE bool isPushTemp() const
+	__declspec(property(get = get_IsShortPushStatic)) bool IsShortPushStatic;
+	INLINE bool get_IsShortPushStatic() const
 	{
-		return byte == PushTemp || isShortPushTemp();
+		return ::isShortPushStatic(Opcode);
 	}
 
-	INLINE bool isShortPopStoreInstVar() const
+	__declspec(property(get = get_IsShortPushTemp)) bool IsShortPushTemp;
+	INLINE bool get_IsShortPushTemp() const
 	{
-		return byte >= ShortPopStoreInstVar && byte < ShortPopStoreInstVar + NumShortPopStoreInstVars;
+		return ::isShortPushTemp(Opcode);
 	}
 
-	INLINE bool isShortPopStoreContextTemp() const
+	__declspec(property(get = get_IsPushTemp)) bool IsPushTemp;
+	INLINE bool get_IsPushTemp() const
 	{
-		return byte >= PopStoreContextTemp && byte < PopStoreContextTemp + NumPopStoreContextTemps;
+		return Opcode == OpCode::PushTemp || IsShortPushTemp;
 	}
 
-	INLINE bool isShortPopStoreOuterTemp() const
+	__declspec(property(get = get_IsShortPopStoreInstVar)) bool IsShortPopStoreInstVar;
+	INLINE bool get_IsShortPopStoreInstVar() const
 	{
-		return byte >= ShortPopStoreOuterTemp && byte < ShortPopStoreOuterTemp + NumPopStoreOuterTemps;
+		return Opcode >= OpCode::ShortPopStoreInstVar && Opcode < OpCode::ShortPopStoreInstVar + NumShortPopStoreInstVars;
 	}
 
-
-	INLINE bool isShortPopStore() const
+	__declspec(property(get = get_IsShortPopStoreContextTemp)) bool IsShortPopStoreContextTemp;
+	INLINE bool get_IsShortPopStoreContextTemp() const
 	{
-		return isShortPopStoreContextTemp() || isShortPopStoreOuterTemp() || isShortPopStoreInstVar() || isShortPopStoreTemp();
+		return Opcode >= OpCode::PopStoreContextTemp && Opcode < OpCode::PopStoreContextTemp + NumPopStoreContextTemps;
 	}
 
-	INLINE BYTE indexOfShortPushConst() const
+	__declspec(property(get = get_IsShortPopStoreOuterTemp)) bool IsShortPopStoreOuterTemp;
+	INLINE bool get_IsShortPopStoreOuterTemp() const
 	{
-		_ASSERTE(isShortPushConst());
-		return byte - ShortPushConst;
+		return Opcode >= OpCode::ShortPopStoreOuterTemp && Opcode < OpCode::ShortPopStoreOuterTemp + NumPopStoreOuterTemps;
 	}
 
-	INLINE BYTE indexOfShortPushStatic() const
+
+	__declspec(property(get = get_IsShortPopStore)) bool IsShortPopStore;
+	INLINE bool get_IsShortPopStore() const
 	{
-		_ASSERTE(isShortPushStatic());
-		return byte - ShortPushStatic;
+		return IsShortPopStoreContextTemp || IsShortPopStoreOuterTemp || IsShortPopStoreInstVar || IsShortPopStoreTemp;
 	}
 
-
-	INLINE BYTE indexOfShortPushTemp() const
+	INLINE uint8_t indexOfShortPushConst() const
 	{
-		_ASSERTE(isShortPushTemp());
-		return byte - ShortPushTemp;
+		return ::indexOfShortPushConst(Opcode);
 	}
 
-	INLINE bool isPseudoReturn() const
+	INLINE uint8_t indexOfShortPushStatic() const
 	{
-		return byte >= FirstPseudoReturn && byte <= LastPseudoReturn;
+		return ::indexOfShortPushStatic(Opcode);
 	}
 
-	INLINE bool isPseudoPush() const
+
+	INLINE uint8_t indexOfShortPushTemp() const
+	{
+		return ::indexOfShortPushTemp(Opcode);
+	}
+
+	__declspec(property(get = get_IsPseudoReturn)) bool IsPseudoReturn;
+	INLINE bool get_IsPseudoReturn() const
+	{
+		return ::isPseudoReturn(Opcode);
+	}
+
+	__declspec(property(get = get_IsPseudoPush)) bool IsPseudoPush;
+	INLINE bool get_IsPseudoPush() const
 	{
 		return byte >= FirstPseudoPush && byte <= LastPseudoPush;
 	}
 
-	INLINE bool isShortPushInstVar() const
+	__declspec(property(get = get_IsShortPushInstVar)) bool IsShortPushInstVar;
+	INLINE bool get_IsShortPushInstVar() const
 	{
-		return byte >= ShortPushInstVar && byte < ShortPushInstVar + NumShortPushInstVars;
+		return ::isShortPushInstVar(Opcode);
 	}
 
-	INLINE bool isShortPopStoreTemp() const
+	__declspec(property(get = get_IsShortPopStoreTemp)) bool IsShortPopStoreTemp;
+	INLINE bool get_IsShortPopStoreTemp() const
 	{
-		return byte >= ShortPopStoreTemp && byte < ShortPopStoreTemp + NumShortPopStoreTemps;
+		return ::isShortPopStoreTemp(Opcode);
 	}
 
-	INLINE BYTE indexOfShortPopStoreTemp() const
+	INLINE uint8_t indexOfShortPopStoreTemp() const
 	{
-		_ASSERTE(isShortPopStoreTemp());
-		return byte - ShortPopStoreTemp;
+		return ::indexOfShortPopStoreTemp(Opcode);
 	}
 
-	INLINE bool isShortStoreTemp() const
+	__declspec(property(get = get_IsShortStoreTemp)) bool IsShortStoreTemp;
+	INLINE bool get_IsShortStoreTemp() const
 	{
-		return byte >= ShortStoreTemp && byte < ShortStoreTemp + NumShortStoreTemps;
+		return ::isShortStoreTemp(Opcode);
 	}
 
-	INLINE BYTE indexOfShortStoreTemp() const
+	INLINE uint8_t indexOfShortStoreTemp() const
 	{
-		_ASSERTE(isShortStoreTemp());
-		return byte - ShortStoreTemp;
+		return ::indexOfShortStoreTemp(Opcode);
 	}
 
-	INLINE bool isShortSendWithNoArgs() const
+	__declspec(property(get = get_IsShortSendWithNoArgs)) bool IsShortSendWithNoArgs;
+	INLINE bool get_IsShortSendWithNoArgs() const
 	{
-		return byte >= ShortSendWithNoArgs && byte < ShortSendWithNoArgs + NumShortSendsWithNoArgs;
+		return Opcode >= OpCode::ShortSendWithNoArgs && Opcode < OpCode::ShortSendWithNoArgs + NumShortSendsWithNoArgs;
 	}
 
-	INLINE int indexOfShortSendNoArgs() const
+	INLINE uint8_t indexOfShortSendNoArgs() const
 	{
-		_ASSERTE(isShortSendWithNoArgs());
-		return byte - ShortSendWithNoArgs;
+		_ASSERTE(IsShortSendWithNoArgs);
+		return static_cast<uint8_t>(Opcode - OpCode::ShortSendWithNoArgs);
 	}
 
-	INLINE bool isShortPushImmediate() const
+	__declspec(property(get = get_IsShortPushImmediate)) bool IsShortPushImmediate;
+	INLINE bool get_IsShortPushImmediate() const
 	{
-		return byte >= ShortPushMinusOne && byte <= ShortPushTwo;
+		return Opcode >= OpCode::ShortPushMinusOne && Opcode <= OpCode::ShortPushTwo;
 	}
 
-	INLINE BYTE indexOfPushInstVar() const
+	INLINE uint8_t indexOfPushInstVar() const
 	{
-		_ASSERTE(isShortPushInstVar());
-		return byte - ShortPushInstVar;
+		return ::indexOfShortPushInstVar(Opcode);
 	}
 
-	INLINE bool isShortPush() const
+	__declspec(property(get = get_IsShortPush)) bool IsShortPush;
+	INLINE bool get_IsShortPush() const
 	{
 		return byte >= FirstShortPush && 
 			byte <= LastPush;	// Note that this includes pseudo pushes and push 0, 1, etc
 	}
 
-	inline bool isExtendedPush() const
+	__declspec(property(get = get_IsExtendedPush)) bool IsExtendedPush;
+	INLINE bool get_IsExtendedPush() const
 	{
-		return (byte >= PushInstVar && byte < FirstExtendedStore) ||
-			byte == PushOuterTemp ||
-			byte == PushImmediate ||
-			byte == PushChar;
+		return (Opcode >= OpCode::PushInstVar && byte < FirstExtendedStore) ||
+			Opcode == OpCode::PushOuterTemp ||
+			Opcode == OpCode::PushImmediate ||
+			Opcode == OpCode::PushChar;
 	}
 
-	inline bool isDoubleExtendedPush() const
+	__declspec(property(get = get_IsDoubleExtendedPush)) bool IsDoubleExtendedPush;
+	INLINE bool get_IsDoubleExtendedPush() const
 	{
-		return byte == LongPushOuterTemp ||
-			byte == LongPushConst ||
-			byte == LongPushStatic ||
-			byte == LongPushImmediate;
+		return Opcode == OpCode::LongPushOuterTemp ||
+			Opcode == OpCode::LongPushConst ||
+			Opcode == OpCode::LongPushStatic ||
+			Opcode == OpCode::LongPushImmediate;
 	}
 
-	inline bool isPush() const
+	__declspec(property(get = get_IsPush)) bool IsPush;
+	INLINE bool get_IsPush() const
 	{
-		return isShortPush() || isExtendedPush() ||	isDoubleExtendedPush() || byte == ExLongPushImmediate;
+		return IsShortPush || IsExtendedPush ||	IsDoubleExtendedPush || Opcode == OpCode::ExLongPushImmediate;
 	}
 
-	INLINE bool isExtendedStore() const
+	__declspec(property(get = get_IsExtendedStore)) bool IsExtendedStore;
+	INLINE bool get_IsExtendedStore() const
 	{
-		return (byte >= FirstExtendedStore && byte <= LastExtendedStore) || (byte == StoreOuterTemp);
+		return (byte >= FirstExtendedStore && byte <= LastExtendedStore) || (Opcode == OpCode::StoreOuterTemp);
 	}
 
-	INLINE bool isExtendedPopStore() const
+	__declspec(property(get = get_IsExtendedPopStore)) bool IsExtendedPopStore;
+	INLINE bool get_IsExtendedPopStore() const
 	{
-		return (byte >= FirstPopStore && byte <= LastPopStore) || (byte == PopStoreOuterTemp);
+		return (byte >= FirstPopStore && byte <= LastPopStore) || (Opcode == OpCode::PopStoreOuterTemp);
 	}
 
-	INLINE bool isStoreTemp() const
+	__declspec(property(get = get_IsStoreTemp)) bool IsStoreTemp;
+	INLINE bool get_IsStoreTemp() const
 	{
-		return byte == StoreTemp || byte == StoreOuterTemp || isShortStoreTemp();
+		return Opcode == OpCode::StoreTemp || Opcode == OpCode::StoreOuterTemp || IsShortStoreTemp;
 	}
 
-	INLINE bool isStoreStackTemp() const
+	__declspec(property(get = get_IsStoreStackTemp)) bool IsStoreStackTemp;
+	INLINE bool get_IsStoreStackTemp() const
 	{
-		return byte == StoreTemp || isShortStoreTemp();
+		return Opcode == OpCode::StoreTemp || IsShortStoreTemp;
 	}
 
-	inline bool isShortJump() const
+	__declspec(property(get = get_IsShortJump)) bool IsShortJump;
+	INLINE bool get_IsShortJump() const
 	{
-		_ASSERTE(isOpCode());
-		return byte >= ShortJump && byte <= LastShortJump;
+		return Opcode >= OpCode::ShortJump && byte <= LastShortJump;
 	}
 
-	inline bool isLongJump() const
+	__declspec(property(get = get_IsLongJump)) bool IsLongJump;
+	INLINE bool get_IsLongJump() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == LongJump;
+		return Opcode == OpCode::LongJump;
 	}
 
-	inline bool isNearJump() const
+	__declspec(property(get = get_IsNearJump)) bool IsNearJump;
+	INLINE bool get_IsNearJump() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == NearJump;
+		return Opcode == OpCode::NearJump;
 	}
 
-	inline bool isUnconditionalJump() const
+	__declspec(property(get = get_IsUnconditionalJump)) bool IsUnconditionalJump;
+	INLINE bool get_IsUnconditionalJump() const
 	{
 		// Faster to test for long jump first, as this is mainly used by the optimizer
 		// which always works on long jumps
-		return isLongJump() || isNearJump() || isShortJump();
+		return IsLongJump || IsNearJump || IsShortJump;
 	}
 
-	inline bool isShortJumpIfFalse() const
+	__declspec(property(get = get_IsShortJumpIfFalse)) bool IsShortJumpIfFalse;
+	INLINE bool get_IsShortJumpIfFalse() const
 	{
-		_ASSERTE(isOpCode());
-		return byte >= ShortJumpIfFalse && byte < ShortJumpIfFalse+NumShortJumpsIfFalse;
+		return Opcode >= OpCode::ShortJumpIfFalse && Opcode < OpCode::ShortJumpIfFalse + NumShortJumpsIfFalse;
 	}
 
-	inline bool isJumpIfFalse() const
+	__declspec(property(get = get_IsJumpIfFalse)) bool IsJumpIfFalse;
+	INLINE bool get_IsJumpIfFalse() const
 	{
-		return isShortJumpIfFalse() ||
-			byte == NearJumpIfFalse ||
-			byte == LongJumpIfFalse;
+		return IsShortJumpIfFalse ||
+			Opcode == OpCode::NearJumpIfFalse ||
+			Opcode == OpCode::LongJumpIfFalse;
 	}
 
-	inline bool isJumpIfTrue() const
+	__declspec(property(get = get_IsJumpIfTrue)) bool IsJumpIfTrue;
+	INLINE bool get_IsJumpIfTrue() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == NearJumpIfTrue || byte == LongJumpIfTrue;
+		return Opcode == OpCode::NearJumpIfTrue || Opcode == OpCode::LongJumpIfTrue;
 	}
 
-	inline bool isJumpIfNil() const
+	__declspec(property(get = get_IsJumpIfNil)) bool IsJumpIfNil;
+	INLINE bool get_IsJumpIfNil() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == NearJumpIfNil || byte == LongJumpIfNil;
+		return Opcode == OpCode::NearJumpIfNil || Opcode == OpCode::LongJumpIfNil;
 	}
 
-	inline bool isJumpIfNotNil() const
+	__declspec(property(get = get_IsJumpIfNotNil)) bool IsJumpIfNotNil;
+	INLINE bool get_IsJumpIfNotNil() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == NearJumpIfNotNil || byte == LongJumpIfNotNil;
+		return Opcode == OpCode::NearJumpIfNotNil || Opcode == OpCode::LongJumpIfNotNil;
 	}
 
-	inline bool isConditionalJump() const
+	__declspec(property(get = get_IsConditionalJump)) bool IsConditionalJump;
+	INLINE bool get_IsConditionalJump() const
 	{
 		return 
-			isJumpIfFalse() ||
-			isJumpIfTrue() ||
-			isJumpIfNil() ||
-			isJumpIfNotNil();	
+			IsJumpIfFalse ||
+			IsJumpIfTrue ||
+			IsJumpIfNil ||
+			IsJumpIfNotNil;	
 	}
 
-	inline bool isJumpInstruction() const
+	__declspec(property(get = get_IsJumpInstruction)) bool IsJumpInstruction;
+	INLINE bool get_IsJumpInstruction() const
 	{
-		_ASSERTE(isOpCode());
-		return isUnconditionalJump() || 
-			isJumpIfFalse() ||
-			isJumpIfTrue() ||
-			isJumpIfNil() ||
-			isJumpIfNotNil() ||
-			byte == BlockCopy;
+		return IsUnconditionalJump || 
+			IsJumpIfFalse ||
+			IsJumpIfTrue ||
+			IsJumpIfNil ||
+			IsJumpIfNotNil ||
+			Opcode == OpCode::BlockCopy;
 	}
 
-	inline bool isLongConditionalJump() const
+	__declspec(property(get = get_IsLongConditionalJump)) bool IsLongConditionalJump;
+	INLINE bool get_IsLongConditionalJump() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == LongJumpIfTrue || 
-			byte == LongJumpIfFalse ||
-			byte == LongJumpIfNil ||
-			byte == LongJumpIfNotNil;
+		return Opcode == OpCode::LongJumpIfTrue ||
+			Opcode == OpCode::LongJumpIfFalse ||
+			Opcode == OpCode::LongJumpIfNil ||
+			Opcode == OpCode::LongJumpIfNotNil;
 	}
 
-	inline bool isReturn() const
+	__declspec(property(get = get_IsReturn)) bool IsReturn;
+	INLINE bool get_IsReturn() const
 	{
-		_ASSERTE(isOpCode());
-		return byte >= FirstReturn && byte <= LastReturn;
+		return ::isReturn(Opcode);
 	}
 
-	inline bool isReturnStackTop() const
+	__declspec(property(get = get_IsReturnStackTop)) bool IsReturnStackTop;
+	INLINE bool get_IsReturnStackTop() const
 	{
-		_ASSERTE(isOpCode());
-		return byte == ReturnMessageStackTop || byte == ReturnBlockStackTop;
+		return Opcode == OpCode::ReturnMessageStackTop || Opcode == OpCode::ReturnBlockStackTop;
 	}
 
-	inline bool isMethodReturn() const
+	__declspec(property(get = get_IsMethodReturn)) bool IsMethodReturn;
+	INLINE bool get_IsMethodReturn() const
 	{
-		_ASSERTE(isOpCode());
-		return byte != ReturnBlockStackTop && isReturn();
+		return Opcode != OpCode::ReturnBlockStackTop && IsReturn;
 	}
 
-	inline bool isShortSend() const
+	__declspec(property(get = get_IsShortSend)) bool IsShortSend;
+	INLINE bool get_IsShortSend() const
 	{
-		return (byte >= FirstShortSend && byte <= LastShortSend) || (byte >= FirstExSpecialSend && byte <= LastExSpecialSend);
+		return ::isShortSend(Opcode);
 	}
 
-	inline bool isSend() const
+	__declspec(property(get = get_IsSend)) bool IsSend;
+	INLINE bool get_IsSend() const
 	{
-		_ASSERTE(isOpCode());
-		return isShortSend() 
-			|| byte == Send || byte == Supersend || byte == SpecialSend
-			|| byte == SendTempWithNoArgs || byte == SendSelfWithNoArgs || byte == PopSendSelfNoArgs
-			|| byte == LongSend || byte == LongSupersend
-			|| byte == ExLongSend || byte == ExLongSupersend;
+		return IsShortSend 
+			|| Opcode == OpCode::Send || Opcode == OpCode::Supersend || Opcode == OpCode::SpecialSend
+			|| Opcode == OpCode::SendTempWithNoArgs || Opcode == OpCode::SendSelfWithNoArgs || Opcode == OpCode::PopSendSelfNoArgs
+			|| Opcode == OpCode::LongSend || Opcode == OpCode::LongSupersend
+			|| Opcode == OpCode::ExLongSend || Opcode == OpCode::ExLongSupersend;
 	}
 
-	inline bool isStore() const
+	__declspec(property(get = get_IsStore)) bool IsStore;
+	INLINE bool get_IsStore() const
 	{
-		return isShortStoreTemp() || isShortPopStore() || isExtendedStore() || isExtendedPopStore()
-				|| byte == LongStoreStatic || byte == LongStoreOuterTemp;
+		return IsShortStoreTemp || IsShortPopStore || IsExtendedStore || IsExtendedPopStore
+				|| Opcode == OpCode::LongStoreStatic || Opcode == OpCode::LongStoreOuterTemp;
 	}
 };
 
-typedef std::vector<BYTECODE> BYTECODES;
+ENABLE_BITMASK_OPERATORS(BYTECODE::Flags)
 
-INLINE static int indexOfPushX(BYTE /*b1*/, BYTE b2)
-{
-	return b2;
+inline bool BYTECODE::get_IsData() const 
+{ 
+	return !!(flags & Flags::IsData); 
 }
 
-INLINE static bool isPushInstVarX(BYTE b1, BYTE /*b2*/)
+inline void BYTECODE::makeData()
 {
-	return b1 == PushInstVar;
+	flags = flags | Flags::IsData;
+	pScope = nullptr;
 }
 
-#endif
+inline bool BYTECODE::get_IsJumpSource() const
+{
+	return !!(flags & Flags::IsJump);
+}
+
+inline void BYTECODE::makeNonData() { flags = flags & ~Flags::IsData; }
+inline void BYTECODE::makeNonJump() { flags = flags & ~Flags::IsJump; }
+inline void BYTECODE::makeJump() { flags = flags | Flags::IsJump; }
+
+class BYTECODES : public std::vector<BYTECODE>
+{
+public:
+	BYTECODE& operator[](const ip_t ip)
+	{
+		size_t pos = static_cast<size_t>(ip);
+		_ASSERTE(pos < size());
+		return at(pos);
+	}
+
+	const BYTECODE& operator[](const ip_t ip) const
+	{
+		size_t pos = static_cast<size_t>(ip);
+		_ASSERTE(pos < size());
+		return at(pos);
+	}
+};
+
+INLINE bool isPushInstVarX(OpCode b1, uint8_t /*b2*/)
+{
+	return b1 == OpCode::PushInstVar;
+}
 

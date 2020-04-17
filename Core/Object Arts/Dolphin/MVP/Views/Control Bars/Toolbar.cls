@@ -65,7 +65,7 @@ addBitmap: aBitmap index: anIntegerIndex
 					be a blank image in the list. This won't damage the bitmap in any way because the canvas
 			`		can always be lazily recreated."
 					gdiBitmap freeDC.
-					self tbAddBitmap: (TBADDBITMAP new
+					self tbAddBitmap: (TBADDBITMAP newBuffer
 								nID: gdiBitmap asParameter;
 								yourself)
 						size: size].
@@ -141,29 +141,29 @@ basicActualForecolor
 
 	^self forecolor ifNil: [self parentView ambientBackcolor]!
 
-basicAddItems: tools 
+basicAddItems: tools
 	"Private - Add the specified  <sequencedReadableCollection> of tools to the receiver
 	positioning them beyond the present right most item. The tools are NOT added to the tools 
 	collection but they are added to the Id map. Answers the argument."
 
-	| buttons hasLabels size |
-	size := tools size.
-	size == 0 ifTrue: [^tools	"It is an error to set zero buttons on IE5/NT5"].
-	buttons := StructureArray length: size elementClass: TBBUTTON.
-	buttons beUnfinalizable.	"Nothing to free here"
+	| buttons hasLabels |
+	tools isEmpty ifTrue: [^tools	"It is an error to set zero buttons on IE5/NT5"].
 	hasLabels := self hasLabels.
-	buttons with: tools
-		do: 
-			[:tb :aToolbarItem | 
-			| cmd |
-			cmd := aToolbarItem getCommandId.
-			cmd == 0 ifFalse: [idMap at: cmd put: aToolbarItem].
-			tb
-				iBitmap: (aToolbarItem imageIndexIn: self);
-				idCommand: cmd;
-				fsState: TB_STATEENABLED;
-				fsStyle: aToolbarItem style;
-				iString: (hasLabels ifTrue: [aToolbarItem textIndexIn: self] ifFalse: [-1])].
+	buttons := StructureArray
+				withAll: tools
+				elementClass: TBBUTTON
+				initializer: 
+					[:tbButton :toolbarItem |
+					| cmd |
+					cmd := toolbarItem getCommandId.
+					cmd == 0 ifFalse: [idMap at: cmd put: toolbarItem].
+					tbButton
+						iBitmap: (toolbarItem imageIndexIn: self);
+						idCommand: cmd;
+						fsState: TB_STATEENABLED;
+						fsStyle: toolbarItem style;
+						iString: (hasLabels ifTrue: [toolbarItem textIndexIn: self] ifFalse: [-1])].
+	buttons beUnfinalizable.	"Nothing to free here"
 	self tbAddButtons: buttons.
 	^tools!
 
@@ -292,7 +292,7 @@ defaultGradientBackcolor
 
 	"This is the colour of the shadow at the bottom of a header control in the luna theme."
 
-	^RGB 
+	^Color 
 		r: 203
 		g: 199
 		b: 184!
@@ -302,7 +302,7 @@ defaultGradientForecolor
 
 	"This is Color light3d in the luna theme"
 
-	^RGB 
+	^Color 
 		r: 241
 		g: 239
 		b: 226!
@@ -577,6 +577,7 @@ onViewCreated
 	Finish the job and install the known ToolbarItems"
 
 	super onViewCreated.
+	self tbButtonStructSize: TBBUTTON byteSize.
 	bitmapsStart := LookupTable new.
 	self changeButtonSize: [self tbSetBitmapSize: self actualBitmapSize].
 	#todo.	"Store extended style in an inst. var (appear to be some unused?) and provide accessors/mode settings"
@@ -660,6 +661,12 @@ tbButtonCount
 	"Private - Answer number of buttons in the toolbar."
 
 	^self sendMessage: TB_BUTTONCOUNT!
+
+tbButtonStructSize: anInteger
+	^self
+		sendMessage: TB_BUTTONSTRUCTSIZE
+		wParam: anInteger
+		lParam: 0!
 
 tbCheckButton: anIntegerId state: checkBoolean
 	"Private - Set whether the button with anIntegerId is checked or not.
@@ -1123,6 +1130,7 @@ wmNotify: message wParam: wParam lParam: lParam
 !Toolbar categoriesFor: #tbAddString:!adding!private! !
 !Toolbar categoriesFor: #tbAutoSize!operations!private! !
 !Toolbar categoriesFor: #tbButtonCount!geometry!private! !
+!Toolbar categoriesFor: #tbButtonStructSize:!helpers!private! !
 !Toolbar categoriesFor: #tbCheckButton:state:!operations!private! !
 !Toolbar categoriesFor: #tbCustomize!operations!private! !
 !Toolbar categoriesFor: #tbDeleteButton:!helpers!private! !
@@ -1192,7 +1200,7 @@ resource_Default_view
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1140853580 131073 416 nil nil nil 7 nil nil nil 416 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 nil 170 192 8 #() 8 #() nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 706 401 51 416 658 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 71 8 0 0 35 0 0 0] 8 #() 706 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1140853580 131073 416 nil nil nil 7 nil nil nil 416 327686 ##(Smalltalk.Color) #default 8 1903898080 nil 170 192 8 #() 8 #() nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 690 401 51 416 642 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 71 8 0 0 35 0 0 0] 8 #() 690 193 193 nil 27 )!
 
 resource_Edit_tools
 	"Answer the literal data from which the 'Edit tools' resource can be reconstituted.
@@ -1202,7 +1210,7 @@ resource_Edit_tools
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Edit_tools)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 170 192 8 #() 170 192 34 10 47917 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #copySelection 8 'Copy' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'EditCopy.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 47917 47919 610 416 1 642 #pasteClipboard 8 'Paste' 1 1 690 nil true 736 8 'EditPaste.ico' 784 47919 47921 610 416 1 642 #clearSelection 8 'Delete' 1 1 690 nil true 736 8 'EditClear.ico' 784 47921 47923 610 416 1 642 #undo 8 'Undo' 1 1 690 nil true 736 8 'EditUndo.ico' 784 47923 47915 610 416 1 642 #cutSelection 8 'Cut' 1 1 690 nil true 736 8 'EditCut.ico' 784 47915 34 6 1056 624 816 896 976 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1298 247 51 416 1250 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 250 7 0 0 35 0 0 0] 8 #() 1298 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 327686 ##(Smalltalk.Color) #default 8 1903898080 170 192 8 #() 170 192 34 10 49335 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #undo 8 'Undo' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'EditUndo.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 49335 49331 594 416 1 626 #pasteClipboard 8 'Paste' 1 1 674 nil true 720 8 'EditPaste.ico' 768 49331 49327 594 416 1 626 #cutSelection 8 'Cut' 1 1 674 nil true 720 8 'EditCut.ico' 768 49327 49333 594 416 1 626 #clearSelection 8 'Delete' 1 1 674 nil true 720 8 'EditClear.ico' 768 49333 49329 594 416 1 626 #copySelection 8 'Copy' 1 1 674 nil true 720 8 'EditCopy.ico' 768 49329 34 6 880 1040 800 960 608 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1282 247 51 416 1234 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 250 7 0 0 35 0 0 0] 8 #() 1282 193 193 nil 27 )!
 
 resource_File_tools
 	"Answer the literal data from which the 'File tools' resource can be reconstituted.
@@ -1212,7 +1220,7 @@ resource_File_tools
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_File_tools)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 170 192 8 #() 170 192 34 6 47925 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #fileNew 8 'New' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'FileNew.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 47925 47927 610 416 1 642 #fileOpen 8 'Open' 1 1 690 nil true 736 8 'FileOpen.ico' 784 47927 47929 610 416 1 642 #fileSave 8 'Save' 1 1 690 nil true 736 8 'FileSave.ico' 784 47929 34 4 624 816 896 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1138 155 51 416 1090 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 204 7 0 0 35 0 0 0] 8 #() 1138 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 327686 ##(Smalltalk.Color) #default 8 1903898080 170 192 8 #() 170 192 34 6 56121 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #fileSave 8 'Save' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'FileSave.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 56121 56119 594 416 1 626 #fileOpen 8 'Open' 1 1 674 nil true 720 8 'FileOpen.ico' 768 56119 56117 594 416 1 626 #fileNew 8 'New' 1 1 674 nil true 720 8 'FileNew.ico' 768 56117 34 4 880 800 608 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1122 155 51 416 1074 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 204 7 0 0 35 0 0 0] 8 #() 1122 193 193 nil 27 )!
 
 resource_Find_tools
 	"Answer the literal data from which the 'Find tools' resource can be reconstituted.
@@ -1222,7 +1230,7 @@ resource_Find_tools
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Find_tools)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 170 192 8 #() 170 192 34 4 47931 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #find 8 'Find' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'Find.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 47931 47933 610 416 1 642 #findNext 8 'Find Next' 1 1 690 nil true 736 8 'FindNext.ico' 784 47933 34 3 624 816 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1058 109 51 416 1010 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 181 7 0 0 35 0 0 0] 8 #() 1058 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 327686 ##(Smalltalk.Color) #default 8 1903898080 170 192 8 #() 170 192 34 4 57453 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 1 1180998 4 ##(Smalltalk.CommandDescription) #findNext 8 'Find Next' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'FindNext.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 57453 57451 594 416 1 626 #find 8 'Find' 1 1 674 nil true 720 8 'Find.ico' 768 57451 34 3 800 608 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1042 109 51 416 994 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 181 7 0 0 35 0 0 0] 8 #() 1042 193 193 nil 27 )!
 
 resource_History_tools
 	"Answer the literal data from which the 'History tools' resource can be reconstituted.
@@ -1232,7 +1240,7 @@ resource_History_tools
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_History_tools)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 170 192 8 #() 170 192 34 4 47935 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 17 1180998 4 ##(Smalltalk.CommandDescription) 459270 ##(Smalltalk.Message) #historyBack 8 #() 8 'Back' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'HistoryBack.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 47935 47937 610 416 17 642 674 #historyForward 8 #() 8 'Forward' 1 1 738 nil true 784 8 'HistoryForward.ico' 832 47937 34 3 624 864 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1138 169 51 416 1090 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 211 7 0 0 35 0 0 0] 8 #() 1138 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409289036 131137 416 nil nil nil 517 nil nil nil 416 327686 ##(Smalltalk.Color) #default 8 1903898080 170 192 8 #() 170 192 34 4 54813 1115206 1 ##(Smalltalk.ToolbarIconButton) 416 17 1180998 4 ##(Smalltalk.CommandDescription) 459270 ##(Smalltalk.Message) #historyForward 8 #() 8 'Forward' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'HistoryForward.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil 54813 54811 594 416 17 626 658 #historyBack 8 #() 8 'Back' 1 1 722 nil true 768 8 'HistoryBack.ico' 816 54811 34 3 848 608 1049158 1 ##(Smalltalk.ToolbarSeparator) 416 1 nil nil 1 nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 1122 169 51 416 1074 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 211 7 0 0 35 0 0 0] 8 #() 1122 193 193 nil 27 )!
 
 resource_Tool_bar
 	"Answer the literal data from which the 'Tool bar' resource can be reconstituted.
@@ -1242,7 +1250,7 @@ resource_Tool_bar
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Tool_bar)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409288972 131137 416 nil 786694 ##(Smalltalk.ColorDefault) 8 4278190080 nil 517 nil nil nil 416 496 8 1915204752 170 192 8 #() 170 192 560 138 144 560 nil nil 1 nil nil nil nil 656198 1 ##(Smalltalk.FlowLayout) 1 1 1 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 754 701 51 416 706 #updateSizePosted 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 221 8 0 0 35 0 0 0] 8 #() 754 193 193 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.Toolbar) 34 25 nil nil 34 2 8 1409288972 131137 416 nil 327686 ##(Smalltalk.Color) #default nil 517 nil nil nil 416 496 8 1903898080 170 192 8 #() 170 192 544 138 144 544 nil nil 1 nil nil nil nil 656198 1 ##(Smalltalk.FlowLayout) 1 1 1 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 3839 21 738 701 51 416 690 #updateSizePosted 544 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 221 8 0 0 35 0 0 0] 8 #() 738 193 193 nil 27 )!
 
 stbConvertFromVersion12: anArray 
 	"Private - Perform an STB conversion from a version 12 <View> to version 13."
@@ -1258,6 +1266,10 @@ stbConvertFromVersion12: anArray
 	(anArray at: 6) = Color face3d ifTrue: [anArray at: 6 put: Color default].
 	^super stbConvertFromVersion12: anArray!
 
+themePartName
+	^#Toolbar
+!
+
 winClassName
 	"Private - Answer the name of the Windows window class to use when realizing the receiver."
 
@@ -1271,5 +1283,6 @@ winClassName
 !Toolbar class categoriesFor: #resource_History_tools!public!resources-views! !
 !Toolbar class categoriesFor: #resource_Tool_bar!public!resources-views! !
 !Toolbar class categoriesFor: #stbConvertFromVersion12:!binary filing!private! !
+!Toolbar class categoriesFor: #themePartName!constants!private! !
 !Toolbar class categoriesFor: #winClassName!constants!private! !
 

@@ -2,7 +2,7 @@
 #pragma once
 
 // Template for operations where the result is zero if the argument is SmallInteger zero
-template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiveLargeIntegerOpZ(Oop* const sp, unsigned argc)
+template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiveLargeIntegerOpZ(Oop* const sp, primargcount_t argc)
 {
 	Oop oopArg = *sp;
 	const LargeIntegerOTE* oteReceiver = reinterpret_cast<const LargeIntegerOTE*>(*(sp - 1));
@@ -10,7 +10,7 @@ template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiv
 
 	if (ObjectMemoryIsIntegerObject(oopArg))
 	{
-		SMALLINTEGER arg = ObjectMemoryIntegerValueOf(oopArg);
+		SmallInteger arg = ObjectMemoryIntegerValueOf(oopArg);
 		if (arg != 0)
 		{
 			result = OpSingle()(oteReceiver, arg);
@@ -42,14 +42,14 @@ template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiv
 }
 
 //	Template for operations for which the result is the receiver if the operand is SmallInteger zero
-template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiveLargeIntegerOpR(Oop* const sp, unsigned)
+template <class Op, class OpSingle> static Oop* __fastcall Interpreter::primitiveLargeIntegerOpR(Oop* const sp, primargcount_t)
 {
 	Oop oopArg = *sp;
 	const LargeIntegerOTE* oteReceiver = reinterpret_cast<const LargeIntegerOTE*>(*(sp - 1));
 
 	if (ObjectMemoryIsIntegerObject(oopArg))
 	{
-		SMALLINTEGER arg = ObjectMemoryIntegerValueOf(oopArg);
+		SmallInteger arg = ObjectMemoryIntegerValueOf(oopArg);
 		if (arg != 0)
 		{
 			auto result = OpSingle()(oteReceiver, arg);
@@ -94,8 +94,8 @@ template <bool Lt, bool Eq> static bool liCmp(const LargeIntegerOTE* oteA, const
 	const LargeInteger* liA = oteA->m_location;
 	const LargeInteger* liB = oteB->m_location;
 
-	const int aSign = liA->sign(oteA);
-	const int bSign = liB->sign(oteB);
+	const auto aSign = liA->sign(oteA);
+	const auto bSign = liB->sign(oteB);
 
 	// Compiler will optimize this to one comparison, and two conditional jumps
 	if (aSign < bSign)
@@ -105,17 +105,17 @@ template <bool Lt, bool Eq> static bool liCmp(const LargeIntegerOTE* oteA, const
 
 	// Same sign
 
-	const MWORD ai = oteA->getWordSize();
-	const MWORD bi = oteB->getWordSize();
+	const auto ai = oteA->getWordSize();
+	const auto bi = oteB->getWordSize();
 
 	if (ai == bi)
 	{
-		int i = ai - 1;
+		ptrdiff_t i = ai - 1;
 		// Same sign and size: Compare words (same sign, so comparison can be unsigned)
 		do
 		{
-			const uint32_t digitA = liA->m_digits[i];
-			const uint32_t digitB = liB->m_digits[i];
+			const auto digitA = liA->m_digits[i];
+			const auto digitB = liB->m_digits[i];
 			// Again single comparison, two conditional jumps
 			if (digitA < digitB)
 				return Lt;
@@ -129,11 +129,11 @@ template <bool Lt, bool Eq> static bool liCmp(const LargeIntegerOTE* oteA, const
 	else
 	{
 		// Same sign, different lengths, can compare based on number of limbs
-		return ((static_cast<int>(ai) - static_cast<int>(bi)) * aSign) < 0 ? Lt : !Lt;
+		return ((static_cast<ptrdiff_t>(ai) - static_cast<ptrdiff_t>(bi)) * aSign) < 0 ? Lt : !Lt;
 	}
 }
 
-template <bool Lt, bool Eq> static Oop* __fastcall Interpreter::primitiveLargeIntegerCmp(Oop* const sp, unsigned)
+template <bool Lt, bool Eq> static Oop* __fastcall Interpreter::primitiveLargeIntegerCmp(Oop* const sp, primargcount_t)
 {
 	Oop argPointer = *sp;
 	LargeIntegerOTE* oteReceiver = reinterpret_cast<LargeIntegerOTE*>(*(sp - 1));
@@ -144,7 +144,7 @@ template <bool Lt, bool Eq> static Oop* __fastcall Interpreter::primitiveLargeIn
 		// since LargeIntegers are always normalized, any negative LargeInteger must be less
 		// than any SmallInteger, and any positive LargeInteger must be greater than any SmallInteger
 		// SmallIntegers can never be equal to normalized large integers
-		int sign = oteReceiver->m_location->signDigit(oteReceiver);
+		const auto sign = oteReceiver->m_location->signDigit(oteReceiver);
 		*(sp - 1) = reinterpret_cast<Oop>((sign < 0 ? Lt : !Lt) ? Pointers.True : Pointers.False);
 		return sp - 1;
 	}
@@ -162,7 +162,7 @@ template <bool Lt, bool Eq> static Oop* __fastcall Interpreter::primitiveLargeIn
 	}
 }
 
-template <typename Op> static Oop* __fastcall Interpreter::primitiveLargeIntegerUnaryOp(Oop* const sp, unsigned)
+template <typename Op> static Oop* __fastcall Interpreter::primitiveLargeIntegerUnaryOp(Oop* const sp, primargcount_t)
 {
 	Oop oopResult = Op()(reinterpret_cast<LargeIntegerOTE*>(*sp));
 	*sp = oopResult;
@@ -177,9 +177,9 @@ namespace Li
 		Oop operator()(const LargeIntegerOTE* oteOuter, const LargeIntegerOTE* oteInner) const
 		{
 			const LargeInteger* liOuter = oteOuter->m_location;
-			MWORD outerSize = oteOuter->getWordSize();
+			size_t outerSize = oteOuter->getWordSize();
 			const LargeInteger* liInner = oteInner->m_location;
-			MWORD innerSize = oteInner->getWordSize();
+			size_t innerSize = oteInner->getWordSize();
 
 			// The algorithm is substantially faster if the outer loop is shorter
 			return outerSize > innerSize ? LargeInteger::Mul(liInner, innerSize, liOuter, outerSize) :
@@ -189,7 +189,7 @@ namespace Li
 
 	struct MulSingle
 	{
-		__forceinline Oop operator()(const LargeIntegerOTE* oteInner, SMALLINTEGER outerDigit) const
+		__forceinline Oop operator()(const LargeIntegerOTE* oteInner, SmallInteger outerDigit) const
 		{
 			return LargeInteger::Mul(oteInner, outerDigit);
 		}
@@ -197,7 +197,7 @@ namespace Li
 
 	struct AddSingle
 	{
-		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteLI, const SMALLINTEGER operand) const
+		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteLI, const SmallInteger operand) const
 		{
 			return LargeInteger::Add(oteLI, operand);
 		}
@@ -213,7 +213,7 @@ namespace Li
 
 	struct SubSingle
 	{
-		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteLI, SMALLINTEGER operand) const
+		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteLI, SmallInteger operand) const
 		{
 			return LargeInteger::Sub(oteLI, operand);
 		}
@@ -237,7 +237,7 @@ namespace Li
 
 	struct BitAndSingle
 	{
-		__forceinline Oop operator()(const LargeIntegerOTE* oteA, SMALLINTEGER mask) const
+		__forceinline Oop operator()(const LargeIntegerOTE* oteA, SmallInteger mask) const
 		{
 			return LargeInteger::BitAnd(oteA, mask);
 		}
@@ -256,7 +256,7 @@ namespace Li
 	// mask.
 	struct BitOrSingle
 	{
-		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteA, SMALLINTEGER mask) const
+		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteA, SmallInteger mask) const
 		{
 			return LargeInteger::BitOr(oteA, mask);
 		}
@@ -274,7 +274,7 @@ namespace Li
 	// mask.
 	struct BitXorSingle
 	{
-		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteA, SMALLINTEGER mask) const
+		__forceinline LargeIntegerOTE* operator()(const LargeIntegerOTE* oteA, SmallInteger mask) const
 		{
 			return LargeInteger::BitXor(oteA, mask);
 

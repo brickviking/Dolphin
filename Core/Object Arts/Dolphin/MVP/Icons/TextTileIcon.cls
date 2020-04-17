@@ -45,15 +45,15 @@ actualFontName
 	^fontName ifNil: [self defaultFontName]!
 
 actualFontStyle
-	^fontStyle ifNil: [FontStyleRegular]!
+	^fontStyle ?? FontStyleRegular!
 
 actualTextcolor
 	"Private - Answer the colour used to draw the text. If unspecified this will default to either black
 	or white, depending on the luminance of the tile background colour."
 
 	^textcolor
-		ifNil: 
-			[(tilecolor isNil or: [tilecolor luminance > 128]) ifTrue: [ARGB black] ifFalse: [ARGB white]]!
+		ifNil: [(tilecolor isNil or: [tilecolor luminance > 0.6]) ifTrue: [Color black] ifFalse: [Color white]]
+!
 
 addToImageList: aWinImageList mask: aColorOrNil
 	"Private - Add a pictorial representation of the receiver to aWinImageList drawn directly at the
@@ -455,7 +455,7 @@ icon
 	^(self
 		text: 'Aa'
 		fontName: 'Georgia'
-		color: (ARGB named: #cadetBlue))
+		color: Color cadetBlue)
 		fontStyle: #italic;
 		yourself!
 

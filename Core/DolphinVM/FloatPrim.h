@@ -1,17 +1,18 @@
 ﻿#pragma once
 
-template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatTruncationOp(Oop* const sp, unsigned)
+template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatTruncationOp(Oop* const sp, primargcount_t)
 {
 	FloatOTE* oteFloat = reinterpret_cast<FloatOTE*>(*sp);
 	double fValue = Op()(oteFloat->m_location->m_fValue);
 
+#ifdef _M_IX86
 	if (fValue < MinSmallInteger || fValue > MaxSmallInteger)
 	{
 		// It may to have to be a LargeInteger...
-		if (fValue > double(_I64_MIN) && fValue < double(_I64_MAX))
+		if (fValue > double(INT64_MIN) && fValue < double(INT64_MAX))
 		{
 			// ... representable in 64-bits
-			LONGLONG liTrunc = static_cast<LONGLONG>(fValue);
+			int64_t liTrunc = static_cast<int64_t>(fValue);
 			Oop truncated = Integer::NewSigned64(liTrunc);
 			// The truncated value might actually be a SmallInteger, e.g. (SmallInteger maximum + 0.1) truncated
 			*sp = truncated;
@@ -23,18 +24,24 @@ template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatTruncat
 			return primitiveFailure(_PrimitiveFailureCode::IntegerOverflow);
 	}
 	else
+#else
+	if (fValue > double(INT64_MIN) || fValue < double(INT64_MAX))
+#endif
 	{
-		int intVal = static_cast<int>(fValue);
+		auto intVal = static_cast<SmallInteger>(fValue);
 		*sp = ObjectMemoryIntegerObjectOf(intVal);
 		return sp;
 	}
+
+	// Non-finite receiver - can't be represented as an SmallInteger
+	return primitiveFailure(_PrimitiveFailureCode::IntegerOverflow);
 }
 
 struct Truncate { double operator() (const double& x) const { return x; } };
 struct Floor { double operator() (const double& x) const { return floor(x); } };
 struct Ceiling { double operator() (const double& x) const { return ceil(x); } };
 
-template <typename Pred> static Oop* __fastcall Interpreter::primitiveFloatCompare(Oop* const sp, unsigned)
+template <typename Pred> static Oop* __fastcall Interpreter::primitiveFloatCompare(Oop* const sp, primargcount_t)
 {
 	Float* receiver = reinterpret_cast<FloatOTE*>(*(sp - 1))->m_location;
 	// NaN's never compare <, <=, =, >= or > to anything, even another NaN
@@ -98,7 +105,7 @@ template <typename Pred> static Oop* __fastcall Interpreter::primitiveFloatCompa
 // together, are compliant options.
 //
 
-template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatBinaryOp(Oop* const sp, unsigned)
+template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatBinaryOp(Oop* const sp, primargcount_t)
 {
 	Oop oopArg = *sp;
 	FloatOTE* oteReceiver = reinterpret_cast<FloatOTE*>(*(sp - 1));
@@ -129,7 +136,7 @@ template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatBinaryO
 	}
 }
 
-template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatUnaryOp(Oop* const sp, unsigned)
+template <typename Op> static Oop* __fastcall Interpreter::primitiveFloatUnaryOp(Oop* const sp, primargcount_t)
 {
 	FloatOTE* oteReceiver = reinterpret_cast<FloatOTE*>(*sp);
 	Float* receiver = oteReceiver->m_location;

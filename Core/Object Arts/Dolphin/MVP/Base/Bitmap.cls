@@ -409,6 +409,7 @@ getPaletteEntries
 	colors := self getColorTable ?? #().
 	len := colors size.
 	palEntries := StructureArray length: len elementClass: PALETTEENTRY.
+	palEntries beUnfinalizable.
 	palEntries
 		replaceFrom: 1
 		to: len
@@ -492,6 +493,24 @@ loadFromInstance: hModule
 		cyDesired: 0
 		fuLoad: self loadFlags!
 
+pixelData
+	"Answer a DWORDArray of the (A)RGB pixel data contained in the receiver. This simple but NOT FAST."
+
+	| pixData n canvas |
+	pixData := DWORDArray new: self extent x * self extent y.
+	n := 1.
+	canvas := self canvas.
+	0 to: self extent x-1
+		do: 
+			[:x | 
+			0 to: self extent y -1 
+				do: 
+					[:y | 
+					pixData at: n put: (canvas getPixel: x @ y).
+					n := n + 1]].
+	self freeDC.
+	^pixData!
+
 setMap3DColors: aBoolean
 	"Set whether the receivers colours will be mapped to suitable 3D ones
 	when loaded in."
@@ -553,6 +572,7 @@ stbFixup: anSTBInFiler at: newObjectIndex
 !Bitmap categoriesFor: #loadFlags!private!realizing/unrealizing! !
 !Bitmap categoriesFor: #loadFromFile:extent:!private!realizing/unrealizing! !
 !Bitmap categoriesFor: #loadFromInstance:!private!realizing/unrealizing! !
+!Bitmap categoriesFor: #pixelData!accessing!public! !
 !Bitmap categoriesFor: #setMap3DColors:!accessing!public! !
 !Bitmap categoriesFor: #stbFixup:at:!binary filing!public! !
 
@@ -614,20 +634,25 @@ fromId: anIntegerOrStringId inFile: aString flags: anInteger
 	icon instanceHandle: reslib handle.
 	^icon!
 
-fromView: aView 
+fromView: aView
 	"Answer a new bitmap instance of the receiver containing a dump of the current state of the 
 	<View> argument."
 
-	| answer canvas |
-	answer := self displayCompatibleWithExtent: aView extent.
+	^self fromView: aView background: Brush white!
+
+fromView: aView background: aBrush
+	"Answer a new bitmap instance of the receiver containing a dump of the current state of the <View> argument, painted over the top of a bitmap erased with the specified background brush.
+	In most cases Views are opaque and the background pattern will not be visible at all, but for transparent views with any transparency this will show through."
+
+	| answer canvas ext |
+	ext := aView extent.
+	answer := self displayCompatibleWithExtent: ext.
 	canvas := answer canvas.
-	canvas
-		brush: Brush white;
-		erase.
-	aView 
+	canvas fillRectangle: (RECT extent: ext) brush: aBrush.
+	aView
 		sendMessage: WM_PRINT
 		wParam: canvas handle
-		lParam: PRF_CLIENT | PRF_ERASEBKGND | PRF_CHILDREN | PRF_NONCLIENT | PRF_OWNED.
+		lParam: ##(PRF_CLIENT | PRF_ERASEBKGND | PRF_CHILDREN | PRF_NONCLIENT | PRF_OWNED).
 	answer freeDC.
 	^answer!
 
@@ -706,6 +731,7 @@ width: widthInteger height: heightInteger planes: planesInteger bitsPerPixel: bp
 !Bitmap class categoriesFor: #fromId:inFile:!instance creation!public! !
 !Bitmap class categoriesFor: #fromId:inFile:flags:!instance creation!public! !
 !Bitmap class categoriesFor: #fromView:!instance creation!public! !
+!Bitmap class categoriesFor: #fromView:background:!instance creation!public! !
 !Bitmap class categoriesFor: #initialize!development!initializing!private! !
 !Bitmap class categoriesFor: #sharedCopyOf:!instance creation!public! !
 !Bitmap class categoriesFor: #stbConvertFrom:!binary filing!public! !

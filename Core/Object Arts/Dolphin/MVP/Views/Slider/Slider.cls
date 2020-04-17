@@ -348,7 +348,7 @@ ticks
 	ticks := Array writeStream.
 	ticks nextPut: range start.
 	pdw := self sendMessage: TBM_GETPTICS.
-	pdw isNull ifFalse: [ticks nextPutAll: (DWORDArray fromAddress: pdw length: count - 2) asArray].
+	pdw isNull ifFalse: [ticks nextPutAll: (DWORDArray fromAddress: pdw asExternalAddress length: count - 2) asArray].
 	ticks nextPut: range stop.
 	^ticks contents!
 
@@ -483,6 +483,9 @@ stbConvertFromVersion9: anArray
 
 	^(super stbConvertFromVersion9: anArray) , #(1 nil nil)!
 
+themePartName
+	^'TRACKBAR'!
+
 winClassName
 	"Answer the name of the Windows window class to use when realizing the receiver."
 
@@ -491,5 +494,6 @@ winClassName
 !Slider class categoriesFor: #icon!constants!public! !
 !Slider class categoriesFor: #initialize!development!initializing!private! !
 !Slider class categoriesFor: #stbConvertFromVersion9:!binary filing!private! !
+!Slider class categoriesFor: #themePartName!constants!private! !
 !Slider class categoriesFor: #winClassName!constants!private! !
 

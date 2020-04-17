@@ -149,7 +149,7 @@ canPaste
 	"Answer whether the window can paste from the current contents of
 	the clipboard."
 
-	^self isReadOnly not and: [UserLibrary default isClipboardFormatAvailable: CF_TEXT]!
+	^self isReadOnly not and: [UserLibrary default isClipboardFormatAvailable: CF_UNICODETEXT]!
 
 canRedo
 	"Answer whether the window can redo the last undone operation."
@@ -1464,6 +1464,10 @@ onStartup
 	FindDialogMessage := self registerMessage: 'commdlg_FindReplace'
 !
 
+themePartName
+	^'EDIT'
+!
+
 winClassName
 	"Private - Answer the name of the Windows window class to use when realizing the receiver."
 
@@ -1472,5 +1476,6 @@ winClassName
 !TextEdit class categoriesFor: #icon!constants!public! !
 !TextEdit class categoriesFor: #initialize!development!initializing!private! !
 !TextEdit class categoriesFor: #onStartup!event handling!public! !
+!TextEdit class categoriesFor: #themePartName!constants!private!theming! !
 !TextEdit class categoriesFor: #winClassName!constants!private! !
 

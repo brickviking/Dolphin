@@ -171,8 +171,8 @@ Object subclass: #InstructionInterpreter
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
 Object subclass: #Keyboard
-	instanceVariableNames: 'state'
-	classVariableNames: 'DefaultInstance VirtualKeys'
+	instanceVariableNames: 'state virtualKeys modifierKeys keyNames'
+	classVariableNames: 'DefaultInstance InvariantInstance'
 	poolDictionaries: 'Win32Constants'
 	classInstanceVariableNames: ''!
 Object subclass: #Link
@@ -257,7 +257,7 @@ Object subclass: #PropertyManager
 	classInstanceVariableNames: ''!
 Object subclass: #ResourceIdentifier
 	instanceVariableNames: 'owningClass selector'
-	classVariableNames: ''
+	classVariableNames: 'SelectorPrefix'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
 Object subclass: #SearchPolicy
@@ -266,7 +266,7 @@ Object subclass: #SearchPolicy
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
 Object subclass: #SessionManager
-	instanceVariableNames: 'inputState resourceLibrary imagePath servers argv cmdLineFlags state sentry startupArgs consoleHandler stdioStreams eventLogHandle flags sessionId hConsole settingsChanged'
+	instanceVariableNames: 'inputState resourceLibrary imagePath servers argv cmdLineFlags state sentry startupArgs consoleHandler stdioStreams eventLogHandle flags sessionId hConsole settingsChanged events'
 	classVariableNames: 'Current EmbeddingMask PreStartFile SettingsChangeTimerId'
 	poolDictionaries: 'Win32Constants Win32Errors'
 	classInstanceVariableNames: ''!
@@ -720,11 +720,6 @@ LookupTable variableSubclass: #PluggableLookupTable
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-LookupTable variableSubclass: #PoolConstantsDictionary
-	instanceVariableNames: 'name'
-	classVariableNames: ''
-	poolDictionaries: ''
-	classInstanceVariableNames: ''!
 LookupTable variableSubclass: #SharedLookupTable
 	instanceVariableNames: 'mutex'
 	classVariableNames: ''
@@ -762,6 +757,11 @@ EventsCollection variableSubclass: #NullEventsCollection
 	classInstanceVariableNames: ''!
 WeakLookupTable variableSubclass: #WeakIdentityDictionary
 	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+PoolDictionary variableSubclass: #PoolConstantsDictionary
+	instanceVariableNames: 'name'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
@@ -827,6 +827,11 @@ Error subclass: #ArithmeticError
 	classInstanceVariableNames: ''!
 Error subclass: #BoundsError
 	instanceVariableNames: 'receiver'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Error subclass: #CannotReturnError
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!

@@ -1,7 +1,7 @@
 ﻿"Filed out from Dolphin Smalltalk 7"!
 
 Object subclass: #SessionManager
-	instanceVariableNames: 'inputState resourceLibrary imagePath servers argv cmdLineFlags state sentry startupArgs consoleHandler stdioStreams eventLogHandle flags sessionId hConsole settingsChanged'
+	instanceVariableNames: 'inputState resourceLibrary imagePath servers argv cmdLineFlags state sentry startupArgs consoleHandler stdioStreams eventLogHandle flags sessionId hConsole settingsChanged events'
 	classVariableNames: 'Current EmbeddingMask PreStartFile SettingsChangeTimerId'
 	poolDictionaries: 'Win32Constants Win32Errors'
 	classInstanceVariableNames: ''!
@@ -344,6 +344,12 @@ getenv: aString
 	^buf
 	!
 
+getEvents
+	"Private - Answer the EventsCollection belonging to the receiver, or nil if the receiver
+	has no events registered for it"
+
+	^events!
+
 hasActiveServers
 	"Private - Answer whether there are any servers still registered in this
 	session."
@@ -612,6 +618,12 @@ onExit
 	self trigger: #sessionStopped.
 	self shutdown.
 	^true	"We don't allow cancel, but a subclass could answer false if it wanted"!
+
+onInputLanguageChanged: aWindowsEvent
+	"Private - The input language (keyboard) has been changed."
+
+	settingsChanged add: #('InputLang' 0).
+	inputState msgWindow setTimer: SettingsChangeTimerId interval: 1000!
 
 onPostSaveImage
 	"Private - Perform post-image save actions"
@@ -971,6 +983,12 @@ setenv: nameString value: valueString
 	(KernelLibrary default setEnvironmentVariable: nameString lpValue: valueString)
 		ifFalse: [KernelLibrary default systemError]!
 
+setEvents: anEventsCollectionOrNil
+	"Private - Set the EventsCollection of the receiver to be anEventsCollectionOrNil.
+	Answer the receiver."
+
+	events := anEventsCollectionOrNil!
+
 shutdown
 	"Perform shutdown operations before the VM puts out the lights."
 
@@ -1172,6 +1190,7 @@ windowsDirectory
 !SessionManager categoriesFor: #freeConsole!operations!private! !
 !SessionManager categoriesFor: #getCommandLine!accessing!private! !
 !SessionManager categoriesFor: #getenv:!accessing!public! !
+!SessionManager categoriesFor: #getEvents!events!private! !
 !SessionManager categoriesFor: #hasActiveServers!private!testing! !
 !SessionManager categoriesFor: #imageBase!accessing!public! !
 !SessionManager categoriesFor: #imageExtension!constants!private! !
@@ -1211,6 +1230,7 @@ windowsDirectory
 !SessionManager categoriesFor: #onCloseConsole!event handling!private! !
 !SessionManager categoriesFor: #onConsoleCtrl:!event handling!private! !
 !SessionManager categoriesFor: #onExit!event handling!public! !
+!SessionManager categoriesFor: #onInputLanguageChanged:!event handling!private! !
 !SessionManager categoriesFor: #onPostSaveImage!event handling!private! !
 !SessionManager categoriesFor: #onPreSaveImage!event handling!private! !
 !SessionManager categoriesFor: #onQueryWindowsShutdown!event handling!public! !
@@ -1257,6 +1277,7 @@ windowsDirectory
 !SessionManager categoriesFor: #serverShutdown!operations-shutdown!private! !
 !SessionManager categoriesFor: #sessionId!accessing!public! !
 !SessionManager categoriesFor: #setenv:value:!accessing!public! !
+!SessionManager categoriesFor: #setEvents:!events!private! !
 !SessionManager categoriesFor: #shutdown!operations-shutdown!public! !
 !SessionManager categoriesFor: #snapshot:!operations-saving!private! !
 !SessionManager categoriesFor: #startUI!operations-startup!public! !

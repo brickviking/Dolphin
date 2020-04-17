@@ -1,4 +1,4 @@
-/******************************************************************************
+ï»¿/******************************************************************************
 
 	File: Timer.cpp
 
@@ -67,7 +67,7 @@ uint64_t Interpreter::m_clockFrequency;
 // Access to the asynchronous semaphore array is protected by a critical section
 // in the asynchronousSignal and CheckProcessSwitch routines. We don't really care
 // that much about the timerID
-void CALLBACK Interpreter::TimeProc(UINT uID, UINT /*uMsg*/, DWORD /*dwUser*/, DWORD /*dw1*/, DWORD /*dw2*/)
+void CALLBACK Interpreter::TimeProc(UINT uID, UINT /*uMsg*/, DWORD_PTR /*dwUser*/, DWORD_PTR /*dw1*/, DWORD_PTR /*dw2*/)
 {
 	// Avoid firing a timer which has been cancelled (or is about to be cancelled!)
 	// We use an InterlockedExchange() to set the value to 0 so that the main thread
@@ -98,7 +98,7 @@ void CALLBACK Interpreter::TimeProc(UINT uID, UINT /*uMsg*/, DWORD /*dwUser*/, D
 	}
 	else
 		// An old timer (which should have been cancelled) has fired
-		trace(L"Old timer %d fired, current %d\n", uID, timerID);
+		TRACE(L"Old timer %d fired, current %d\n", uID, timerID);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -107,10 +107,10 @@ void CALLBACK Interpreter::TimeProc(UINT uID, UINT /*uMsg*/, DWORD /*dwUser*/, D
 // Signal a specified semaphore after the specified milliseconds duration (the argument). 
 // NOTE: NOT ABSOLUTE VALUE!
 // If the specified time has already passed, then the TimingSemaphore is signalled immediately. 
-Oop* __fastcall Interpreter::primitiveSignalAtTick(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveSignalAtTick(Oop* const sp, primargcount_t)
 {
 	Oop tickPointer = *sp;
-	SMALLINTEGER nDelay;
+	SmallInteger nDelay;
 
 	if (ObjectMemoryIsIntegerObject(tickPointer))
 		nDelay = ObjectMemoryIntegerValueOf(tickPointer);
@@ -140,7 +140,7 @@ Oop* __fastcall Interpreter::primitiveSignalAtTick(Oop* const sp, unsigned)
 	if (nDelay > 0)
 	{
 		// Clamp the requested delay to the maximum if it is too large. This simplifies the Delay code in the image a little.
-		if (nDelay > SMALLINTEGER(wTimerMax))
+		if (nDelay > SmallInteger(wTimerMax))
 		{
 			nDelay = wTimerMax;
 		}
@@ -150,7 +150,7 @@ Oop* __fastcall Interpreter::primitiveSignalAtTick(Oop* const sp, unsigned)
 		// timerID anyway, just that we're interested in it).
 		// N.B. We shouldn't need an interlocked operation here because, assuming no bugs in the Win32 MM
 		// timers, we've killed any outstanding timer, and the timer thread should be dormant
-		timerID = UINT(-1);		// -1 is not used as a timer ID.
+		InterlockedExchange(&timerID, static_cast<UINT>(-1));		// -1 is not used as a timer ID.
 
 		UINT newTimerID = ::timeSetEvent(nDelay, 0, TimeProc, 0, TIME_ONESHOT);
 		if (newTimerID && newTimerID != UINT(-1))
@@ -201,7 +201,7 @@ Oop* __fastcall Interpreter::primitiveSignalAtTick(Oop* const sp, unsigned)
 	return primitiveSuccess(0);
 }
 
-Oop* __fastcall Interpreter::primitiveMillisecondClockValue(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveMillisecondClockValue(Oop* const sp, primargcount_t)
 {
 	Oop result = Integer::NewUnsigned64(GetMicrosecondClock()/1000);
 	*sp = result;
@@ -209,7 +209,7 @@ Oop* __fastcall Interpreter::primitiveMillisecondClockValue(Oop* const sp, unsig
 	return sp;
 }
 
-Oop* __fastcall Interpreter::primitiveMicrosecondClockValue(Oop* const sp, unsigned)
+Oop* __fastcall Interpreter::primitiveMicrosecondClockValue(Oop* const sp, primargcount_t)
 {
 	Oop result = Integer::NewUnsigned64(GetMicrosecondClock());
 	*sp = result;
@@ -242,7 +242,7 @@ HRESULT Interpreter::initializeTimer()
 {
 	if (::QueryPerformanceFrequency(reinterpret_cast<LARGE_INTEGER*>(&m_clockFrequency)) == 0)
 	{
-		// MSDN says this shouldn't happen: "On systems that run Windows XP or later, the function will always succeed and will thus never return zero."
+		// MSDN says this shouldn't happen: "On systems that run Windows XP or later, the function will always succeed and will thus never return zero."
 		return ReportWin32Error(IDP_NOHIRESCLOCK, ::GetLastError());
 	}
 

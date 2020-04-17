@@ -1,11 +1,16 @@
 ﻿"Filed out from Dolphin Smalltalk 7"!
 
 SmalltalkToolShell subclass: #ViewComposer
-	instanceVariableNames: 'toolboxPresenter status arenaPresenter inspector composingView ownsComposingView resourceIdentifier addPositionOffset grabbers selections grid viewHierarchyPresenter adornmentRegion primarySelection vcFlags modificationStatus image clipboard undoList isUndoRedoInProgress'
-	classVariableNames: 'AdornmentModifiedFlag Clipboard DefaultGridResolution ExtentImage ModifiedFlag MouseClickFlag PositionImage'
+	instanceVariableNames: 'toolboxPresenter status arenaPresenter inspector composingView ownsComposingView resourceIdentifier addPositionOffset grabbers selections grid viewHierarchyPresenter adornmentRegion primarySelection vcFlags modificationStatus image clipboard undoList'
+	classVariableNames: 'AdornmentModifiedFlag Clipboard DefaultGridResolution ExtentImage ModifiedFlag MouseClickFlag PositionImage RefreshFlag UndoRedoFlag'
 	poolDictionaries: 'Win32Constants'
 	classInstanceVariableNames: ''!
 ViewComposer guid: (GUID fromString: '{045641aa-90d2-43e8-a81c-a3f76d7d35b4}')!
+ViewComposer addClassConstant: 'AdornmentModifiedFlag' value: 16r4!
+ViewComposer addClassConstant: 'ModifiedFlag' value: 16r1!
+ViewComposer addClassConstant: 'MouseClickFlag' value: 16r2!
+ViewComposer addClassConstant: 'RefreshFlag' value: 16r8!
+ViewComposer addClassConstant: 'UndoRedoFlag' value: 16r10!
 ViewComposer comment: 'The View Composer is Dolphin''s GUI builder. It is used to graphically create views (the user interface components of the MVP framework). 
 
 The view resources are saved down as class-side methods, usually associated with the presenter classes to which the views will be attached. These methods are given selectors of the form, #resource_xxxx_yyyy, where xxxx_yyyy is the resource identifier. The resource methods answer an array of Smalltalk literals that can be used to rebuild an instance of the view when loaded via an STLInFiler.
@@ -69,20 +74,33 @@ adjustScroll
 		invalidateLayout;
 		validateLayout!
 
-adornmentRectanglesFor: aView 
+adornmentRectanglesFor: aView
 	"Private - Answer a collection of rectangles that mark the edges of the secondary
 	selection adornments of aView."
 
-	| aspects viewRects |
-	aspects := #(#topLeft #bottomRight #topRight #bottomLeft #topCenter #bottomCenter #leftCenter #rightCenter).
-	viewRects := aspects collect: 
-					[:eachAspect | 
-					| center extent |
-					extent := Grabber defaultExtent.
-					center := (aView rectangle insetBy: extent // 2 negated) perform: eachAspect.
-					center := self mapPoint: center toArenaFromView: aView.
+	| viewRects extent rect |
+	extent := Grabber defaultExtent.
+	rect := aView rectangle insetBy: extent // 2 negated.
+	viewRects := #(#topLeft #bottomRight #topRight #bottomLeft #topCenter #bottomCenter #leftCenter #rightCenter)
+				collect: 
+					[:eachAspect |
+					| center |
+					center := self mapPoint: (rect perform: eachAspect) toArenaFromView: aView.
 					Rectangle center: center extent: extent].
 	^viewRects!
+
+adornmentRectanglesFor: aView do: aMonadicValuable
+	"Private - Evaluate the monadic valuable argument for a collection of rectangles that mark the edges of the secondary
+	selection adornments of aView."
+
+	| grabberExt viewRect |
+	grabberExt := Grabber defaultExtent.
+	viewRect := aView rectangle insetBy: grabberExt // 2 negated.
+	viewRect
+		origin: (self mapPoint: viewRect origin toArenaFromView: aView);
+		corner: (self mapPoint: viewRect corner toArenaFromView: aView).
+	#(#topLeft #bottomRight #topRight #bottomLeft #topCenter #bottomCenter #leftCenter #rightCenter)
+		do: [:eachAspect | aMonadicValuable value: (Rectangle center: (viewRect perform: eachAspect) extent: grabberExt)]!
 
 adornmentRegion
 	"Private - Answers a Region occupied by all the selection adornments"
@@ -90,13 +108,14 @@ adornmentRegion
 	(adornmentRegion isNil or: [adornmentRegion isRealized not]) ifTrue: [self saveAdornmentRegion].
 	^adornmentRegion!
 
-adornmentRegionFor: aView 
+adornmentRegionFor: aView
 	"Private - Answers a Region occupied by the selection adornments for aView"
 
 	| region1 |
 	region1 := Region empty.
-	(self adornmentRectanglesFor: aView) do: 
-			[:each | 
+	self adornmentRectanglesFor: aView
+		do: 
+			[:each |
 			| region2 temp |
 			region2 := Region rectangle: (each insetBy: -1).
 			temp := region1 union: region2.
@@ -690,11 +709,6 @@ defaultSelectionWidth
 
 !
 
-deferImageUpdate
-	
-	[self refreshImage.
-	self invalidateUserInterface] postToMessageQueue!
-
 deleteSelections
 	self selections copy do: [:each | self removeView: each].
 	self setModified.
@@ -778,12 +792,12 @@ drawAdornment
 drawSelectionFor: aView
 	"Private - Paint the selection border for aView."
 
-	| canvas |
+	| canvas aMonadicValuable |
 	canvas := self arena canvas.
 	canvas pen: (Pen color: Color highlight).
-	(self adornmentRectanglesFor: aView) do: [:each | canvas rectangle: each].
-	canvas free.
-!
+	aMonadicValuable := [:each | canvas rectangle: each].
+	self adornmentRectanglesFor: aView do: aMonadicValuable.
+	canvas free!
 
 drawTrackingAt: pointOffset 
 	"Private - Draws the tracking for the current selections when offset by pointOffset."
@@ -971,9 +985,7 @@ grabberHitBy: aPoint
 grabbers
 	"Private - Answers the collection of grabbers currently in operation"
 
-	grabbers isNil ifTrue: [ grabbers := IdentitySet new ].
-	^grabbers
-!
+	^grabbers ifNil: [grabbers := IdentitySet new: 8]!
 
 grid
 	"Private - Answers the Grid associated with the receiver."
@@ -1079,7 +1091,6 @@ initialize
 
 	self grid: (Grid resolution: self class defaultGridResolution).
 	undoList := HistoryList new: self maxUndoStates.
-	isUndoRedoInProgress := false.
 	selections := OrderedCollection new.
 	vcFlags := 0.
 	ownsComposingView := false.
@@ -1090,6 +1101,15 @@ inspector
 	"Private - Answer the published aspect inspector of the receiver"
 
 	^inspector!
+
+inspectSelection
+	"Removes the current selections from the receiver"
+
+	| sel |
+	sel := self selections.
+	sel size = 1
+		ifTrue: [sel first inspect]
+		ifFalse: [sel asArray inspect]!
 
 invalidateAdornmentFor: aView
 	"Private - Invalidates the region occupied by the adornments for aView 
@@ -1112,19 +1132,25 @@ isAdornmentModified: aBoolean
 	vcFlags := vcFlags mask: AdornmentModifiedFlag set: aBoolean
 !
 
+isImageDirty
+	^vcFlags anyMask: RefreshFlag!
+
+isImageDirty: aBoolean
+	vcFlags := vcFlags mask: RefreshFlag set: aBoolean!
+
 isModified
 	"Answer true if the view being composed has been modified"
 
 	^vcFlags allMask: ModifiedFlag
 !
 
-isModified: aBoolean 
+isModified: aBoolean
 	"Private - Set the modifiaction flag for the view being composed to aBoolean"
 
-	aBoolean 
+	aBoolean
 		ifTrue: 
 			[self
-				deferImageUpdate;
+				refreshImage;
 				saveUndoState].
 	self isModified == aBoolean ifTrue: [^self].
 	vcFlags := vcFlags mask: ModifiedFlag set: aBoolean.
@@ -1153,6 +1179,9 @@ isSelected: aView
 
 	^self selections includes: aView
 !
+
+isUndoRedoInProgress
+	^vcFlags anyMask: UndoRedoFlag!
 
 mapPoint: aPoint toArenaFromView: aView 
 	^(aView parentView mapPoint: aPoint to: View desktop) - self hidingOffset+self defaultComposingPosition!
@@ -1539,21 +1568,10 @@ onIdleEntered
 	"Private - Idle has been entered. Ensure the adornment is displayed correctly"
 
 	super onIdleEntered.
-	(image notNil and: [image handle isNull]) 
+	self isOpen
 		ifTrue: 
-			["After image reload the saved image will be invalid so recreate it"
-			self refreshImage].
-	self isAdornmentModified 
-		ifTrue: 
-			[self eraseAdornment.
-			self drawAdornment.
-			self primarySelection notNil 
-				ifTrue: 
-					[| rect |
-					rect := self primarySelection rectangle.
-					self primarySelection = self composingView ifTrue: [rect moveBy: self hidingOffset negated].
-					status value: rect].
-			self isAdornmentModified: false]!
+			[self validateImage.
+			self validateAdornment]!
 
 onImageSaveCompleted
 	self ownsComposingView 
@@ -1630,6 +1648,7 @@ onSettingChanged: aWindowEvent
 	^super onSettingChanged: aWindowEvent!
 
 onViewClosed
+	viewHierarchyPresenter removeEventsTriggeredFor: self.
 	self closeComposingView.
 	super onViewClosed!
 
@@ -1660,10 +1679,12 @@ openOn: aResourceIdentifier
 	position := self pasteContext == View desktop 
 				ifTrue: [self initialComposingPosition]
 				ifFalse: [self incrementAddPositionOffset].
-	self 
-		pasteResource: aResourceIdentifier resource
-		context: self pasteContext
-		position: position.
+	"Pretend performing an undo/redo operation to suppress capture of undo history"
+	self performUndoRedo: [
+		self 
+			pasteResource: aResourceIdentifier resource
+			context: self pasteContext
+			position: position].
 
 	"The paste will have set the modified flag. We clear it here,
 	because we know the view has simply been opened."
@@ -1758,6 +1779,10 @@ performCommand: aCommand
 	self drawAdornment.
 	^result
 !
+
+performUndoRedo: aNiladicValuable
+	vcFlags := vcFlags maskSet: UndoRedoFlag.
+	aNiladicValuable ensure: [vcFlags := vcFlags maskClear: UndoRedoFlag]!
 
 primarySelection
 	"Private - Answer the primary selection or nil if there is none."
@@ -1895,14 +1920,7 @@ queryCommand: aCommandQuery
 refreshImage
 	" Re-render the composing view and display it in the arenaPresenter."
 
-	"self ownsComposingView 
-		ifTrue: 
-			[(self composingView)
-				position: self hidingOffset;
-				showWithStyle: SW_SHOWNA]."
-
-	image := self composingView notNil ifTrue: [Bitmap fromView: self composingView].
-	arenaPresenter value: image!
+	self isImageDirty: true!
 
 refreshPublishedAspects
 	inspector refresh!
@@ -1910,10 +1928,10 @@ refreshPublishedAspects
 removeGrabbers
 	"Private - Destroy all the grabbers"
 
-	self grabbers do: [ :each | each invalidate ].
-	grabbers := nil.
-
-!
+	grabbers
+		ifNotNil: 
+			[grabbers do: [:each | each invalidate].
+			grabbers := nil]!
 
 removeHorizontalGaps
 	"Remove any vertical spacing between the selected controls."
@@ -2056,7 +2074,7 @@ saveStateOn: aWriteStream
 	aWriteStream nextPutAll: ']'!
 
 saveUndoState
-	isUndoRedoInProgress ifTrue: [^self].
+	self isUndoRedoInProgress ifTrue: [^self].
 	undoList addLast: self undoState!
 
 secondarySelections
@@ -2223,6 +2241,27 @@ updatePrimarySelection
 	actualPrimarySelection := self selections notEmpty ifTrue: [self selections first ].
 	self primarySelection: actualPrimarySelection!
 
+validateAdornment
+	self isAdornmentModified ifFalse: [^self].
+	self eraseAdornment.
+	self drawAdornment.
+	self primarySelection notNil
+		ifTrue: 
+			[| rect |
+			rect := self primarySelection rectangle.
+			self primarySelection = self composingView ifTrue: [rect moveBy: self hidingOffset negated].
+			status value: rect].
+	self isAdornmentModified: false!
+
+validateImage
+	"Private - Re-render the composing view and display it in the arenaPresenter."
+
+	((image notNil and: [image handle isNull]) or: [self isImageDirty]) ifFalse: [^self].
+	self isImageDirty: false.
+	image := self composingView notNil
+				ifTrue: [Bitmap fromView: self composingView background: self arena actualBackcolor brush].
+	arenaPresenter value: image!
+
 validateLayout
 	"Private - Validate the layout for the view being composed"
 
@@ -2325,10 +2364,7 @@ viewOpen
 			(rid := ChoicePrompter choices: viewResources caption: 'Open') notNil ifTrue: [self openOn: rid]]!
 
 viewRedo
-	
-	[isUndoRedoInProgress := true.
-	self restoreUndoState: (undoList goForward: 1)] 
-			ensure: [isUndoRedoInProgress := false]!
+	self performUndoRedo: [self restoreUndoState: (undoList goForward: 1)]!
 
 viewRevert
 	"Revert the contents of the receiver's document to those in the
@@ -2380,10 +2416,7 @@ viewTest
 	testView show!
 
 viewUndo
-	
-	[isUndoRedoInProgress := true.
-	self restoreUndoState: (undoList goBack: 1)] 
-			ensure: [isUndoRedoInProgress := false]!
+	self performUndoRedo: [self restoreUndoState: (undoList goBack: 1)]!
 
 widenSelection
 	"Widen the selection to encompass the parent of the current primary selection."
@@ -2450,6 +2483,7 @@ zOrderChangedFor: aView
 !ViewComposer categoriesFor: #addSelectionFor:!adornments!private! !
 !ViewComposer categoriesFor: #adjustScroll!geometry!private! !
 !ViewComposer categoriesFor: #adornmentRectanglesFor:!adornments!private! !
+!ViewComposer categoriesFor: #adornmentRectanglesFor:do:!adornments!private! !
 !ViewComposer categoriesFor: #adornmentRegion!adornments!private! !
 !ViewComposer categoriesFor: #adornmentRegionFor:!adornments!private! !
 !ViewComposer categoriesFor: #alignBottoms!commands!public! !
@@ -2511,7 +2545,6 @@ zOrderChangedFor: aView
 !ViewComposer categoriesFor: #defaultGridResolution!constants!private! !
 !ViewComposer categoriesFor: #defaultHelpId!public! !
 !ViewComposer categoriesFor: #defaultSelectionWidth!constants!private! !
-!ViewComposer categoriesFor: #deferImageUpdate!accessing!private! !
 !ViewComposer categoriesFor: #deleteSelections!commands!public! !
 !ViewComposer categoriesFor: #dereference!commands!private! !
 !ViewComposer categoriesFor: #distributeHorizontally!commands!public! !
@@ -2557,15 +2590,19 @@ zOrderChangedFor: aView
 !ViewComposer categoriesFor: #initialComposingPosition!constants!private! !
 !ViewComposer categoriesFor: #initialize!initializing!private! !
 !ViewComposer categoriesFor: #inspector!accessing!private! !
+!ViewComposer categoriesFor: #inspectSelection!commands!public! !
 !ViewComposer categoriesFor: #invalidateAdornmentFor:!adornments!private! !
 !ViewComposer categoriesFor: #isAdornmentModified!operations!private! !
 !ViewComposer categoriesFor: #isAdornmentModified:!operations!private! !
+!ViewComposer categoriesFor: #isImageDirty!private! !
+!ViewComposer categoriesFor: #isImageDirty:!private! !
 !ViewComposer categoriesFor: #isModified!public!testing! !
 !ViewComposer categoriesFor: #isModified:!accessing!private! !
 !ViewComposer categoriesFor: #isMouseClick!private!testing! !
 !ViewComposer categoriesFor: #isMouseClick:!accessing!private! !
 !ViewComposer categoriesFor: #isMouseTarget!private!testing! !
 !ViewComposer categoriesFor: #isSelected:!private!testing! !
+!ViewComposer categoriesFor: #isUndoRedoInProgress!private! !
 !ViewComposer categoriesFor: #mapPoint:toArenaFromView:!helpers!private! !
 !ViewComposer categoriesFor: #mapPoint:toViewFromArena:!private! !
 !ViewComposer categoriesFor: #mapRectangle:toArenaFromView:!private! !
@@ -2621,6 +2658,7 @@ zOrderChangedFor: aView
 !ViewComposer categoriesFor: #pasteResource:context:position:!operations!public! !
 !ViewComposer categoriesFor: #pasteResourceLink:context:position:!operations!public! !
 !ViewComposer categoriesFor: #performCommand:!commands!public! !
+!ViewComposer categoriesFor: #performUndoRedo:!helpers!private! !
 !ViewComposer categoriesFor: #primarySelection!adornments!private! !
 !ViewComposer categoriesFor: #primarySelection:!adornments!private! !
 !ViewComposer categoriesFor: #printShortCaptionOn:!private!updating! !
@@ -2665,6 +2703,8 @@ zOrderChangedFor: aView
 !ViewComposer categoriesFor: #updateAdornment!operations!private! !
 !ViewComposer categoriesFor: #updateCaption!private!updating! !
 !ViewComposer categoriesFor: #updatePrimarySelection!adornments!private! !
+!ViewComposer categoriesFor: #validateAdornment!operations!private! !
+!ViewComposer categoriesFor: #validateImage!private! !
 !ViewComposer categoriesFor: #validateLayout!geometry!private! !
 !ViewComposer categoriesFor: #validateUserInterface!operations!private! !
 !ViewComposer categoriesFor: #viewClose!commands!public! !
@@ -2735,6 +2775,11 @@ defaultGridResolution
 
 	^DefaultGridResolution!
 
+defaultGridResolution: anInteger
+	"Set the default grid resolution to use in the receiver."
+
+	DefaultGridResolution := anInteger!
+
 displayOn: aStream
 	"Append, to aStream, a String whose characters are a representation of the receiver as a user
 	would want to see it."
@@ -2759,9 +2804,12 @@ initialize
 	Smalltalk developmentSystem
 		addSystemFolderIcon: self toolsFolderIcon;
 		registerTool: self.
-	ModifiedFlag := 16r1.
-	MouseClickFlag := 16r2.
-	AdornmentModifiedFlag := 16r4.
+	self
+		addClassConstant: 'ModifiedFlag' value: 16r1;
+		addClassConstant: 'MouseClickFlag' value: 16r2;
+		addClassConstant: 'AdornmentModifiedFlag' value: 16r4;
+		addClassConstant: 'RefreshFlag' value: 16r8;
+		addClassConstant: 'UndoRedoFlag' value: 16r10.
 	self canUseIdeaSpace: true.
 	self defaultSlideyPinsMap: ##(IdentityDictionary new
 				at: #toolsSlidey put: false;
@@ -2781,7 +2829,6 @@ publishedAspects
 	| aspects |
 	aspects := super publishedAspects.
 	aspects
-		add: (Aspect boolean: #reuseIfOpen);
 		add: (Aspect boolean: #canUseIdeaSpace);
 		add: (Aspect integer: #defaultGridResolution);
 		yourself.
@@ -2795,7 +2842,7 @@ resource_Vertical_view
 	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Vertical_view)
 	"
 
-	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.ShellView) 34 27 nil nil 8 #(13565952 65536) 416 nil 655878 ##(Smalltalk.ThemeColor) #toolBackground nil 549 nil nil nil 416 788230 ##(Smalltalk.BorderLayout) 1 1 410 ##(Smalltalk.Toolbar) 34 25 nil 416 34 2 8 1140853580 131073 528 nil nil nil 519 nil nil nil 528 786694 ##(Smalltalk.ColorDefault) 8 4278190080 8 1915204752 170 192 34 8 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 688 nil nil nil 7 nil nil nil 688 1180230 1 ##(Smalltalk.ResourceIdentifier) ##(Smalltalk.Toolbar) #resource_Search_tools nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 1 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 615 1 898 437 51 688 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 51 1 0 0 0 0 0 0 13 2 0 0 25 0 0 0] 8 #() 898 193 193 nil 27 8 'searchTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1040 nil nil nil 7 nil nil nil 1040 754 ##(Smalltalk.Toolbar) #resource_File_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1051 1 898 155 51 1040 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 13 2 0 0 0 0 0 0 90 2 0 0 25 0 0 0] 992 1008 nil 27 8 'fileTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1280 nil nil nil 7 nil nil nil 1280 754 ##(Smalltalk.Toolbar) #resource_Smalltalk_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 63 1 898 553 51 1280 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 31 0 0 0 0 0 0 0 51 1 0 0 25 0 0 0] 992 1008 nil 27 8 'smalltalkTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1520 nil nil nil 7 nil nil nil 1520 754 ##(Smalltalk.Toolbar) #resource_Image_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 63 51 1520 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 31 0 0 0 25 0 0 0] 992 1008 nil 27 8 'imageTools' 170 192 992 8 #() nil nil 1 nil 898 33 33 nil nil 656198 1 ##(Smalltalk.FlowLayout) 1 1 1 786 138 144 34 2 850 #createAt:extent: 34 2 898 1 1 898 2079 51 528 850 #updateSizePosted 992 528 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 15 4 0 0 25 0 0 0] 34 4 1520 1280 688 1040 1008 nil 27 410 ##(Smalltalk.StatusBar) 34 18 nil 416 34 2 8 1140853004 1 2016 nil nil nil 7 nil nil nil 2016 nil 8 1914952576 170 192 34 6 853766 ##(Smalltalk.StatusBarItem) 1 37 2016 nil nil 787814 3 ##(Smalltalk.BlockClosure) 0 nil 1180966 ##(Smalltalk.CompiledExpression) 5 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:modified | modified ifTrue: [Smalltalk developmentSystem changedIcon imageIndex]]' 8 #[33 105 17 122 45 159 160 161 106 60 106] 721414 ##(Smalltalk.Association) #Smalltalk ##(Smalltalk) #developmentSystem #changedIcon #imageIndex 2176 7 257 nil nil 8 'modificationStatus' 2130 1 301 2016 nil 2162 0 nil 2194 4 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:r | r notNil ifTrue: [r extent displayString] ifFalse: ['''']]' 8 #[32 105 17 222 4 17 158 159 106 31 106] #extent #displayString 8 '' 2336 7 257 nil 850 #extentImage 8 #() ##(Smalltalk.ViewComposer) nil 8 'extentStatus' 2130 1 301 2016 nil 2162 0 nil 2194 4 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:r | r notNil ifTrue: [r position displayString] ifFalse: ['''']]' 8 #[32 105 17 222 4 17 158 159 106 31 106] #position #displayString 2416 2496 7 257 nil 850 #positionImage 2448 ##(Smalltalk.ViewComposer) nil 8 'positionStatus' 34 3 2480 2320 2144 1115142 ##(Smalltalk.StatusBarNullItem) 513 1 2016 nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1379 898 2079 45 2016 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 177 2 0 0 15 4 0 0 199 2 0 0] 8 #() 1008 nil 27 nil nil 410 ##(Smalltalk.ContainerView) 34 15 nil 416 34 2 8 1140850688 131073 2816 nil nil nil 7 nil nil nil 2816 1180166 ##(Smalltalk.ProportionalLayout) 170 176 992 true 170 192 34 2 410 ##(Smalltalk.ContainerView) 34 15 nil 2816 34 2 8 1140850688 131073 2960 nil nil nil 7 nil nil nil 2960 2882 138 ##(Smalltalk.Dictionary) 34 2 2274 410 ##(Smalltalk.ContainerView) 34 15 nil 2960 34 2 8 1140850688 131073 3088 nil nil nil 7 265030 4 ##(Smalltalk.Menu) nil true 34 16 984134 2 ##(Smalltalk.CommandMenuItem) 1 1180998 4 ##(Smalltalk.CommandDescription) #cutSelection 8 'Cu&t' 1 1 nil nil nil 3202 1 3234 #copySelection 8 '&Copy' 1 1 nil nil nil 3202 1 3234 #pasteClipboard 8 '&Paste' 1 1 nil nil nil 3202 1 3234 #clearSelection 8 '&Delete' 1 1 nil nil nil 983366 1 ##(Smalltalk.DividerMenuItem) 4097 3202 1 3234 #editContextMenu 8 'Set Conte&xt Menu...' 1 1 nil nil nil 3426 4097 3202 1 3234 #toggleTabStop 8 'Make Tab &Stop' 1 1 nil nil nil 3202 1 3234 #toggleGroupStop 8 'Make &Group Stop' 1 1 nil nil nil 3426 4097 3154 nil true 34 7 3202 1 3234 #alignLefts 8 '&Lefts' 1 1 nil nil nil 3202 1 3234 #alignCenters 8 '&Centres' 1 1 nil nil nil 3202 1 3234 #alignRights 8 '&Rights' 1 1 nil nil nil 3426 4097 3202 1 3234 #alignTops 8 '&Tops' 1 1 nil nil nil 3202 1 3234 #alignMiddles 8 '&Middles' 1 1 nil nil nil 3202 1 3234 #alignBottoms 8 '&Bottoms' 1 1 nil nil nil 8 'View Alig&n' nil 134217729 nil nil nil nil nil 3154 nil true 34 5 3202 1 3234 #matchWidths 8 '&Widths' 1 1 nil nil nil 3202 1 3234 #matchHeights 8 '&Heights' 1 1 nil nil nil 3202 1 3234 #matchFonts 8 '&Fonts' 1 1 nil nil nil 3202 1 3234 #matchForegroundColors 8 'Foreground &Colors' 1 1 nil nil nil 3202 1 3234 #matchBackgroundColors 8 '&Background Colors' 1 1 nil nil nil 8 'View Matc&h' nil 134217729 nil nil nil nil nil 3154 nil true 34 4 3202 1 3234 #zFront 8 'Bring to &Front' 1 1 nil nil nil 3202 1 3234 #zForward 8 'Bring F&orward' 1 1 nil nil nil 3202 1 3234 #zBackward 8 'Send B&ackward' 1 1 nil nil nil 3202 1 3234 #zBack 8 'Send to Bac&k' 1 1 nil nil nil 8 'View &Arrange' nil 134217729 nil nil nil nil nil 3426 4097 3202 1 3234 #mutate 8 'M&utate View...' 1 1 nil nil nil 3154 nil true 34 2 3202 1 3234 #dereference 8 'De&reference to Copy' 1 1 nil nil nil 3202 1 3234 #editReference 8 '&Edit' 1 1 nil nil nil 8 '&Reference View' #referenceViewMenu 134217729 nil nil nil nil nil 8 '' nil 134217729 nil nil nil nil nil nil nil 3088 2882 170 176 34 4 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 3088 34 2 8 1140850688 131073 4784 nil nil nil 519 nil nil nil 4784 655878 ##(Smalltalk.CardLayout) 138 144 34 1 2274 590662 1 ##(Smalltalk.CardLabel) 8 'Property Inspector' 2162 0 nil 2194 6 1 16 8 'doIt' 8 '(CardLabel text: ''Property Inspector'' iconBlock: [PublishedAspectInspector icon])' 8 #[45 30 34 112 47 161 106 194 105] 983558 ##(Smalltalk.VariableBinding) #CardLabel 4928 4960 5058 #PublishedAspectInspector ##(Smalltalk.PublishedAspectInspector) #icon #text:iconBlock: 4976 11 1 nil 21659 410 ##(Smalltalk.ContainerView) 34 15 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 4784 34 2 8 1140850688 131073 5136 nil nil nil 7 nil nil nil 5136 4864 170 192 992 nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 4784 34 2 8 1140916866 1 5216 590662 2 ##(Smalltalk.ListModel) 138 144 34 1 4944 nil 1310726 ##(Smalltalk.IdentitySearchPolicy) nil nil 1 nil nil nil 5216 nil 8 1915274640 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 1049926 1 ##(Smalltalk.IconImageManager) nil nil nil nil nil #smallIcons nil nil nil nil nil 786 138 144 34 3 850 #createAt:extent: 34 2 898 1 1 898 373 1329 5216 850 #basicSelectionsByIndex: 34 1 8 #(1) 5216 850 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 5216 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 186 0 0 0 152 2 0 0] 8 #() 1008 nil 27 nil 4784 898 33 33 1050182 1 ##(Smalltalk.ButtonInteractor) 5136 nil 1 590342 ##(Smalltalk.Rectangle) 898 5 3 898 37 35 nil 3234 #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 9 9 898 309 1313 5136 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 0 4 0 0 0 158 0 0 0 148 2 0 0] 34 1 5104 1008 nil 27 34 2 8 1140850688 131073 5104 nil nil nil 7 nil nil nil 5104 2882 138 ##(Smalltalk.Dictionary) 34 3 2274 410 ##(Smalltalk.ReferenceView) 34 14 nil 5104 34 2 8 1140850688 131073 6064 nil nil nil 7 nil nil nil 6064 754 ##(Smalltalk.PropertyInspector) #resource_Default_view nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 389 898 309 889 6064 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 194 0 0 0 154 0 0 0 126 2 0 0] 992 1008 nil 27 327734 ##(Smalltalk.Float) 8 102 102 102 102 102 102 230 63 2274 410 ##(Smalltalk.TreeView) 34 27 nil 5104 34 2 8 1140918819 1 6336 590918 3 ##(Smalltalk.TreeModel) nil 5360 525062 ##(Smalltalk.TreeNode) nil nil nil 170 192 992 608 nil 31 nil nil nil 6336 nil 8 1914975136 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 5408 nil 2162 0 nil 2194 2 1 2160 8 'doIt' 8 '[:x | x printString]' 8 #[30 105 226 0 106] #printString 6496 7 257 nil nil nil nil 170 176 992 nil #smallIcons 1 170 ##(Smalltalk.PluggableLookupTable) 992 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 309 379 6336 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 154 0 0 0 189 0 0 0] 8 #() 1008 nil 27 6290 8 51 51 51 51 51 51 211 63 2274 410 ##(Smalltalk.Splitter) 34 12 nil 5104 34 2 8 1140850688 1 6800 nil nil nil 519 nil nil nil 1510470 1 ##(Smalltalk.DraggableViewInteractor) 6800 nil 1 #left nil nil nil 898 1 1 898 9 9 nil 6896 nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 379 898 309 11 6800 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 189 0 0 0 154 0 0 0 194 0 0 0] 8 #() 1008 nil 27 1 true 170 192 34 4 6064 8 'inspector' 6336 8 'viewHierarchy' nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 309 1277 5104 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 154 0 0 0 144 2 0 0] 34 3 6336 6800 6064 1008 nil 27 5104 170 192 992 nil 5216 5136 898 201 201 401 1 524319 nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 757 1 898 373 1329 4784 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 122 1 0 0 0 0 0 0 52 2 0 0 152 2 0 0] 34 2 5136 5216 1008 nil 27 6290 8 154 153 153 153 153 153 233 63 410 ##(Smalltalk.ContainerView) 34 15 nil 3088 34 2 8 1140850688 131073 7520 nil nil nil 7 nil nil nil 7520 498 1 1 nil 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 7520 34 2 8 1140850688 131073 7600 nil nil nil 519 nil nil nil 7600 4850 138 144 34 5 2274 8 'Arrange' 410 ##(Smalltalk.ReferenceView) 34 14 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 7600 34 2 8 1140850688 131073 7776 nil nil nil 7 nil nil nil 7776 7664 170 192 34 10 410 ##(Smalltalk.ReferenceView) 34 14 nil 7776 34 2 8 1140850688 131073 7872 nil nil nil 5 nil nil nil 7872 754 ##(Smalltalk.Toolbar) #resource_View_composer_nudge_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 731 57 7872 946 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 992 1008 nil 27 8 'nudgeTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 7776 34 2 8 1140850688 131073 8112 nil nil nil 5 nil nil nil 8112 754 ##(Smalltalk.Toolbar) #resource_Edit_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 731 57 8112 946 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 992 1008 nil 27 8 'editTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 7776 34 2 8 1140850688 131073 8352 nil nil nil 5 nil nil nil 8352 754 ##(Smalltalk.Toolbar) #resource_View_composer_spacing_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 731 57 8352 946 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 992 1008 nil 27 8 'layoutTools' 410 ##(Smalltalk.Toolbar) 34 25 nil 7776 34 2 8 1140853580 131137 8592 nil nil nil 517 nil 263174 ##(Smalltalk.Font) nil true 459014 ##(Smalltalk.LOGFONT) 8 #[243 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 3 2 1 34 65 114 105 97 108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] 898 193 193 nil 8592 608 8 1915204752 170 192 34 4 410 ##(Smalltalk.ReferenceView) 34 14 nil 8592 34 2 8 1140850688 131073 8800 nil nil nil 5 nil nil nil 8800 754 ##(Smalltalk.Toolbar) #resource_View_composer_match_size_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 339 1 898 201 51 8800 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 169 0 0 0 0 0 0 0 13 1 0 0 25 0 0 0] 992 1008 nil 27 8 'matchSizeTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 8592 34 2 8 1140850688 131073 9040 nil nil nil 5 nil nil nil 9040 754 ##(Smalltalk.Toolbar) #resource_View_composer_alignment_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 339 51 9040 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 169 0 0 0 25 0 0 0] 992 1008 nil 27 8 'alignmentTools' 170 192 992 138 144 992 nil nil 1 nil 898 33 33 898 45 45 nil 1810 1 1 1 786 138 144 34 2 850 #createAt:extent: 34 2 898 1 37 898 731 57 8592 850 #updateSizePosted 992 8592 946 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 34 2 9040 8800 1008 nil 27 8 'alignTools' 7744 8 'arrangementTools' nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 7600 34 2 8 1140916738 1 9568 5282 138 144 34 5 8 'Edit' 7728 8 'Nudge' 8 'Align' 8 'Layout' nil 5360 nil nil 1 nil nil nil 9568 nil 8 1915274640 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 5408 nil nil nil nil nil #noIcons nil nil nil nil nil 786 138 144 34 3 850 #createAt:extent: 34 2 898 1 1 898 747 153 9568 850 #basicSelectionsByIndex: 34 1 8 #(2) 9568 850 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 9568 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 76 0 0 0] 8 #() 1008 nil 27 nil 7600 898 33 33 5682 7776 nil 1 5714 898 695 3 898 727 35 nil 3234 #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 9 9 898 731 93 7776 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 0 4 0 0 0 113 1 0 0 50 0 0 0] 34 5 8112 7744 7872 8592 8352 1008 nil 27 34 2 8 1140850688 131073 7744 nil nil nil 7 nil nil nil 7744 754 ##(Smalltalk.Toolbar) #resource_View_composer_tools nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 731 57 7744 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 992 1008 nil 27 2274 9696 7872 2274 9712 8592 2274 9728 8352 2274 9680 8112 7744 170 192 992 nil 9568 7776 898 201 201 401 1 524319 nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1177 898 747 153 7600 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 76 2 0 0 117 1 0 0 152 2 0 0] 34 2 7776 9568 1008 nil 27 nil nil 410 ##(Smalltalk.ScrollingDecorator) 34 18 nil 7520 34 2 8 1143996416 131073 10720 nil nil nil 7 nil nil nil 10720 1573190 1 ##(Smalltalk.ScrollingDecoratorLayout) true 170 192 34 2 410 ##(Smalltalk.ViewComposerArena) 34 22 nil 10720 34 2 8 1140850944 1 10848 721990 2 ##(Smalltalk.ValueHolder) nil false 1310726 ##(Smalltalk.EqualitySearchPolicy) nil 196934 1 ##(Smalltalk.RGB) 28306427 nil 535 nil nil nil 10848 nil nil 852486 ##(Smalltalk.NullConverter) nil nil nil nil #normal nil 5714 898 21 21 898 21 21 nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 1577 1397 10848 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 20 3 0 0 186 2 0 0] 8 #() 1008 nil 27 8 'arena' nil 898 1 1 true 898 17 17 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 747 1177 10720 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 76 2 0 0] 34 1 10848 1008 nil 27 170 192 34 2 7600 8 'toolbarsSlidey' nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 747 1329 7520 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 152 2 0 0] 34 2 10720 7600 1008 nil 27 524806 ##(Smalltalk.Fraction) 521 323 false 170 192 34 2 4784 8 'inspectorSlidey' nil 786 138 144 34 2 850 #createAt:extent: 34 2 898 951 1 898 1129 1329 3088 850 #contextMenu: 34 1 3168 3088 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 219 1 0 0 0 0 0 0 15 4 0 0 152 2 0 0] 34 3 7520 410 ##(Smalltalk.Splitter) 34 12 nil 3088 34 2 8 1140850688 1 11936 nil nil nil 519 nil nil nil 6866 11936 nil 1 #left nil nil nil 6896 6912 nil 6896 nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 747 1 898 11 1329 11936 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 117 1 0 0 0 0 0 0 122 1 0 0 152 2 0 0] 8 #() 1008 nil 27 4784 1008 nil 27 6290 8 106 223 176 246 13 107 239 63 2274 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 2960 34 2 8 1140850688 131073 12208 nil nil nil 519 nil nil nil 12208 4850 138 144 34 1 2274 4930 8 'View Toolbox' 2162 0 nil 2194 7 1 16 8 'doIt' 8 '(CardLabel text: ''View Toolbox'' iconBlock: [Icon fromId: ''View.ico''])' 8 #[29 30 35 113 31 32 180 106 195 105] 4928 12352 ##(Smalltalk.Icon) 8 'View.ico' #fromId: #text:iconBlock: 12368 11 1 nil nil 410 ##(Smalltalk.ReferenceView) 34 14 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 12208 34 2 8 1140850688 131073 12496 nil nil nil 7 nil nil nil 12496 12272 170 192 34 2 12464 8 'toolbox' nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 12208 34 2 8 1140916864 1 12608 5282 138 144 34 1 12336 nil 5360 nil nil 1 nil nil nil 12608 nil 8 1915274640 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 5408 nil nil nil nil nil #smallIcons nil nil nil nil nil 786 138 144 34 3 850 #createAt:extent: 34 2 898 1 1 898 941 1329 12608 850 #basicSelectionsByIndex: 34 1 8 #(1) 12608 850 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 12608 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 214 1 0 0 152 2 0 0] 8 #() 1008 nil 27 nil 12208 898 33 33 5682 12496 nil 1 5714 898 841 3 898 873 35 nil 3234 #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 57 9 898 877 1313 12496 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 28 0 0 0 4 0 0 0 210 1 0 0 148 2 0 0] 34 1 12464 1008 nil 27 34 2 8 1140850688 131073 12464 nil nil nil 1031 nil nil nil 12464 754 ##(Smalltalk.ResourceToolboxPresenter) #resource_Default_view nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 37 898 877 1277 12464 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 182 1 0 0 144 2 0 0] 992 1008 nil 27 12464 170 192 992 nil 12608 12496 898 745 959 401 1 524319 nil nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 941 1329 12208 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 214 1 0 0 152 2 0 0] 34 2 12496 12608 1008 nil 27 6290 8 46 186 232 162 139 46 234 63 false 170 192 34 2 12208 8 'toolsSlidey' nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 1 898 2079 1329 2960 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 15 4 0 0 152 2 0 0] 34 3 12208 410 ##(Smalltalk.Splitter) 34 12 nil 2960 34 2 8 1140850688 1 13856 nil nil nil 519 nil nil nil 6866 13856 nil 1 #left nil nil nil 6896 6912 nil 6896 nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 941 1 898 11 1329 13856 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 214 1 0 0 0 0 0 0 219 1 0 0 152 2 0 0] 8 #() 1008 nil 27 3088 1008 nil 27 8 'main' nil 786 138 144 34 1 850 #createAt:extent: 34 2 898 1 51 898 2079 1329 2816 946 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 25 0 0 0 15 4 0 0 177 2 0 0] 34 1 2960 1008 nil 27 170 192 34 4 2016 8 'statusbar' 528 8 'toolbar' nil 461638 4 ##(Smalltalk.MenuBar) nil true 34 7 3154 nil true 34 16 3202 1 3234 #newShellView 8 '&New Shell View' 9373 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'ShellView.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil nil nil 3202 1 3234 #newDialogView 8 'New &Dialog View' 1 1 14466 nil true 14512 8 'DialogView.ico' 14560 nil nil 3426 4097 3202 1 3234 #viewOpen 8 '&Open...' 9375 1 nil nil nil 3202 1 3234 #viewClose 8 '&Close' 1 1 nil nil nil 3202 1 3234 #viewRevert 8 '&Revert' 1 1 788806 1 ##(Smalltalk.TextTileIcon) $\x1F501 nil nil 786694 ##(Smalltalk.IndexedColor) 33554437 nil nil 1 nil nil nil nil 3426 4097 3202 1 3234 #viewImport 8 '&Import View...' 1 1 nil nil nil 3202 1 3234 #viewExport 8 '&Export View...' 1 1 nil nil nil 3426 4097 3202 1 3234 #viewSave 8 '&Save' 1 1 14466 nil true 14512 8 'FileSave.ico' 14560 nil nil 3202 1 3234 #viewSaveAs 8 'Save &As...' 1 1 nil nil nil 3426 4097 3202 1 3234 #viewTest 8 '&Test' 9385 1 14466 nil true 14512 8 'TestView.ico' 14560 nil nil 3426 4097 3202 1 3234 #exit 8 'E&xit' 17639 1 14834 $\x2716 nil nil nil nil nil 1 nil nil nil nil 8 '&File' nil 134217729 nil nil 35691 nil nil 3154 nil true 34 12 3202 1 3234 #viewUndo 8 '&Undo' 9397 1 14466 nil true 14512 8 'EditUndo.ico' 14560 nil nil 3202 1 3234 #viewRedo 8 '&Redo' 9395 1 14466 nil true 14512 8 'EditRedo.ico' 14560 nil nil 3426 4097 3202 1 3234 #cutSelection 8 'Cu&t' 9393 1 14466 nil true 14512 8 'EditCut.ico' 14560 nil nil 3202 1 3234 #copySelection 8 '&Copy' 9351 1 14466 nil true 14512 8 'EditCopy.ico' 14560 nil nil 3202 1 3234 #pasteClipboard 8 '&Paste' 9389 1 14466 nil true 14512 8 'EditPaste.ico' 14560 nil nil 3202 1 3234 #clearSelection 8 '&Delete' 1 1 14466 nil true 14512 8 'EditClear.ico' 14560 nil nil 3426 4097 3202 1 3234 #widenSelection 8 '&Widen Selection' 9387 1 nil nil nil 3202 1 3234 #selectAll 8 'Select &All' 9347 1 nil nil nil 3426 4097 3202 1 3234 #refreshPublishedAspects 8 'Refresh Inspector' 1257 1 14466 nil true 14512 8 'Refresh.ico' 14560 nil nil 8 '&Edit' nil 134217729 nil nil 35711 nil nil 3154 nil true 34 17 3202 1 3234 #editMenuBar 8 '&Menu Bar...' 1 1 nil nil nil 3202 1 3234 #editContextMenu 8 '&Context Menu...' 1 1 nil nil nil 3426 4097 3202 1 3234 #toggleTabStop 8 'Make &Tab Stop' 1 1 nil nil nil 3202 1 3234 #toggleGroupStop 8 'Make &Group Stop' 1 1 nil nil nil 3426 4097 3154 nil true 34 7 3202 1 3234 #alignLefts 8 '&Lefts' 1 1 nil nil nil 3202 1 3234 #alignCenters 8 '&Centres' 1 1 nil nil nil 3202 1 3234 #alignRights 8 '&Rights' 1 1 nil nil nil 3426 4097 3202 1 3234 #alignTops 8 '&Tops' 1 1 nil nil nil 3202 1 3234 #alignMiddles 8 '&Middles' 1 1 nil nil nil 3202 1 3234 #alignBottoms 8 '&Bottoms' 1 1 nil nil nil 8 '&Align' nil 134217729 nil nil 35733 nil nil 3154 nil true 34 5 3202 1 3234 #matchWidths 8 '&Widths' 1 1 nil nil nil 3202 1 3234 #matchHeights 8 '&Heights' 1 1 nil nil nil 3202 1 3234 #matchFonts 8 '&Fonts' 1 1 nil nil nil 3202 1 3234 #matchForegroundColors 8 'Foreground &Colors' 1 1 nil nil nil 3202 1 3234 #matchBackgroundColors 8 '&Background Colors' 1 1 nil nil nil 8 'Matc&h' nil 134217729 nil nil 35745 nil nil 3154 nil true 34 4 3202 1 3234 #zFront 8 'Bring to &Front' 9357 1 nil nil nil 3202 1 3234 #zForward 8 'Bring F&orward' 13453 1 nil nil nil 3202 1 3234 #zBackward 8 'Send B&ackward' 13463 1 nil nil nil 3202 1 3234 #zBack 8 'Send to Bac&k' 9367 1 nil nil nil 8 'A&rrange' nil 134217729 nil nil 35755 nil nil 3154 nil true 34 4 3202 1 3234 #nudgeLeft 8 '&Left' 9803 1 nil nil nil 3202 1 3234 #nudgeRight 8 '&Right' 9807 1 nil nil nil 3202 1 3234 #nudgeUp 8 '&Up' 9805 1 nil nil nil 3202 1 3234 #nudgeDown 8 '&Down' 9809 1 nil nil nil 8 '&Nudge' nil 134217729 nil nil 35765 nil nil 3154 nil true 34 4 3202 1 3234 #increaseHeight 8 '&Taller' 13905 1 nil nil nil 3202 1 3234 #increaseWidth 8 '&Fatter' 13903 1 nil nil nil 3202 1 3234 #decreateHeight 8 '&Shorter' 13901 1 nil nil nil 3202 1 3234 #decreaseWidth 8 'Th&inner' 13899 1 nil nil nil 8 'Gro&w' nil 134217729 nil nil 35775 nil nil 3426 4097 3154 nil true 34 3 3202 1 3234 #distributeHorizontally 8 'Distri&bute Evenly' 1 1 nil nil nil 3202 1 3234 #increaseHorizontalGaps 8 '&Increase' 1 1 nil nil nil 3202 1 3234 #decreaseHorizontalGaps 8 '&Decrease' 1 1 nil nil nil 8 'Hori&zontal Spacing' nil 134217729 nil nil 35783 nil nil 3154 nil true 34 3 3202 1 3234 #distributeVertically 8 'Distri&bute Evenly' 1 1 nil nil nil 3202 1 3234 #increaseVerticalGaps 8 '&Increase' 1 1 nil nil nil 3202 1 3234 #decreaseVerticalGaps 8 '&Decrease' 1 1 nil nil nil 8 '&Vertical Spacing' nil 134217729 nil nil 35791 nil nil 3426 4097 3202 1 3234 #mutate 8 'M&utate View...' 1 1 nil nil nil 3202 1 3234 #dereference 8 '&Dereference to Copy' 1 1 nil nil nil 8 '&Modify' nil 134217729 nil nil 35797 nil nil 3154 nil true 34 15 3202 1 3234 #browseIt 8 '&Browse It' 9349 1 14466 nil true 14512 8 'ClassBrowserShell.ico' 14560 nil nil 3202 1 3234 #displayIt 8 '&Display It' 9353 1 14466 nil true 14512 8 'DisplayIt.ico' 14560 nil nil 3202 1 3234 #evaluateIt 8 '&Evaluate It' 9355 1 14466 nil true 14512 8 'EvaluateIt.ico' 14560 nil nil 3202 1 3234 #inspectIt 8 '&Inspect It' 9363 1 14466 nil true 14512 8 'BasicInspector.ico' 14560 nil nil 3202 1 3234 #debugIt 8 'Deb&ug It' 1269 1 14466 nil true 14512 8 'Debugger.ico' 14560 nil nil 3202 1 3234 #fileItIn 8 '&File it In' 1 1 nil nil nil 3426 4097 3202 1 3234 #chooseEvaluationPools 8 '&Pools...' 1 1 14466 nil true 14512 8 'Dictionary.ico' 14560 nil nil 3426 4097 3202 1 3234 #browseDefinitions 8 'Defi&nitions...' 1271 1 nil nil nil 3202 1 3234 #browseReferences 8 '&References...' 5367 1 nil nil nil 3426 4097 3202 1 3234 #accept 8 '&Accept' 9383 1 nil nil nil 3426 4097 3154 nil true 34 9 3202 1 3234 #toggleAutoCompletion 8 '&Auto-complete' 1 1 nil nil nil 3202 1 3234 #toggleIndentationGuides 8 'Indentation &Guides' 1 1 nil nil nil 3202 1 3234 #toggleLineEndings 8 'Line &Endings' 1 1 14834 $¶ 8 'Arial' nil nil nil nil 1 nil nil nil nil 3202 1 3234 #toggleLineNumbers 8 'Line N&umbers' 1 1 nil nil nil 3202 1 3234 #toggleStyling 8 '&Syntax Coloring' 1 1 nil nil nil 3202 1 3234 #toggleWhitespace 8 'W&hitespace' 1 1 nil nil nil 3202 1 3234 #toggleWordWrap 8 '&Word Wrap' 1 1 nil nil nil 3426 4097 3154 nil true 34 2 3202 1 3234 459270 ##(Smalltalk.Message) #language: 8 #(#container) 8 '&Smalltalk' 1 1 nil nil nil 3202 1 3234 19490 #language: 8 #(#xml) 8 '&Xml' 1 1 nil nil nil 8 '&Language' nil 134217729 nil nil 35837 nil nil 8 '&Options' nil 134217729 14466 nil true 14512 8 'Preferences.ico' 14560 nil 35839 nil nil 8 '&Workspace' nil 134217729 nil nil 35841 nil nil 3154 nil true 8 #() 8 '&Tools' #toolsMenu 134217729 nil nil 35843 nil nil 3154 nil true 8 #() 8 'Wi&ndow' #windowMenu 134217729 nil nil 35845 nil nil 3154 nil true 34 15 3202 1 3234 #helpContents 8 '&Contents' 1025 1 14466 nil true 14512 8 'Help.ico' 14560 nil nil 3202 1 3234 #help 8 'On this &Tool' 1249 1 nil nil nil 3202 1 3234 #helpWhatsThis 8 'What''s This?' 5345 1 nil nil nil 3426 4097 3202 1 3234 #learnSmalltalk 8 'Learn Smalltalk' 1 1 14834 $\x1F393 nil 262406 ##(Smalltalk.ARGB) 8 4292695180 14866 33554471 nil nil 1 nil nil nil nil 3426 4097 3202 1 3234 #helpWhatsNew 8 'What''s &New' 1 1 nil nil nil 3202 1 3234 #helpGuidedTour 8 '&Guided Tour' 1 1 nil nil nil 3202 1 3234 #helpTutorials 8 'Tutorials' 1 1 nil nil nil 3426 4097 3202 1 3234 #objectArtsHomePage 8 'Object Arts Homepage' 1 1 14466 nil true 14512 8 '!!APPLICATION' 14560 nil nil 3202 1 3234 #dolphinNewsgroup 8 'Dolphin Newsgroup/Forum' 1 1 nil nil nil 3202 1 3234 #dolphinWikiWeb 8 'Dolphin WikiWeb' 1 1 nil nil nil 3426 4097 3202 1 3234 #aboutDolphin 8 '&About Dolphin Smalltalk' 1 1 14834 $\x1F42C nil nil 10978 17741887 nil nil 1 nil nil nil nil 8 '&Help' nil 134217729 nil nil 35869 nil nil 8 '' nil 134217729 nil nil nil nil nil nil nil nil 1 nil nil nil nil 1 nil nil 786 138 144 34 3 850 #createAt:extent: 34 2 898 3839 21 898 2111 1541 416 850 #text: 34 1 8 'View Composer' 416 850 #updateMenuBar 992 416 946 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 127 7 0 0 10 0 0 0 158 11 0 0 12 3 0 0] 34 3 528 2816 2016 1008 nil 27 )!
+	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.ShellView) 34 27 nil nil 8 #(13565952 65536) 416 nil 655878 ##(Smalltalk.ThemeColor) #toolBackground nil 517 nil nil nil 416 788230 ##(Smalltalk.BorderLayout) 1 1 410 ##(Smalltalk.Toolbar) 34 25 nil 416 34 2 8 1140853580 131073 528 nil nil nil 517 nil nil nil 528 327686 ##(Smalltalk.Color) #default 8 1921592800 170 192 34 8 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 672 nil nil nil 5 nil nil nil 672 1180230 1 ##(Smalltalk.ResourceIdentifier) ##(Smalltalk.Toolbar) #resource_File_tools nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 1 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 1051 1 882 155 51 672 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 13 2 0 0 0 0 0 0 90 2 0 0 25 0 0 0] 8 #() 882 193 193 nil 27 8 'fileTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1024 nil nil nil 5 nil nil nil 1024 738 ##(Smalltalk.Toolbar) #resource_Smalltalk_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 63 1 882 553 51 1024 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 31 0 0 0 0 0 0 0 51 1 0 0 25 0 0 0] 976 992 nil 27 8 'smalltalkTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1264 nil nil nil 5 nil nil nil 1264 738 ##(Smalltalk.Toolbar) #resource_Search_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 615 1 882 437 51 1264 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 51 1 0 0 0 0 0 0 13 2 0 0 25 0 0 0] 976 992 nil 27 8 'searchTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 528 34 2 8 1140850688 131073 1504 nil nil nil 5 nil nil nil 1504 738 ##(Smalltalk.Toolbar) #resource_Image_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 63 51 1504 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 31 0 0 0 25 0 0 0] 976 992 nil 27 8 'imageTools' 170 192 976 8 #() nil nil 1 nil 882 33 33 nil nil 656198 1 ##(Smalltalk.FlowLayout) 1 1 1 770 138 144 34 2 834 #createAt:extent: 34 2 882 1 1 882 2079 51 528 834 #updateSizePosted 976 528 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 15 4 0 0 25 0 0 0] 34 4 1504 1024 1264 672 992 nil 27 410 ##(Smalltalk.StatusBar) 34 18 nil 416 34 2 8 1140853004 1 2000 nil nil nil 5 nil nil nil 2000 nil 8 1921382976 170 192 34 6 853766 ##(Smalltalk.StatusBarItem) 1 301 2000 nil 787814 3 ##(Smalltalk.BlockClosure) 0 nil 1180966 ##(Smalltalk.CompiledExpression) 4 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:r | r notNil ifTrue: [r extent displayString] ifFalse: ['''']]' 8 #[32 105 17 222 4 17 158 159 106 31 106] #extent #displayString 8 '' 2160 7 257 nil 834 #extentImage 8 #() ##(Smalltalk.ViewComposer) nil 8 'extentStatus' 2114 1 37 2000 nil nil 2146 0 nil 2178 5 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:modified | modified ifTrue: [Smalltalk developmentSystem changedIcon imageIndex]]' 8 #[33 105 17 122 45 159 160 161 106 60 106] 721414 ##(Smalltalk.Association) #Smalltalk ##(Smalltalk) #developmentSystem #changedIcon #imageIndex 2336 7 257 nil nil 8 'modificationStatus' 2114 1 301 2000 nil 2146 0 nil 2178 4 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:r | r notNil ifTrue: [r position displayString] ifFalse: ['''']]' 8 #[32 105 17 222 4 17 158 159 106 31 106] #position #displayString 2256 2480 7 257 nil 834 #positionImage 2288 ##(Smalltalk.ViewComposer) nil 8 'positionStatus' 34 3 2464 2128 2320 1115142 ##(Smalltalk.StatusBarNullItem) 513 1 2000 nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1379 882 2079 45 2000 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 177 2 0 0 15 4 0 0 199 2 0 0] 8 #() 992 nil 27 nil nil 410 ##(Smalltalk.ContainerView) 34 15 nil 416 34 2 8 1140850688 131073 2800 nil nil nil 5 nil nil nil 2800 1180166 ##(Smalltalk.ProportionalLayout) 170 176 976 true 170 192 34 2 410 ##(Smalltalk.ContainerView) 34 15 nil 2800 34 2 8 1140850688 131073 2944 nil nil nil 5 nil nil nil 2944 2866 138 ##(Smalltalk.Dictionary) 34 2 2418 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 2944 34 2 8 1140850688 131073 3072 nil nil nil 517 nil nil nil 3072 656710 1 ##(Smalltalk.CardLayout) 138 144 34 1 2418 590662 1 ##(Smalltalk.CardLabel) 8 'View Toolbox' 2146 0 nil 2178 7 1 16 8 'doIt' 8 '(CardLabel text: ''View Toolbox'' iconBlock: [Icon fromId: ''View.ico''])' 8 #[29 30 35 113 31 32 180 106 195 105] 3216 3248 ##(Smalltalk.Icon) 8 'View.ico' #fromId: #text:iconBlock: 3264 11 1 nil nil 410 ##(Smalltalk.ReferenceView) 34 14 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 3072 34 2 8 1140850688 131073 3392 nil nil nil 5 nil nil nil 3392 3152 170 192 34 2 3360 8 'toolbox' nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 3072 34 2 8 1140916864 1 3504 590662 2 ##(Smalltalk.ListModel) 138 144 34 1 3232 nil 1310726 ##(Smalltalk.IdentitySearchPolicy) nil nil 1 nil nil nil 3504 nil 8 1921705120 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 1049926 1 ##(Smalltalk.IconImageManager) nil nil nil nil nil #smallIcons nil nil nil nil nil 770 138 144 34 3 834 #createAt:extent: 34 2 882 1 1 882 941 1329 3504 834 #basicSelectionsByIndex: 34 1 8 #(1) 3504 834 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 3504 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 214 1 0 0 152 2 0 0] 8 #() 992 nil 27 nil 3072 882 33 33 1050182 1 ##(Smalltalk.ButtonInteractor) 3392 nil 1 590342 ##(Smalltalk.Rectangle) 882 841 3 882 873 35 nil 1180998 4 ##(Smalltalk.CommandDescription) #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 57 9 882 877 1313 3392 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 28 0 0 0 4 0 0 0 210 1 0 0 148 2 0 0] 34 1 3360 992 nil 27 34 2 8 1140850688 131073 3360 nil nil nil 1029 nil nil nil 3360 738 ##(Smalltalk.ResourceToolboxPresenter) #resource_Default_view nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 877 1277 3360 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 182 1 0 0 144 2 0 0] 976 992 nil 27 3360 nil nil nil 170 192 976 nil 3504 3392 882 745 959 401 1 524319 nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 941 1329 3072 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 214 1 0 0 152 2 0 0] 34 2 3392 3504 992 nil 27 327734 ##(Smalltalk.Float) 8 46 186 232 162 139 46 234 63 2418 410 ##(Smalltalk.ContainerView) 34 15 nil 2944 34 2 8 1140850688 131073 4704 nil nil nil 5 265030 4 ##(Smalltalk.Menu) nil true 34 18 984134 2 ##(Smalltalk.CommandMenuItem) 1 4066 #cutSelection 8 'Cu&t' 1 1 263494 3 ##(Smalltalk.Icon) nil true 1572870 ##(Smalltalk.ImageRelativeFileLocator) 8 'EditCut.ico' 2032142 ##(Smalltalk.STBExternalResourceLibraryProxy) 8 'dolphindr7.dll' nil nil nil 4818 1 4066 #copySelection 8 '&Copy' 1 1 4882 nil true 4928 8 'EditCopy.ico' 4976 nil nil 4818 1 4066 #pasteClipboard 8 '&Paste' 1 1 4882 nil true 4928 8 'EditPaste.ico' 4976 nil nil 4818 1 4066 #clearSelection 8 '&Delete' 1 1 4882 nil true 4928 8 'EditClear.ico' 4976 nil nil 983366 1 ##(Smalltalk.DividerMenuItem) 4097 4818 1 4066 #inspectSelection 8 '&Inspect' 1 1 4882 nil true 4928 8 'InspectIt.ico' 4976 nil nil 5250 4097 4818 1 4066 #editContextMenu 8 'Set Conte&xt Menu...' 1 1 nil nil nil 5250 4097 4818 1 4066 #toggleTabStop 8 'Make Tab &Stop' 1 1 nil nil nil 4818 1 4066 #toggleGroupStop 8 'Make &Group Stop' 1 1 nil nil nil 5250 4097 4770 nil true 34 7 4818 1 4066 #alignLefts 8 '&Lefts' 1 1 nil nil nil 4818 1 4066 #alignCenters 8 '&Centres' 1 1 nil nil nil 4818 1 4066 #alignRights 8 '&Rights' 1 1 nil nil nil 5250 4097 4818 1 4066 #alignTops 8 '&Tops' 1 1 nil nil nil 4818 1 4066 #alignMiddles 8 '&Middles' 1 1 nil nil nil 4818 1 4066 #alignBottoms 8 '&Bottoms' 1 1 nil nil nil 8 'View Alig&n' nil 134217729 nil nil nil nil nil 4770 nil true 34 5 4818 1 4066 #matchWidths 8 '&Widths' 1 1 nil nil nil 4818 1 4066 #matchHeights 8 '&Heights' 1 1 nil nil nil 4818 1 4066 #matchFonts 8 '&Fonts' 1 1 nil nil nil 4818 1 4066 #matchForegroundColors 8 'Foreground &Colors' 1 1 nil nil nil 4818 1 4066 #matchBackgroundColors 8 '&Background Colors' 1 1 nil nil nil 8 'View Matc&h' nil 134217729 nil nil nil nil nil 4770 nil true 34 4 4818 1 4066 #zFront 8 'Bring to &Front' 1 1 nil nil nil 4818 1 4066 #zForward 8 'Bring F&orward' 1 1 nil nil nil 4818 1 4066 #zBackward 8 'Send B&ackward' 1 1 nil nil nil 4818 1 4066 #zBack 8 'Send to Bac&k' 1 1 nil nil nil 8 'View &Arrange' nil 134217729 nil nil nil nil nil 5250 4097 4818 1 4066 #mutate 8 'M&utate View...' 1 1 nil nil nil 4770 nil true 34 2 4818 1 4066 #dereference 8 'De&reference to Copy' 1 1 nil nil nil 4818 1 4066 #editReference 8 '&Edit' 1 1 nil nil nil 8 '&Reference View' #referenceViewMenu 134217729 nil nil nil nil nil 8 '' nil 134217729 nil nil nil nil nil nil nil 4704 2866 170 176 34 4 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 4704 34 2 8 1140850688 131073 6704 nil nil nil 517 nil nil nil 6704 3138 138 144 34 1 2418 3218 8 'Property Inspector' 2146 0 nil 2178 6 1 16 8 'doIt' 8 '(CardLabel text: ''Property Inspector'' iconBlock: [PublishedAspectInspector icon])' 8 #[45 30 34 112 47 161 106 194 105] 983558 ##(Smalltalk.VariableBinding) #CardLabel 3216 6848 6946 #PublishedAspectInspector ##(Smalltalk.PublishedAspectInspector) #icon #text:iconBlock: 6864 11 1 nil 21659 410 ##(Smalltalk.ContainerView) 34 15 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 6704 34 2 8 1140850688 131073 7024 nil nil nil 5 nil nil nil 7024 6768 170 192 976 nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 6704 34 2 8 1140916866 1 7104 3570 138 144 34 1 6832 nil 3648 nil nil 1 nil nil nil 7104 nil 8 1921705120 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 3696 nil nil nil nil nil #smallIcons nil nil nil nil nil 770 138 144 34 3 834 #createAt:extent: 34 2 882 1 1 882 373 1329 7104 834 #basicSelectionsByIndex: 34 1 8 #(1) 7104 834 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 7104 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 186 0 0 0 152 2 0 0] 8 #() 992 nil 27 nil 6704 882 33 33 3970 7024 nil 1 4002 882 5 3 882 37 35 nil 4066 #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 9 9 882 309 1313 7024 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 0 4 0 0 0 158 0 0 0 148 2 0 0] 34 1 6992 992 nil 27 34 2 8 1140850688 131073 6992 nil nil nil 5 nil nil nil 6992 2866 138 ##(Smalltalk.Dictionary) 34 3 2418 410 ##(Smalltalk.Splitter) 34 12 nil 6992 34 2 8 1140850688 1 7840 nil nil nil 517 nil nil nil 1510470 1 ##(Smalltalk.DraggableViewInteractor) 7840 nil 1 #left nil nil nil 882 1 1 882 9 9 nil 7936 nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 379 882 309 11 7840 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 189 0 0 0 154 0 0 0 194 0 0 0] 8 #() 992 nil 27 1 2418 410 ##(Smalltalk.TreeView) 34 27 nil 6992 34 2 8 1140918819 1 8144 590918 3 ##(Smalltalk.TreeModel) nil 3648 525062 ##(Smalltalk.TreeNode) nil nil nil 170 192 976 608 nil 29 nil nil nil 8144 nil 8 1921400880 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 3696 nil 2146 0 nil 2178 2 1 2144 8 'doIt' 8 '[:x | x printString]' 8 #[30 105 226 0 106] #printString 8304 7 257 nil nil nil nil 170 176 976 nil #smallIcons 1 170 ##(Smalltalk.PluggableLookupTable) 976 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 309 379 8144 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 154 0 0 0 189 0 0 0] 8 #() 992 nil 27 4658 8 51 51 51 51 51 51 211 63 2418 410 ##(Smalltalk.ReferenceView) 34 14 nil 6992 34 2 8 1140850688 131073 8608 nil nil nil 5 nil nil nil 8608 738 ##(Smalltalk.PropertyInspector) #resource_Default_view nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 389 882 309 889 8608 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 194 0 0 0 154 0 0 0 126 2 0 0] 976 992 nil 27 4658 8 102 102 102 102 102 102 230 63 true 170 192 34 4 8144 8 'viewHierarchy' 8608 8 'inspector' nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 309 1277 6992 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 154 0 0 0 144 2 0 0] 34 3 8144 7840 8608 992 nil 27 6992 nil nil nil 170 192 976 nil 7104 7024 882 201 201 401 1 524319 nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 757 1 882 373 1329 6704 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 122 1 0 0 0 0 0 0 52 2 0 0 152 2 0 0] 34 2 7024 7104 992 nil 27 4658 8 154 153 153 153 153 153 233 63 410 ##(Smalltalk.ContainerView) 34 15 nil 4704 34 2 8 1140850688 131073 9280 nil nil nil 5 nil nil nil 9280 498 1 1 nil 410 ##(Smalltalk.SlideyInneyOuteyThing) 34 23 nil 9280 34 2 8 1140850688 131073 9360 nil nil nil 517 nil nil nil 9360 3138 138 144 34 5 2418 8 'Arrange' 410 ##(Smalltalk.ReferenceView) 34 14 nil 410 ##(Smalltalk.SlidingCardTray) 34 22 nil 9360 34 2 8 1140850688 131073 9536 nil nil nil 5 nil nil nil 9536 9424 170 192 34 10 410 ##(Smalltalk.ReferenceView) 34 14 nil 9536 34 2 8 1140850688 131073 9632 nil nil nil 5 nil nil nil 9632 738 ##(Smalltalk.Toolbar) #resource_View_composer_nudge_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 731 57 9632 930 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 976 992 nil 27 8 'nudgeTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 9536 34 2 8 1140850688 131073 9872 nil nil nil 5 nil nil nil 9872 738 ##(Smalltalk.Toolbar) #resource_View_composer_spacing_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 731 57 9872 930 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 976 992 nil 27 8 'layoutTools' 410 ##(Smalltalk.Toolbar) 34 25 nil 9536 34 2 8 1140853580 131137 10112 nil nil nil 517 nil 263174 ##(Smalltalk.Font) nil true 459014 ##(Smalltalk.LOGFONT) 8 #[243 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 3 2 1 34 65 114 105 97 108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] 882 193 193 nil 10112 608 8 1921592800 170 192 34 4 410 ##(Smalltalk.ReferenceView) 34 14 nil 10112 34 2 8 1140850688 131073 10320 nil nil nil 5 nil nil nil 10320 738 ##(Smalltalk.Toolbar) #resource_View_composer_match_size_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 339 1 882 201 51 10320 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 169 0 0 0 0 0 0 0 13 1 0 0 25 0 0 0] 976 992 nil 27 8 'matchSizeTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 10112 34 2 8 1140850688 131073 10560 nil nil nil 5 nil nil nil 10560 738 ##(Smalltalk.Toolbar) #resource_View_composer_alignment_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 339 51 10560 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 169 0 0 0 25 0 0 0] 976 992 nil 27 8 'alignmentTools' 170 192 976 138 144 976 nil nil 1 nil 882 33 33 882 45 45 nil 1794 1 1 1 770 138 144 34 2 834 #createAt:extent: 34 2 882 1 37 882 731 57 10112 834 #updateSizePosted 976 10112 930 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 34 2 10560 10320 992 nil 27 8 'alignTools' 9504 8 'arrangementTools' 410 ##(Smalltalk.ReferenceView) 34 14 nil 9536 34 2 8 1140850688 131073 11088 nil nil nil 5 nil nil nil 11088 738 ##(Smalltalk.Toolbar) #resource_Edit_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 731 57 11088 930 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 976 992 nil 27 8 'editTools' nil 410 ##(Smalltalk.TabViewXP) 34 28 nil 9360 34 2 8 1140916738 1 11328 3570 138 144 34 5 8 'Edit' 9488 8 'Nudge' 8 'Align' 8 'Layout' nil 3648 nil nil 1 nil nil nil 11328 nil 8 1921705120 ##(Smalltalk.BasicListAbstract) ##(Smalltalk.IconicListAbstract) 3696 nil nil nil nil nil #noIcons nil nil nil nil nil 770 138 144 34 3 834 #createAt:extent: 34 2 882 1 1 882 747 153 11328 834 #basicSelectionsByIndex: 34 1 8 #(2) 11328 834 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 11328 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 76 0 0 0] 8 #() 992 nil 27 nil 9360 882 33 33 3970 9536 nil 1 4002 882 695 3 882 727 35 nil 4066 #togglePin 8 'Pin or Unpin the tray' 1 1 nil nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 9 9 882 731 93 9536 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 0 4 0 0 0 113 1 0 0 50 0 0 0] 34 5 11088 9504 9632 10112 9872 992 nil 27 34 2 8 1140850688 131073 9504 nil nil nil 5 nil nil nil 9504 738 ##(Smalltalk.Toolbar) #resource_View_composer_tools nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 37 882 731 57 9504 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 18 0 0 0 109 1 0 0 46 0 0 0] 976 992 nil 27 2418 11456 9632 2418 11472 10112 2418 11488 9872 2418 11440 11088 9504 nil nil nil 170 192 976 nil 11328 9536 882 201 201 401 1 524319 nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1177 882 747 153 9360 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 76 2 0 0 117 1 0 0 152 2 0 0] 34 2 9536 11328 992 nil 27 nil nil 410 ##(Smalltalk.ScrollingDecorator) 34 18 nil 9280 34 2 8 1143996416 131073 12480 nil nil nil 5 nil nil nil 12480 1573190 1 ##(Smalltalk.ScrollingDecoratorLayout) true 170 192 34 2 410 ##(Smalltalk.ViewComposerArena) 34 22 nil 12480 34 2 8 1140850944 1 12608 721990 2 ##(Smalltalk.ValueHolder) nil false 1310726 ##(Smalltalk.EqualitySearchPolicy) nil 594 #cornsilk nil 533 nil nil nil 12608 nil nil 852486 ##(Smalltalk.NullConverter) nil nil nil nil #normal nil 4002 882 21 21 882 21 21 nil nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 1577 1397 12608 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 20 3 0 0 186 2 0 0] 8 #() 992 nil 27 8 'arena' nil 882 1 1 true 882 17 17 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 747 1177 12480 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 76 2 0 0] 34 1 12608 992 nil 27 170 192 34 2 9360 8 'toolbarsSlidey' nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 747 1329 9280 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 117 1 0 0 152 2 0 0] 34 2 12480 9360 992 nil 27 524806 ##(Smalltalk.Fraction) 521 323 false 170 192 34 2 6704 8 'inspectorSlidey' nil 770 138 144 34 2 834 #createAt:extent: 34 2 882 951 1 882 1129 1329 4704 834 #contextMenu: 34 1 4784 4704 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 219 1 0 0 0 0 0 0 15 4 0 0 152 2 0 0] 34 3 9280 410 ##(Smalltalk.Splitter) 34 12 nil 4704 34 2 8 1140850688 1 13680 nil nil nil 517 nil nil nil 7906 13680 nil 1 #left nil nil nil 7936 7952 nil 7936 nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 747 1 882 11 1329 13680 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 117 1 0 0 0 0 0 0 122 1 0 0 152 2 0 0] 8 #() 992 nil 27 6704 992 nil 27 4658 8 106 223 176 246 13 107 239 63 false 170 192 34 2 3072 8 'toolsSlidey' nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 1 882 2079 1329 2944 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 15 4 0 0 152 2 0 0] 34 3 3072 410 ##(Smalltalk.Splitter) 34 12 nil 2944 34 2 8 1140850688 1 14144 nil nil nil 517 nil nil nil 7906 14144 nil 1 #left nil nil nil 7936 7952 nil 7936 nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 941 1 882 11 1329 14144 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 214 1 0 0 0 0 0 0 219 1 0 0 152 2 0 0] 8 #() 992 nil 27 4704 992 nil 27 8 'main' nil 770 138 144 34 1 834 #createAt:extent: 34 2 882 1 51 882 2079 1329 2800 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 25 0 0 0 15 4 0 0 177 2 0 0] 34 1 2944 992 nil 27 170 192 34 4 528 8 'toolbar' 2000 8 'statusbar' nil 461638 4 ##(Smalltalk.MenuBar) nil true 34 7 4770 nil true 34 16 4818 1 4066 #newShellView 8 '&New Shell View' 9373 1 4882 nil true 4928 8 'ShellView.ico' 4976 nil nil 4818 1 4066 #newDialogView 8 'New &Dialog View' 1 1 4882 nil true 4928 8 'DialogView.ico' 4976 nil nil 5250 4097 4818 1 4066 #viewOpen 8 '&Open...' 9375 1 nil nil nil 4818 1 4066 #viewClose 8 '&Close' 1 1 nil nil nil 4818 1 4066 #viewRevert 8 '&Revert' 1 1 788806 1 ##(Smalltalk.TextTileIcon) $\x1F501 nil nil 594 #commonGreen nil nil 1 nil nil nil nil 5250 4097 4818 1 4066 #viewImport 8 '&Import View...' 1 1 nil nil nil 4818 1 4066 #viewExport 8 '&Export View...' 1 1 nil nil nil 5250 4097 4818 1 4066 #viewSave 8 '&Save' 1 1 4882 nil true 4928 8 'FileSave.ico' 4976 nil nil 4818 1 4066 #viewSaveAs 8 'Save &As...' 1 1 nil nil nil 5250 4097 4818 1 4066 #viewTest 8 '&Test' 9385 1 4882 nil true 4928 8 'TestView.ico' 4976 nil nil 5250 4097 4818 1 4066 #exit 8 'E&xit' 17639 1 15026 $\x2716 nil nil nil nil nil 1 nil nil nil nil 8 '&File' nil 134217729 nil nil 42255 nil nil 4770 nil true 34 12 4818 1 4066 #viewUndo 8 '&Undo' 9397 1 4882 nil true 4928 8 'EditUndo.ico' 4976 nil nil 4818 1 4066 #viewRedo 8 '&Redo' 9395 1 4882 nil true 4928 8 'EditRedo.ico' 4976 nil nil 5250 4097 4818 1 4066 #cutSelection 8 'Cu&t' 9393 1 4882 nil true 4928 8 'EditCut.ico' 4976 nil nil 4818 1 4066 #copySelection 8 '&Copy' 9351 1 4882 nil true 4928 8 'EditCopy.ico' 4976 nil nil 4818 1 4066 #pasteClipboard 8 '&Paste' 9389 1 4882 nil true 4928 8 'EditPaste.ico' 4976 nil nil 4818 1 4066 #clearSelection 8 '&Delete' 1 1 4882 nil true 4928 8 'EditClear.ico' 4976 nil nil 5250 4097 4818 1 4066 #widenSelection 8 '&Widen Selection' 9387 1 nil nil nil 4818 1 4066 #selectAll 8 'Select &All' 9347 1 nil nil nil 5250 4097 4818 1 4066 #refreshPublishedAspects 8 'Refresh Inspector' 1257 1 4882 nil true 4928 8 'Refresh.ico' 4976 nil nil 8 '&Edit' nil 134217729 nil nil 42275 nil nil 4770 nil true 34 17 4818 1 4066 #editMenuBar 8 '&Menu Bar...' 1 1 nil nil nil 4818 1 4066 #editContextMenu 8 '&Context Menu...' 1 1 nil nil nil 5250 4097 4818 1 4066 #toggleTabStop 8 'Make &Tab Stop' 1 1 nil nil nil 4818 1 4066 #toggleGroupStop 8 'Make &Group Stop' 1 1 nil nil nil 5250 4097 4770 nil true 34 7 4818 1 4066 #alignLefts 8 '&Lefts' 1 1 nil nil nil 4818 1 4066 #alignCenters 8 '&Centres' 1 1 nil nil nil 4818 1 4066 #alignRights 8 '&Rights' 1 1 nil nil nil 5250 4097 4818 1 4066 #alignTops 8 '&Tops' 1 1 nil nil nil 4818 1 4066 #alignMiddles 8 '&Middles' 1 1 nil nil nil 4818 1 4066 #alignBottoms 8 '&Bottoms' 1 1 nil nil nil 8 '&Align' nil 134217729 nil nil 42297 nil nil 4770 nil true 34 5 4818 1 4066 #matchWidths 8 '&Widths' 1 1 nil nil nil 4818 1 4066 #matchHeights 8 '&Heights' 1 1 nil nil nil 4818 1 4066 #matchFonts 8 '&Fonts' 1 1 nil nil nil 4818 1 4066 #matchForegroundColors 8 'Foreground &Colors' 1 1 nil nil nil 4818 1 4066 #matchBackgroundColors 8 '&Background Colors' 1 1 nil nil nil 8 'Matc&h' nil 134217729 nil nil 42309 nil nil 4770 nil true 34 4 4818 1 4066 #zFront 8 'Bring to &Front' 9357 1 nil nil nil 4818 1 4066 #zForward 8 'Bring F&orward' 13453 1 nil nil nil 4818 1 4066 #zBackward 8 'Send B&ackward' 13463 1 nil nil nil 4818 1 4066 #zBack 8 'Send to Bac&k' 9367 1 nil nil nil 8 'A&rrange' nil 134217729 nil nil 42319 nil nil 4770 nil true 34 4 4818 1 4066 #nudgeLeft 8 '&Left' 9803 1 nil nil nil 4818 1 4066 #nudgeRight 8 '&Right' 9807 1 nil nil nil 4818 1 4066 #nudgeUp 8 '&Up' 9805 1 nil nil nil 4818 1 4066 #nudgeDown 8 '&Down' 9809 1 nil nil nil 8 '&Nudge' nil 134217729 nil nil 42329 nil nil 4770 nil true 34 4 4818 1 4066 #increaseHeight 8 '&Taller' 13905 1 nil nil nil 4818 1 4066 #increaseWidth 8 '&Fatter' 13903 1 nil nil nil 4818 1 4066 #decreateHeight 8 '&Shorter' 13901 1 nil nil nil 4818 1 4066 #decreaseWidth 8 'Th&inner' 13899 1 nil nil nil 8 'Gro&w' nil 134217729 nil nil 42339 nil nil 5250 4097 4770 nil true 34 3 4818 1 4066 #distributeHorizontally 8 'Distri&bute Evenly' 1 1 nil nil nil 4818 1 4066 #increaseHorizontalGaps 8 '&Increase' 1 1 nil nil nil 4818 1 4066 #decreaseHorizontalGaps 8 '&Decrease' 1 1 nil nil nil 8 'Hori&zontal Spacing' nil 134217729 nil nil 42347 nil nil 4770 nil true 34 3 4818 1 4066 #distributeVertically 8 'Distri&bute Evenly' 1 1 nil nil nil 4818 1 4066 #increaseVerticalGaps 8 '&Increase' 1 1 nil nil nil 4818 1 4066 #decreaseVerticalGaps 8 '&Decrease' 1 1 nil nil nil 8 '&Vertical Spacing' nil 134217729 nil nil 42355 nil nil 5250 4097 4818 1 4066 #mutate 8 'M&utate View...' 1 1 nil nil nil 4818 1 4066 #dereference 8 '&Dereference to Copy' 1 1 nil nil nil 8 '&Modify' nil 134217729 nil nil 42361 nil nil 4770 nil true 34 14 4818 1 4066 #browseIt 8 '&Browse It' 9349 1 4882 nil true 4928 8 'ClassBrowserShell.ico' 4976 nil nil 4818 1 4066 #displayIt 8 '&Display It' 9353 1 4882 nil true 4928 8 'DisplayIt.ico' 4976 nil nil 4818 1 4066 #printIt 8 '&Print It' 9377 1 4882 nil true 4928 8 'PrintIt.ico' 4976 nil nil 4818 1 4066 #evaluateIt 8 '&Evaluate It' 9355 1 4882 nil true 4928 8 'EvaluateIt.ico' 4976 nil nil 4818 1 4066 #inspectIt 8 '&Inspect It' 9363 1 4882 nil true 4928 8 'BasicInspector.ico' 4976 nil nil 4818 1 4066 #debugIt 8 'Deb&ug It' 1269 1 4882 nil true 4928 8 'Debugger.ico' 4976 nil nil 4818 1 4066 #fileItIn 8 '&File it In' 1 1 nil nil nil 5250 4097 4818 1 4066 #browseDefinitions 8 'Defi&nitions...' 1271 1 nil nil nil 4818 1 4066 #browseReferences 8 '&References...' 5367 1 nil nil nil 5250 4097 4818 1 4066 #accept 8 '&Accept' 9383 1 nil nil nil 5250 4097 4770 nil true 34 9 4818 1 4066 #toggleAutoCompletion 8 '&Auto-complete' 1 1 nil nil nil 4818 1 4066 #toggleIndentationGuides 8 'Indentation &Guides' 1 1 nil nil nil 4818 1 4066 #toggleLineEndings 8 'Line &Endings' 1 1 15026 $¶ 8 'Arial' nil nil nil nil 1 nil nil nil nil 4818 1 4066 #toggleLineNumbers 8 'Line N&umbers' 1 1 nil nil nil 4818 1 4066 #toggleStyling 8 '&Syntax Coloring' 1 1 nil nil nil 4818 1 4066 #toggleWhitespace 8 'W&hitespace' 1 1 nil nil nil 4818 1 4066 #toggleWordWrap 8 '&Word Wrap' 1 1 nil nil nil 5250 4097 4770 nil true 34 2 4818 1 4066 459270 ##(Smalltalk.Message) #language: 8 #(#container) 8 '&Smalltalk' 1 1 nil nil nil 4818 1 4066 19650 #language: 8 #(#xml) 8 '&Xml' 1 1 nil nil nil 8 '&Language' nil 134217729 nil nil 42401 nil nil 8 '&Options' nil 134217729 4882 nil true 4928 8 'Preferences.ico' 4976 nil 42403 nil nil 8 '&Workspace' nil 134217729 nil nil 42405 nil nil 4770 nil true 8 #() 8 '&Tools' #toolsMenu 134217729 nil nil 42407 nil nil 4770 nil true 8 #() 8 'Wi&ndow' #windowMenu 134217729 nil nil 42409 nil nil 4770 nil true 34 15 4818 1 4066 #helpContents 8 '&Contents' 1025 1 4882 nil true 4928 8 'Help.ico' 4976 nil nil 4818 1 4066 #help 8 'On this &Tool' 1249 1 nil nil nil 4818 1 4066 #helpWhatsThis 8 'What''s This?' 5345 1 nil nil nil 5250 4097 4818 1 4066 #learnSmalltalk 8 'Learn Smalltalk' 1 1 15026 $\x1F393 nil 594 #orchid 594 #white nil nil 1 nil nil nil nil 5250 4097 4818 1 4066 #helpWhatsNew 8 'What''s &New' 1 1 nil nil nil 4818 1 4066 #helpGuidedTour 8 '&Guided Tour' 1 1 nil nil nil 4818 1 4066 #helpTutorials 8 'Tutorials' 1 1 nil nil nil 5250 4097 4818 1 4066 #objectArtsHomePage 8 'Object Arts Homepage' 1 1 4882 nil true 4928 8 '!!APPLICATION' 4976 nil nil 4818 1 4066 #dolphinNewsgroup 8 'Dolphin Newsgroup/Forum' 1 1 nil nil nil 4818 1 4066 #dolphinWikiWeb 8 'Dolphin WikiWeb' 1 1 nil nil nil 5250 4097 4818 1 4066 #aboutDolphin 8 '&About Dolphin Smalltalk' 1 1 15026 $\x1F42C nil nil 594 #darkSlateBlue nil nil 1 nil nil nil nil 8 '&Help' nil 134217729 nil nil 42433 nil nil 8 '' nil 134217729 nil nil nil nil nil nil nil nil 1 nil nil nil nil 1 nil nil 770 138 144 34 3 834 #createAt:extent: 34 2 882 365 365 882 2111 1541 416 834 #text: 34 1 8 'View Composer' 416 834 #updateMenuBar 976 416 930 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 182 0 0 0 182 0 0 0 213 4 0 0 184 3 0 0] 34 3 528 2800 2000 992 nil 27 )!
 
 toolsFolderHelpId
 	^10593! !
@@ -2808,6 +2855,7 @@ toolsFolderHelpId
 !ViewComposer class categoriesFor: #copyToClipboard:!clipboard operations!public! !
 !ViewComposer class categoriesFor: #defaultDefaultView!initializing!private! !
 !ViewComposer class categoriesFor: #defaultGridResolution!constants!public! !
+!ViewComposer class categoriesFor: #defaultGridResolution:!constants!public! !
 !ViewComposer class categoriesFor: #displayOn:!displaying!public! !
 !ViewComposer class categoriesFor: #extentImage!constants!private! !
 !ViewComposer class categoriesFor: #icon!constants!public! !

@@ -11,9 +11,9 @@
 ******************************************************************************/
 #pragma once
 
-enum { ObjectFixedSize = 0 };
-enum { ObjectHeaderSize = 0 };
-enum { ObjectByteSize = ObjectHeaderSize*sizeof(MWORD) };
+constexpr size_t ObjectFixedSize = 0u;
+constexpr size_t ObjectHeaderSize = 0u;
+constexpr size_t ObjectByteSize = ObjectHeaderSize*sizeof(Oop);
 
 // Turn off warning about zero length arrays
 #pragma warning ( disable : 4200)
@@ -54,6 +54,14 @@ namespace ST
 	{
 	public:
 		Oop				m_fields[];
+	};
+
+	enum class StringEncoding
+	{
+		Ansi,
+		Utf8,
+		Utf16,
+		Utf32
 	};
 }
 
