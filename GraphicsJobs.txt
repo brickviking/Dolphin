@@ -1,0 +1,25 @@
+﻿Dolphin does most of its graphics work by calling installed Windows library functions, including
+the CRT from VC++2015..
+ * Find out what windowing functions are called by the Dolphin image.
+   Most of these are handled by the external libraries mentioned below.
+ * Find suitable GTK replacements, or note the Windows functions that don't have an equivalent.
+ * If GTK doesn't provide enough, perhaps look at Qt.
+ * Install GTK for Windows, ditto for Qt.
+
+External libraries that do graphics:
+=====================
+  ComDlgLibrary (%!)
+  CommCtrlLibrary (%)
+  ExternalResourceLibrary (%)
+  GdiplusLibrary (%)
+  ScintillaLibrary (%)
+  ThemeLibrary (%)
+  + MockThemeLibrary
+  + VistaThemeLibrary
+  PermanentLibrary:
+  + GDILibrary (%)
+  + UserLibrary (%)
+  + VMLibrary (%)
+=====================
+
+How many of the other classes have some graphics context stuff in them?
