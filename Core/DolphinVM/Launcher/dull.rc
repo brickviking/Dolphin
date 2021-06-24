@@ -76,7 +76,7 @@ END
 STRINGTABLE
 BEGIN
     IDP_VMNOTREGISTERED     "The Dolphin Smalltalk VM is required to run this application, but does not appear to be registered.\nPlease reinstall or use REGSVR32 to register %3, then try running the application again."
-    IDP_CREATEVMFAILED      "The Dolphin Smalltalk VM component is required to run this application, but could not created.%nThe error was: %1!#x!, %2%nPlease ensure that the application is correctly installed and try again."
+    IDP_CREATEVMFAILED      "The Dolphin Smalltalk VM component is required to run this application, but could not be created.%nThe error was: %1!#x!, %2%nPlease ensure that the application is correctly installed and try again."
     IDP_INVALIDIMAGETYPE    "Image file '%1' is of unrecognised type '%2!.4s!'"
     IDP_OPENIMAGEFAILURE    "Fail to open image file '%1'"
     IDP_VERSIONMISMATCH     "The image '%9' was saved by a version %1!u!.%2!u!.x VM, but this VM is version %5!u!.%6!u!.%7!u!.%8!u!%nThe image may not load and will probably not run successfully%n%nDo you want to attempt to load it in any case?"
